@@ -195,15 +195,43 @@ pre{margin:0;overflow-x:auto;border-radius:var(--radius);background:var(--muted)
 .brand{display:flex;align-items:center;gap:.6rem;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
 .brand svg{width:2rem;height:2rem}
 .brand b{color:var(--primary);font-weight:600}
-.site-foot{max-width:44rem;margin:0 auto;padding:0 1.25rem 2.5rem;font-size:.8rem;color:var(--muted-fg)}
+.site-foot{max-width:44rem;margin:0 auto;padding:0 1.25rem 2.5rem;font-size:.8rem;color:var(--muted-fg);text-align:center;display:flex;flex-direction:column;gap:.35rem}
+.site-foot a{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in oklch,currentColor 35%,transparent);text-underline-offset:3px;transition:color .15s,text-decoration-color .15s}
+.site-foot a:hover,.site-foot a:focus-visible{color:var(--primary);text-decoration-color:currentColor}
 .kbd-hint{text-align:center}
 @media(hover:none){.kbd-hint{display:none}}
+.seg{display:inline-flex;align-self:flex-start;border:1px solid var(--border);border-radius:var(--radius);padding:3px;gap:3px;background:var(--bg)}
+.seg button{border:0;background:transparent;border-radius:7px;height:2rem;padding:0 .9rem;font-size:.85rem;font-weight:500;color:var(--muted-fg)}
+.seg button[aria-pressed="true"]{background:var(--primary);color:var(--primary-fg)}
+.seg button:not([aria-pressed="true"]):hover{background:var(--muted);color:var(--fg)}
+.watch.low{border-color:var(--danger);color:var(--danger)}
+.scrim{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:color-mix(in oklch,var(--fg) 45%,transparent);animation:fade .15s ease-out}
+.dialog{width:100%;max-width:24rem;display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;border-radius:20px;border:1px solid var(--border);background:var(--card);box-shadow:0 20px 50px rgb(0 0 0/.25);animation:pop .18s ease-out}
+.dialog h2{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+.dialog p{line-height:1.6;text-wrap:pretty}
+.dialog .end{justify-content:flex-end;margin-top:.5rem}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:#fff}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+.chips{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.chipbtn{height:2.25rem;padding:0 .9rem;border-radius:999px;border:1px solid var(--border);background:var(--bg);font-size:.85rem;font-weight:500}
+.chipbtn:hover{background:var(--muted)}
+.chipbtn[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
+.field.tnum{width:6rem;height:2.25rem;border-radius:999px;-moz-appearance:textfield;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);font-family:var(--mono);font-weight:600}
+.field.tnum::-webkit-inner-spin-button,.field.tnum::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div id="app" aria-live="polite"></div>
-<footer class="site-foot">Quizbox by COTworks</footer>
+<div id="app" aria-live="polite">
+  <h1>Quizbox: practice quizzes from your own questions</h1>
+  <p>Quizbox turns your own multiple choice questions into quizzes with instant explanations and saved scores. Load a file, practise, and see which questions you missed.</p>
+  <noscript><p>Quizbox needs JavaScript to run. Please turn it on in your browser.</p></noscript>
+</div>
+<footer class="site-foot">
+  <p><a href="https://crypticot.github.io/cotworks-portfolio/" target="_blank" rel="noopener">Quizbox by COTworks</a></p>
+  <p>Questions, need help or want more modules? <a href="mailto:cotworks@gmail.com?subject=Quizbox%3A%20help%20or%20module%20request">Email me</a></p>
+</footer>
 
 <script>
 (function () {
@@ -234,7 +262,8 @@ function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 /* ---------- data ---------- */
 var LETTERS = 'ABCDEF', MIN_OPT = 2, MAX_OPT = 6;
 var TIMER_CHOICES = [30,45,60,90,120];
-var DEFAULTS = {timerEnabled:false, secondsPerQuestion:60, shuffleQuestions:true};
+var TOTAL_CHOICES = [5,10,15,20,30,45,60,90,120];
+var DEFAULTS = {timerEnabled:false, timerMode:'question', secondsPerQuestion:60, totalMinutes:15, shuffleQuestions:true};
 var KEYS = {mods:'pmquiz:modules:v1', stats:'pmquiz:stats:v1', set:'pmquiz:settings:v1'};
 
 function q(cat,prompt,options,ans,exp){return {category:cat,prompt:prompt,options:options,answerIndex:ans,explanation:exp};}
@@ -398,8 +427,16 @@ function copyText(text,flag){
 /* ---------- quiz engine ---------- */
 function startRun(mod,questions,kind){
   S.saved=false;S.active=mod;S.kind=kind;
-  var secs=S.settings.timerEnabled?S.settings.secondsPerQuestion:0;
-  S.run={questions:S.settings.shuffleQuestions?shuffle(questions):questions,current:0,selected:null,revealed:false,secs:secs,timeLeft:secs,elapsed:0,answers:[],streak:0,best:0,done:false};
+  var st=S.settings;
+  var mode=!st.timerEnabled?'none':(st.timerMode==='total'?'total':'question');
+  var secs=mode==='question'?st.secondsPerQuestion:0;
+  var totalSecs=mode==='total'?st.totalMinutes*60:0;
+  S.run={
+    questions:st.shuffleQuestions?shuffle(questions):questions.slice(),
+    current:0,selected:null,revealed:false,
+    mode:mode,secs:secs,timeLeft:secs,totalSecs:totalSecs,totalLeft:totalSecs,
+    elapsed:0,spent:{},skips:0,answers:[],streak:0,best:0,timeUp:false
+  };
   S.view='quiz';
   startTimer();render();window.scrollTo(0,0);
 }
@@ -409,26 +446,61 @@ function record(sel){
   var r=S.run,qq=r.questions[r.current],ok=sel===qq.answerIndex;
   r.streak=ok?r.streak+1:0;r.best=Math.max(r.best,r.streak);
   r.selected=sel;r.revealed=true;
-  r.answers.push({question:qq,selectedIndex:sel,correct:ok,timeSpent:r.elapsed});
+  r.answers.push({question:qq,selectedIndex:sel,correct:ok,timeSpent:(r.spent[qq.id]||0)+r.elapsed});
 }
 function select(i){
   var r=S.run;if(!r||S.view!=='quiz'||r.revealed)return;
   record(i);render();
 }
+function showResults(){
+  stopTimer();S.view='results';
+  var r=S.run;
+  if(S.kind==='full'&&!S.saved){
+    S.saved=true;
+    recordResult(S.active.id,r.answers.filter(function(a){return a.correct;}).length,r.answers.length);
+  }
+  render();window.scrollTo(0,0);
+}
 function next(){
   var r=S.run;if(!r||S.view!=='quiz'||!r.revealed)return;
-  if(r.current>=r.questions.length-1){
-    stopTimer();S.view='results';
-    if(S.kind==='full'&&!S.saved){S.saved=true;recordResult(S.active.id,r.answers.filter(function(a){return a.correct;}).length,r.answers.length);}
-    render();window.scrollTo(0,0);return;
-  }
+  if(r.current>=r.questions.length-1){showResults();return;}
   r.current++;r.selected=null;r.revealed=false;r.elapsed=0;r.timeLeft=r.secs;
   render();
 }
+// Sends the current question to the end of the queue. Its countdown starts fresh
+// when it comes back, but the time already spent on it is kept for the record.
+function skip(){
+  var r=S.run;
+  if(!r||S.view!=='quiz'||r.revealed||r.questions.length-r.current<2)return;
+  var qq=r.questions[r.current];
+  r.spent[qq.id]=(r.spent[qq.id]||0)+r.elapsed;
+  r.questions.push(r.questions.splice(r.current,1)[0]);
+  r.skips++;r.elapsed=0;r.timeLeft=r.secs;
+  render();
+}
+// Whole-quiz timer ran out: everything not yet answered counts as wrong.
+function timeUp(){
+  var r=S.run;
+  for(var i=r.current;i<r.questions.length;i++){
+    var qq=r.questions[i];
+    r.answers.push({question:qq,selectedIndex:null,correct:false,timeSpent:(r.spent[qq.id]||0)+(i===r.current?r.elapsed:0)});
+  }
+  r.streak=0;r.timeUp=true;
+  showResults();
+}
 function tick(){
   var r=S.run;if(S.view!=='quiz'||!r||r.revealed)return;
+  if(document.querySelector('.scrim'))return;
   r.elapsed++;
-  if(r.secs===0){var w=document.getElementById('watch');if(w)w.textContent=clock(r.elapsed);return;}
+  if(r.mode==='total'){
+    r.totalLeft--;
+    if(r.totalLeft<=0){r.totalLeft=0;timeUp();return;}
+    var wb=document.getElementById('watchbox'),wt=document.getElementById('watch');
+    if(wt)wt.textContent=clock(r.totalLeft);
+    if(wb)wb.className='watch'+(r.totalLeft<=30?' low':'');
+    return;
+  }
+  if(r.mode==='none'){var w=document.getElementById('watch');if(w)w.textContent=clock(r.elapsed);return;}
   r.timeLeft--;
   if(r.timeLeft<=0){r.timeLeft=0;record(null);render();return;}
   var ring=document.getElementById('ring'),num=document.getElementById('ringnum'),fg=document.getElementById('ringfg');
@@ -446,8 +518,28 @@ function btn(action,label,opts){
 function moduleRow(m,sample){
   var st=S.stats[m.id],n=m.questions.length;
   var info=n+(n===1?' question':' questions')+(st?' · Best '+st.bestPercent+'% · Last '+st.lastPercent+'% · '+st.attempts+(st.attempts===1?' attempt':' attempts'):' · Not attempted yet');
+  var idAttr='data-id="'+esc(m.id)+'"';
   return '<li class="card mrow"><div class="stack" style="gap:.25rem;min-width:0"><div class="row wrap g2"><p style="font-weight:500;text-wrap:pretty">'+esc(m.title)+'</p>'+(sample?'<span class="tag">Sample</span>':'')+'</div><p class="mono xs muted">'+esc(info)+'</p></div>'+
-  '<div class="row g2" style="flex:none">'+(sample?'':btn('delete','',{cls:'ghost',icon:'trash',aria:'Delete '+m.title,data:'data-id="'+esc(m.id)+'"'}))+btn('start','Start',{icon:'play',data:'data-id="'+esc(m.id)+'"'})+'</div></li>';
+  '<div class="row g2 wrap" style="flex:none">'+(st?btn('reset-scores','Reset scores',{cls:'ghost sm',data:idAttr}):'')+(sample?'':btn('delete','',{cls:'ghost',icon:'trash',aria:'Delete '+m.title,data:idAttr}))+btn('start','Start',{icon:'play',data:idAttr})+'</div></li>';
+}
+function timerOpts(){
+  if(!S.settings.timerEnabled)return '';
+  var total=S.settings.timerMode==='total';
+  var cur=total?S.settings.totalMinutes:S.settings.secondsPerQuestion;
+  var list=total?TOTAL_CHOICES:TIMER_CHOICES;
+  var isPreset=list.indexOf(cur)>=0;
+  var chips=total?chipRow('set-mins',TOTAL_CHOICES,cur,' min'):chipRow('set-secs',TIMER_CHOICES,cur,'s');
+  var custom=total
+    ?'<label class="row g2 small muted"><input type="number" class="field tnum" id="mins-custom" min="1" max="240" inputmode="numeric" placeholder="Custom" value="'+(isPreset?'':cur)+'" aria-label="Custom minutes for the whole quiz">min</label>'
+    :'<label class="row g2 small muted"><input type="number" class="field tnum" id="secs-custom" min="5" max="600" inputmode="numeric" placeholder="Custom" value="'+(isPreset?'':cur)+'" aria-label="Custom seconds per question">sec</label>';
+  var range=total?'Custom time: 1 to 240 minutes.':'Custom time: 5 to 600 seconds.';
+  var note=total
+    ?'One countdown for the whole quiz. It only runs while you are answering, not while you read feedback. When it reaches zero the quiz ends and unanswered questions count as wrong.'
+    :'Every question gets its own countdown, and a skipped question starts again at full time. Unanswered counts as wrong.';
+  return '<div class="stack g3" style="padding-left:2.25rem"><div class="seg" role="group" aria-label="Timer type"><button type="button" data-a="mode-question" aria-pressed="'+(!total)+'">Each question</button><button type="button" data-a="mode-total" aria-pressed="'+total+'">Whole quiz</button></div>'+
+  '<div class="chips">'+chips+custom+'</div>'+
+  '<p class="xs muted">'+range+' Type a number and press Enter.</p>'+
+  '<p class="small muted" style="text-wrap:pretty">'+note+'</p></div>';
 }
 function accordion(id,title,open,body){
   return '<section class="card scroll-mt" id="'+id+'"><button type="button" class="acc-head" data-a="toggle-'+id+'" aria-expanded="'+open+'">'+esc(title)+ic('chev')+'</button>'+(open?'<div class="acc-body">'+body+'</div>':'')+'</section>';
@@ -477,7 +569,6 @@ function sw(action,label,detail,icon,checked,extra){
 }
 function startView(){
   var loadOpen=S.loadOpen===null?S.modules.length===0:S.loadOpen;
-  var timerSel=S.settings.timerEnabled?'<select class="field" id="secs" aria-label="Seconds per question">'+TIMER_CHOICES.map(function(s){return '<option value="'+s+'"'+(s===S.settings.secondsPerQuestion?' selected':'')+'>'+s+'s</option>';}).join('')+'</select>':'';
   return '<section class="stack g10" style="padding:1.5rem 0" aria-labelledby="start-title">'+
   '<div class="stack g4"><p class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="3" y="35" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="35" width="26" height="26" rx="7" fill="var(--ok)"/><path d="M41 48.5l5 5 9-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>quiz<b>box</b></p><h1 class="title" id="start-title">Pick a module and test yourself.</h1><p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p></div>'+
   '<div class="stack g3"><h2 class="sec">Try a sample quiz</h2><ul class="stack g3" style="list-style:none;margin:0;padding:0">'+moduleRow(SAMPLE,true)+'</ul></div>'+
@@ -485,7 +576,7 @@ function startView(){
   accordion('load','Load a module',loadOpen,loadBody())+
   accordion('help','Help: make a module file with AI',S.helpOpen,helpBody())+
   '<div class="stack g3"><h2 class="sec">Quiz settings</h2><div class="card pad stack g3">'+
-  sw('toggle-timer','Timer','Time limit per question. Unanswered counts as wrong.','timer',S.settings.timerEnabled,timerSel)+
+  sw('toggle-timer','Timer','Add a countdown to your quizzes.','timer',S.settings.timerEnabled)+timerOpts()+
   '<div style="border-top:1px solid var(--border)"></div>'+
   sw('toggle-shuffle','Shuffle questions','Mix the order each time you start a module.','shuffle',S.settings.shuffleQuestions)+
   '</div></div>'+
@@ -496,10 +587,17 @@ function quizView(){
   var r=S.run,qq=r.questions[r.current],total=r.questions.length;
   var score=r.answers.filter(function(a){return a.correct;}).length;
   var progress=Math.round(r.answers.length/total*100);
-  var isLast=r.current===total-1,timedOut=r.revealed&&r.selected===null,isCorrect=r.revealed&&r.selected===qq.answerIndex;
+  var remaining=total-r.current;
+  var isLast=remaining===1,timedOut=r.revealed&&r.selected===null,isCorrect=r.revealed&&r.selected===qq.answerIndex;
   var left;
-  if(r.secs>0){var c=2*Math.PI*22;left='<div class="ring'+(r.timeLeft<=5?' low':'')+'" id="ring" role="timer" aria-label="'+r.timeLeft+' seconds remaining"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="bg" cx="28" cy="28" r="22"/><circle class="fg" id="ringfg" cx="28" cy="28" r="22" stroke-dasharray="'+c+'" style="stroke-dashoffset:'+c*(1-r.timeLeft/r.secs)+'"/></svg><span id="ringnum" aria-hidden="true">'+r.timeLeft+'</span></div>';}
-  else left='<div class="watch">'+ic('clock').replace('<svg','<svg style="width:1rem;height:1rem;color:var(--muted-fg)"')+'<span id="watch">'+clock(r.elapsed)+'</span></div>';
+  if(r.mode==='question'){
+    var c=2*Math.PI*22;
+    left='<div class="ring'+(r.timeLeft<=5?' low':'')+'" id="ring" role="timer" aria-label="'+r.timeLeft+' seconds remaining"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="bg" cx="28" cy="28" r="22"/><circle class="fg" id="ringfg" cx="28" cy="28" r="22" stroke-dasharray="'+c+'" style="stroke-dashoffset:'+c*(1-r.timeLeft/r.secs)+'"/></svg><span id="ringnum" aria-hidden="true">'+r.timeLeft+'</span></div>';
+  }else if(r.mode==='total'){
+    left='<div class="watch'+(r.totalLeft<=30?' low':'')+'" id="watchbox" role="timer" aria-label="Time left for the whole quiz">'+ic('timer').replace('<svg','<svg style="width:1rem;height:1rem"')+'<span id="watch">'+clock(r.totalLeft)+'</span></div>';
+  }else{
+    left='<div class="watch">'+ic('clock').replace('<svg','<svg style="width:1rem;height:1rem;color:var(--muted-fg)"')+'<span id="watch">'+clock(r.elapsed)+'</span></div>';
+  }
   var opts=qq.options.map(function(o,i){
     var st=!r.revealed?'':(i===qq.answerIndex?'correct':(i===r.selected?'wrong':'dim'));
     var lt=st==='correct'?ic('check'):st==='wrong'?ic('x'):LETTERS[i];
@@ -509,11 +607,15 @@ function quizView(){
   if(r.revealed){
     fb='<div class="fbrow"><div class="row" style="align-items:flex-start"><span class="fb-ico '+(isCorrect?'ok':'no')+'">'+(isCorrect?ic('check'):timedOut?ic('clock'):ic('x'))+'</span><div class="stack" style="gap:.25rem"><p style="font-weight:600">'+(isCorrect?'Correct!':timedOut?"Time's up!":'Not quite.')+'</p><p class="small muted" style="line-height:1.6;text-wrap:pretty">'+(isCorrect?'':'The answer is <strong style="color:var(--fg)">'+esc(qq.options[qq.answerIndex])+'</strong>. ')+esc(qq.explanation)+'</p></div></div>'+
     '<button type="button" class="btn lg" data-a="next" id="next-btn" style="flex:none">'+(isLast?'See results':'Next question')+ic('next')+'</button></div>';
+  }else if(remaining>1){
+    fb=btn('skip','Skip for now',{cls:'out sm'});
   }
+  var skippedTag=r.spent[qq.id]!==undefined?'<span class="tag">Skipped earlier</span>':'';
   return '<div class="stack g6" style="padding-top:.5rem"><header class="stack g4"><p class="eyebrow">'+esc(S.active.title)+'</p>'+
   '<div class="row between g4"><div class="row g4">'+left+'<div class="stack"><span class="xs muted" style="text-transform:uppercase;letter-spacing:.08em">Score</span><span class="mono" style="font-size:1.25rem;font-weight:600">'+score+'<span class="muted">/'+total+'</span></span></div>'+(r.streak>=2?'<span class="pill">'+ic('flame').replace('<svg','<svg style="width:1rem;height:1rem"')+r.streak+' streak</span>':'')+'</div>'+btn('quit','Quit',{cls:'ghost sm',icon:'x'})+'</div>'+
-  '<div class="stack g2"><div class="row between mono xs muted"><span>Question '+(r.current+1)+' of '+total+'</span><span>'+progress+'% complete</span></div><div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+r.answers.length+'"><div style="width:'+progress+'%"></div></div></div></header>'+
-  '<section class="card qcard stack g6" aria-labelledby="qp"><div class="stack g3"><span class="tag" style="align-self:flex-start">'+esc(qq.category)+'</span><h2 class="prompt" id="qp"><span class="sr">Question '+(r.current+1)+': </span>'+esc(qq.prompt)+'</h2></div><ul class="opts">'+opts+'</ul><div>'+fb+'</div></section><p class="xs muted kbd-hint">Keys: A to '+LETTERS[qq.options.length-1]+' to answer, Enter for next.</p></div>';
+  '<div class="stack g2"><div class="row between mono xs muted"><span>Question '+(r.answers.length+1)+' of '+total+'</span><span>'+progress+'% complete</span></div><div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+r.answers.length+'"><div style="width:'+progress+'%"></div></div></div></header>'+
+  '<section class="card qcard stack g6" aria-labelledby="qp"><div class="stack g3"><div class="row g2 wrap"><span class="tag">'+esc(qq.category)+'</span>'+skippedTag+'</div><h2 class="prompt" id="qp"><span class="sr">Question '+(r.answers.length+1)+': </span>'+esc(qq.prompt)+'</h2></div><ul class="opts">'+opts+'</ul><div>'+fb+'</div></section>'+
+  '<p class="xs muted kbd-hint">Keys: A to '+LETTERS[qq.options.length-1]+' to answer, S to skip, Enter for next.</p></div>';
 }
 function verdict(p){
   if(p===100)return 'Flawless. Nothing gets past you.';
@@ -528,7 +630,7 @@ function resultsView(){
   var pct=total?Math.round(correct/total*100):0,avg=total?(a.reduce(function(s,x){return s+x.timeSpent;},0)/total).toFixed(1):'0';
   var missed=a.filter(function(x){return !x.correct;}).length;
   var stats=[['Correct',correct,'var(--ok)'],['Incorrect',incorrect,'var(--danger)']];
-  if(r.secs>0)stats.push(['Timed out',timedOut,'var(--muted-fg)']);
+  if(r.mode!=='none')stats.push(['Timed out',timedOut,'var(--muted-fg)']);
   stats.push(['Best streak',r.best,'var(--primary)'],['Avg. time',avg+'s','var(--fg)']);
   var showLoad=S.active.id===SAMPLE.id&&S.modules.length===0;
   var review=a.map(function(x,i){
@@ -540,6 +642,7 @@ function resultsView(){
   }).join('');
   return '<div class="stack g10" style="padding:.5rem 0"><section class="stack g6" aria-labelledby="rt"><p class="eyebrow">Results'+(S.active.title?' · '+esc(S.active.title):'')+'</p>'+
   (S.kind==='retry'?'<p class="small muted">This was a retry of missed questions, so it is not added to your saved scores.</p>':'')+
+  (r.timeUp?'<p class="msg err" role="status">Time ran out for the whole quiz. '+timedOut+(timedOut===1?' question was':' questions were')+' left unanswered and counted as wrong.</p>':'')+
   '<div class="stack g2"><h1 class="pct" id="rt">'+pct+'<small>%</small></h1><p style="font-size:1.25rem;font-weight:500">'+correct+' of '+total+' correct</p><p class="muted">'+verdict(pct)+'</p></div>'+
   '<dl class="stats" style="--n:'+stats.length+'">'+stats.map(function(s){return '<div class="stat"><dt>'+s[0]+'</dt><dd style="color:'+s[2]+'">'+s[1]+'</dd></div>';}).join('')+'</dl>'+
   '<div class="row wrap">'+(missed?btn('retry','Retry missed ('+missed+')',{cls:'lg',icon:'target'}):'')+btn('restart','Restart module',{cls:'lg'+(missed?' out':''),icon:'retry'})+btn('home','Back to start',{cls:'lg out',icon:'home'})+'</div>'+
@@ -561,6 +664,47 @@ function render(){
   if(S.scrollTo){var t=document.getElementById(S.scrollTo);S.scrollTo=null;if(t)setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},30);}
 }
 
+/* ---------- dialog and helpers ---------- */
+function ask(o,onYes){
+  var prev=document.activeElement;
+  var wrap=document.createElement('div');
+  wrap.className='scrim';
+  wrap.innerHTML='<div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlg-t" aria-describedby="dlg-d"><h2 id="dlg-t">'+esc(o.title)+'</h2><p id="dlg-d" class="muted">'+esc(o.body)+'</p><div class="row g2 end"><button type="button" class="btn out" data-d="no">'+esc(o.no||'Cancel')+'</button><button type="button" class="btn'+(o.danger?' danger':'')+'" data-d="yes">'+esc(o.yes)+'</button></div></div>';
+  function close(){
+    document.removeEventListener('keydown',onKey,true);
+    wrap.remove();
+    if(prev&&prev.focus&&document.contains(prev))prev.focus();
+  }
+  function onKey(e){
+    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();return;}
+    if(e.key==='Tab'){
+      var f=wrap.querySelectorAll('button'),first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      return;
+    }
+    e.stopPropagation();
+  }
+  wrap.addEventListener('click',function(e){
+    if(e.target===wrap){close();return;}
+    var b=e.target.closest('[data-d]');if(!b)return;
+    var yes=b.getAttribute('data-d')==='yes';
+    close();if(yes)onYes();
+  });
+  document.addEventListener('keydown',onKey,true);
+  document.body.appendChild(wrap);
+  wrap.querySelector('[data-d="no"]').focus();
+}
+function setTime(key,raw,min,max){
+  var n=Math.round(Number(raw));
+  if(raw===''||!isFinite(n)){render();return;}
+  S.settings[key]=Math.min(max,Math.max(min,n));
+  saveSet();render();
+}
+function chipRow(action,list,current,suffix){
+  return list.map(function(v){return '<button type="button" class="chipbtn" data-a="'+action+'" data-v="'+v+'" aria-pressed="'+(v===current)+'">'+v+suffix+'</button>';}).join('');
+}
+
 /* ---------- events ---------- */
 document.addEventListener('click',function(e){
   var b=e.target.closest('[data-a]');if(!b)return;
@@ -568,7 +712,7 @@ document.addEventListener('click',function(e){
   switch(a){
     case 'start':{var m=id===SAMPLE.id?SAMPLE:S.modules.find(function(x){return x.id===id;});if(m)startRun(m,m.questions,'full');break;}
     case 'delete':{var d=S.modules.find(function(x){return x.id===id;});
-      if(d&&window.confirm('Delete "'+d.title+'" and its saved scores?')){S.modules=S.modules.filter(function(x){return x.id!==id;});delete S.stats[id];saveMods();saveStats();render();}break;}
+      if(d)ask({title:'Delete this module?',body:'"'+d.title+'" and its saved scores will be removed from this browser. Export a backup first if you want to keep it.',yes:'Delete',danger:true},function(){S.modules=S.modules.filter(function(x){return x.id!==id;});delete S.stats[id];saveMods();saveStats();render();});break;}
     case 'toggle-load':S.loadOpen=!(S.loadOpen===null?S.modules.length===0:S.loadOpen);render();break;
     case 'toggle-help':S.helpOpen=!S.helpOpen;render();break;
     case 'show-help':S.helpOpen=true;S.scrollTo='help';render();break;
@@ -585,8 +729,17 @@ document.addEventListener('click',function(e){
     case 'export':exportBackup();break;
     case 'pick':select(Number(b.getAttribute('data-i')));break;
     case 'next':next();break;
+    case 'skip':skip();break;
+    case 'set-secs':S.settings.secondsPerQuestion=Number(b.getAttribute('data-v'));saveSet();render();break;
+    case 'set-mins':S.settings.totalMinutes=Number(b.getAttribute('data-v'));saveSet();render();break;
+    case 'mode-question':S.settings.timerMode='question';saveSet();render();break;
+    case 'mode-total':S.settings.timerMode='total';saveSet();render();break;
+    case 'reset-scores':{
+      var rm=id===SAMPLE.id?SAMPLE:S.modules.find(function(x){return x.id===id;});
+      if(rm)ask({title:'Reset scores?',body:'Best score, last score and attempts for "'+rm.title+'" will be cleared. The questions stay.',yes:'Reset scores'},function(){delete S.stats[id];saveStats();render();});
+      break;}
     case 'quit':
-      if(!S.run||!S.run.answers.length||window.confirm('Quit this quiz? Your answers so far will be lost.'))goHome();
+      if(!S.run||!S.run.answers.length)goHome();else ask({title:'Quit this quiz?',body:'Your answers so far will be lost and this run will not be saved.',yes:'Quit quiz',no:'Keep going',danger:true},goHome);
       break;
     case 'home':goHome();break;
     case 'restart':startRun(S.active,S.active.questions,'full');break;
@@ -602,7 +755,8 @@ document.addEventListener('input',function(e){
 });
 document.addEventListener('change',function(e){
   var t=e.target;
-  if(t.id==='secs'){S.settings.secondsPerQuestion=Number(t.value);saveSet();}
+  if(t.id==='secs-custom'){setTime('secondsPerQuestion',t.value,5,600);}
+  else if(t.id==='mins-custom'){setTime('totalMinutes',t.value,1,240);}
   else if(t.id==='module-file'){
     var files=Array.from(t.files||[]);if(!files.length)return;
     Promise.all(files.map(function(f){return f.text().then(function(c){return {name:f.name,c:c};});})).then(function(list){
@@ -625,6 +779,7 @@ document.addEventListener('keydown',function(e){
   var k=e.key.toLowerCase(),n=S.run.questions[S.run.current].options.length,num=parseInt(k,10);
   var idx=(num>=1&&num<=n)?num-1:LETTERS.toLowerCase().indexOf(k);
   if(k.length===1&&idx>=0&&idx<n){select(idx);}
+  else if(k==='s'){skip();}
   else if(k==='arrowright'||(k==='enter'&&S.run.revealed&&tag!=='button')){next();}
 });
 
