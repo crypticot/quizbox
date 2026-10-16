@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quizbox: practice quizzes from your own questions</title>
+
+  <!-- Search -->
+  <meta name="description" content="Quizbox turns your own questions into multiple choice quizzes with instant explanations. Load a file, practise, and track your scores." />
+  <link rel="canonical" href="https://crypticot.github.io/quizbox/" />
+  <meta name="theme-color" content="#4B3FD6" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Quizbox" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Quizbox: practice quizzes from your own questions" />
+  <meta property="og:description" content="Quizbox turns your own questions into multiple choice quizzes with instant explanations. Load a file, practise, and track your scores." />
+  <meta property="og:url" content="https://crypticot.github.io/quizbox/" />
+  <meta property="og:image" content="https://crypticot.github.io/quizbox/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Quizbox logo beside a quiz question with the correct answer highlighted" />
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quizbox: practice quizzes from your own questions" />
+  <meta name="twitter:description" content="Quizbox turns your own questions into multiple choice quizzes with instant explanations. Load a file, practise, and track your scores." />
+  <meta name="twitter:image" content="https://crypticot.github.io/quizbox/og-image.png" />
+
+  <!-- Icons and manifest -->
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Quizbox",
+    "url": "https://crypticot.github.io/quizbox/",
+    "description": "Quizbox turns your own questions into multiple choice quizzes with instant explanations. Load a file, practise, and track your scores.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "creator": { "@type": "Organization", "name": "COTworks" }
+  }
+  </script>
+  
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:oklch(0.975 0.008 85);--fg:oklch(0.2 0.02 270);--card:oklch(0.995 0.004 85);
+  --primary:oklch(0.5 0.22 275);--primary-fg:oklch(0.985 0.005 85);
+  --secondary:oklch(0.93 0.015 85);--secondary-fg:oklch(0.3 0.02 270);
+  --muted:oklch(0.93 0.012 85);--muted-fg:oklch(0.5 0.02 270);
+  --danger:oklch(0.58 0.22 25);--ok:oklch(0.58 0.15 155);--ok-fg:oklch(0.985 0.005 85);
+  --border:oklch(0.89 0.012 85);--radius:10px;
+  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:oklch(0.18 0.015 270);--fg:oklch(0.96 0.008 85);--card:oklch(0.22 0.018 270);
+    --primary:oklch(0.72 0.16 275);--primary-fg:oklch(0.18 0.015 270);
+    --secondary:oklch(0.28 0.02 270);--secondary-fg:oklch(0.96 0.008 85);
+    --muted:oklch(0.28 0.02 270);--muted-fg:oklch(0.72 0.015 270);
+    --danger:oklch(0.68 0.19 25);--ok:oklch(0.72 0.15 155);--ok-fg:oklch(0.18 0.015 270);
+    --border:oklch(1 0 0 / 10%);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+#app{max-width:44rem;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid color-mix(in oklch,var(--primary) 50%,transparent);outline-offset:2px}
+h1,h2,p{margin:0}
+.stack{display:flex;flex-direction:column}
+.g2{gap:.5rem}.g3{gap:.75rem}.g4{gap:1rem}.g6{gap:1.5rem}.g10{gap:2.5rem}
+.row{display:flex;align-items:center;gap:.75rem}
+.wrap{flex-wrap:wrap}
+.between{justify-content:space-between}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted-fg)}
+.small{font-size:.875rem}.xs{font-size:.75rem}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.title{font-size:clamp(2.6rem,9vw,3.75rem);font-weight:600;line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
+.lead{font-size:1.125rem;line-height:1.6;color:var(--muted-fg);max-width:30rem;text-wrap:pretty}
+h2.sec{font-size:1.125rem;font-weight:600}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px}
+.pad{padding:1rem}
+.dashed{border:1px dashed var(--border);border-radius:14px;padding:1.5rem;font-size:.875rem;color:var(--muted-fg)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;height:2.5rem;padding:0 1rem;border-radius:var(--radius);border:1px solid var(--primary);background:var(--primary);color:var(--primary-fg);font-weight:500;font-size:.9rem;transition:filter .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn.out{background:transparent;color:var(--fg);border-color:var(--border)}
+.btn.out:hover{background:var(--muted);filter:none}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--fg);padding:0 .6rem}
+.btn.ghost:hover{background:var(--muted);filter:none}
+.btn.lg{height:2.75rem;padding:0 1.25rem}
+.btn.sm{height:2rem;padding:0 .75rem;font-size:.8rem}
+.btn svg{width:1rem;height:1rem;flex:none}
+.tag{border-radius:999px;background:var(--secondary);color:var(--secondary-fg);padding:.1rem .6rem;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+.field{height:2.5rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);padding:0 .75rem;font-size:.875rem;width:100%}
+textarea.field{height:auto;padding:.75rem;font-family:var(--mono);font-size:.75rem;line-height:1.6;resize:vertical}
+select.field{width:auto;height:2.25rem;padding:0 .5rem}
+.acc-head{display:flex;width:100%;align-items:center;justify-content:space-between;gap:.75rem;padding:1rem;background:none;border:0;text-align:left;font-weight:500;border-radius:14px}
+.acc-head svg{width:1rem;height:1rem;color:var(--muted-fg);transition:transform .2s}
+.acc-head[aria-expanded="true"] svg{transform:rotate(180deg)}
+.acc-body{border-top:1px solid var(--border);padding:1rem}
+.guide-link{display:flex;align-items:center;gap:.75rem;width:100%;text-align:left;padding:.75rem;border-radius:var(--radius);border:1px solid color-mix(in oklch,var(--primary) 30%,transparent);background:color-mix(in oklch,var(--primary) 6%,transparent);font-size:.875rem}
+.guide-link:hover{background:color-mix(in oklch,var(--primary) 12%,transparent)}
+.guide-link svg{width:1.25rem;height:1.25rem;color:var(--primary);flex:none}
+.guide-link b{display:block;font-weight:500}
+.msg{border-radius:var(--radius);border:1px solid;padding:.75rem;font-size:.875rem}
+.msg.ok{border-color:var(--ok);background:color-mix(in oklch,var(--ok) 10%,transparent)}
+.msg.err{border-color:var(--danger);background:color-mix(in oklch,var(--danger) 10%,transparent)}
+details{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
+summary{cursor:pointer;padding:.75rem;font-size:.875rem;font-weight:500}
+details>div{border-top:1px solid var(--border);padding:.75rem}
+pre{margin:0;overflow-x:auto;border-radius:var(--radius);background:var(--muted);padding:.75rem;font-family:var(--mono);font-size:.75rem;line-height:1.6}
+.steps{list-style:none;margin:0;padding:0}
+.num{flex:none;width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);font-family:var(--mono);font-size:.875rem;font-weight:600}
+.mrow{display:flex;flex-direction:column;gap:1rem;padding:1rem}
+@media(min-width:36rem){.mrow{flex-direction:row;align-items:center;justify-content:space-between}}
+.sw{position:relative;flex:none;width:2.75rem;height:1.5rem;border-radius:999px;border:1px solid var(--border);background:var(--muted);transition:background .2s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--bg);box-shadow:0 1px 3px rgb(0 0 0/.25);transition:left .2s}
+.sw[aria-checked="true"]{background:var(--primary);border-color:var(--primary)}
+.sw[aria-checked="true"]::after{left:calc(100% - 1.1rem - 2px)}
+.set-ico{width:1.25rem;height:1.25rem;color:var(--primary);margin-top:.15rem;flex:none}
+/* quiz */
+.bar{height:.5rem;border-radius:999px;background:var(--muted);overflow:hidden}
+.bar>div{height:100%;background:var(--primary);border-radius:999px;transition:width .5s ease-out}
+.pill{display:inline-flex;align-items:center;gap:.25rem;border-radius:999px;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);padding:.2rem .65rem;font-size:.875rem;font-weight:500}
+.watch{display:flex;height:3.5rem;align-items:center;gap:.5rem;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:0 .75rem;font-family:var(--mono);font-weight:600}
+.ring{position:relative;width:3.5rem;height:3.5rem}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600}
+.ring.low span{color:var(--danger)}
+.ring circle{fill:none;stroke-width:4}
+.ring .bg{stroke:var(--muted)}
+.ring .fg{stroke:var(--primary);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.ring.low .fg{stroke:var(--danger)}
+.qcard{border-radius:20px;padding:1.25rem;box-shadow:0 1px 2px rgb(0 0 0/.06);animation:rise .3s ease-out}
+@media(min-width:40rem){.qcard{padding:2rem}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.prompt{font-size:clamp(1.4rem,4.5vw,1.85rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
+.opts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
+.opt{display:flex;width:100%;align-items:center;gap:1rem;text-align:left;padding:1rem;border-radius:12px;border:2px solid var(--border);background:var(--bg);font-weight:500;transition:transform .15s,border-color .15s,background .15s}
+.opt .ltr{flex:none;width:2rem;height:2rem;border-radius:8px;border:1px solid var(--border);background:var(--muted);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.875rem}
+.opt .ltr svg{width:1rem;height:1rem}
+.opt:not(:disabled):hover{transform:translateY(-2px);border-color:var(--primary);background:color-mix(in oklch,var(--primary) 5%,transparent)}
+.opt:not(:disabled):hover .ltr{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--ok);background:color-mix(in oklch,var(--ok) 10%,transparent)}
+.opt.correct .ltr{background:var(--ok);color:var(--ok-fg);border-color:var(--ok)}
+.opt.wrong{border-color:var(--danger);background:color-mix(in oklch,var(--danger) 10%,transparent)}
+.opt.wrong .ltr{background:var(--danger);color:#fff;border-color:var(--danger)}
+.opt.dim{opacity:.5}
+.fb-ico{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
+.fb-ico svg{width:.9rem;height:.9rem}
+.fb-ico.ok{background:var(--ok);color:var(--ok-fg)}
+.fb-ico.no{background:var(--danger);color:#fff}
+.fbrow{display:flex;flex-direction:column;gap:1rem}
+@media(min-width:40rem){.fbrow{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+/* results */
+.pct{font-family:var(--mono);font-size:clamp(4.5rem,18vw,6rem);font-weight:600;letter-spacing:-.05em;line-height:1}
+.pct small{font-size:.5em;color:var(--muted-fg)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin:0}
+@media(min-width:40rem){.stats{grid-template-columns:repeat(var(--n,5),1fr)}}
+.stat{padding:1rem;border-radius:14px;border:1px solid var(--border);background:var(--card)}
+.stat dt{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-fg)}
+.stat dd{margin:.25rem 0 0;font-family:var(--mono);font-size:1.5rem;font-weight:600}
+.rev{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
+.rev li{display:flex;gap:1rem;padding:1rem;border-radius:14px;border:1px solid var(--border);border-left:4px solid var(--danger);background:var(--card)}
+.rev li.good{border-left-color:var(--ok)}
+.rev .ic{flex:none;width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in oklch,var(--danger) 15%,transparent);color:var(--danger)}
+.rev li.good .ic{background:color-mix(in oklch,var(--ok) 15%,transparent);color:var(--ok)}
+.rev .ic svg{width:1rem;height:1rem}
+.good-t{color:var(--ok);font-weight:500}
+.bad-t{color:var(--danger);font-weight:500;text-decoration:line-through}
+.loadown{padding:1.25rem;border-radius:14px;border:1px solid color-mix(in oklch,var(--primary) 30%,transparent);background:color-mix(in oklch,var(--primary) 6%,transparent);display:flex;flex-direction:column;gap:1rem}
+@media(min-width:40rem){.loadown{flex-direction:row;align-items:center;justify-content:space-between}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.scroll-mt{scroll-margin-top:1.5rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+.brand svg{width:2rem;height:2rem}
+.brand b{color:var(--primary);font-weight:600}
+.site-foot{max-width:44rem;margin:0 auto;padding:0 1.25rem 2.5rem;font-size:.8rem;color:var(--muted-fg)}
+.kbd-hint{text-align:center}
+@media(hover:none){.kbd-hint{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app" aria-live="polite"></div>
+<footer class="site-foot">Quizbox by COTworks</footer>
+
+<script>
+(function () {
+'use strict';
+
+/* ---------- icons (inline SVG) ---------- */
+var P = {
+  play:'<path d="M6 4l14 8-14 8z"/>',
+  trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/>',
+  down:'<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>',
+  up:'<path d="M12 21V9m0 0l-4 4m4-4l4 4M4 3h16"/>',
+  chev:'<path d="M6 9l6 6 6-6"/>',
+  book:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"/>',
+  check:'<path d="M5 12l5 5 9-11"/>',
+  x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',
+  timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/>',
+  shuffle:'<path d="M3 7h4l10 10h4M3 17h4l3-3m4-4l3-3h4M18 4l3 3-3 3M18 14l3 3-3 3"/>',
+  retry:'<path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.5M3 4v5h5"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+  next:'<path d="M5 12h14m-6-6l6 6-6 6"/>',
+  flame:'<path d="M12 3c1 4 5 6 5 11a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z"/>'
+};
+function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+P[n]+'</svg>';}
+
+/* ---------- data ---------- */
+var LETTERS = 'ABCDEF', MIN_OPT = 2, MAX_OPT = 6;
+var TIMER_CHOICES = [30,45,60,90,120];
+var DEFAULTS = {timerEnabled:false, secondsPerQuestion:60, shuffleQuestions:true};
+var KEYS = {mods:'pmquiz:modules:v1', stats:'pmquiz:stats:v1', set:'pmquiz:settings:v1'};
+
+function q(cat,prompt,options,ans,exp){return {category:cat,prompt:prompt,options:options,answerIndex:ans,explanation:exp};}
+var SAMPLE = {id:'sample-pm', title:'Sample Quiz: Project Management Basics', questions:[
+  q('Easy','The classic triple constraint of project management refers to:',['Scope, time and cost','People, process and product','Risk, quality and communication','Plan, do and check'],0,'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'),
+  q('Easy','Which document formally authorises a project?',['Work breakdown structure','Risk register','Project charter','Status report'],2,'The project charter formally authorises the project and gives the project manager authority to use resources.'),
+  q('Easy','A risk is best described as:',['A problem that has already happened','A change request that was rejected','An uncertain event that could affect project objectives','A missed deadline'],2,'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'),
+  q('Medium','The critical path of a project is:',['The path with the most expensive activities','The path with the most team members','The path with the most risks','The longest sequence of dependent activities, which sets the shortest possible project duration'],3,'A delay to any critical path activity delays the project finish date unless the time is recovered.'),
+  q('Medium','On a power/interest grid, a stakeholder with high power and low interest should generally be:',['Ignored','Monitored with minimum effort','Kept satisfied','Managed closely every day'],2,'High power and low interest means keep satisfied. High power and high interest means manage closely.'),
+  q('Medium','A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',['Add it straight away to keep the stakeholder happy','Refuse it because the scope is fixed','Ask the team to absorb it without telling anyone','Assess its impact on scope, time, cost and risk, then submit it through change control'],3,'Changes should be evaluated and then formally approved or rejected, never quietly added.'),
+  q('Hard','A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',['$110,000','$125,000','$150,000','$160,000'],1,'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'),
+  q('Hard','Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',['0 days','2 days','4 days','6 days'],1,'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'),
+  q('Hard','A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',['-$19,000','+$11,000','-$30,000','-$11,000'],3,'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.')
+]};
+SAMPLE.questions.forEach(function(x,i){x.id='sample-q'+(i+1);});
+
+var EXAMPLE_JSON = '{\n  "title": "Module 1: Project Fundamentals",\n  "questions": [\n    {\n      "prompt": "Which document formally authorises a project?",\n      "options": [\n        "Project charter",\n        "Work breakdown structure",\n        "Risk register",\n        "Status report"\n      ],\n      "answer": "A",\n      "explanation": "The project charter formally authorises the project."\n    }\n  ]\n}';
+
+/* ---------- parsing ---------- */
+function makeId(){return Math.random().toString(36).slice(2,10);}
+function isRec(v){return typeof v==='object'&&v!==null&&!Array.isArray(v);}
+function txt(v){return typeof v==='string'?v.trim():'';}
+function parseQuestion(raw,n,mid,mtitle){
+  var label='Question '+n;
+  if(!isRec(raw)) throw new Error(label+' is not an object.');
+  var prompt=txt(raw.prompt);
+  if(!prompt) throw new Error(label+' has no "prompt" (the question text).');
+  if(!Array.isArray(raw.options)) throw new Error(label+' has no "options" list.');
+  var options=raw.options.map(txt);
+  if(options.some(function(o){return o==='';})) throw new Error(label+' has an empty option.');
+  if(options.length<MIN_OPT||options.length>MAX_OPT) throw new Error(label+' needs between '+MIN_OPT+' and '+MAX_OPT+' options.');
+  var idx=-1;
+  if(typeof raw.answer==='string') idx=LETTERS.indexOf(raw.answer.trim().toUpperCase());
+  else if(typeof raw.answerIndex==='number') idx=raw.answerIndex;
+  else throw new Error(label+' has no answer. Add "answer": "B" (the letter of the correct option).');
+  if(!Number.isInteger(idx)||idx<0||idx>=options.length) throw new Error(label+' has an answer that does not match its '+options.length+' options. Use a letter from A to '+LETTERS[options.length-1]+'.');
+  return {id:mid+'-q'+n,category:txt(raw.category)||mtitle,prompt:prompt,options:options,answerIndex:idx,explanation:txt(raw.explanation)};
+}
+function parseModule(raw,fallback){
+  if(!isRec(raw)) throw new Error('A module must be an object with a "title" and a "questions" list.');
+  var title=txt(raw.title)||fallback.trim();
+  if(!title) throw new Error('This module has no "title". Add one, or type a title in the box above.');
+  if(!Array.isArray(raw.questions)||raw.questions.length===0) throw new Error('"'+title+'" has no questions.');
+  var id=makeId();
+  return {id:id,title:title,questions:raw.questions.map(function(x,i){return parseQuestion(x,i+1,id,title);})};
+}
+function parseModules(text,fallback){
+  var data;
+  try{data=JSON.parse(text);}catch(e){return {ok:false,error:'That is not valid JSON ('+e.message+').'};}
+  try{
+    if(Array.isArray(data)){
+      if(data.length&&isRec(data[0])&&'questions' in data[0]) return {ok:true,modules:data.map(function(x){return parseModule(x,'');})};
+      return {ok:true,modules:[parseModule({questions:data},fallback)]};
+    }
+    if(isRec(data)&&Array.isArray(data.modules)){
+      if(!data.modules.length) return {ok:false,error:'The "modules" list is empty.'};
+      return {ok:true,modules:data.modules.map(function(x){return parseModule(x,'');})};
+    }
+    return {ok:true,modules:[parseModule(data,fallback)]};
+  }catch(e){return {ok:false,error:e.message||'Something is wrong with the file.'};}
+}
+
+/* ---------- AI prompt ---------- */
+function buildAiPrompt(moduleTitle){
+  var title=moduleTitle.trim();
+  var titleRule=title?'The module title is: '+title:'The module title is whatever I tell you. If I have not given one, ask me for it before you start.';
+  return 'You are converting study questions into a JSON file for a quiz app. Follow every rule below exactly.\n\n'+titleRule+'\n\n'+
+'OUTPUT RULES\n'+
+'1. Reply with ONE code block containing valid JSON, and nothing inside the code block except the JSON.\n'+
+'2. If something needs my attention (a question you skipped, a missing answer), write it in plain text BEFORE the code block, never inside the JSON.\n'+
+'3. The JSON must be strictly valid: double quotes only, no trailing commas, no comments, no line breaks inside strings. Escape any double quote inside text as \\" and any backslash as \\\\.\n'+
+'4. Never cut the JSON off. If there are more than 40 questions, split them into parts of at most 40 questions. Give each part its own complete JSON object with the title followed by (Part 1), (Part 2) and so on, and put each part in its own code block.\n\n'+
+'FORMAT\n'+
+'{\n  "title": "Module title here",\n  "questions": [\n    {\n      "prompt": "The question text",\n      "options": ["First option", "Second option", "Third option", "Fourth option"],\n      "answer": "B",\n      "explanation": "Why the answer is correct."\n    }\n  ]\n}\n\n'+
+'FIELD RULES\n'+
+'- "prompt": the question text only, with no question number.\n'+
+'- "options": between 2 and 6 options, in the same order as the source. Remove any leading labels such as "A.", "B)", "(c)" or "1." from the option text. Do not shuffle or reword the options.\n'+
+'- "answer": ONE capital letter, A to F, matching the position of the correct option (A is the first option, B the second, and so on). The letter must exist in that question\'s options. If the source gives the answer as text instead of a letter, work out the letter.\n'+
+'- "explanation": use the explanation from my source if there is one. If there is none, write a short one only if you are certain it is correct. Otherwise use an empty string "". Never invent facts.\n'+
+'- "category": optional. Use it only if the source has a topic or section heading for that question, otherwise leave this field out.\n\n'+
+'ACCURACY RULES\n'+
+'- Do not invent, merge, reorder, reword or remove questions. Keep my wording.\n'+
+'- Never guess a correct answer. If the source has no answer key for a question, leave that question out of the JSON and tell me which ones in plain text before the code block.\n'+
+'- If a question has more than one correct answer, or needs a typed answer, leave it out of the JSON and tell me which ones.\n'+
+'- True/false questions become two options: ["True", "False"].\n\n'+
+'BEFORE YOU REPLY, CHECK\n'+
+'- Every question has a prompt, 2 to 6 options and a valid answer letter.\n'+
+'- The JSON parses with no errors.\n'+
+'- The number of questions in the JSON matches the number in my source, minus any you told me you left out.\n\n'+
+'My questions are below:';
+}
+var STEPS = [
+  ['Collect your questions and answers','Copy them from your course platform, notes, PDF or Word file. Make sure the correct answers are included.'],
+  ['Copy the prompt below','Type your module title in the box first, so it is added to the prompt for you.'],
+  ['Open any AI chat and paste the prompt','ChatGPT, Claude or Gemini all work. Paste the prompt, then paste your questions underneath it (or attach the file).'],
+  ['Copy the code block the AI sends back','Paste it straight into the box under "Load a module", or save it as a .json file. To save it, open Notepad, paste, choose Save As, set the type to All files and name it something like module-1.json.'],
+  ['Load it and start','If an error appears, copy the error message back to the AI and ask it to fix the JSON. Then try again.']
+];
+
+/* ---------- storage ---------- */
+function read(key,fb){try{var r=localStorage.getItem(key);return r?JSON.parse(r):fb;}catch(e){return fb;}}
+function write(key,v){try{localStorage.setItem(key,JSON.stringify(v));}catch(e){}}
+
+/* ---------- state ---------- */
+var S = {
+  view:'start',
+  modules:read(KEYS.mods,[]),
+  stats:read(KEYS.stats,{}),
+  settings:Object.assign({},DEFAULTS,read(KEYS.set,{})),
+  loadOpen:null, helpOpen:false,
+  loadText:'', loadTitle:'', promptTitle:'', message:null,
+  copiedPrompt:false, copiedExample:false,
+  scrollTo:null,
+  run:null, active:null, kind:'full', saved:false
+};
+var timerId=null;
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function shuffle(a){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=c[i];c[i]=c[j];c[j]=t;}return c;}
+function saveMods(){write(KEYS.mods,S.modules);}
+function saveStats(){write(KEYS.stats,S.stats);}
+function saveSet(){write(KEYS.set,S.settings);}
+function clock(t){var m=Math.floor(t/60),s=t%60;return m+':'+(s<10?'0':'')+s;}
+function sameTitle(a,b){return a.trim().toLowerCase()===b.trim().toLowerCase();}
+
+function importModules(incoming){
+  var added=[],updated=[];
+  incoming.forEach(function(m){
+    var i=S.modules.findIndex(function(x){return sameTitle(x.title,m.title);});
+    if(i>=0){m.id=S.modules[i].id;S.modules[i]=m;updated.push(m.title);}
+    else{S.modules.push(m);added.push(m.title);}
+  });
+  saveMods();
+  var parts=[];
+  if(added.length) parts.push('Loaded: '+added.join(', '));
+  if(updated.length) parts.push('Updated: '+updated.join(', '));
+  return parts.join('. ')+'.';
+}
+function recordResult(id,correct,total){
+  var pct=total?Math.round(correct/total*100):0,p=S.stats[id];
+  S.stats[id]={attempts:(p?p.attempts:0)+1,lastPercent:pct,bestPercent:Math.max(p?p.bestPercent:0,pct)};
+  saveStats();
+}
+function exportBackup(){
+  var blob=new Blob([JSON.stringify({modules:S.modules},null,2)],{type:'application/json'});
+  var url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='pm-quiz-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function copyText(text,flag){
+  function done(){S[flag]=true;render();setTimeout(function(){S[flag]=false;render();},2000);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback);}else fallback();
+  function fallback(){
+    var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';
+    document.body.appendChild(t);t.select();
+    try{document.execCommand('copy');done();}catch(e){}
+    t.remove();
+  }
+}
+
+/* ---------- quiz engine ---------- */
+function startRun(mod,questions,kind){
+  S.saved=false;S.active=mod;S.kind=kind;
+  var secs=S.settings.timerEnabled?S.settings.secondsPerQuestion:0;
+  S.run={questions:S.settings.shuffleQuestions?shuffle(questions):questions,current:0,selected:null,revealed:false,secs:secs,timeLeft:secs,elapsed:0,answers:[],streak:0,best:0,done:false};
+  S.view='quiz';
+  startTimer();render();window.scrollTo(0,0);
+}
+function startTimer(){stopTimer();timerId=setInterval(tick,1000);}
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null;}}
+function record(sel){
+  var r=S.run,qq=r.questions[r.current],ok=sel===qq.answerIndex;
+  r.streak=ok?r.streak+1:0;r.best=Math.max(r.best,r.streak);
+  r.selected=sel;r.revealed=true;
+  r.answers.push({question:qq,selectedIndex:sel,correct:ok,timeSpent:r.elapsed});
+}
+function select(i){
+  var r=S.run;if(!r||S.view!=='quiz'||r.revealed)return;
+  record(i);render();
+}
+function next(){
+  var r=S.run;if(!r||S.view!=='quiz'||!r.revealed)return;
+  if(r.current>=r.questions.length-1){
+    stopTimer();S.view='results';
+    if(S.kind==='full'&&!S.saved){S.saved=true;recordResult(S.active.id,r.answers.filter(function(a){return a.correct;}).length,r.answers.length);}
+    render();window.scrollTo(0,0);return;
+  }
+  r.current++;r.selected=null;r.revealed=false;r.elapsed=0;r.timeLeft=r.secs;
+  render();
+}
+function tick(){
+  var r=S.run;if(S.view!=='quiz'||!r||r.revealed)return;
+  r.elapsed++;
+  if(r.secs===0){var w=document.getElementById('watch');if(w)w.textContent=clock(r.elapsed);return;}
+  r.timeLeft--;
+  if(r.timeLeft<=0){r.timeLeft=0;record(null);render();return;}
+  var ring=document.getElementById('ring'),num=document.getElementById('ringnum'),fg=document.getElementById('ringfg');
+  if(num)num.textContent=r.timeLeft;
+  if(ring)ring.className='ring'+(r.timeLeft<=5?' low':'');
+  if(fg){var c=2*Math.PI*22;fg.style.strokeDashoffset=c*(1-r.timeLeft/r.secs);}
+}
+function goHome(){stopTimer();S.view='start';S.run=null;render();window.scrollTo(0,0);}
+
+/* ---------- views ---------- */
+function btn(action,label,opts){
+  opts=opts||{};
+  return '<button type="button" class="btn'+(opts.cls?' '+opts.cls:'')+'" data-a="'+action+'"'+(opts.data?' '+opts.data:'')+(opts.aria?' aria-label="'+esc(opts.aria)+'"':'')+'>'+(opts.icon?ic(opts.icon):'')+label+'</button>';
+}
+function moduleRow(m,sample){
+  var st=S.stats[m.id],n=m.questions.length;
+  var info=n+(n===1?' question':' questions')+(st?' · Best '+st.bestPercent+'% · Last '+st.lastPercent+'% · '+st.attempts+(st.attempts===1?' attempt':' attempts'):' · Not attempted yet');
+  return '<li class="card mrow"><div class="stack" style="gap:.25rem;min-width:0"><div class="row wrap g2"><p style="font-weight:500;text-wrap:pretty">'+esc(m.title)+'</p>'+(sample?'<span class="tag">Sample</span>':'')+'</div><p class="mono xs muted">'+esc(info)+'</p></div>'+
+  '<div class="row g2" style="flex:none">'+(sample?'':btn('delete','',{cls:'ghost',icon:'trash',aria:'Delete '+m.title,data:'data-id="'+esc(m.id)+'"'}))+btn('start','Start',{icon:'play',data:'data-id="'+esc(m.id)+'"'})+'</div></li>';
+}
+function accordion(id,title,open,body){
+  return '<section class="card scroll-mt" id="'+id+'"><button type="button" class="acc-head" data-a="toggle-'+id+'" aria-expanded="'+open+'">'+esc(title)+ic('chev')+'</button>'+(open?'<div class="acc-body">'+body+'</div>':'')+'</section>';
+}
+function loadBody(){
+  var m=S.message?'<p role="status" class="msg '+(S.message.kind==='ok'?'ok':'err')+'">'+esc(S.message.text)+'</p>':'';
+  return '<div class="stack g4" style="gap:1.25rem">'+
+  '<button type="button" class="guide-link" data-a="show-help">'+ic('book')+'<span><b>Not sure how to make the file?</b><span class="muted">Open the step-by-step guide and copy the AI prompt.</span></span></button>'+
+  '<div class="stack g2"><p class="small" style="font-weight:500">Option 1: choose a file</p><p class="small muted">Pick one or more .json module files from your computer.</p>'+
+  '<input type="file" id="module-file" accept=".json,application/json" multiple class="sr">'+btn('choose-file','Choose file',{cls:'out',icon:'up'}).replace('class="btn out"','class="btn out" style="align-self:flex-start"')+'</div>'+
+  '<div class="stack g2"><p class="small" style="font-weight:500">Option 2: paste the JSON</p>'+
+  '<input type="text" class="field" id="load-title" value="'+esc(S.loadTitle)+'" placeholder="Module title (only needed if the JSON has no title)">'+
+  '<textarea class="field" id="load-text" rows="7" spellcheck="false" placeholder="Paste module JSON here">'+esc(S.loadText)+'</textarea>'+
+  btn('paste-load','Load module').replace('class="btn"','class="btn" style="align-self:flex-start"')+'</div>'+m+
+  '<details><summary>What format does a module use?</summary><div class="stack g3"><p class="small muted">Each question needs a prompt, a list of options and the letter of the correct answer. The explanation and category are optional. Loading a module with the same title replaces the old one and keeps your scores.</p><pre>'+esc(EXAMPLE_JSON)+'</pre>'+
+  btn('copy-example',S.copiedExample?'Copied':'Copy example',{cls:'out sm',icon:S.copiedExample?'check':'copy'}).replace('class="btn out sm"','class="btn out sm" style="align-self:flex-start"')+'</div></details></div>';
+}
+function helpBody(){
+  var steps=STEPS.map(function(s,i){return '<li class="row" style="align-items:flex-start"><span class="num">'+(i+1)+'</span><div class="stack" style="gap:.25rem"><p style="font-weight:500">'+esc(s[0])+'</p><p class="small muted" style="text-wrap:pretty">'+esc(s[1])+'</p></div></li>';}).join('');
+  return '<div class="stack g6"><ol class="steps stack g4">'+steps+'</ol><div class="stack g2"><label for="prompt-title" class="small" style="font-weight:500">Module title (optional)</label>'+
+  '<input id="prompt-title" type="text" class="field" value="'+esc(S.promptTitle)+'" placeholder="e.g. Module 3: Stakeholder Management">'+
+  '<textarea id="prompt-box" class="field" readonly rows="10" aria-label="Prompt to copy">'+esc(buildAiPrompt(S.promptTitle))+'</textarea>'+
+  btn('copy-prompt',S.copiedPrompt?'Copied':'Copy prompt',{icon:S.copiedPrompt?'check':'copy'}).replace('class="btn"','class="btn" style="align-self:flex-start"')+'</div></div>';
+}
+function sw(action,label,detail,icon,checked,extra){
+  return '<div class="row between g4"><div class="row" style="align-items:flex-start"><span class="set-ico">'+ic(icon)+'</span><div><p style="font-weight:500">'+label+'</p><p class="small muted">'+detail+'</p></div></div><div class="row" style="flex:none">'+(extra||'')+'<button type="button" class="sw" role="switch" aria-checked="'+checked+'" aria-label="'+label+'" data-a="'+action+'"></button></div></div>';
+}
+function startView(){
+  var loadOpen=S.loadOpen===null?S.modules.length===0:S.loadOpen;
+  var timerSel=S.settings.timerEnabled?'<select class="field" id="secs" aria-label="Seconds per question">'+TIMER_CHOICES.map(function(s){return '<option value="'+s+'"'+(s===S.settings.secondsPerQuestion?' selected':'')+'>'+s+'s</option>';}).join('')+'</select>':'';
+  return '<section class="stack g10" style="padding:1.5rem 0" aria-labelledby="start-title">'+
+  '<div class="stack g4"><p class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="3" y="35" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="35" width="26" height="26" rx="7" fill="var(--ok)"/><path d="M41 48.5l5 5 9-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>quiz<b>box</b></p><h1 class="title" id="start-title">Pick a module and test yourself.</h1><p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p></div>'+
+  '<div class="stack g3"><h2 class="sec">Try a sample quiz</h2><ul class="stack g3" style="list-style:none;margin:0;padding:0">'+moduleRow(SAMPLE,true)+'</ul></div>'+
+  '<div class="stack g3"><h2 class="sec">Your modules</h2>'+(S.modules.length===0?'<p class="dashed">No modules yet. Load one below to get started.</p>':'<ul class="stack g3" style="list-style:none;margin:0;padding:0">'+S.modules.map(function(m){return moduleRow(m,false);}).join('')+'</ul>')+'</div>'+
+  accordion('load','Load a module',loadOpen,loadBody())+
+  accordion('help','Help: make a module file with AI',S.helpOpen,helpBody())+
+  '<div class="stack g3"><h2 class="sec">Quiz settings</h2><div class="card pad stack g3">'+
+  sw('toggle-timer','Timer','Time limit per question. Unanswered counts as wrong.','timer',S.settings.timerEnabled,timerSel)+
+  '<div style="border-top:1px solid var(--border)"></div>'+
+  sw('toggle-shuffle','Shuffle questions','Mix the order each time you start a module.','shuffle',S.settings.shuffleQuestions)+
+  '</div></div>'+
+  (S.modules.length?'<div class="stack g2">'+btn('export','Export backup',{cls:'out',icon:'down'}).replace('class="btn out"','class="btn out" style="align-self:flex-start"')+'<p class="xs muted" style="max-width:28rem">Modules live in this browser. Clearing your browser data removes them, so keep a backup file. You can load it back with the panel above.</p></div>':'')+
+  '</section>';
+}
+function quizView(){
+  var r=S.run,qq=r.questions[r.current],total=r.questions.length;
+  var score=r.answers.filter(function(a){return a.correct;}).length;
+  var progress=Math.round(r.answers.length/total*100);
+  var isLast=r.current===total-1,timedOut=r.revealed&&r.selected===null,isCorrect=r.revealed&&r.selected===qq.answerIndex;
+  var left;
+  if(r.secs>0){var c=2*Math.PI*22;left='<div class="ring'+(r.timeLeft<=5?' low':'')+'" id="ring" role="timer" aria-label="'+r.timeLeft+' seconds remaining"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="bg" cx="28" cy="28" r="22"/><circle class="fg" id="ringfg" cx="28" cy="28" r="22" stroke-dasharray="'+c+'" style="stroke-dashoffset:'+c*(1-r.timeLeft/r.secs)+'"/></svg><span id="ringnum" aria-hidden="true">'+r.timeLeft+'</span></div>';}
+  else left='<div class="watch">'+ic('clock').replace('<svg','<svg style="width:1rem;height:1rem;color:var(--muted-fg)"')+'<span id="watch">'+clock(r.elapsed)+'</span></div>';
+  var opts=qq.options.map(function(o,i){
+    var st=!r.revealed?'':(i===qq.answerIndex?'correct':(i===r.selected?'wrong':'dim'));
+    var lt=st==='correct'?ic('check'):st==='wrong'?ic('x'):LETTERS[i];
+    return '<li><button type="button" class="opt '+st+'" data-a="pick" data-i="'+i+'"'+(r.revealed?' disabled':'')+'><span class="ltr" aria-hidden="true">'+lt+'</span><span style="flex:1">'+esc(o)+'</span>'+(st==='correct'?'<span class="sr">(correct answer)</span>':st==='wrong'?'<span class="sr">(your answer, incorrect)</span>':'')+'</button></li>';
+  }).join('');
+  var fb='';
+  if(r.revealed){
+    fb='<div class="fbrow"><div class="row" style="align-items:flex-start"><span class="fb-ico '+(isCorrect?'ok':'no')+'">'+(isCorrect?ic('check'):timedOut?ic('clock'):ic('x'))+'</span><div class="stack" style="gap:.25rem"><p style="font-weight:600">'+(isCorrect?'Correct!':timedOut?"Time's up!":'Not quite.')+'</p><p class="small muted" style="line-height:1.6;text-wrap:pretty">'+(isCorrect?'':'The answer is <strong style="color:var(--fg)">'+esc(qq.options[qq.answerIndex])+'</strong>. ')+esc(qq.explanation)+'</p></div></div>'+
+    '<button type="button" class="btn lg" data-a="next" id="next-btn" style="flex:none">'+(isLast?'See results':'Next question')+ic('next')+'</button></div>';
+  }
+  return '<div class="stack g6" style="padding-top:.5rem"><header class="stack g4"><p class="eyebrow">'+esc(S.active.title)+'</p>'+
+  '<div class="row between g4"><div class="row g4">'+left+'<div class="stack"><span class="xs muted" style="text-transform:uppercase;letter-spacing:.08em">Score</span><span class="mono" style="font-size:1.25rem;font-weight:600">'+score+'<span class="muted">/'+total+'</span></span></div>'+(r.streak>=2?'<span class="pill">'+ic('flame').replace('<svg','<svg style="width:1rem;height:1rem"')+r.streak+' streak</span>':'')+'</div>'+btn('quit','Quit',{cls:'ghost sm',icon:'x'})+'</div>'+
+  '<div class="stack g2"><div class="row between mono xs muted"><span>Question '+(r.current+1)+' of '+total+'</span><span>'+progress+'% complete</span></div><div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+r.answers.length+'"><div style="width:'+progress+'%"></div></div></div></header>'+
+  '<section class="card qcard stack g6" aria-labelledby="qp"><div class="stack g3"><span class="tag" style="align-self:flex-start">'+esc(qq.category)+'</span><h2 class="prompt" id="qp"><span class="sr">Question '+(r.current+1)+': </span>'+esc(qq.prompt)+'</h2></div><ul class="opts">'+opts+'</ul><div>'+fb+'</div></section><p class="xs muted kbd-hint">Keys: A to '+LETTERS[qq.options.length-1]+' to answer, Enter for next.</p></div>';
+}
+function verdict(p){
+  if(p===100)return 'Flawless. Nothing gets past you.';
+  if(p>=80)return 'Excellent work, almost perfect.';
+  if(p>=60)return 'Solid round. A few slipped through.';
+  if(p>=40)return 'Not bad. Another go?';
+  return 'Tough round. Try again and beat it.';
+}
+function resultsView(){
+  var r=S.run,a=r.answers,total=a.length,correct=a.filter(function(x){return x.correct;}).length;
+  var timedOut=a.filter(function(x){return x.selectedIndex===null;}).length,incorrect=total-correct-timedOut;
+  var pct=total?Math.round(correct/total*100):0,avg=total?(a.reduce(function(s,x){return s+x.timeSpent;},0)/total).toFixed(1):'0';
+  var missed=a.filter(function(x){return !x.correct;}).length;
+  var stats=[['Correct',correct,'var(--ok)'],['Incorrect',incorrect,'var(--danger)']];
+  if(r.secs>0)stats.push(['Timed out',timedOut,'var(--muted-fg)']);
+  stats.push(['Best streak',r.best,'var(--primary)'],['Avg. time',avg+'s','var(--fg)']);
+  var showLoad=S.active.id===SAMPLE.id&&S.modules.length===0;
+  var review=a.map(function(x,i){
+    var qq=x.question,sk=x.selectedIndex===null;
+    return '<li class="'+(x.correct?'good':'')+'"><span class="ic">'+(x.correct?ic('check'):sk?ic('clock'):ic('x'))+'</span><div class="stack g2" style="flex:1;min-width:0"><div class="row between" style="align-items:flex-start"><p style="font-weight:500;text-wrap:pretty"><span class="mono muted">'+(i+1)+'. </span>'+esc(qq.prompt)+'</p><span class="mono xs muted" style="flex:none">'+x.timeSpent+'s</span></div><div class="stack small" style="gap:.25rem">'+
+    (x.correct?'':'<p class="muted">Your answer: <span class="bad-t">'+(sk?'No answer':esc(qq.options[x.selectedIndex]))+'</span></p>')+
+    '<p class="muted">'+(x.correct?'You answered: ':'Correct answer: ')+'<span class="good-t">'+esc(qq.options[qq.answerIndex])+'</span></p>'+
+    (!x.correct&&qq.explanation?'<p class="muted" style="text-wrap:pretty">'+esc(qq.explanation)+'</p>':'')+'</div></div></li>';
+  }).join('');
+  return '<div class="stack g10" style="padding:.5rem 0"><section class="stack g6" aria-labelledby="rt"><p class="eyebrow">Results'+(S.active.title?' · '+esc(S.active.title):'')+'</p>'+
+  (S.kind==='retry'?'<p class="small muted">This was a retry of missed questions, so it is not added to your saved scores.</p>':'')+
+  '<div class="stack g2"><h1 class="pct" id="rt">'+pct+'<small>%</small></h1><p style="font-size:1.25rem;font-weight:500">'+correct+' of '+total+' correct</p><p class="muted">'+verdict(pct)+'</p></div>'+
+  '<dl class="stats" style="--n:'+stats.length+'">'+stats.map(function(s){return '<div class="stat"><dt>'+s[0]+'</dt><dd style="color:'+s[2]+'">'+s[1]+'</dd></div>';}).join('')+'</dl>'+
+  '<div class="row wrap">'+(missed?btn('retry','Retry missed ('+missed+')',{cls:'lg',icon:'target'}):'')+btn('restart','Restart module',{cls:'lg'+(missed?' out':''),icon:'retry'})+btn('home','Back to start',{cls:'lg out',icon:'home'})+'</div>'+
+  (showLoad?'<div class="loadown"><div class="stack" style="gap:.25rem"><p style="font-weight:600">Ready to practise with your own questions?</p><p class="small muted">Load your course material and quiz yourself on it. A step-by-step guide shows you how.</p></div>'+btn('load-own','Load your own',{cls:'lg',icon:'up'}).replace('class="btn lg"','class="btn lg" style="flex:none"')+'</div>':'')+
+  '</section><section class="stack g4" aria-labelledby="rv"><h2 class="sec" id="rv">Answer review</h2><ol class="rev">'+review+'</ol></section></div>';
+}
+
+/* ---------- render ---------- */
+function render(){
+  var app=document.getElementById('app');
+  var focusId=document.activeElement&&document.activeElement.id;
+  var selStart=null,selEnd=null;
+  if(focusId&&document.activeElement.selectionStart!==undefined){selStart=document.activeElement.selectionStart;selEnd=document.activeElement.selectionEnd;}
+  app.innerHTML=S.view==='start'?startView():S.view==='quiz'?quizView():resultsView();
+  if(S.view==='quiz'&&S.run.revealed){var nb=document.getElementById('next-btn');if(nb)nb.focus({preventScroll:true});}
+  else if(focusId&&(focusId==='load-title'||focusId==='load-text'||focusId==='prompt-title')){
+    var el=document.getElementById(focusId);if(el){el.focus({preventScroll:true});try{el.setSelectionRange(selStart,selEnd);}catch(e){}}
+  }
+  if(S.scrollTo){var t=document.getElementById(S.scrollTo);S.scrollTo=null;if(t)setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},30);}
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-a]');if(!b)return;
+  var a=b.getAttribute('data-a'),id=b.getAttribute('data-id');
+  switch(a){
+    case 'start':{var m=id===SAMPLE.id?SAMPLE:S.modules.find(function(x){return x.id===id;});if(m)startRun(m,m.questions,'full');break;}
+    case 'delete':{var d=S.modules.find(function(x){return x.id===id;});
+      if(d&&window.confirm('Delete "'+d.title+'" and its saved scores?')){S.modules=S.modules.filter(function(x){return x.id!==id;});delete S.stats[id];saveMods();saveStats();render();}break;}
+    case 'toggle-load':S.loadOpen=!(S.loadOpen===null?S.modules.length===0:S.loadOpen);render();break;
+    case 'toggle-help':S.helpOpen=!S.helpOpen;render();break;
+    case 'show-help':S.helpOpen=true;S.scrollTo='help';render();break;
+    case 'choose-file':document.getElementById('module-file').click();break;
+    case 'paste-load':{
+      if(!S.loadText.trim()){S.message={kind:'err',text:'Paste your module JSON into the box first.'};render();break;}
+      var res=parseModules(S.loadText,S.loadTitle);
+      if(!res.ok){S.message={kind:'err',text:res.error};render();break;}
+      S.message={kind:'ok',text:importModules(res.modules)};S.loadText='';S.loadTitle='';render();break;}
+    case 'copy-example':copyText(EXAMPLE_JSON,'copiedExample');break;
+    case 'copy-prompt':copyText(buildAiPrompt(S.promptTitle),'copiedPrompt');break;
+    case 'toggle-timer':S.settings.timerEnabled=!S.settings.timerEnabled;saveSet();render();break;
+    case 'toggle-shuffle':S.settings.shuffleQuestions=!S.settings.shuffleQuestions;saveSet();render();break;
+    case 'export':exportBackup();break;
+    case 'pick':select(Number(b.getAttribute('data-i')));break;
+    case 'next':next();break;
+    case 'quit':
+      if(!S.run||!S.run.answers.length||window.confirm('Quit this quiz? Your answers so far will be lost.'))goHome();
+      break;
+    case 'home':goHome();break;
+    case 'restart':startRun(S.active,S.active.questions,'full');break;
+    case 'retry':startRun(S.active,S.run.answers.filter(function(x){return !x.correct;}).map(function(x){return x.question;}),'retry');break;
+    case 'load-own':stopTimer();S.view='start';S.run=null;S.loadOpen=true;S.scrollTo='load';render();break;
+  }
+});
+document.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.id==='load-text')S.loadText=t.value;
+  else if(t.id==='load-title')S.loadTitle=t.value;
+  else if(t.id==='prompt-title'){S.promptTitle=t.value;var box=document.getElementById('prompt-box');if(box)box.value=buildAiPrompt(S.promptTitle);}
+});
+document.addEventListener('change',function(e){
+  var t=e.target;
+  if(t.id==='secs'){S.settings.secondsPerQuestion=Number(t.value);saveSet();}
+  else if(t.id==='module-file'){
+    var files=Array.from(t.files||[]);if(!files.length)return;
+    Promise.all(files.map(function(f){return f.text().then(function(c){return {name:f.name,c:c};});})).then(function(list){
+      var loaded=[];
+      for(var i=0;i<list.length;i++){
+        var title=list[i].name.replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').trim();
+        var r=parseModules(list[i].c,title);
+        if(!r.ok){S.message={kind:'err',text:list[i].name+': '+r.error};render();return;}
+        loaded=loaded.concat(r.modules);
+      }
+      S.message={kind:'ok',text:importModules(loaded)};render();
+    });
+  }
+});
+document.addEventListener('keydown',function(e){
+  if(S.view!=='quiz'||!S.run)return;
+  var tag=(e.target.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea'||tag==='select')return;
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  var k=e.key.toLowerCase(),n=S.run.questions[S.run.current].options.length,num=parseInt(k,10);
+  var idx=(num>=1&&num<=n)?num-1:LETTERS.toLowerCase().indexOf(k);
+  if(k.length===1&&idx>=0&&idx<n){select(idx);}
+  else if(k==='arrowright'||(k==='enter'&&S.run.revealed&&tag!=='button')){next();}
+});
+
+render();
+})();
+</script>
+</body>
+</html>
