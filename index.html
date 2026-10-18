@@ -357,7 +357,7 @@
       display: none;
     }
 
-    @media (max-width: 47.99rem) {
+    @media (max-width: 53.99rem) {
       .menu-btn {
         display: inline-flex;
       }
@@ -1444,6 +1444,54 @@
     }
 
     /* ============================================================
+       Create page (topic prompt builder)
+    ============================================================ */
+    .msg.info {
+      border-color: var(--border);
+      background: var(--card);
+      color: var(--muted-fg);
+    }
+
+    .field-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .optional {
+      color: var(--muted-fg);
+      font-weight: 400;
+    }
+
+    .eg {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .eg .tag {
+      flex: none;
+      min-width: 4.5rem;
+      text-align: center;
+    }
+
+    .eg.bad .tag {
+      background: color-mix(in oklch, var(--danger) 15%, transparent);
+      color: var(--danger);
+    }
+
+    .eg.good .tag {
+      background: color-mix(in oklch, var(--ok) 15%, transparent);
+      color: var(--ok);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: none;
+    }
+
+    /* ============================================================
        Toasts and dialog
     ============================================================ */
     #toasts {
@@ -1615,6 +1663,7 @@
       <nav class="nav" id="site-nav" aria-label="Main">
         <a href="#/" data-route="home">Home</a>
         <a href="#/modules" data-route="modules">Modules</a>
+        <a href="#/create" data-route="create">Create</a>
         <a href="#/add" data-route="add">Add questions</a>
         <a href="#/help" data-route="help">Help</a>
         <a href="#/settings" data-route="settings">Settings</a>
@@ -1651,7 +1700,6 @@
     const MIN_OPTIONS = 2;
     const MAX_OPTIONS = 6;
     const BACKUP_VERSION = 2;
-    const SAMPLE_ID = 'sample-pm';
     const TIMER_CHOICES = [30, 45, 60, 90, 120];
     const TOTAL_CHOICES = [5, 10, 15, 20, 30, 45, 60, 90, 120];
 
@@ -1680,6 +1728,7 @@
     const PAGE_TITLES = {
       home: 'Quizbox: practice quizzes from your own questions',
       modules: 'Modules | Quizbox',
+      create: 'Create questions | Quizbox',
       add: 'Add questions | Quizbox',
       help: 'Help | Quizbox',
       settings: 'Settings | Quizbox',
@@ -1687,7 +1736,7 @@
       results: 'Results | Quizbox'
     };
 
-    const PAGES = ['home', 'modules', 'add', 'help', 'settings'];
+    const PAGES = ['home', 'modules', 'create', 'add', 'help', 'settings'];
 
     /* ============================================================
        Icons
@@ -1782,55 +1831,167 @@
     }
 
     /* ============================================================
-       Sample quiz (built in, never stored)
+       SAMPLE QUIZZES  <-- add, edit or delete samples here
+       ------------------------------------------------------------
+       Each sample is one { ... } block inside SAMPLE_QUIZZES.
+
+       ADD one:    copy a whole block (from { to }), paste it after the
+                   last block with a comma between blocks, then change
+                   the id, the title and the questions.
+       REMOVE one: delete its whole block (and the comma beside it).
+
+       Rules
+       - id: must be unique, 4 to 40 letters, numbers, - or _.
+         Scores are saved under the id, so do not change an id after
+         you publish. Editing the title or questions is always safe.
+       - answer: the letter of the correct option, like 'A' or 'C'.
+       - 2 to 6 options per question. category and explanation are
+         optional.
+       - Text with an apostrophe (it's) needs double quotes around it
+         ("it's") or a backslash before the apostrophe (it\'s).
+       - You can paste the JSON the AI prompts produce straight in.
+       - A sample with a mistake is skipped, and the reason shows in
+         the browser console (press F12).
     ============================================================ */
-    function sampleQuestion(category, prompt, options, answerIndex, explanation) {
-      return {
-        category: category,
-        prompt: prompt,
-        options: options,
-        answerIndex: answerIndex,
-        explanation: explanation
-      };
-    }
+    const SAMPLE_QUIZZES = [
+      {
+        id: 'sample-pm',
+        title: 'Sample Quiz: Project Management Basics',
+        questions: [
+          {
+            category: 'Easy',
+            prompt: 'The classic triple constraint of project management refers to:',
+            options: [
+              'Scope, time and cost',
+              'People, process and product',
+              'Risk, quality and communication',
+              'Plan, do and check',
+            ],
+            answer: 'A',
+            explanation: 'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'
+          },
+          {
+            category: 'Easy',
+            prompt: 'Which document formally authorises a project?',
+            options: [
+              'Work breakdown structure',
+              'Risk register',
+              'Project charter',
+              'Status report',
+            ],
+            answer: 'C',
+            explanation: 'The project charter formally authorises the project and gives the project manager authority to use resources.'
+          },
+          {
+            category: 'Easy',
+            prompt: 'A risk is best described as:',
+            options: [
+              'A problem that has already happened',
+              'A change request that was rejected',
+              'An uncertain event that could affect project objectives',
+              'A missed deadline',
+            ],
+            answer: 'C',
+            explanation: 'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'
+          },
+          {
+            category: 'Medium',
+            prompt: 'The critical path of a project is:',
+            options: [
+              'The path with the most expensive activities',
+              'The path with the most team members',
+              'The path with the most risks',
+              'The longest sequence of dependent activities, which sets the shortest possible project duration',
+            ],
+            answer: 'D',
+            explanation: 'A delay to any critical path activity delays the project finish date unless the time is recovered.'
+          },
+          {
+            category: 'Medium',
+            prompt: 'On a power/interest grid, a stakeholder with high power and low interest should generally be:',
+            options: [
+              'Ignored',
+              'Monitored with minimum effort',
+              'Kept satisfied',
+              'Managed closely every day',
+            ],
+            answer: 'C',
+            explanation: 'High power and low interest means keep satisfied. High power and high interest means manage closely.'
+          },
+          {
+            category: 'Medium',
+            prompt: 'A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',
+            options: [
+              'Add it straight away to keep the stakeholder happy',
+              'Refuse it because the scope is fixed',
+              'Ask the team to absorb it without telling anyone',
+              'Assess its impact on scope, time, cost and risk, then submit it through change control',
+            ],
+            answer: 'D',
+            explanation: 'Changes should be evaluated and then formally approved or rejected, never quietly added.'
+          },
+          {
+            category: 'Hard',
+            prompt: 'A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',
+            options: [
+              '$110,000',
+              '$125,000',
+              '$150,000',
+              '$160,000',
+            ],
+            answer: 'B',
+            explanation: 'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'
+          },
+          {
+            category: 'Hard',
+            prompt: 'Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',
+            options: [
+              '0 days',
+              '2 days',
+              '4 days',
+              '6 days',
+            ],
+            answer: 'B',
+            explanation: 'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'
+          },
+          {
+            category: 'Hard',
+            prompt: 'A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',
+            options: [
+              '-$19,000',
+              '+$11,000',
+              '-$30,000',
+              '-$11,000',
+            ],
+            answer: 'D',
+            explanation: 'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.'
+          }
+        ]
+      }
+    ];
 
-    const SAMPLE = {
-      id: SAMPLE_ID,
-      title: 'Sample Quiz: Project Management Basics',
-      questions: [
-        sampleQuestion('Easy', 'The classic triple constraint of project management refers to:',
-          ['Scope, time and cost', 'People, process and product', 'Risk, quality and communication', 'Plan, do and check'],
-          0, 'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'),
-        sampleQuestion('Easy', 'Which document formally authorises a project?',
-          ['Work breakdown structure', 'Risk register', 'Project charter', 'Status report'],
-          2, 'The project charter formally authorises the project and gives the project manager authority to use resources.'),
-        sampleQuestion('Easy', 'A risk is best described as:',
-          ['A problem that has already happened', 'A change request that was rejected', 'An uncertain event that could affect project objectives', 'A missed deadline'],
-          2, 'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'),
-        sampleQuestion('Medium', 'The critical path of a project is:',
-          ['The path with the most expensive activities', 'The path with the most team members', 'The path with the most risks', 'The longest sequence of dependent activities, which sets the shortest possible project duration'],
-          3, 'A delay to any critical path activity delays the project finish date unless the time is recovered.'),
-        sampleQuestion('Medium', 'On a power/interest grid, a stakeholder with high power and low interest should generally be:',
-          ['Ignored', 'Monitored with minimum effort', 'Kept satisfied', 'Managed closely every day'],
-          2, 'High power and low interest means keep satisfied. High power and high interest means manage closely.'),
-        sampleQuestion('Medium', 'A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',
-          ['Add it straight away to keep the stakeholder happy', 'Refuse it because the scope is fixed', 'Ask the team to absorb it without telling anyone', 'Assess its impact on scope, time, cost and risk, then submit it through change control'],
-          3, 'Changes should be evaluated and then formally approved or rejected, never quietly added.'),
-        sampleQuestion('Hard', 'A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',
-          ['$110,000', '$125,000', '$150,000', '$160,000'],
-          1, 'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'),
-        sampleQuestion('Hard', 'Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',
-          ['0 days', '2 days', '4 days', '6 days'],
-          1, 'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'),
-        sampleQuestion('Hard', 'A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',
-          ['-$19,000', '+$11,000', '-$30,000', '-$11,000'],
-          3, 'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.')
-      ]
-    };
+    // ---- Nothing below this line needs editing ----
+    const SAMPLES = [];
 
-    SAMPLE.questions.forEach(function (question, index) {
-      question.id = 'sample-q' + (index + 1);
+    SAMPLE_QUIZZES.forEach(function (raw) {
+      try {
+        if (!raw || !validId(raw.id)) {
+          throw new Error('it needs an id of 4 to 40 letters, numbers, - or _');
+        }
+        if (SAMPLES.some(function (item) { return item.id === raw.id; })) {
+          throw new Error('the id "' + raw.id + '" is already used by another sample');
+        }
+        SAMPLES.push(parseModule(raw, '', { sample: true }));
+      } catch (error) {
+        console.warn('Quizbox: sample quiz skipped (' + (raw && raw.title ? raw.title : 'no title') + '): ' + error.message);
+      }
     });
+
+    const SAMPLE_IDS = SAMPLES.map(function (item) { return item.id; });
+
+    function isSampleId(id) {
+      return SAMPLE_IDS.indexOf(id) >= 0;
+    }
 
     const EXAMPLE_JSON = [
       '{',
@@ -1915,7 +2076,10 @@
         throw new Error('"' + title + '" has no questions.');
       }
 
-      const id = validId(raw.id) && raw.id !== SAMPLE_ID ? raw.id : makeId();
+      // Sample quizzes keep their id. Imported modules may not reuse a sample's id.
+      const id = settings.sample
+        ? raw.id
+        : (validId(raw.id) && !isSampleId(raw.id) ? raw.id : makeId());
       const questions = [];
 
       raw.questions.forEach(function (item, index) {
@@ -2036,9 +2200,18 @@
       loadText: '',
       loadTitle: '',
       promptTitle: '',
+      topic: {
+        name: '',
+        focus: '',
+        goal: '',
+        level: 'university',
+        difficulty: 'mixed',
+        count: 20,
+        interview: false
+      },
       filter: '',
       message: null,
-      copied: { prompt: false, example: false },
+      copied: { prompt: false, example: false, topic: false },
       offlineReady: false,
       storageBlocked: false,
       storageWarned: false,
@@ -2180,7 +2353,7 @@
       const incoming = sanitizeStats(rawStats);
 
       Object.keys(incoming).forEach(function (oldId) {
-        const finalId = idMap[oldId] || (oldId === SAMPLE_ID ? SAMPLE_ID : null);
+        const finalId = idMap[oldId] || (isSampleId(oldId) ? oldId : null);
         if (!finalId) return;
 
         const next = incoming[oldId];
@@ -2275,7 +2448,8 @@
     }
 
     function findModule(id) {
-      if (id === SAMPLE_ID) return SAMPLE;
+      const sample = SAMPLES.find(function (item) { return item.id === id; });
+      if (sample) return sample;
       return S.modules.find(function (item) { return item.id === id; }) || null;
     }
 
@@ -2645,8 +2819,150 @@
       ].join('\n');
     }
 
+    /* ============================================================
+       Create page: build a prompt from a topic
+    ============================================================ */
+    const LEVELS = {
+      school: {
+        label: 'School',
+        text: 'A secondary school student, roughly ages 13 to 18. Use clear, simple wording and avoid jargon that is not taught at that stage.'
+      },
+      university: {
+        label: 'University',
+        text: 'A university student with a basic background in the subject. Use correct technical terms and explain them in the explanations.'
+      },
+      professional: {
+        label: 'Professional',
+        text: 'A working professional or exam candidate with practical experience. Use industry terminology and realistic workplace scenarios.'
+      }
+    };
+
+    const DIFFICULTIES = {
+      easy: 'Easy',
+      medium: 'Medium',
+      hard: 'Hard',
+      mixed: 'Mixed'
+    };
+
+    const COUNT_CHOICES = [10, 20, 30, 40];
+
+    function difficultyRule(difficulty, count) {
+      if (difficulty !== 'mixed') {
+        const label = DIFFICULTIES[difficulty];
+        return 'All ' + count + ' questions must be ' + label + '. Set "category" to "' + label + '" on every question.';
+      }
+
+      // Split evenly. Any leftover questions go to Medium.
+      const base = Math.floor(count / 3);
+      const medium = count - base * 2;
+      return 'Write ' + base + ' Easy, ' + medium + ' Medium and ' + base + ' Hard questions, ordered from Easy to Hard. ' +
+        'Set "category" to exactly "Easy", "Medium" or "Hard" on each question.';
+    }
+
+    function buildTopicPrompt(topic) {
+      const title = topic.name.trim();
+      const focus = topic.focus.trim() || 'Choose the most important areas of this topic and spread the questions across them.';
+      const goal = topic.goal.trim() || 'General understanding of the topic.';
+      const level = LEVELS[topic.level] || LEVELS.university;
+
+      const interview = topic.interview
+        ? [
+            'BEFORE YOU WRITE ANYTHING',
+            'Ask me up to 3 short questions that would make the quiz more specific (for example which subtopics matter most, or what I already know). Then wait for my answers. After I answer, write the quiz following all the rules below.',
+            ''
+          ]
+        : [];
+
+      return [
+        'You are an expert teacher writing a multiple choice quiz as a JSON file for a quiz app. Follow every rule below exactly.',
+        '',
+        'TOPIC: ' + title,
+        'WHAT TO COVER: ' + focus,
+        'GOAL OR EXAM: ' + goal,
+        'LEARNER: ' + level.text,
+        'NUMBER OF QUESTIONS: ' + topic.count,
+        'DIFFICULTY: ' + difficultyRule(topic.difficulty, topic.count),
+        'The module title must be exactly: ' + title,
+        ''
+      ].concat(interview).concat([
+        'QUESTION QUALITY RULES',
+        '- Test understanding, not trivia. Prefer "why", application and scenario questions. Easy questions may test recall.',
+        '- Each question tests ONE specific idea. Never test the same idea twice, and spread the questions across the whole topic.',
+        '- Make the wrong options plausible, based on common misconceptions or near-miss answers. No joke options.',
+        '- Keep all options similar in length and style so the correct one is not obvious. Do not use "all of the above" or "none of the above". Avoid "which is NOT" wording unless it is essential.',
+        '- Use exactly 4 options per question. Vary the position of the correct answer so A, B, C and D are each correct about equally often.',
+        '- Use well-established facts only. Do not invent statistics, dates, names, quotes, laws or sources.',
+        '- If you are not sure a question and its answer are correct, leave that question out and tell me in plain text before the code block.',
+        '- Every question needs an explanation of 1 to 2 sentences saying why the answer is correct and, where useful, why the most tempting wrong option is wrong.',
+        '',
+        'DIFFICULTY GUIDE',
+        '- Easy: recall of a key fact, term or definition.',
+        '- Medium: applying one concept to a short situation, or telling two similar ideas apart.',
+        '- Hard: multi-step reasoning, a realistic scenario with competing factors, or a calculation.',
+        '',
+        'OUTPUT RULES',
+        '1. Reply with ONE code block containing valid JSON, and nothing inside the code block except the JSON.',
+        '2. If you left something out or need to tell me anything else, write it in plain text BEFORE the code block, never inside the JSON.',
+        '3. The JSON must be strictly valid: double quotes only, no trailing commas, no comments, no line breaks inside strings. Escape any double quote inside text as \\" and any backslash as \\\\.',
+        '4. Never cut the JSON off. Always finish the whole code block.',
+        '',
+        'FORMAT',
+        '{',
+        '  "title": "' + title.replace(/"/g, '\\"') + '",',
+        '  "questions": [',
+        '    {',
+        '      "category": "Medium",',
+        '      "prompt": "The question text",',
+        '      "options": ["First option", "Second option", "Third option", "Fourth option"],',
+        '      "answer": "B",',
+        '      "explanation": "Why the answer is correct."',
+        '    }',
+        '  ]',
+        '}',
+        '',
+        'FIELD RULES',
+        '- "prompt": the question text only, with no question number.',
+        '- "options": exactly 4 options with no leading labels such as "A." or "1.".',
+        '- "answer": ONE capital letter, A to D, matching the position of the correct option (A is the first option, B the second, and so on).',
+        '- "category": exactly Easy, Medium or Hard, following the difficulty rule above.',
+        '',
+        'BEFORE YOU REPLY, CHECK',
+        '- There are exactly ' + topic.count + ' questions, or fewer only if you told me which ones you left out and why.',
+        '- Every question has a prompt, 4 options, a valid answer letter, a category and an explanation.',
+        '- The correct answers are spread across A, B, C and D.',
+        '- No idea is tested twice.',
+        '- The JSON parses with no errors.'
+      ]).join('\n');
+    }
+
+    function topicPromptText() {
+      return S.topic.name.trim() ? buildTopicPrompt(S.topic) : '';
+    }
+
+    function topicHint() {
+      const words = S.topic.name.trim().split(/\s+/).filter(Boolean).length;
+      if (words === 0) return 'The more specific you are, the better the questions.';
+      if (words <= 2 && S.topic.focus.trim().length < 15) {
+        return 'That is quite broad. Narrow the topic, or say exactly what to cover in the next box, so you do not get shallow, generic questions.';
+      }
+      return 'Good. Specific topics give specific questions.';
+    }
+
+    const TOPIC_PLACEHOLDER = 'Type a topic above and your prompt appears here.';
+
+    // Update the prompt, hint and copy button without rebuilding the page.
+    function refreshTopicPrompt() {
+      const text = topicPromptText();
+      const box = $('#topic-prompt-box');
+      const hint = $('#topic-hint');
+      const copy = $('#copy-topic-btn');
+      if (box) box.value = text || TOPIC_PLACEHOLDER;
+      if (hint) hint.textContent = topicHint();
+      if (copy) copy.disabled = !text;
+    }
+
     const STEPS = [
-      ['Collect your questions and answers', 'Copy them from your course platform, notes, PDF or Word file. Make sure the correct answers are included.'],
+      ['Collect your questions and answers', 'Copy them from your course platform, notes, PDF or Word file. Make sure the correct answers are included. Only have a topic and no notes? Use the Create page instead.'],
       ['Copy the prompt below', 'Type your module title in the box first, so it is added to the prompt for you.'],
       ['Open any AI chat and paste the prompt', 'ChatGPT, Claude or Gemini all work. Paste the prompt, then paste your questions underneath it (or attach the file).'],
       ['Copy the code block the AI sends back', 'Paste it into the box on the Add questions page, or save it as a .json file. To save it, open Notepad, paste, choose Save As, set the type to All files and name it something like module-1.json.'],
@@ -2654,6 +2970,7 @@
     ];
 
     const FAQ = [
+      ['I have no notes, only a topic. What do I do?', 'Open the Create page, describe what you want to learn, choose a difficulty and copy the prompt it builds. Paste it into any AI chat, then load the JSON it gives you on the Add questions page. AI-written questions can contain mistakes, so check anything important against a trusted source.'],
       ['Where is my data stored?', 'Only in this browser, on this device. Nothing is uploaded. Clearing your browser data removes your modules and scores, so export a backup now and then from the Settings page.'],
       ['How do I move my modules to another device?', 'On this device, open Settings and choose Export backup. On the other device, open Add questions and choose that file. Your modules, scores and settings come with it.'],
       ['Does it work offline?', 'Yes, once you have opened the hosted site once while online. After that, Quizbox loads and runs without internet. Open the page once online first so the fonts are saved too.'],
@@ -2791,7 +3108,7 @@
                 <p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p>
               </div>
               <div class="row wrap g3">
-                ${button('start', 'Try the sample quiz', { cls: 'lg', icon: 'play', data: 'data-id="' + SAMPLE_ID + '"' })}
+                ${SAMPLES.length ? button('start', 'Try the sample quiz', { cls: 'lg', icon: 'play', data: 'data-id="' + SAMPLES[0].id + '"' }) : ''}
                 <a class="btn lg out" href="#/add">${icon('up')}Add your questions</a>
               </div>
               <ul class="facts">
@@ -2824,7 +3141,7 @@
               <article class="card pad stack g3">
                 <span class="step-num">1</span>
                 <h3 class="strong">Add your questions</h3>
-                <p class="small muted pretty">Choose a .json file or paste it in. Not sure how to make one? The Help page has a prompt that does it with any AI chat.</p>
+                <p class="small muted pretty">Choose a .json file or paste it in. No notes yet? <a href="#/create">Create questions from a topic</a> with any AI chat.</p>
               </article>
               <article class="card pad stack g3">
                 <span class="step-num">2</span>
@@ -2857,7 +3174,7 @@
         </div>` : '';
 
       const ownList = count === 0
-        ? `<div class="dashed stack g3"><p>No modules yet. Add your first one to start practising with your own questions.</p><div>${'<a class="btn sm" href="#/add">' + icon('plus') + 'Add questions</a>'}</div></div>`
+        ? `<div class="dashed stack g3"><p>No modules yet. Add your first one to start practising with your own questions.</p><div class="row wrap g2">${'<a class="btn sm" href="#/add">' + icon('plus') + 'Add questions</a>'}<a class="btn sm out" href="#/create">Create from a topic</a></div></div>`
         : `<ul class="list" id="own-list">${S.modules.map(function (module) { return moduleRow(module, false); }).join('')}</ul>
            <p class="dashed" id="no-match" hidden>No modules match your search.</p>`;
 
@@ -2865,10 +3182,11 @@
         <div class="stack g6">
           ${pageHeader('Modules', 'Pick a module to start a quiz. Your best and latest scores are shown on each one.', '<a class="btn" href="#/add">' + icon('plus') + 'Add questions</a>')}
           ${storageBanner()}
-          <section class="stack g3" aria-labelledby="sample-title">
-            <h2 class="sec" id="sample-title">Sample</h2>
-            <ul class="list">${moduleRow(SAMPLE, true)}</ul>
-          </section>
+          ${SAMPLES.length ? `
+            <section class="stack g3" aria-labelledby="sample-title">
+              <h2 class="sec" id="sample-title">${SAMPLES.length === 1 ? 'Sample' : 'Samples'}</h2>
+              <ul class="list">${SAMPLES.map(function (sample) { return moduleRow(sample, true); }).join('')}</ul>
+            </section>` : ''}
           <section class="stack g3" aria-labelledby="mine-title">
             <h2 class="sec" id="mine-title">Your modules</h2>
             ${filterBox}
@@ -2900,6 +3218,11 @@
           <a class="guide-link" href="#/help">
             ${icon('book')}
             <span><b>Not sure how to make the file?</b><span class="muted">Open the step-by-step guide and copy the AI prompt.</span></span>
+          </a>
+
+          <a class="guide-link" href="#/create">
+            ${icon('gift')}
+            <span><b>No notes, just a topic?</b><span class="muted">Create questions from a topic with any AI chat.</span></span>
           </a>
 
           <section class="stack g3" aria-labelledby="files-title">
@@ -2972,6 +3295,95 @@
           <section class="stack g3" aria-labelledby="faq-title">
             <h2 class="sec" id="faq-title">Common questions</h2>
             ${faq}
+          </section>
+        </div>`;
+    }
+
+    function createView() {
+      const topic = S.topic;
+      const hasTopic = topic.name.trim().length > 0;
+
+      const levelButtons = Object.keys(LEVELS).map(function (key) {
+        return '<button type="button" data-a="topic-level" data-v="' + key + '" aria-pressed="' + (topic.level === key) + '">' + LEVELS[key].label + '</button>';
+      }).join('');
+
+      const difficultyButtons = Object.keys(DIFFICULTIES).map(function (key) {
+        return '<button type="button" data-a="topic-difficulty" data-v="' + key + '" aria-pressed="' + (topic.difficulty === key) + '">' + DIFFICULTIES[key] + '</button>';
+      }).join('');
+
+      const difficultyNote = topic.difficulty === 'mixed'
+        ? 'An even mix of Easy, Medium and Hard, ordered from easiest to hardest.'
+        : 'Every question will be ' + DIFFICULTIES[topic.difficulty] + '.';
+
+      return `
+        <div class="stack g6 narrow">
+          ${pageHeader('Create questions from a topic', 'No notes or textbook? Describe what you want to learn, copy the prompt into any AI chat, and load the file it gives you.')}
+
+          <p class="msg info">AI-written questions can contain mistakes. Read the explanations and check anything important against a trusted source.</p>
+
+          <section class="card pad stack g3" aria-label="Examples of specific topics">
+            <p class="strong">Specific beats broad</p>
+            <div class="eg bad"><span class="tag">Too broad</span><span>Marketing</span></div>
+            <div class="eg good"><span class="tag">Specific</span><span>Social media marketing for small restaurants: content planning, paid ad basics and measuring results</span></div>
+          </section>
+
+          <section class="stack g4" aria-labelledby="form-title">
+            <h2 class="sec sr" id="form-title">Your topic</h2>
+
+            <div class="stack g2">
+              <label class="field-label" for="topic-name">Topic</label>
+              <input type="text" class="field" id="topic-name" value="${esc(topic.name)}" maxlength="120" placeholder="e.g. Cash flow management for small businesses" autocomplete="off">
+              <p class="small muted" id="topic-hint">${esc(topicHint())}</p>
+            </div>
+
+            <div class="stack g2">
+              <label class="field-label" for="topic-focus">What exactly should it cover? <span class="optional">(optional)</span></label>
+              <textarea class="field" id="topic-focus" rows="3" maxlength="600" style="font-family:var(--sans);font-size:0.9rem" placeholder="Subtopics, chapters, skills, or paste a syllabus outline">${esc(topic.focus)}</textarea>
+            </div>
+
+            <div class="stack g2">
+              <label class="field-label" for="topic-goal">Goal or exam <span class="optional">(optional)</span></label>
+              <input type="text" class="field" id="topic-goal" value="${esc(topic.goal)}" maxlength="120" placeholder="e.g. PMP exam, WAEC, job interview" autocomplete="off">
+            </div>
+
+            <div class="stack g2">
+              <p class="field-label" id="level-label">Learner level</p>
+              <div class="seg" role="group" aria-labelledby="level-label">${levelButtons}</div>
+            </div>
+
+            <div class="stack g2">
+              <p class="field-label" id="difficulty-label">Difficulty</p>
+              <div class="seg" role="group" aria-labelledby="difficulty-label">${difficultyButtons}</div>
+              <p class="small muted">${difficultyNote}</p>
+            </div>
+
+            <div class="stack g2">
+              <p class="field-label" id="count-label">Number of questions</p>
+              <div class="chips" role="group" aria-labelledby="count-label">${chipRow('topic-count', COUNT_CHOICES, topic.count, '')}</div>
+              <p class="small muted">Up to 40 keeps the AI reliable. Need more? Make a second module on another part of the topic.</p>
+            </div>
+
+            <div class="card pad">
+              ${switchRow('topic-interview', 'Interview me first', 'The AI asks up to 3 questions to make the quiz more specific before it writes it.', 'book', topic.interview)}
+            </div>
+          </section>
+
+          <section class="stack g3" aria-labelledby="prompt-title-2">
+            <h2 class="sec" id="prompt-title-2">Your prompt</h2>
+            <textarea id="topic-prompt-box" class="field" readonly rows="12" aria-label="Prompt to copy">${esc(topicPromptText() || TOPIC_PLACEHOLDER)}</textarea>
+            <div class="row wrap g2">
+              <button type="button" class="btn" id="copy-topic-btn" data-a="copy-topic"${hasTopic ? '' : ' disabled'}>${icon(S.copied.topic ? 'check' : 'copy')}${S.copied.topic ? 'Copied' : 'Copy prompt'}</button>
+              <a class="btn out" href="#/add">${icon('up')}Go to Add questions</a>
+            </div>
+          </section>
+
+          <section class="stack g3" aria-labelledby="how-create-title">
+            <h2 class="sec" id="how-create-title">What to do next</h2>
+            <ol class="steps stack g4">
+              <li class="row" style="align-items:flex-start"><span class="num">1</span><p class="small muted pretty" style="padding-top:0.3rem">Paste the prompt into any AI chat, such as ChatGPT, Claude or Gemini. If you turned on "Interview me first", answer its questions.</p></li>
+              <li class="row" style="align-items:flex-start"><span class="num">2</span><p class="small muted pretty" style="padding-top:0.3rem">Copy the code block it sends back. If it also lists questions it left out, that is normal.</p></li>
+              <li class="row" style="align-items:flex-start"><span class="num">3</span><p class="small muted pretty" style="padding-top:0.3rem">Open Add questions, paste the code block (or save it as a .json file and choose it), then start the quiz.</p></li>
+            </ol>
           </section>
         </div>`;
     }
@@ -3158,7 +3570,7 @@
       const percent = total ? Math.round((correct / total) * 100) : 0;
       const average = total ? (answers.reduce(function (sum, answer) { return sum + answer.timeSpent; }, 0) / total).toFixed(1) : '0';
       const missed = answers.filter(function (answer) { return !answer.correct; }).length;
-      const showLoadOwn = S.active.id === SAMPLE_ID && S.modules.length === 0;
+      const showLoadOwn = isSampleId(S.active.id) && S.modules.length === 0;
 
       const stats = [['Correct', correct, 'var(--ok)'], ['Incorrect', incorrect, 'var(--danger)']];
       if (run.mode !== 'none') stats.push(['Timed out', timedOutCount, 'var(--muted-fg)']);
@@ -3226,6 +3638,7 @@
 
       switch (S.page) {
         case 'modules': return modulesView();
+        case 'create': return createView();
         case 'add': return addView();
         case 'help': return helpView();
         case 'settings': return settingsView();
@@ -3643,6 +4056,19 @@
           }, resetAllData);
           break;
 
+        case 'topic-level': S.topic.level = target.getAttribute('data-v'); render(); break;
+        case 'topic-difficulty': S.topic.difficulty = target.getAttribute('data-v'); render(); break;
+        case 'topic-count': S.topic.count = Number(target.getAttribute('data-v')); render(); break;
+        case 'topic-interview': S.topic.interview = !S.topic.interview; render(); break;
+
+        case 'copy-topic':
+          if (!S.topic.name.trim()) {
+            toast('Type a topic first.', 'err');
+          } else {
+            copyText(buildTopicPrompt(S.topic), 'topic');
+          }
+          break;
+
         case 'choose-file': $('#module-file').click(); break;
         case 'paste-load': importPasted(); break;
         case 'copy-example': copyText(EXAMPLE_JSON, 'example'); break;
@@ -3695,6 +4121,9 @@
       if (target.id === 'load-text') S.loadText = target.value;
       else if (target.id === 'load-title') S.loadTitle = target.value;
       else if (target.id === 'mod-filter') { S.filter = target.value; applyFilter(); }
+      else if (target.id === 'topic-name') { S.topic.name = target.value; refreshTopicPrompt(); }
+      else if (target.id === 'topic-focus') { S.topic.focus = target.value; refreshTopicPrompt(); }
+      else if (target.id === 'topic-goal') { S.topic.goal = target.value; refreshTopicPrompt(); }
       else if (target.id === 'prompt-title') {
         S.promptTitle = target.value;
         const box = $('#prompt-box');
