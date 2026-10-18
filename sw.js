@@ -1,6 +1,6 @@
 // Quizbox service worker: lets the app open and run without internet.
 // Change VERSION every time you publish a new index.html so users get the update.
-const VERSION = 'quizbox-v1';
+const VERSION = 'quizbox-v2';
 const FONT_CACHE = 'quizbox-fonts';
 
 // Files saved on the first visit. Missing files are skipped, not fatal.
@@ -51,6 +51,12 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
+  // The sample library: network first, so a newly added quiz shows up straight away.
+  if (url.origin === self.location.origin && url.pathname.indexOf('/samples/') >= 0) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
   // Our own files: show the saved copy straight away and refresh it in the background.
   if (url.origin === self.location.origin) {
     event.respondWith(staleWhileRevalidate(request, VERSION));
@@ -72,6 +78,19 @@ async function networkFirstPage(request) {
     return response;
   } catch (error) {
     const saved = (await cache.match('./index.html')) || (await cache.match('./'));
+    return saved || Response.error();
+  }
+}
+
+async function networkFirst(request) {
+  const cache = await caches.open(VERSION);
+
+  try {
+    const response = await fetch(request);
+    if (response && response.ok) cache.put(request, response.clone());
+    return response;
+  } catch (error) {
+    const saved = await cache.match(request);
     return saved || Response.error();
   }
 }

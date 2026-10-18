@@ -1,0 +1,485 @@
+{
+  "title": "How to plan your day",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "In the Eisenhower Matrix, which type of task should you do first?",
+      "options": [
+        "Tasks that are both urgent and important",
+        "Tasks that are important but not urgent",
+        "Tasks that are urgent but not important",
+        "Tasks that are neither urgent nor important"
+      ],
+      "answer": "A",
+      "explanation": "Tasks that are both urgent and important carry real deadlines and consequences, so they come first. Important but not urgent tasks are scheduled, not done immediately."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is time blocking?",
+      "options": [
+        "Setting an alarm to remind you of each task",
+        "Assigning specific tasks to set periods in your calendar",
+        "Blocking all notifications for an entire workday",
+        "Recording how long each task took afterwards"
+      ],
+      "answer": "B",
+      "explanation": "Time blocking means reserving defined slots in your calendar for specific tasks. Reminders and time tracking are different tools."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In the Pomodoro Technique, how long is a standard focused work interval?",
+      "options": [
+        "15 minutes",
+        "20 minutes",
+        "25 minutes",
+        "45 minutes"
+      ],
+      "answer": "C",
+      "explanation": "The technique, created by Francesco Cirillo, uses 25-minute work intervals followed by a short break."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In daily planning, what is an 'MIT'?",
+      "options": [
+        "A scheduled meeting with an internal team",
+        "A minor item you handle once everything else ends",
+        "A task that you plan to delegate to a colleague",
+        "A Most Important Task you commit to finishing today"
+      ],
+      "answer": "D",
+      "explanation": "An MIT is one of the few tasks that matter most for the day, so you protect time to complete it. It is not minor or delegated by default."
+    },
+    {
+      "category": "Easy",
+      "prompt": "According to the two-minute rule popularised by David Allen, what should you do with a task that takes under two minutes?",
+      "options": [
+        "Do it straight away instead of tracking it",
+        "Add it to next week's plan",
+        "Delegate it to a colleague",
+        "Batch it with similar tasks later in the day"
+      ],
+      "answer": "A",
+      "explanation": "For very short tasks, logging and revisiting them costs more effort than simply doing them. Batching suits longer or lower-priority items."
+    },
+    {
+      "category": "Easy",
+      "prompt": "According to the Pareto principle, roughly 80 percent of results come from what share of efforts?",
+      "options": [
+        "About 10 percent",
+        "About 20 percent",
+        "About 50 percent",
+        "About 80 percent"
+      ],
+      "answer": "B",
+      "explanation": "The Pareto principle is a rule of thumb that a small share of effort, often around 20 percent, produces most of the results. It is why identifying high-impact tasks matters."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Why does frequent task switching reduce productivity?",
+      "options": [
+        "Each switch consumes some of your allotted work hours",
+        "Switching makes the abandoned tasks less important",
+        "Each switch carries a refocusing cost that slows progress",
+        "Switching prevents you from keeping a written plan"
+      ],
+      "answer": "C",
+      "explanation": "Every switch requires your attention to reload the new task, which slows work and raises errors. Switching does not change how important a task is."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which tool is best for showing fixed commitments such as meetings and appointments in your day plan?",
+      "options": [
+        "A mind map of future project ideas",
+        "A document listing long term career goals",
+        "A log of tasks completed last week",
+        "A calendar with set start and end times"
+      ],
+      "answer": "D",
+      "explanation": "A calendar shows when commitments occur and how much time remains. A task list shows what to do but not when."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is a key benefit of planning tomorrow's tasks at the end of today?",
+      "options": [
+        "You start the next morning with clarity and fewer decisions to make",
+        "You no longer need to check your calendar the next day",
+        "You ensure that no priorities change overnight",
+        "You can avoid estimating how long tasks will take"
+      ],
+      "answer": "A",
+      "explanation": "A prepared plan lets you begin work immediately without spending morning energy deciding. Plans can still change, so a quick recheck is still wise."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is a task dependency?",
+      "options": [
+        "A task that you can only complete after hours",
+        "A task that cannot start or finish until another task is done",
+        "A task that depends on your mood or energy",
+        "A task that repeats on a fixed schedule"
+      ],
+      "answer": "B",
+      "explanation": "A dependency links tasks so that one must wait for another. Recognising dependencies helps you sequence work so you are not blocked."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is task batching?",
+      "options": [
+        "Splitting one large task into smaller steps",
+        "Giving a group of tasks to one colleague",
+        "Grouping similar tasks and doing them together in one session",
+        "Doing every task in the order it arrived"
+      ],
+      "answer": "C",
+      "explanation": "Batching groups similar work, such as replying to emails or making calls, to reduce switching costs. Splitting a task is a different technique."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the 'eat the frog' approach advise?",
+      "options": [
+        "Starting the day with the easiest and quickest task",
+        "Leaving difficult work until the end of the day",
+        "Spreading tough tasks evenly across the week",
+        "Doing your hardest or most important task first"
+      ],
+      "answer": "D",
+      "explanation": "The idea is to tackle your most demanding or important task early, before the day fills with distractions. Starting with easy tasks is the opposite."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In SMART goals, what does the letter T stand for?",
+      "options": [
+        "Time-bound",
+        "Task-based",
+        "Team-oriented",
+        "Tracked daily"
+      ],
+      "answer": "A",
+      "explanation": "SMART stands for Specific, Measurable, Achievable, Relevant and Time-bound. A deadline makes a goal easier to plan into your days."
+    },
+    {
+      "category": "Medium",
+      "prompt": "You think most clearly in the morning. Where should you place a demanding analysis task?",
+      "options": [
+        "In the late afternoon when meetings end",
+        "In your morning peak hours when focus is highest",
+        "Right after lunch to build momentum",
+        "Wherever a free slot appears first"
+      ],
+      "answer": "B",
+      "explanation": "Matching demanding work to your peak energy improves quality and speed. Routine tasks suit your lower-energy periods."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A support analyst keeps checking email every few minutes and loses focus on other work. What is the best fix?",
+      "options": [
+        "Turn off email for the entire week",
+        "Reply only to emails from managers",
+        "Check email at set times and keep it closed in between",
+        "Answer each email immediately so none pile up"
+      ],
+      "answer": "C",
+      "explanation": "Scheduled email windows keep you responsive without constant interruption. Answering instantly causes the task switching that drains focus."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Your tasks regularly take longer than you plan. What is the most effective correction?",
+      "options": [
+        "Plan more tasks so something finishes on time",
+        "Work faster by skipping breaks",
+        "Assume fewer interruptions in your estimates",
+        "Base estimates on how long similar tasks took before"
+      ],
+      "answer": "D",
+      "explanation": "This pattern is known as the planning fallacy, described by Kahneman and Tversky, where people underestimate time. Using past results gives more realistic estimates."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Your manager adds an urgent task to a day that is already full. What is the best response?",
+      "options": [
+        "Explain what you have planned and ask which item should move",
+        "Accept it and work late to finish everything",
+        "Postpone the new task until your plan is finished",
+        "Drop whichever existing task you like least"
+      ],
+      "answer": "A",
+      "explanation": "Showing the trade-off lets your manager set the priority with full information. Silently absorbing the work hides the cost and risks missed deadlines."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which statement best distinguishes urgent from important tasks?",
+      "options": [
+        "Urgent tasks always carry greater long-term value",
+        "Important tasks are those that other people request",
+        "Urgent tasks demand immediate attention, while important tasks support your goals",
+        "Urgent tasks are those that take the least time"
+      ],
+      "answer": "C",
+      "explanation": "Urgency relates to time pressure, while importance relates to outcomes and goals. A task can be urgent without being important, and the reverse."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is a short midday check against your plan useful?",
+      "options": [
+        "To confirm the original plan needs no change",
+        "To adjust the rest of the day when the morning went differently",
+        "To record your hours for payroll purposes",
+        "To replace the afternoon with brand new tasks"
+      ],
+      "answer": "B",
+      "explanation": "A midday check lets you re-prioritise early if the morning slipped or something urgent appeared. Waiting until the evening leaves no room to adapt."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A colleague asks for a report that is urgent for them but does not support your goals, and a teammate could easily produce it. What is the best move?",
+      "options": [
+        "Do it first to keep goodwill",
+        "Ignore the request completely",
+        "Add it to tomorrow's list",
+        "Redirect it to the right person"
+      ],
+      "answer": "D",
+      "explanation": "Urgent but unimportant tasks are candidates for delegation or redirection in the Eisenhower approach. Doing them first can crowd out your own priorities."
+    },
+    {
+      "category": "Medium",
+      "prompt": "According to Parkinson's law, what tends to happen if you allow a whole day for a task that needs two hours?",
+      "options": [
+        "The work expands to fill the time available",
+        "The quality of the work always improves",
+        "The task finishes well ahead of schedule",
+        "The task becomes more urgent over time"
+      ],
+      "answer": "A",
+      "explanation": "Parkinson's law says work stretches to match the time given. Setting realistic time limits helps counter it."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which approach to scheduling recurring meetings best protects your focus time?",
+      "options": [
+        "Spreading them evenly through the day",
+        "Placing them at the start of every hour",
+        "Clustering them into set parts of the day",
+        "Leaving them unscheduled until needed"
+      ],
+      "answer": "C",
+      "explanation": "Clustering meetings leaves longer unbroken stretches for deep work. Spreading them out fragments the day into gaps too short to use well."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why should you leave some slots unscheduled in a day plan?",
+      "options": [
+        "Because a full calendar looks unprofessional",
+        "To absorb interruptions and tasks that run over",
+        "Because a plan is only valid with free hours",
+        "To avoid the tasks you dislike"
+      ],
+      "answer": "B",
+      "explanation": "Unplanned work and overruns are normal, so spare capacity keeps one disruption from breaking the whole day. It is a practical safeguard, not a way to avoid tasks."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why write tasks as concrete actions such as 'Email the budget draft to Sam' instead of just 'Budget'?",
+      "options": [
+        "Longer entries make the list look more thorough",
+        "Vague entries are easier to reorder",
+        "Specific wording lets you skip estimating time",
+        "Clear actions remove the need to decide what to do when you begin"
+      ],
+      "answer": "D",
+      "explanation": "Vague entries hide the next step, which encourages procrastination. A concrete action lets you start immediately."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why capture every task and request in one trusted system?",
+      "options": [
+        "It frees your mind from remembering items and prevents things being missed",
+        "It increases the number of tasks you can finish in a day",
+        "It removes the need for any prioritising",
+        "It makes every item equally urgent"
+      ],
+      "answer": "A",
+      "explanation": "A single trusted capture point stops tasks living only in your head or scattered across notes. You still need to prioritise what you captured."
+    },
+    {
+      "category": "Medium",
+      "prompt": "An interviewer asks how you plan your day. Which structure gives the clearest, most credible answer?",
+      "options": [
+        "List your favourite planning tools only",
+        "Give general statements about being organised",
+        "Describe a real situation, your actions and the result",
+        "Recite a memorised definition of time management"
+      ],
+      "answer": "C",
+      "explanation": "The STAR method (Situation, Task, Action, Result) grounds your answer in evidence. General claims and definitions do not show how you actually work."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A task has been carried over to a new day four times in a row. What is the best first step?",
+      "options": [
+        "Schedule it again for tomorrow morning",
+        "Find out why it is stalling, then split, delegate or drop it",
+        "Move it to the bottom of the list permanently",
+        "Work on it only when you feel motivated"
+      ],
+      "answer": "B",
+      "explanation": "Repeated rollover signals a cause, such as a task that is unclear, too big or no longer valuable. Diagnosing it lets you fix the cause instead of rescheduling again."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Your day runs from 09:00 to 17:00. You have a 1-hour lunch, 2.5 hours of fixed meetings and want 1 hour of unscheduled buffer. How many hours remain for focused tasks?",
+      "options": [
+        "2.5 hours",
+        "3 hours",
+        "4.5 hours",
+        "3.5 hours"
+      ],
+      "answer": "D",
+      "explanation": "The day has 8 hours, and 8 minus 1 minus 2.5 minus 1 leaves 3.5 hours. Plans that ignore buffer overstate what can be done."
+    },
+    {
+      "category": "Hard",
+      "prompt": "You have 2 free hours. Task X has impact 5 and takes 2 hours. Task Y has impact 4 and takes 1 hour. Task Z has impact 3 and takes 1 hour. Tasks cannot be split. Which choice delivers the most total impact?",
+      "options": [
+        "Y and Z, for a combined impact of 7",
+        "X alone, for an impact of 5",
+        "Z and part of X, for an impact of 5.5",
+        "Y and part of X, for an impact of 6.5"
+      ],
+      "answer": "A",
+      "explanation": "Since tasks cannot be split, partial credit is not possible, and Y plus Z gives 7 against 5 for X. The highest-impact single task is not always the best use of limited time."
+    },
+    {
+      "category": "Hard",
+      "prompt": "You are invited to a one-hour meeting with no agenda on a day packed with deadlines. What is the best response?",
+      "options": [
+        "Accept and use the time to catch up on email",
+        "Ask for the purpose and your role, then attend, send input or decline",
+        "Decline without comment to protect your time",
+        "Accept and decide on the day whether to join"
+      ],
+      "answer": "B",
+      "explanation": "Asking for purpose lets you decide whether your presence adds value or whether written input would do. Declining silently or half-committing can harm working relationships."
+    },
+    {
+      "category": "Hard",
+      "prompt": "You estimate a data cleanup at 2 hours. Your last three similar jobs took 3, 3.5 and 3 hours. What should you plan for?",
+      "options": [
+        "2 hours, since this job seems simpler",
+        "2 hours plus a few minutes for breaks",
+        "Around 3 to 3.5 hours, based on your past results",
+        "4 hours, by doubling your first estimate"
+      ],
+      "answer": "C",
+      "explanation": "Past results on similar work give a more reliable estimate than a fresh optimistic guess, which counters the planning fallacy. Doubling arbitrarily is not grounded in evidence."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Midweek you realise you will miss a Friday deliverable promised to a client. What is the best action?",
+      "options": [
+        "Wait until Thursday in case things improve",
+        "Work through the weekend without telling anyone",
+        "Deliver a reduced version on Friday without comment",
+        "Tell the client now and propose a revised date or scope"
+      ],
+      "answer": "D",
+      "explanation": "Early, honest communication with options protects trust and lets the client plan. Hiding the problem or waiting makes the damage larger."
+    },
+    {
+      "category": "Hard",
+      "prompt": "An interviewer asks about a day when your plan fell apart. Which answer shows the strongest planning skill?",
+      "options": [
+        "You re-ranked tasks by impact, told stakeholders what would slip, and later adjusted your estimates",
+        "You worked longer hours until all the tasks were done",
+        "You explained that your plans rarely fail",
+        "You blamed the interruptions and resumed the original plan"
+      ],
+      "answer": "A",
+      "explanation": "Strong answers show re-prioritising, communicating trade-offs and learning from the event. Working longer or denying problems shows neither adaptability nor reflection."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Three stakeholders each say their request is urgent and you cannot do all of them today. What is the most defensible way to decide?",
+      "options": [
+        "Serve whoever is most senior",
+        "Compare deadlines and business impact, then explain the order",
+        "Take the quickest request first every time",
+        "Split your time equally among them"
+      ],
+      "answer": "B",
+      "explanation": "Using deadlines and impact gives a fair, explainable basis for the order. Seniority, speed or equal splitting can leave a critical deadline unmet."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Your calendar has only 30-minute gaps between meetings, yet you must produce a long report. Which approach works best?",
+      "options": [
+        "Wait until you have a completely free day",
+        "Work on it only at weekends",
+        "Break the report into sections sized to the gaps and fit them in",
+        "Use each gap to start a different new task"
+      ],
+      "answer": "C",
+      "explanation": "Splitting the work into pieces that suit the available slots keeps progress steady. Starting new tasks in every gap spreads effort without finishing anything."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Your tasks are a proposal due at 12:00 needing 2 uninterrupted hours, a 30-minute expense report due Friday, and a fixed meeting at 13:00. Which plan is best?",
+      "options": [
+        "Do the expense report first, then start the proposal at 11:00",
+        "Start the proposal after the 13:00 meeting, when you are free",
+        "Handle emails until 10:00, then write the proposal",
+        "Block 09:00 to 11:00 for the proposal and do the expense report later"
+      ],
+      "answer": "D",
+      "explanation": "The proposal has the nearest deadline and the longest focused need, so it gets protected time first. The expense report has slack until Friday."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why should your daily plan be built from your weekly priorities?",
+      "options": [
+        "So daily tasks advance larger goals and are not only reactive",
+        "So you can avoid planning on most days",
+        "So every day of the week looks the same",
+        "So urgent requests never need handling"
+      ],
+      "answer": "A",
+      "explanation": "Weekly priorities give the day a direction, so effort goes to outcomes that matter. Without them, days are filled by whatever arrives first."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In an interview, you are asked to prioritise five tasks quickly. What is the best first step?",
+      "options": [
+        "Rank them by how long each one takes",
+        "Ask about deadlines, impact and dependencies before ranking",
+        "Pick the one you would enjoy most",
+        "Start with the first one listed"
+      ],
+      "answer": "B",
+      "explanation": "Prioritising needs information on deadlines, impact and dependencies, and asking shows structured thinking. Ranking by length or preference ignores what matters."
+    },
+    {
+      "category": "Hard",
+      "prompt": "You work with colleagues who are eight hours behind your time zone. How should you arrange your day to collaborate and still focus?",
+      "options": [
+        "Stay available at all hours so no message waits",
+        "Do all collaboration at the very end of your day",
+        "Use shared overlap hours for collaboration and protect other hours for solo work",
+        "Skip live meetings and use only chat"
+      ],
+      "answer": "C",
+      "explanation": "Concentrating real-time work into the overlap leaves the remaining hours for uninterrupted tasks. Being always available fragments focus and leads to burnout."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A colleague interrupts your focus block with a non-urgent request. What is the best response?",
+      "options": [
+        "Drop your task and help immediately",
+        "Ask them to email it and ignore any follow up",
+        "Say that you cannot help this week",
+        "Acknowledge it and agree a time later in the day"
+      ],
+      "answer": "D",
+      "explanation": "Acknowledging the request and setting a time protects your focus while keeping the relationship positive. Dropping everything breaks concentration, and refusing outright is unhelpful."
+    }
+  ]
+}

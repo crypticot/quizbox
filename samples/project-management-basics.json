@@ -1,0 +1,116 @@
+{
+  "id": "sample-pm",
+  "title": "Sample Quiz: Project Management Basics",
+  "subject": "Project management",
+  "description": "Nine questions across easy, medium and hard. A quick way to see how Quizbox works.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "The classic triple constraint of project management refers to:",
+      "options": [
+        "Scope, time and cost",
+        "People, process and product",
+        "Risk, quality and communication",
+        "Plan, do and check"
+      ],
+      "answer": "A",
+      "explanation": "Scope, time (schedule) and cost are linked. A change to one usually affects the others."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which document formally authorises a project?",
+      "options": [
+        "Work breakdown structure",
+        "Risk register",
+        "Project charter",
+        "Status report"
+      ],
+      "answer": "C",
+      "explanation": "The project charter formally authorises the project and gives the project manager authority to use resources."
+    },
+    {
+      "category": "Easy",
+      "prompt": "A risk is best described as:",
+      "options": [
+        "A problem that has already happened",
+        "A change request that was rejected",
+        "An uncertain event that could affect project objectives",
+        "A missed deadline"
+      ],
+      "answer": "C",
+      "explanation": "A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue."
+    },
+    {
+      "category": "Medium",
+      "prompt": "The critical path of a project is:",
+      "options": [
+        "The path with the most expensive activities",
+        "The path with the most team members",
+        "The path with the most risks",
+        "The longest sequence of dependent activities, which sets the shortest possible project duration"
+      ],
+      "answer": "D",
+      "explanation": "A delay to any critical path activity delays the project finish date unless the time is recovered."
+    },
+    {
+      "category": "Medium",
+      "prompt": "On a power/interest grid, a stakeholder with high power and low interest should generally be:",
+      "options": [
+        "Ignored",
+        "Monitored with minimum effort",
+        "Kept satisfied",
+        "Managed closely every day"
+      ],
+      "answer": "C",
+      "explanation": "High power and low interest means keep satisfied. High power and high interest means manage closely."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?",
+      "options": [
+        "Add it straight away to keep the stakeholder happy",
+        "Refuse it because the scope is fixed",
+        "Ask the team to absorb it without telling anyone",
+        "Assess its impact on scope, time, cost and risk, then submit it through change control"
+      ],
+      "answer": "D",
+      "explanation": "Changes should be evaluated and then formally approved or rejected, never quietly added."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?",
+      "options": [
+        "$110,000",
+        "$125,000",
+        "$150,000",
+        "$160,000"
+      ],
+      "answer": "B",
+      "explanation": "CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?",
+      "options": [
+        "0 days",
+        "2 days",
+        "4 days",
+        "6 days"
+      ],
+      "answer": "B",
+      "explanation": "A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?",
+      "options": [
+        "-$19,000",
+        "+$11,000",
+        "-$30,000",
+        "-$11,000"
+      ],
+      "answer": "D",
+      "explanation": "Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000."
+    }
+  ]
+}

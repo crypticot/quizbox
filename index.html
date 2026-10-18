@@ -148,6 +148,7 @@
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       background: var(--bg);
@@ -1634,6 +1635,34 @@
       }
     }
 
+    /* ============================================================
+       Small phones
+    ============================================================ */
+    .row:has(> .quiz-stats),
+    .quiz-stats {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 39.99rem) {
+      #app { padding: 1.25rem 1rem 3rem; }
+      .qcard { padding: 1rem; }
+      .opt { gap: 0.75rem; padding: 0.85rem; }
+      .fbrow .btn { width: 100%; }
+      .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+      .seg button { padding: 0 0.7rem; }
+    }
+
+    @media (max-width: 63.99rem) {
+      .nav { max-height: calc(100dvh - 4rem); overflow-y: auto; }
+    }
+
+    /* iPhones zoom into any field smaller than 16px */
+    @media (pointer: coarse) {
+      .field,
+      textarea.field,
+      .field.tnum { font-size: 1rem !important; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       * {
         animation: none !important;
@@ -1662,6 +1691,7 @@
 
       <nav class="nav" id="site-nav" aria-label="Main">
         <a href="#/" data-route="home">Home</a>
+        <a href="#/samples" data-route="samples">Samples</a>
         <a href="#/modules" data-route="modules">Modules</a>
         <a href="#/create" data-route="create">Create</a>
         <a href="#/add" data-route="add">Add questions</a>
@@ -1727,6 +1757,7 @@
 
     const PAGE_TITLES = {
       home: 'Quizbox: practice quizzes from your own questions',
+      samples: 'Sample library | Quizbox',
       modules: 'Modules | Quizbox',
       create: 'Create questions | Quizbox',
       add: 'Add questions | Quizbox',
@@ -1736,7 +1767,7 @@
       results: 'Results | Quizbox'
     };
 
-    const PAGES = ['home', 'modules', 'create', 'add', 'help', 'settings'];
+    const PAGES = ['home', 'samples', 'modules', 'create', 'add', 'help', 'settings'];
 
     /* ============================================================
        Icons
@@ -1831,166 +1862,107 @@
     }
 
     /* ============================================================
-       SAMPLE QUIZZES  <-- add, edit or delete samples here
+       SAMPLE LIBRARY
        ------------------------------------------------------------
-       Each sample is one { ... } block inside SAMPLE_QUIZZES.
-
-       ADD one:    copy a whole block (from { to }), paste it after the
-                   last block with a comma between blocks, then change
-                   the id, the title and the questions.
-       REMOVE one: delete its whole block (and the comma beside it).
-
-       Rules
-       - id: must be unique, 4 to 40 letters, numbers, - or _.
-         Scores are saved under the id, so do not change an id after
-         you publish. Editing the title or questions is always safe.
-       - answer: the letter of the correct option, like 'A' or 'C'.
-       - 2 to 6 options per question. category and explanation are
-         optional.
-       - Text with an apostrophe (it's) needs double quotes around it
-         ("it's") or a backslash before the apostrophe (it\'s).
-       - You can paste the JSON the AI prompts produce straight in.
-       - A sample with a mistake is skipped, and the reason shows in
-         the browser console (press F12).
+       Samples are files in the "samples" folder of the repo.
+       To add one: put the .json file in that folder, then add its
+       file name to samples/index.json. Nothing here needs editing.
     ============================================================ */
-    const SAMPLE_QUIZZES = [
-      {
-        id: 'sample-pm',
-        title: 'Sample Quiz: Project Management Basics',
-        questions: [
-          {
-            category: 'Easy',
-            prompt: 'The classic triple constraint of project management refers to:',
-            options: [
-              'Scope, time and cost',
-              'People, process and product',
-              'Risk, quality and communication',
-              'Plan, do and check',
-            ],
-            answer: 'A',
-            explanation: 'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'
-          },
-          {
-            category: 'Easy',
-            prompt: 'Which document formally authorises a project?',
-            options: [
-              'Work breakdown structure',
-              'Risk register',
-              'Project charter',
-              'Status report',
-            ],
-            answer: 'C',
-            explanation: 'The project charter formally authorises the project and gives the project manager authority to use resources.'
-          },
-          {
-            category: 'Easy',
-            prompt: 'A risk is best described as:',
-            options: [
-              'A problem that has already happened',
-              'A change request that was rejected',
-              'An uncertain event that could affect project objectives',
-              'A missed deadline',
-            ],
-            answer: 'C',
-            explanation: 'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'
-          },
-          {
-            category: 'Medium',
-            prompt: 'The critical path of a project is:',
-            options: [
-              'The path with the most expensive activities',
-              'The path with the most team members',
-              'The path with the most risks',
-              'The longest sequence of dependent activities, which sets the shortest possible project duration',
-            ],
-            answer: 'D',
-            explanation: 'A delay to any critical path activity delays the project finish date unless the time is recovered.'
-          },
-          {
-            category: 'Medium',
-            prompt: 'On a power/interest grid, a stakeholder with high power and low interest should generally be:',
-            options: [
-              'Ignored',
-              'Monitored with minimum effort',
-              'Kept satisfied',
-              'Managed closely every day',
-            ],
-            answer: 'C',
-            explanation: 'High power and low interest means keep satisfied. High power and high interest means manage closely.'
-          },
-          {
-            category: 'Medium',
-            prompt: 'A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',
-            options: [
-              'Add it straight away to keep the stakeholder happy',
-              'Refuse it because the scope is fixed',
-              'Ask the team to absorb it without telling anyone',
-              'Assess its impact on scope, time, cost and risk, then submit it through change control',
-            ],
-            answer: 'D',
-            explanation: 'Changes should be evaluated and then formally approved or rejected, never quietly added.'
-          },
-          {
-            category: 'Hard',
-            prompt: 'A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',
-            options: [
-              '$110,000',
-              '$125,000',
-              '$150,000',
-              '$160,000',
-            ],
-            answer: 'B',
-            explanation: 'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'
-          },
-          {
-            category: 'Hard',
-            prompt: 'Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',
-            options: [
-              '0 days',
-              '2 days',
-              '4 days',
-              '6 days',
-            ],
-            answer: 'B',
-            explanation: 'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'
-          },
-          {
-            category: 'Hard',
-            prompt: 'A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',
-            options: [
-              '-$19,000',
-              '+$11,000',
-              '-$30,000',
-              '-$11,000',
-            ],
-            answer: 'D',
-            explanation: 'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.'
-          }
-        ]
-      }
-    ];
-
-    // ---- Nothing below this line needs editing ----
+    const SAMPLE_FOLDER = 'samples/';
     const SAMPLES = [];
+    const LIBRARY = { status: 'loading' };
 
-    SAMPLE_QUIZZES.forEach(function (raw) {
-      try {
-        if (!raw || !validId(raw.id)) {
-          throw new Error('it needs an id of 4 to 40 letters, numbers, - or _');
+    // Shown only if the samples folder cannot be read, for example when
+    // index.html is opened straight from your computer.
+    const FALLBACK_SAMPLE = {
+      id: 'sample-offline',
+      title: 'Sample Quiz: Built-in Basics',
+      subject: 'General',
+      questions: [
+        {
+          prompt: 'Which planet is closest to the Sun?',
+          options: ['Venus', 'Mercury', 'Mars', 'Earth'],
+          answer: 'B',
+          explanation: 'Mercury orbits closest to the Sun.'
+        },
+        {
+          prompt: 'What is 12 x 12?',
+          options: ['124', '132', '144', '154'],
+          answer: 'C',
+          explanation: '12 x 12 = 144.'
+        },
+        {
+          prompt: 'Which gas do plants take in for photosynthesis?',
+          options: ['Oxygen', 'Nitrogen', 'Helium', 'Carbon dioxide'],
+          answer: 'D',
+          explanation: 'Plants take in carbon dioxide and release oxygen.'
         }
-        if (SAMPLES.some(function (item) { return item.id === raw.id; })) {
-          throw new Error('the id "' + raw.id + '" is already used by another sample');
-        }
-        SAMPLES.push(parseModule(raw, '', { sample: true }));
-      } catch (error) {
-        console.warn('Quizbox: sample quiz skipped (' + (raw && raw.title ? raw.title : 'no title') + '): ' + error.message);
-      }
-    });
-
-    const SAMPLE_IDS = SAMPLES.map(function (item) { return item.id; });
+      ]
+    };
 
     function isSampleId(id) {
-      return SAMPLE_IDS.indexOf(id) >= 0;
+      return SAMPLES.some(function (item) { return item.id === id; });
+    }
+
+    function sampleIdFor(file) {
+      const slug = file.replace(/\.json$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      return ('sample-' + slug).slice(0, 40).replace(/-+$/, '');
+    }
+
+    function fetchJson(url) {
+      return fetch(url, { cache: 'no-cache' }).then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      });
+    }
+
+    function loadSampleFile(file) {
+      if (typeof file !== 'string' || !/^[A-Za-z0-9._-]+\.json$/.test(file) || file.toLowerCase() === 'index.json') {
+        console.warn('Quizbox: sample skipped, "' + file + '" is not a valid file name.');
+        return null;
+      }
+
+      return fetchJson(SAMPLE_FOLDER + file).then(function (raw) {
+        if (!isRecord(raw)) throw new Error('it is not a module object');
+        raw.id = validId(raw.id) ? raw.id : sampleIdFor(file);
+        const sample = parseModule(raw, '', { sample: true });
+        sample.subject = cleanText(raw.subject);
+        sample.description = cleanText(raw.description);
+        return sample;
+      }).catch(function (error) {
+        console.warn('Quizbox: sample skipped (' + file + '): ' + error.message);
+        return null;
+      });
+    }
+
+    function finishLibrary(status) {
+      LIBRARY.status = status;
+      if (S.view === 'page') render();
+    }
+
+    function loadSampleLibrary() {
+      return fetchJson(SAMPLE_FOLDER + 'index.json')
+        .then(function (list) {
+          if (!Array.isArray(list)) throw new Error('samples/index.json must be a list of file names');
+          return Promise.all(list.map(loadSampleFile));
+        })
+        .then(function (items) {
+          const seen = {};
+          items.forEach(function (item) {
+            if (item && !seen[item.id]) {
+              seen[item.id] = true;
+              SAMPLES.push(item);
+            }
+          });
+          if (!SAMPLES.length) throw new Error('no valid samples were found');
+          finishLibrary('ready');
+        })
+        .catch(function (error) {
+          console.warn('Quizbox: sample library not loaded (' + error.message + '). Using the built-in sample.');
+          SAMPLES.length = 0;
+          SAMPLES.push(parseModule(FALLBACK_SAMPLE, '', { sample: true }));
+          finishLibrary('fallback');
+        });
     }
 
     const EXAMPLE_JSON = [
@@ -2210,6 +2182,7 @@
         interview: false
       },
       filter: '',
+      sampleFilter: '',
       message: null,
       copied: { prompt: false, example: false, topic: false },
       offlineReady: false,
@@ -3016,12 +2989,13 @@
       const idAttr = 'data-id="' + esc(module.id) + '"';
 
       return `
-        <li class="card mrow" data-title="${esc(module.title.toLowerCase())}">
+        <li class="card mrow" data-title="${esc((module.title + ' ' + (module.subject || '')).toLowerCase())}">
           <div class="stack g2" style="min-width:0">
             <div class="row g2 wrap">
               <p class="strong pretty">${esc(module.title)}</p>
-              ${isSample ? '<span class="tag">Sample</span>' : ''}
+              ${isSample ? '<span class="tag">' + esc(module.subject || 'Sample') + '</span>' : ''}
             </div>
+            ${module.description ? '<p class="small muted pretty">' + esc(module.description) + '</p>' : ''}
             <p class="mono xs muted">${esc(info)}</p>
             ${stats ? `<div class="meter" role="img" aria-label="Best score ${stats.bestPercent} percent"><div style="width:${stats.bestPercent}%"></div></div>` : ''}
           </div>
@@ -3108,7 +3082,7 @@
                 <p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p>
               </div>
               <div class="row wrap g3">
-                ${SAMPLES.length ? button('start', 'Try the sample quiz', { cls: 'lg', icon: 'play', data: 'data-id="' + SAMPLES[0].id + '"' }) : ''}
+                <a class="btn lg" href="#/samples">${icon('play')}Try a sample quiz</a>
                 <a class="btn lg out" href="#/add">${icon('up')}Add your questions</a>
               </div>
               <ul class="facts">
@@ -3134,6 +3108,8 @@
           </section>
 
           ${ownSection}
+
+          ${samplePreview()}
 
           <section class="stack g4" aria-labelledby="how-title">
             <h2 class="sec" id="how-title">How it works</h2>
@@ -3165,6 +3141,23 @@
         </div>`;
     }
 
+    function samplePreview() {
+      if (LIBRARY.status === 'loading') {
+        return '<section class="stack g3" aria-labelledby="lib-title"><h2 class="sec" id="lib-title">Sample library</h2><p class="small muted">Loading samples...</p></section>';
+      }
+      if (!SAMPLES.length) return '';
+
+      return `
+        <section class="stack g3" aria-labelledby="lib-title">
+          <div class="row between wrap">
+            <h2 class="sec" id="lib-title">Sample library</h2>
+            <a class="btn sm out" href="#/samples">View all (${SAMPLES.length})</a>
+          </div>
+          <p class="small muted pretty">Try a ready-made quiz before you add your own.</p>
+          <ul class="list">${SAMPLES.slice(0, 4).map(function (sample) { return moduleRow(sample, true); }).join('')}</ul>
+        </section>`;
+    }
+
     function modulesView() {
       const count = S.modules.length;
       const filterBox = count >= 6 ? `
@@ -3182,21 +3175,49 @@
         <div class="stack g6">
           ${pageHeader('Modules', 'Pick a module to start a quiz. Your best and latest scores are shown on each one.', '<a class="btn" href="#/add">' + icon('plus') + 'Add questions</a>')}
           ${storageBanner()}
-          ${SAMPLES.length ? `
-            <section class="stack g3" aria-labelledby="sample-title">
-              <h2 class="sec" id="sample-title">${SAMPLES.length === 1 ? 'Sample' : 'Samples'}</h2>
-              <ul class="list">${SAMPLES.map(function (sample) { return moduleRow(sample, true); }).join('')}</ul>
-            </section>` : ''}
           <section class="stack g3" aria-labelledby="mine-title">
             <h2 class="sec" id="mine-title">Your modules</h2>
             ${filterBox}
             ${ownList}
           </section>
+          <p class="small muted">Want something ready-made? <a href="#/samples">Browse the sample library</a>.</p>
           ${count ? `
             <section class="stack g2">
               ${button('export', 'Export backup', { cls: 'out', icon: 'down', style: 'align-self:flex-start' })}
               <p class="xs muted" style="max-width:32rem">Modules live in this browser. Clearing your browser data removes them, so keep a backup file. It includes your scores and settings.</p>
             </section>` : ''}
+        </div>`;
+    }
+
+    function samplesView() {
+      const count = SAMPLES.length;
+      const filterBox = count >= 6 ? `
+        <div class="stack g2">
+          <label class="sr" for="sample-filter">Search the sample library</label>
+          <input type="search" class="field" id="sample-filter" placeholder="Search samples" value="${esc(S.sampleFilter)}" autocomplete="off">
+        </div>` : '';
+
+      let body;
+      if (LIBRARY.status === 'loading') {
+        body = '<p class="dashed">Loading samples...</p>';
+      } else if (!count) {
+        body = '<p class="dashed">No samples are available right now.</p>';
+      } else {
+        body = `<ul class="list" id="sample-list">${SAMPLES.map(function (sample) { return moduleRow(sample, true); }).join('')}</ul>
+                <p class="dashed" id="no-match" hidden>No samples match your search.</p>`;
+      }
+
+      const notice = LIBRARY.status === 'fallback'
+        ? '<p class="msg info">The sample library could not be loaded, so only a short built-in sample is shown. Open the live site to see the full library.</p>'
+        : '';
+
+      return `
+        <div class="stack g6">
+          ${pageHeader('Sample library', 'Ready-made quizzes you can try right away. Scores are saved the same way as for your own modules.')}
+          ${notice}
+          ${filterBox}
+          ${body}
+          <p class="small muted">Want to practise your own material? <a href="#/add">Add your questions</a> or <a href="#/create">create a quiz from a topic</a>.</p>
         </div>`;
     }
 
@@ -3523,7 +3544,7 @@
           <header class="stack g4">
             <p class="eyebrow">${esc(S.active.title)}</p>
             <div class="row between g4">
-              <div class="row g4">
+              <div class="row g4 quiz-stats">
                 ${clock}
                 <div class="stack">
                   <span class="xs muted" style="text-transform:uppercase;letter-spacing:0.08em">Score</span>
@@ -3637,6 +3658,7 @@
       if (S.view === 'results') return resultsView();
 
       switch (S.page) {
+        case 'samples': return samplesView();
         case 'modules': return modulesView();
         case 'create': return createView();
         case 'add': return addView();
@@ -3726,12 +3748,12 @@
         }
       }
 
-      if (S.view === 'page' && S.page === 'modules') applyFilter();
+      if (S.view === 'page' && (S.page === 'modules' || S.page === 'samples')) applyFilter();
     }
 
     function applyFilter() {
-      const needle = S.filter.trim().toLowerCase();
-      const items = $$('#own-list li');
+      const needle = (S.page === 'samples' ? S.sampleFilter : S.filter).trim().toLowerCase();
+      const items = $$(S.page === 'samples' ? '#sample-list li' : '#own-list li');
       let visible = 0;
 
       items.forEach(function (item) {
@@ -4121,6 +4143,7 @@
       if (target.id === 'load-text') S.loadText = target.value;
       else if (target.id === 'load-title') S.loadTitle = target.value;
       else if (target.id === 'mod-filter') { S.filter = target.value; applyFilter(); }
+      else if (target.id === 'sample-filter') { S.sampleFilter = target.value; applyFilter(); }
       else if (target.id === 'topic-name') { S.topic.name = target.value; refreshTopicPrompt(); }
       else if (target.id === 'topic-focus') { S.topic.focus = target.value; refreshTopicPrompt(); }
       else if (target.id === 'topic-goal') { S.topic.goal = target.value; refreshTopicPrompt(); }
@@ -4261,6 +4284,7 @@
     applyTheme();
     updateMenuButton(false);
     onRoute();
+    loadSampleLibrary();
     setupOffline();
 
     if (S.loadIssue) {
