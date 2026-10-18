@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quizbox: practice quizzes from your own questions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quizbox: practice quizzes from your own questions</title>
 
   <!-- Search -->
   <meta name="description" content="Quizbox turns your own questions into multiple choice quizzes with instant explanations. Load a file, practise, and track your scores." />
@@ -49,742 +49,3795 @@
     "creator": { "@type": "Organization", "name": "COTworks" }
   }
   </script>
-  
-<meta name="color-scheme" content="light dark">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  color-scheme:light;
-  --bg:oklch(0.975 0.008 85);--fg:oklch(0.2 0.02 270);--card:oklch(0.995 0.004 85);
-  --primary:oklch(0.5 0.22 275);--primary-fg:oklch(0.985 0.005 85);
-  --secondary:oklch(0.93 0.015 85);--secondary-fg:oklch(0.3 0.02 270);
-  --muted:oklch(0.93 0.012 85);--muted-fg:oklch(0.5 0.02 270);
-  --danger:oklch(0.58 0.22 25);--ok:oklch(0.58 0.15 155);--ok-fg:oklch(0.985 0.005 85);
-  --border:oklch(0.89 0.012 85);--radius:10px;
-  --sans:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    color-scheme:dark;
-    --bg:oklch(0.18 0.015 270);--fg:oklch(0.96 0.008 85);--card:oklch(0.22 0.018 270);
-    --primary:oklch(0.72 0.16 275);--primary-fg:oklch(0.18 0.015 270);
-    --secondary:oklch(0.28 0.02 270);--secondary-fg:oklch(0.96 0.008 85);
-    --muted:oklch(0.28 0.02 270);--muted-fg:oklch(0.72 0.015 270);
-    --danger:oklch(0.68 0.19 25);--ok:oklch(0.72 0.15 155);--ok-fg:oklch(0.18 0.015 270);
-    --border:oklch(1 0 0 / 10%);
-  }
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
-#app{max-width:44rem;margin:0 auto;padding:1.5rem 1.25rem 4rem}
-button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer}
-:focus-visible{outline:3px solid color-mix(in oklch,var(--primary) 50%,transparent);outline-offset:2px}
-h1,h2,p{margin:0}
-.stack{display:flex;flex-direction:column}
-.g2{gap:.5rem}.g3{gap:.75rem}.g4{gap:1rem}.g6{gap:1.5rem}.g10{gap:2.5rem}
-.row{display:flex;align-items:center;gap:.75rem}
-.wrap{flex-wrap:wrap}
-.between{justify-content:space-between}
-.mono{font-family:var(--mono)}
-.muted{color:var(--muted-fg)}
-.small{font-size:.875rem}.xs{font-size:.75rem}
-.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
-.title{font-size:clamp(2.6rem,9vw,3.75rem);font-weight:600;line-height:1.05;letter-spacing:-.03em;text-wrap:balance}
-.lead{font-size:1.125rem;line-height:1.6;color:var(--muted-fg);max-width:30rem;text-wrap:pretty}
-h2.sec{font-size:1.125rem;font-weight:600}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px}
-.pad{padding:1rem}
-.dashed{border:1px dashed var(--border);border-radius:14px;padding:1.5rem;font-size:.875rem;color:var(--muted-fg)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;height:2.5rem;padding:0 1rem;border-radius:var(--radius);border:1px solid var(--primary);background:var(--primary);color:var(--primary-fg);font-weight:500;font-size:.9rem;transition:filter .15s}
-.btn:hover{filter:brightness(1.08)}
-.btn.out{background:transparent;color:var(--fg);border-color:var(--border)}
-.btn.out:hover{background:var(--muted);filter:none}
-.btn.ghost{background:transparent;border-color:transparent;color:var(--fg);padding:0 .6rem}
-.btn.ghost:hover{background:var(--muted);filter:none}
-.btn.lg{height:2.75rem;padding:0 1.25rem}
-.btn.sm{height:2rem;padding:0 .75rem;font-size:.8rem}
-.btn svg{width:1rem;height:1rem;flex:none}
-.tag{border-radius:999px;background:var(--secondary);color:var(--secondary-fg);padding:.1rem .6rem;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
-.field{height:2.5rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg);padding:0 .75rem;font-size:.875rem;width:100%}
-textarea.field{height:auto;padding:.75rem;font-family:var(--mono);font-size:.75rem;line-height:1.6;resize:vertical}
-select.field{width:auto;height:2.25rem;padding:0 .5rem}
-.acc-head{display:flex;width:100%;align-items:center;justify-content:space-between;gap:.75rem;padding:1rem;background:none;border:0;text-align:left;font-weight:500;border-radius:14px}
-.acc-head svg{width:1rem;height:1rem;color:var(--muted-fg);transition:transform .2s}
-.acc-head[aria-expanded="true"] svg{transform:rotate(180deg)}
-.acc-body{border-top:1px solid var(--border);padding:1rem}
-.guide-link{display:flex;align-items:center;gap:.75rem;width:100%;text-align:left;padding:.75rem;border-radius:var(--radius);border:1px solid color-mix(in oklch,var(--primary) 30%,transparent);background:color-mix(in oklch,var(--primary) 6%,transparent);font-size:.875rem}
-.guide-link:hover{background:color-mix(in oklch,var(--primary) 12%,transparent)}
-.guide-link svg{width:1.25rem;height:1.25rem;color:var(--primary);flex:none}
-.guide-link b{display:block;font-weight:500}
-.msg{border-radius:var(--radius);border:1px solid;padding:.75rem;font-size:.875rem}
-.msg.ok{border-color:var(--ok);background:color-mix(in oklch,var(--ok) 10%,transparent)}
-.msg.err{border-color:var(--danger);background:color-mix(in oklch,var(--danger) 10%,transparent)}
-details{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
-summary{cursor:pointer;padding:.75rem;font-size:.875rem;font-weight:500}
-details>div{border-top:1px solid var(--border);padding:.75rem}
-pre{margin:0;overflow-x:auto;border-radius:var(--radius);background:var(--muted);padding:.75rem;font-family:var(--mono);font-size:.75rem;line-height:1.6}
-.steps{list-style:none;margin:0;padding:0}
-.num{flex:none;width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);font-family:var(--mono);font-size:.875rem;font-weight:600}
-.mrow{display:flex;flex-direction:column;gap:1rem;padding:1rem}
-@media(min-width:36rem){.mrow{flex-direction:row;align-items:center;justify-content:space-between}}
-.sw{position:relative;flex:none;width:2.75rem;height:1.5rem;border-radius:999px;border:1px solid var(--border);background:var(--muted);transition:background .2s}
-.sw::after{content:"";position:absolute;top:2px;left:2px;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--bg);box-shadow:0 1px 3px rgb(0 0 0/.25);transition:left .2s}
-.sw[aria-checked="true"]{background:var(--primary);border-color:var(--primary)}
-.sw[aria-checked="true"]::after{left:calc(100% - 1.1rem - 2px)}
-.set-ico{width:1.25rem;height:1.25rem;color:var(--primary);margin-top:.15rem;flex:none}
-/* quiz */
-.bar{height:.5rem;border-radius:999px;background:var(--muted);overflow:hidden}
-.bar>div{height:100%;background:var(--primary);border-radius:999px;transition:width .5s ease-out}
-.pill{display:inline-flex;align-items:center;gap:.25rem;border-radius:999px;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);padding:.2rem .65rem;font-size:.875rem;font-weight:500}
-.watch{display:flex;height:3.5rem;align-items:center;gap:.5rem;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:0 .75rem;font-family:var(--mono);font-weight:600}
-.ring{position:relative;width:3.5rem;height:3.5rem}
-.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ring span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600}
-.ring.low span{color:var(--danger)}
-.ring circle{fill:none;stroke-width:4}
-.ring .bg{stroke:var(--muted)}
-.ring .fg{stroke:var(--primary);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
-.ring.low .fg{stroke:var(--danger)}
-.qcard{border-radius:20px;padding:1.25rem;box-shadow:0 1px 2px rgb(0 0 0/.06);animation:rise .3s ease-out}
-@media(min-width:40rem){.qcard{padding:2rem}}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.prompt{font-size:clamp(1.4rem,4.5vw,1.85rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;text-wrap:balance}
-.opts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
-.opt{display:flex;width:100%;align-items:center;gap:1rem;text-align:left;padding:1rem;border-radius:12px;border:2px solid var(--border);background:var(--bg);font-weight:500;transition:transform .15s,border-color .15s,background .15s}
-.opt .ltr{flex:none;width:2rem;height:2rem;border-radius:8px;border:1px solid var(--border);background:var(--muted);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.875rem}
-.opt .ltr svg{width:1rem;height:1rem}
-.opt:not(:disabled):hover{transform:translateY(-2px);border-color:var(--primary);background:color-mix(in oklch,var(--primary) 5%,transparent)}
-.opt:not(:disabled):hover .ltr{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
-.opt:disabled{cursor:default}
-.opt.correct{border-color:var(--ok);background:color-mix(in oklch,var(--ok) 10%,transparent)}
-.opt.correct .ltr{background:var(--ok);color:var(--ok-fg);border-color:var(--ok)}
-.opt.wrong{border-color:var(--danger);background:color-mix(in oklch,var(--danger) 10%,transparent)}
-.opt.wrong .ltr{background:var(--danger);color:#fff;border-color:var(--danger)}
-.opt.dim{opacity:.5}
-.fb-ico{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
-.fb-ico svg{width:.9rem;height:.9rem}
-.fb-ico.ok{background:var(--ok);color:var(--ok-fg)}
-.fb-ico.no{background:var(--danger);color:#fff}
-.fbrow{display:flex;flex-direction:column;gap:1rem}
-@media(min-width:40rem){.fbrow{flex-direction:row;align-items:flex-end;justify-content:space-between}}
-/* results */
-.pct{font-family:var(--mono);font-size:clamp(4.5rem,18vw,6rem);font-weight:600;letter-spacing:-.05em;line-height:1}
-.pct small{font-size:.5em;color:var(--muted-fg)}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin:0}
-@media(min-width:40rem){.stats{grid-template-columns:repeat(var(--n,5),1fr)}}
-.stat{padding:1rem;border-radius:14px;border:1px solid var(--border);background:var(--card)}
-.stat dt{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-fg)}
-.stat dd{margin:.25rem 0 0;font-family:var(--mono);font-size:1.5rem;font-weight:600}
-.rev{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
-.rev li{display:flex;gap:1rem;padding:1rem;border-radius:14px;border:1px solid var(--border);border-left:4px solid var(--danger);background:var(--card)}
-.rev li.good{border-left-color:var(--ok)}
-.rev .ic{flex:none;width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in oklch,var(--danger) 15%,transparent);color:var(--danger)}
-.rev li.good .ic{background:color-mix(in oklch,var(--ok) 15%,transparent);color:var(--ok)}
-.rev .ic svg{width:1rem;height:1rem}
-.good-t{color:var(--ok);font-weight:500}
-.bad-t{color:var(--danger);font-weight:500;text-decoration:line-through}
-.loadown{padding:1.25rem;border-radius:14px;border:1px solid color-mix(in oklch,var(--primary) 30%,transparent);background:color-mix(in oklch,var(--primary) 6%,transparent);display:flex;flex-direction:column;gap:1rem}
-@media(min-width:40rem){.loadown{flex-direction:row;align-items:center;justify-content:space-between}}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.scroll-mt{scroll-margin-top:1.5rem}
-.brand{display:flex;align-items:center;gap:.6rem;font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
-.brand svg{width:2rem;height:2rem}
-.brand b{color:var(--primary);font-weight:600}
-.site-foot{max-width:44rem;margin:0 auto;padding:0 1.25rem 2.5rem;font-size:.8rem;color:var(--muted-fg);text-align:center;display:flex;flex-direction:column;gap:.35rem}
-.site-foot a{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in oklch,currentColor 35%,transparent);text-underline-offset:3px;transition:color .15s,text-decoration-color .15s}
-.site-foot a:hover,.site-foot a:focus-visible{color:var(--primary);text-decoration-color:currentColor}
-.kbd-hint{text-align:center}
-@media(hover:none){.kbd-hint{display:none}}
-.seg{display:inline-flex;align-self:flex-start;border:1px solid var(--border);border-radius:var(--radius);padding:3px;gap:3px;background:var(--bg)}
-.seg button{border:0;background:transparent;border-radius:7px;height:2rem;padding:0 .9rem;font-size:.85rem;font-weight:500;color:var(--muted-fg)}
-.seg button[aria-pressed="true"]{background:var(--primary);color:var(--primary-fg)}
-.seg button:not([aria-pressed="true"]):hover{background:var(--muted);color:var(--fg)}
-.watch.low{border-color:var(--danger);color:var(--danger)}
-.scrim{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:1.25rem;background:color-mix(in oklch,var(--fg) 45%,transparent);animation:fade .15s ease-out}
-.dialog{width:100%;max-width:24rem;display:flex;flex-direction:column;gap:.75rem;padding:1.5rem;border-radius:20px;border:1px solid var(--border);background:var(--card);box-shadow:0 20px 50px rgb(0 0 0/.25);animation:pop .18s ease-out}
-.dialog h2{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
-.dialog p{line-height:1.6;text-wrap:pretty}
-.dialog .end{justify-content:flex-end;margin-top:.5rem}
-.btn.danger{background:var(--danger);border-color:var(--danger);color:#fff}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
-.chips{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
-.chipbtn{height:2.25rem;padding:0 .9rem;border-radius:999px;border:1px solid var(--border);background:var(--bg);font-size:.85rem;font-weight:500}
-.chipbtn:hover{background:var(--muted)}
-.chipbtn[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
-.field.tnum{width:6rem;height:2.25rem;border-radius:999px;-moz-appearance:textfield;background:color-mix(in oklch,var(--primary) 10%,transparent);color:var(--primary);font-family:var(--mono);font-weight:600}
-.field.tnum::-webkit-inner-spin-button,.field.tnum::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
-</head>
-<body>
-<div id="app" aria-live="polite">
-  <h1>Quizbox: practice quizzes from your own questions</h1>
-  <p>Quizbox turns your own multiple choice questions into quizzes with instant explanations and saved scores. Load a file, practise, and see which questions you missed.</p>
-  <noscript><p>Quizbox needs JavaScript to run. Please turn it on in your browser.</p></noscript>
-</div>
-<footer class="site-foot">
-  <p><a href="https://crypticot.github.io/cotworks-portfolio/" target="_blank" rel="noopener">Quizbox by COTworks</a></p>
-  <p>Questions, need help or want more modules? <a href="mailto:cotworks@gmail.com?subject=Quizbox%3A%20help%20or%20module%20request">Email me</a></p>
-</footer>
 
-<script>
-(function () {
-'use strict';
+  <meta name="color-scheme" content="light dark">
 
-/* ---------- icons (inline SVG) ---------- */
-var P = {
-  play:'<path d="M6 4l14 8-14 8z"/>',
-  trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/>',
-  down:'<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>',
-  up:'<path d="M12 21V9m0 0l-4 4m4-4l4 4M4 3h16"/>',
-  chev:'<path d="M6 9l6 6 6-6"/>',
-  book:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"/>',
-  check:'<path d="M5 12l5 5 9-11"/>',
-  x:'<path d="M6 6l12 12M18 6L6 18"/>',
-  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',
-  timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/>',
-  shuffle:'<path d="M3 7h4l10 10h4M3 17h4l3-3m4-4l3-3h4M18 4l3 3-3 3M18 14l3 3-3 3"/>',
-  retry:'<path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.5M3 4v5h5"/>',
-  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
-  home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
-  next:'<path d="M5 12h14m-6-6l6 6-6 6"/>',
-  flame:'<path d="M12 3c1 4 5 6 5 11a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z"/>'
-};
-function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+P[n]+'</svg>';}
+  <!-- Apply the saved theme before the page paints, so there is no flash -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('quizbox:theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
 
-/* ---------- data ---------- */
-var LETTERS = 'ABCDEF', MIN_OPT = 2, MAX_OPT = 6;
-var TIMER_CHOICES = [30,45,60,90,120];
-var TOTAL_CHOICES = [5,10,15,20,30,45,60,90,120];
-var DEFAULTS = {timerEnabled:false, timerMode:'question', secondsPerQuestion:60, totalMinutes:15, shuffleQuestions:true};
-var KEYS = {mods:'pmquiz:modules:v1', stats:'pmquiz:stats:v1', set:'pmquiz:settings:v1'};
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-function q(cat,prompt,options,ans,exp){return {category:cat,prompt:prompt,options:options,answerIndex:ans,explanation:exp};}
-var SAMPLE = {id:'sample-pm', title:'Sample Quiz: Project Management Basics', questions:[
-  q('Easy','The classic triple constraint of project management refers to:',['Scope, time and cost','People, process and product','Risk, quality and communication','Plan, do and check'],0,'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'),
-  q('Easy','Which document formally authorises a project?',['Work breakdown structure','Risk register','Project charter','Status report'],2,'The project charter formally authorises the project and gives the project manager authority to use resources.'),
-  q('Easy','A risk is best described as:',['A problem that has already happened','A change request that was rejected','An uncertain event that could affect project objectives','A missed deadline'],2,'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'),
-  q('Medium','The critical path of a project is:',['The path with the most expensive activities','The path with the most team members','The path with the most risks','The longest sequence of dependent activities, which sets the shortest possible project duration'],3,'A delay to any critical path activity delays the project finish date unless the time is recovered.'),
-  q('Medium','On a power/interest grid, a stakeholder with high power and low interest should generally be:',['Ignored','Monitored with minimum effort','Kept satisfied','Managed closely every day'],2,'High power and low interest means keep satisfied. High power and high interest means manage closely.'),
-  q('Medium','A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',['Add it straight away to keep the stakeholder happy','Refuse it because the scope is fixed','Ask the team to absorb it without telling anyone','Assess its impact on scope, time, cost and risk, then submit it through change control'],3,'Changes should be evaluated and then formally approved or rejected, never quietly added.'),
-  q('Hard','A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',['$110,000','$125,000','$150,000','$160,000'],1,'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'),
-  q('Hard','Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',['0 days','2 days','4 days','6 days'],1,'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'),
-  q('Hard','A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',['-$19,000','+$11,000','-$30,000','-$11,000'],3,'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.')
-]};
-SAMPLE.questions.forEach(function(x,i){x.id='sample-q'+(i+1);});
-
-var EXAMPLE_JSON = '{\n  "title": "Module 1: Project Fundamentals",\n  "questions": [\n    {\n      "prompt": "Which document formally authorises a project?",\n      "options": [\n        "Project charter",\n        "Work breakdown structure",\n        "Risk register",\n        "Status report"\n      ],\n      "answer": "A",\n      "explanation": "The project charter formally authorises the project."\n    }\n  ]\n}';
-
-/* ---------- parsing ---------- */
-function makeId(){return Math.random().toString(36).slice(2,10);}
-function isRec(v){return typeof v==='object'&&v!==null&&!Array.isArray(v);}
-function txt(v){return typeof v==='string'?v.trim():'';}
-function parseQuestion(raw,n,mid,mtitle){
-  var label='Question '+n;
-  if(!isRec(raw)) throw new Error(label+' is not an object.');
-  var prompt=txt(raw.prompt);
-  if(!prompt) throw new Error(label+' has no "prompt" (the question text).');
-  if(!Array.isArray(raw.options)) throw new Error(label+' has no "options" list.');
-  var options=raw.options.map(txt);
-  if(options.some(function(o){return o==='';})) throw new Error(label+' has an empty option.');
-  if(options.length<MIN_OPT||options.length>MAX_OPT) throw new Error(label+' needs between '+MIN_OPT+' and '+MAX_OPT+' options.');
-  var idx=-1;
-  if(typeof raw.answer==='string') idx=LETTERS.indexOf(raw.answer.trim().toUpperCase());
-  else if(typeof raw.answerIndex==='number') idx=raw.answerIndex;
-  else throw new Error(label+' has no answer. Add "answer": "B" (the letter of the correct option).');
-  if(!Number.isInteger(idx)||idx<0||idx>=options.length) throw new Error(label+' has an answer that does not match its '+options.length+' options. Use a letter from A to '+LETTERS[options.length-1]+'.');
-  return {id:mid+'-q'+n,category:txt(raw.category)||mtitle,prompt:prompt,options:options,answerIndex:idx,explanation:txt(raw.explanation)};
-}
-function parseModule(raw,fallback){
-  if(!isRec(raw)) throw new Error('A module must be an object with a "title" and a "questions" list.');
-  var title=txt(raw.title)||fallback.trim();
-  if(!title) throw new Error('This module has no "title". Add one, or type a title in the box above.');
-  if(!Array.isArray(raw.questions)||raw.questions.length===0) throw new Error('"'+title+'" has no questions.');
-  var id=makeId();
-  return {id:id,title:title,questions:raw.questions.map(function(x,i){return parseQuestion(x,i+1,id,title);})};
-}
-function parseModules(text,fallback){
-  var data;
-  try{data=JSON.parse(text);}catch(e){return {ok:false,error:'That is not valid JSON ('+e.message+').'};}
-  try{
-    if(Array.isArray(data)){
-      if(data.length&&isRec(data[0])&&'questions' in data[0]) return {ok:true,modules:data.map(function(x){return parseModule(x,'');})};
-      return {ok:true,modules:[parseModule({questions:data},fallback)]};
+  <style>
+    /* ============================================================
+       Design tokens
+    ============================================================ */
+    :root {
+      color-scheme: light;
+      --bg: oklch(0.975 0.008 85);
+      --fg: oklch(0.2 0.02 270);
+      --card: oklch(0.995 0.004 85);
+      --primary: oklch(0.5 0.22 275);
+      --primary-fg: oklch(0.985 0.005 85);
+      --secondary: oklch(0.93 0.015 85);
+      --secondary-fg: oklch(0.3 0.02 270);
+      --muted: oklch(0.93 0.012 85);
+      --muted-fg: oklch(0.5 0.02 270);
+      --danger: oklch(0.58 0.22 25);
+      --ok: oklch(0.58 0.15 155);
+      --ok-fg: oklch(0.985 0.005 85);
+      --border: oklch(0.89 0.012 85);
+      --shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 8px 24px rgb(0 0 0 / 0.06);
+      --radius: 10px;
+      --sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
-    if(isRec(data)&&Array.isArray(data.modules)){
-      if(!data.modules.length) return {ok:false,error:'The "modules" list is empty.'};
-      return {ok:true,modules:data.modules.map(function(x){return parseModule(x,'');})};
+
+    /* Dark theme chosen explicitly in the app */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: oklch(0.18 0.015 270);
+      --fg: oklch(0.96 0.008 85);
+      --card: oklch(0.22 0.018 270);
+      --primary: oklch(0.72 0.16 275);
+      --primary-fg: oklch(0.18 0.015 270);
+      --secondary: oklch(0.28 0.02 270);
+      --secondary-fg: oklch(0.96 0.008 85);
+      --muted: oklch(0.28 0.02 270);
+      --muted-fg: oklch(0.72 0.015 270);
+      --danger: oklch(0.68 0.19 25);
+      --ok: oklch(0.72 0.15 155);
+      --ok-fg: oklch(0.18 0.015 270);
+      --border: oklch(1 0 0 / 10%);
+      --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.35);
     }
-    return {ok:true,modules:[parseModule(data,fallback)]};
-  }catch(e){return {ok:false,error:e.message||'Something is wrong with the file.'};}
-}
 
-/* ---------- AI prompt ---------- */
-function buildAiPrompt(moduleTitle){
-  var title=moduleTitle.trim();
-  var titleRule=title?'The module title is: '+title:'The module title is whatever I tell you. If I have not given one, ask me for it before you start.';
-  return 'You are converting study questions into a JSON file for a quiz app. Follow every rule below exactly.\n\n'+titleRule+'\n\n'+
-'OUTPUT RULES\n'+
-'1. Reply with ONE code block containing valid JSON, and nothing inside the code block except the JSON.\n'+
-'2. If something needs my attention (a question you skipped, a missing answer), write it in plain text BEFORE the code block, never inside the JSON.\n'+
-'3. The JSON must be strictly valid: double quotes only, no trailing commas, no comments, no line breaks inside strings. Escape any double quote inside text as \\" and any backslash as \\\\.\n'+
-'4. Never cut the JSON off. If there are more than 40 questions, split them into parts of at most 40 questions. Give each part its own complete JSON object with the title followed by (Part 1), (Part 2) and so on, and put each part in its own code block.\n\n'+
-'FORMAT\n'+
-'{\n  "title": "Module title here",\n  "questions": [\n    {\n      "prompt": "The question text",\n      "options": ["First option", "Second option", "Third option", "Fourth option"],\n      "answer": "B",\n      "explanation": "Why the answer is correct."\n    }\n  ]\n}\n\n'+
-'FIELD RULES\n'+
-'- "prompt": the question text only, with no question number.\n'+
-'- "options": between 2 and 6 options, in the same order as the source. Remove any leading labels such as "A.", "B)", "(c)" or "1." from the option text. Do not shuffle or reword the options.\n'+
-'- "answer": ONE capital letter, A to F, matching the position of the correct option (A is the first option, B the second, and so on). The letter must exist in that question\'s options. If the source gives the answer as text instead of a letter, work out the letter.\n'+
-'- "explanation": use the explanation from my source if there is one. If there is none, write a short one only if you are certain it is correct. Otherwise use an empty string "". Never invent facts.\n'+
-'- "category": optional. Use it only if the source has a topic or section heading for that question, otherwise leave this field out.\n\n'+
-'ACCURACY RULES\n'+
-'- Do not invent, merge, reorder, reword or remove questions. Keep my wording.\n'+
-'- Never guess a correct answer. If the source has no answer key for a question, leave that question out of the JSON and tell me which ones in plain text before the code block.\n'+
-'- If a question has more than one correct answer, or needs a typed answer, leave it out of the JSON and tell me which ones.\n'+
-'- True/false questions become two options: ["True", "False"].\n\n'+
-'BEFORE YOU REPLY, CHECK\n'+
-'- Every question has a prompt, 2 to 6 options and a valid answer letter.\n'+
-'- The JSON parses with no errors.\n'+
-'- The number of questions in the JSON matches the number in my source, minus any you told me you left out.\n\n'+
-'My questions are below:';
-}
-var STEPS = [
-  ['Collect your questions and answers','Copy them from your course platform, notes, PDF or Word file. Make sure the correct answers are included.'],
-  ['Copy the prompt below','Type your module title in the box first, so it is added to the prompt for you.'],
-  ['Open any AI chat and paste the prompt','ChatGPT, Claude or Gemini all work. Paste the prompt, then paste your questions underneath it (or attach the file).'],
-  ['Copy the code block the AI sends back','Paste it straight into the box under "Load a module", or save it as a .json file. To save it, open Notepad, paste, choose Save As, set the type to All files and name it something like module-1.json.'],
-  ['Load it and start','If an error appears, copy the error message back to the AI and ask it to fix the JSON. Then try again.']
-];
-
-/* ---------- storage ---------- */
-function read(key,fb){try{var r=localStorage.getItem(key);return r?JSON.parse(r):fb;}catch(e){return fb;}}
-function write(key,v){try{localStorage.setItem(key,JSON.stringify(v));}catch(e){}}
-
-/* ---------- state ---------- */
-var S = {
-  view:'start',
-  modules:read(KEYS.mods,[]),
-  stats:read(KEYS.stats,{}),
-  settings:Object.assign({},DEFAULTS,read(KEYS.set,{})),
-  loadOpen:null, helpOpen:false,
-  loadText:'', loadTitle:'', promptTitle:'', message:null,
-  copiedPrompt:false, copiedExample:false,
-  scrollTo:null,
-  run:null, active:null, kind:'full', saved:false
-};
-var timerId=null;
-
-function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-function shuffle(a){var c=a.slice();for(var i=c.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=c[i];c[i]=c[j];c[j]=t;}return c;}
-function saveMods(){write(KEYS.mods,S.modules);}
-function saveStats(){write(KEYS.stats,S.stats);}
-function saveSet(){write(KEYS.set,S.settings);}
-function clock(t){var m=Math.floor(t/60),s=t%60;return m+':'+(s<10?'0':'')+s;}
-function sameTitle(a,b){return a.trim().toLowerCase()===b.trim().toLowerCase();}
-
-function importModules(incoming){
-  var added=[],updated=[];
-  incoming.forEach(function(m){
-    var i=S.modules.findIndex(function(x){return sameTitle(x.title,m.title);});
-    if(i>=0){m.id=S.modules[i].id;S.modules[i]=m;updated.push(m.title);}
-    else{S.modules.push(m);added.push(m.title);}
-  });
-  saveMods();
-  var parts=[];
-  if(added.length) parts.push('Loaded: '+added.join(', '));
-  if(updated.length) parts.push('Updated: '+updated.join(', '));
-  return parts.join('. ')+'.';
-}
-function recordResult(id,correct,total){
-  var pct=total?Math.round(correct/total*100):0,p=S.stats[id];
-  S.stats[id]={attempts:(p?p.attempts:0)+1,lastPercent:pct,bestPercent:Math.max(p?p.bestPercent:0,pct)};
-  saveStats();
-}
-function exportBackup(){
-  var blob=new Blob([JSON.stringify({modules:S.modules},null,2)],{type:'application/json'});
-  var url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='pm-quiz-backup-'+new Date().toISOString().slice(0,10)+'.json';
-  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
-}
-function copyText(text,flag){
-  function done(){S[flag]=true;render();setTimeout(function(){S[flag]=false;render();},2000);}
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback);}else fallback();
-  function fallback(){
-    var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';
-    document.body.appendChild(t);t.select();
-    try{document.execCommand('copy');done();}catch(e){}
-    t.remove();
-  }
-}
-
-/* ---------- quiz engine ---------- */
-function startRun(mod,questions,kind){
-  S.saved=false;S.active=mod;S.kind=kind;
-  var st=S.settings;
-  var mode=!st.timerEnabled?'none':(st.timerMode==='total'?'total':'question');
-  var secs=mode==='question'?st.secondsPerQuestion:0;
-  var totalSecs=mode==='total'?st.totalMinutes*60:0;
-  S.run={
-    questions:st.shuffleQuestions?shuffle(questions):questions.slice(),
-    current:0,selected:null,revealed:false,
-    mode:mode,secs:secs,timeLeft:secs,totalSecs:totalSecs,totalLeft:totalSecs,
-    elapsed:0,spent:{},skips:0,answers:[],streak:0,best:0,timeUp:false
-  };
-  S.view='quiz';
-  startTimer();render();window.scrollTo(0,0);
-}
-function startTimer(){stopTimer();timerId=setInterval(tick,1000);}
-function stopTimer(){if(timerId){clearInterval(timerId);timerId=null;}}
-function record(sel){
-  var r=S.run,qq=r.questions[r.current],ok=sel===qq.answerIndex;
-  r.streak=ok?r.streak+1:0;r.best=Math.max(r.best,r.streak);
-  r.selected=sel;r.revealed=true;
-  r.answers.push({question:qq,selectedIndex:sel,correct:ok,timeSpent:(r.spent[qq.id]||0)+r.elapsed});
-}
-function select(i){
-  var r=S.run;if(!r||S.view!=='quiz'||r.revealed)return;
-  record(i);render();
-}
-function showResults(){
-  stopTimer();S.view='results';
-  var r=S.run;
-  if(S.kind==='full'&&!S.saved){
-    S.saved=true;
-    recordResult(S.active.id,r.answers.filter(function(a){return a.correct;}).length,r.answers.length);
-  }
-  render();window.scrollTo(0,0);
-}
-function next(){
-  var r=S.run;if(!r||S.view!=='quiz'||!r.revealed)return;
-  if(r.current>=r.questions.length-1){showResults();return;}
-  r.current++;r.selected=null;r.revealed=false;r.elapsed=0;r.timeLeft=r.secs;
-  render();
-}
-// Sends the current question to the end of the queue. Its countdown starts fresh
-// when it comes back, but the time already spent on it is kept for the record.
-function skip(){
-  var r=S.run;
-  if(!r||S.view!=='quiz'||r.revealed||r.questions.length-r.current<2)return;
-  var qq=r.questions[r.current];
-  r.spent[qq.id]=(r.spent[qq.id]||0)+r.elapsed;
-  r.questions.push(r.questions.splice(r.current,1)[0]);
-  r.skips++;r.elapsed=0;r.timeLeft=r.secs;
-  render();
-}
-// Whole-quiz timer ran out: everything not yet answered counts as wrong.
-function timeUp(){
-  var r=S.run;
-  for(var i=r.current;i<r.questions.length;i++){
-    var qq=r.questions[i];
-    r.answers.push({question:qq,selectedIndex:null,correct:false,timeSpent:(r.spent[qq.id]||0)+(i===r.current?r.elapsed:0)});
-  }
-  r.streak=0;r.timeUp=true;
-  showResults();
-}
-function tick(){
-  var r=S.run;if(S.view!=='quiz'||!r||r.revealed)return;
-  if(document.querySelector('.scrim'))return;
-  r.elapsed++;
-  if(r.mode==='total'){
-    r.totalLeft--;
-    if(r.totalLeft<=0){r.totalLeft=0;timeUp();return;}
-    var wb=document.getElementById('watchbox'),wt=document.getElementById('watch');
-    if(wt)wt.textContent=clock(r.totalLeft);
-    if(wb)wb.className='watch'+(r.totalLeft<=30?' low':'');
-    return;
-  }
-  if(r.mode==='none'){var w=document.getElementById('watch');if(w)w.textContent=clock(r.elapsed);return;}
-  r.timeLeft--;
-  if(r.timeLeft<=0){r.timeLeft=0;record(null);render();return;}
-  var ring=document.getElementById('ring'),num=document.getElementById('ringnum'),fg=document.getElementById('ringfg');
-  if(num)num.textContent=r.timeLeft;
-  if(ring)ring.className='ring'+(r.timeLeft<=5?' low':'');
-  if(fg){var c=2*Math.PI*22;fg.style.strokeDashoffset=c*(1-r.timeLeft/r.secs);}
-}
-function goHome(){stopTimer();S.view='start';S.run=null;render();window.scrollTo(0,0);}
-
-/* ---------- views ---------- */
-function btn(action,label,opts){
-  opts=opts||{};
-  return '<button type="button" class="btn'+(opts.cls?' '+opts.cls:'')+'" data-a="'+action+'"'+(opts.data?' '+opts.data:'')+(opts.aria?' aria-label="'+esc(opts.aria)+'"':'')+'>'+(opts.icon?ic(opts.icon):'')+label+'</button>';
-}
-function moduleRow(m,sample){
-  var st=S.stats[m.id],n=m.questions.length;
-  var info=n+(n===1?' question':' questions')+(st?' · Best '+st.bestPercent+'% · Last '+st.lastPercent+'% · '+st.attempts+(st.attempts===1?' attempt':' attempts'):' · Not attempted yet');
-  var idAttr='data-id="'+esc(m.id)+'"';
-  return '<li class="card mrow"><div class="stack" style="gap:.25rem;min-width:0"><div class="row wrap g2"><p style="font-weight:500;text-wrap:pretty">'+esc(m.title)+'</p>'+(sample?'<span class="tag">Sample</span>':'')+'</div><p class="mono xs muted">'+esc(info)+'</p></div>'+
-  '<div class="row g2 wrap" style="flex:none">'+(st?btn('reset-scores','Reset scores',{cls:'ghost sm',data:idAttr}):'')+(sample?'':btn('delete','',{cls:'ghost',icon:'trash',aria:'Delete '+m.title,data:idAttr}))+btn('start','Start',{icon:'play',data:idAttr})+'</div></li>';
-}
-function timerOpts(){
-  if(!S.settings.timerEnabled)return '';
-  var total=S.settings.timerMode==='total';
-  var cur=total?S.settings.totalMinutes:S.settings.secondsPerQuestion;
-  var list=total?TOTAL_CHOICES:TIMER_CHOICES;
-  var isPreset=list.indexOf(cur)>=0;
-  var chips=total?chipRow('set-mins',TOTAL_CHOICES,cur,' min'):chipRow('set-secs',TIMER_CHOICES,cur,'s');
-  var custom=total
-    ?'<label class="row g2 small muted"><input type="number" class="field tnum" id="mins-custom" min="1" max="240" inputmode="numeric" placeholder="Custom" value="'+(isPreset?'':cur)+'" aria-label="Custom minutes for the whole quiz">min</label>'
-    :'<label class="row g2 small muted"><input type="number" class="field tnum" id="secs-custom" min="5" max="600" inputmode="numeric" placeholder="Custom" value="'+(isPreset?'':cur)+'" aria-label="Custom seconds per question">sec</label>';
-  var range=total?'Custom time: 1 to 240 minutes.':'Custom time: 5 to 600 seconds.';
-  var note=total
-    ?'One countdown for the whole quiz. It only runs while you are answering, not while you read feedback. When it reaches zero the quiz ends and unanswered questions count as wrong.'
-    :'Every question gets its own countdown, and a skipped question starts again at full time. Unanswered counts as wrong.';
-  return '<div class="stack g3" style="padding-left:2.25rem"><div class="seg" role="group" aria-label="Timer type"><button type="button" data-a="mode-question" aria-pressed="'+(!total)+'">Each question</button><button type="button" data-a="mode-total" aria-pressed="'+total+'">Whole quiz</button></div>'+
-  '<div class="chips">'+chips+custom+'</div>'+
-  '<p class="xs muted">'+range+' Type a number and press Enter.</p>'+
-  '<p class="small muted" style="text-wrap:pretty">'+note+'</p></div>';
-}
-function accordion(id,title,open,body){
-  return '<section class="card scroll-mt" id="'+id+'"><button type="button" class="acc-head" data-a="toggle-'+id+'" aria-expanded="'+open+'">'+esc(title)+ic('chev')+'</button>'+(open?'<div class="acc-body">'+body+'</div>':'')+'</section>';
-}
-function loadBody(){
-  var m=S.message?'<p role="status" class="msg '+(S.message.kind==='ok'?'ok':'err')+'">'+esc(S.message.text)+'</p>':'';
-  return '<div class="stack g4" style="gap:1.25rem">'+
-  '<button type="button" class="guide-link" data-a="show-help">'+ic('book')+'<span><b>Not sure how to make the file?</b><span class="muted">Open the step-by-step guide and copy the AI prompt.</span></span></button>'+
-  '<div class="stack g2"><p class="small" style="font-weight:500">Option 1: choose a file</p><p class="small muted">Pick one or more .json module files from your computer.</p>'+
-  '<input type="file" id="module-file" accept=".json,application/json" multiple class="sr">'+btn('choose-file','Choose file',{cls:'out',icon:'up'}).replace('class="btn out"','class="btn out" style="align-self:flex-start"')+'</div>'+
-  '<div class="stack g2"><p class="small" style="font-weight:500">Option 2: paste the JSON</p>'+
-  '<input type="text" class="field" id="load-title" value="'+esc(S.loadTitle)+'" placeholder="Module title (only needed if the JSON has no title)">'+
-  '<textarea class="field" id="load-text" rows="7" spellcheck="false" placeholder="Paste module JSON here">'+esc(S.loadText)+'</textarea>'+
-  btn('paste-load','Load module').replace('class="btn"','class="btn" style="align-self:flex-start"')+'</div>'+m+
-  '<details><summary>What format does a module use?</summary><div class="stack g3"><p class="small muted">Each question needs a prompt, a list of options and the letter of the correct answer. The explanation and category are optional. Loading a module with the same title replaces the old one and keeps your scores.</p><pre>'+esc(EXAMPLE_JSON)+'</pre>'+
-  btn('copy-example',S.copiedExample?'Copied':'Copy example',{cls:'out sm',icon:S.copiedExample?'check':'copy'}).replace('class="btn out sm"','class="btn out sm" style="align-self:flex-start"')+'</div></details></div>';
-}
-function helpBody(){
-  var steps=STEPS.map(function(s,i){return '<li class="row" style="align-items:flex-start"><span class="num">'+(i+1)+'</span><div class="stack" style="gap:.25rem"><p style="font-weight:500">'+esc(s[0])+'</p><p class="small muted" style="text-wrap:pretty">'+esc(s[1])+'</p></div></li>';}).join('');
-  return '<div class="stack g6"><ol class="steps stack g4">'+steps+'</ol><div class="stack g2"><label for="prompt-title" class="small" style="font-weight:500">Module title (optional)</label>'+
-  '<input id="prompt-title" type="text" class="field" value="'+esc(S.promptTitle)+'" placeholder="e.g. Module 3: Stakeholder Management">'+
-  '<textarea id="prompt-box" class="field" readonly rows="10" aria-label="Prompt to copy">'+esc(buildAiPrompt(S.promptTitle))+'</textarea>'+
-  btn('copy-prompt',S.copiedPrompt?'Copied':'Copy prompt',{icon:S.copiedPrompt?'check':'copy'}).replace('class="btn"','class="btn" style="align-self:flex-start"')+'</div></div>';
-}
-function sw(action,label,detail,icon,checked,extra){
-  return '<div class="row between g4"><div class="row" style="align-items:flex-start"><span class="set-ico">'+ic(icon)+'</span><div><p style="font-weight:500">'+label+'</p><p class="small muted">'+detail+'</p></div></div><div class="row" style="flex:none">'+(extra||'')+'<button type="button" class="sw" role="switch" aria-checked="'+checked+'" aria-label="'+label+'" data-a="'+action+'"></button></div></div>';
-}
-function startView(){
-  var loadOpen=S.loadOpen===null?S.modules.length===0:S.loadOpen;
-  return '<section class="stack g10" style="padding:1.5rem 0" aria-labelledby="start-title">'+
-  '<div class="stack g4"><p class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="3" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="3" y="35" width="26" height="26" rx="7" fill="var(--primary)"/><rect x="35" y="35" width="26" height="26" rx="7" fill="var(--ok)"/><path d="M41 48.5l5 5 9-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>quiz<b>box</b></p><h1 class="title" id="start-title">Pick a module and test yourself.</h1><p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p></div>'+
-  '<div class="stack g3"><h2 class="sec">Try a sample quiz</h2><ul class="stack g3" style="list-style:none;margin:0;padding:0">'+moduleRow(SAMPLE,true)+'</ul></div>'+
-  '<div class="stack g3"><h2 class="sec">Your modules</h2>'+(S.modules.length===0?'<p class="dashed">No modules yet. Load one below to get started.</p>':'<ul class="stack g3" style="list-style:none;margin:0;padding:0">'+S.modules.map(function(m){return moduleRow(m,false);}).join('')+'</ul>')+'</div>'+
-  accordion('load','Load a module',loadOpen,loadBody())+
-  accordion('help','Help: make a module file with AI',S.helpOpen,helpBody())+
-  '<div class="stack g3"><h2 class="sec">Quiz settings</h2><div class="card pad stack g3">'+
-  sw('toggle-timer','Timer','Add a countdown to your quizzes.','timer',S.settings.timerEnabled)+timerOpts()+
-  '<div style="border-top:1px solid var(--border)"></div>'+
-  sw('toggle-shuffle','Shuffle questions','Mix the order each time you start a module.','shuffle',S.settings.shuffleQuestions)+
-  '</div></div>'+
-  (S.modules.length?'<div class="stack g2">'+btn('export','Export backup',{cls:'out',icon:'down'}).replace('class="btn out"','class="btn out" style="align-self:flex-start"')+'<p class="xs muted" style="max-width:28rem">Modules live in this browser. Clearing your browser data removes them, so keep a backup file. You can load it back with the panel above.</p></div>':'')+
-  '</section>';
-}
-function quizView(){
-  var r=S.run,qq=r.questions[r.current],total=r.questions.length;
-  var score=r.answers.filter(function(a){return a.correct;}).length;
-  var progress=Math.round(r.answers.length/total*100);
-  var remaining=total-r.current;
-  var isLast=remaining===1,timedOut=r.revealed&&r.selected===null,isCorrect=r.revealed&&r.selected===qq.answerIndex;
-  var left;
-  if(r.mode==='question'){
-    var c=2*Math.PI*22;
-    left='<div class="ring'+(r.timeLeft<=5?' low':'')+'" id="ring" role="timer" aria-label="'+r.timeLeft+' seconds remaining"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="bg" cx="28" cy="28" r="22"/><circle class="fg" id="ringfg" cx="28" cy="28" r="22" stroke-dasharray="'+c+'" style="stroke-dashoffset:'+c*(1-r.timeLeft/r.secs)+'"/></svg><span id="ringnum" aria-hidden="true">'+r.timeLeft+'</span></div>';
-  }else if(r.mode==='total'){
-    left='<div class="watch'+(r.totalLeft<=30?' low':'')+'" id="watchbox" role="timer" aria-label="Time left for the whole quiz">'+ic('timer').replace('<svg','<svg style="width:1rem;height:1rem"')+'<span id="watch">'+clock(r.totalLeft)+'</span></div>';
-  }else{
-    left='<div class="watch">'+ic('clock').replace('<svg','<svg style="width:1rem;height:1rem;color:var(--muted-fg)"')+'<span id="watch">'+clock(r.elapsed)+'</span></div>';
-  }
-  var opts=qq.options.map(function(o,i){
-    var st=!r.revealed?'':(i===qq.answerIndex?'correct':(i===r.selected?'wrong':'dim'));
-    var lt=st==='correct'?ic('check'):st==='wrong'?ic('x'):LETTERS[i];
-    return '<li><button type="button" class="opt '+st+'" data-a="pick" data-i="'+i+'"'+(r.revealed?' disabled':'')+'><span class="ltr" aria-hidden="true">'+lt+'</span><span style="flex:1">'+esc(o)+'</span>'+(st==='correct'?'<span class="sr">(correct answer)</span>':st==='wrong'?'<span class="sr">(your answer, incorrect)</span>':'')+'</button></li>';
-  }).join('');
-  var fb='';
-  if(r.revealed){
-    fb='<div class="fbrow"><div class="row" style="align-items:flex-start"><span class="fb-ico '+(isCorrect?'ok':'no')+'">'+(isCorrect?ic('check'):timedOut?ic('clock'):ic('x'))+'</span><div class="stack" style="gap:.25rem"><p style="font-weight:600">'+(isCorrect?'Correct!':timedOut?"Time's up!":'Not quite.')+'</p><p class="small muted" style="line-height:1.6;text-wrap:pretty">'+(isCorrect?'':'The answer is <strong style="color:var(--fg)">'+esc(qq.options[qq.answerIndex])+'</strong>. ')+esc(qq.explanation)+'</p></div></div>'+
-    '<button type="button" class="btn lg" data-a="next" id="next-btn" style="flex:none">'+(isLast?'See results':'Next question')+ic('next')+'</button></div>';
-  }else if(remaining>1){
-    fb=btn('skip','Skip for now',{cls:'out sm'});
-  }
-  var skippedTag=r.spent[qq.id]!==undefined?'<span class="tag">Skipped earlier</span>':'';
-  return '<div class="stack g6" style="padding-top:.5rem"><header class="stack g4"><p class="eyebrow">'+esc(S.active.title)+'</p>'+
-  '<div class="row between g4"><div class="row g4">'+left+'<div class="stack"><span class="xs muted" style="text-transform:uppercase;letter-spacing:.08em">Score</span><span class="mono" style="font-size:1.25rem;font-weight:600">'+score+'<span class="muted">/'+total+'</span></span></div>'+(r.streak>=2?'<span class="pill">'+ic('flame').replace('<svg','<svg style="width:1rem;height:1rem"')+r.streak+' streak</span>':'')+'</div>'+btn('quit','Quit',{cls:'ghost sm',icon:'x'})+'</div>'+
-  '<div class="stack g2"><div class="row between mono xs muted"><span>Question '+(r.answers.length+1)+' of '+total+'</span><span>'+progress+'% complete</span></div><div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+r.answers.length+'"><div style="width:'+progress+'%"></div></div></div></header>'+
-  '<section class="card qcard stack g6" aria-labelledby="qp"><div class="stack g3"><div class="row g2 wrap"><span class="tag">'+esc(qq.category)+'</span>'+skippedTag+'</div><h2 class="prompt" id="qp"><span class="sr">Question '+(r.answers.length+1)+': </span>'+esc(qq.prompt)+'</h2></div><ul class="opts">'+opts+'</ul><div>'+fb+'</div></section>'+
-  '<p class="xs muted kbd-hint">Keys: A to '+LETTERS[qq.options.length-1]+' to answer, S to skip, Enter for next.</p></div>';
-}
-function verdict(p){
-  if(p===100)return 'Flawless. Nothing gets past you.';
-  if(p>=80)return 'Excellent work, almost perfect.';
-  if(p>=60)return 'Solid round. A few slipped through.';
-  if(p>=40)return 'Not bad. Another go?';
-  return 'Tough round. Try again and beat it.';
-}
-function resultsView(){
-  var r=S.run,a=r.answers,total=a.length,correct=a.filter(function(x){return x.correct;}).length;
-  var timedOut=a.filter(function(x){return x.selectedIndex===null;}).length,incorrect=total-correct-timedOut;
-  var pct=total?Math.round(correct/total*100):0,avg=total?(a.reduce(function(s,x){return s+x.timeSpent;},0)/total).toFixed(1):'0';
-  var missed=a.filter(function(x){return !x.correct;}).length;
-  var stats=[['Correct',correct,'var(--ok)'],['Incorrect',incorrect,'var(--danger)']];
-  if(r.mode!=='none')stats.push(['Timed out',timedOut,'var(--muted-fg)']);
-  stats.push(['Best streak',r.best,'var(--primary)'],['Avg. time',avg+'s','var(--fg)']);
-  var showLoad=S.active.id===SAMPLE.id&&S.modules.length===0;
-  var review=a.map(function(x,i){
-    var qq=x.question,sk=x.selectedIndex===null;
-    return '<li class="'+(x.correct?'good':'')+'"><span class="ic">'+(x.correct?ic('check'):sk?ic('clock'):ic('x'))+'</span><div class="stack g2" style="flex:1;min-width:0"><div class="row between" style="align-items:flex-start"><p style="font-weight:500;text-wrap:pretty"><span class="mono muted">'+(i+1)+'. </span>'+esc(qq.prompt)+'</p><span class="mono xs muted" style="flex:none">'+x.timeSpent+'s</span></div><div class="stack small" style="gap:.25rem">'+
-    (x.correct?'':'<p class="muted">Your answer: <span class="bad-t">'+(sk?'No answer':esc(qq.options[x.selectedIndex]))+'</span></p>')+
-    '<p class="muted">'+(x.correct?'You answered: ':'Correct answer: ')+'<span class="good-t">'+esc(qq.options[qq.answerIndex])+'</span></p>'+
-    (!x.correct&&qq.explanation?'<p class="muted" style="text-wrap:pretty">'+esc(qq.explanation)+'</p>':'')+'</div></div></li>';
-  }).join('');
-  return '<div class="stack g10" style="padding:.5rem 0"><section class="stack g6" aria-labelledby="rt"><p class="eyebrow">Results'+(S.active.title?' · '+esc(S.active.title):'')+'</p>'+
-  (S.kind==='retry'?'<p class="small muted">This was a retry of missed questions, so it is not added to your saved scores.</p>':'')+
-  (r.timeUp?'<p class="msg err" role="status">Time ran out for the whole quiz. '+timedOut+(timedOut===1?' question was':' questions were')+' left unanswered and counted as wrong.</p>':'')+
-  '<div class="stack g2"><h1 class="pct" id="rt">'+pct+'<small>%</small></h1><p style="font-size:1.25rem;font-weight:500">'+correct+' of '+total+' correct</p><p class="muted">'+verdict(pct)+'</p></div>'+
-  '<dl class="stats" style="--n:'+stats.length+'">'+stats.map(function(s){return '<div class="stat"><dt>'+s[0]+'</dt><dd style="color:'+s[2]+'">'+s[1]+'</dd></div>';}).join('')+'</dl>'+
-  '<div class="row wrap">'+(missed?btn('retry','Retry missed ('+missed+')',{cls:'lg',icon:'target'}):'')+btn('restart','Restart module',{cls:'lg'+(missed?' out':''),icon:'retry'})+btn('home','Back to start',{cls:'lg out',icon:'home'})+'</div>'+
-  (showLoad?'<div class="loadown"><div class="stack" style="gap:.25rem"><p style="font-weight:600">Ready to practise with your own questions?</p><p class="small muted">Load your course material and quiz yourself on it. A step-by-step guide shows you how.</p></div>'+btn('load-own','Load your own',{cls:'lg',icon:'up'}).replace('class="btn lg"','class="btn lg" style="flex:none"')+'</div>':'')+
-  '</section><section class="stack g4" aria-labelledby="rv"><h2 class="sec" id="rv">Answer review</h2><ol class="rev">'+review+'</ol></section></div>';
-}
-
-/* ---------- render ---------- */
-function render(){
-  var app=document.getElementById('app');
-  var focusId=document.activeElement&&document.activeElement.id;
-  var selStart=null,selEnd=null;
-  if(focusId&&document.activeElement.selectionStart!==undefined){selStart=document.activeElement.selectionStart;selEnd=document.activeElement.selectionEnd;}
-  app.innerHTML=S.view==='start'?startView():S.view==='quiz'?quizView():resultsView();
-  if(S.view==='quiz'&&S.run.revealed){var nb=document.getElementById('next-btn');if(nb)nb.focus({preventScroll:true});}
-  else if(focusId&&(focusId==='load-title'||focusId==='load-text'||focusId==='prompt-title')){
-    var el=document.getElementById(focusId);if(el){el.focus({preventScroll:true});try{el.setSelectionRange(selStart,selEnd);}catch(e){}}
-  }
-  if(S.scrollTo){var t=document.getElementById(S.scrollTo);S.scrollTo=null;if(t)setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},30);}
-}
-
-/* ---------- dialog and helpers ---------- */
-function ask(o,onYes){
-  var prev=document.activeElement;
-  var wrap=document.createElement('div');
-  wrap.className='scrim';
-  wrap.innerHTML='<div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlg-t" aria-describedby="dlg-d"><h2 id="dlg-t">'+esc(o.title)+'</h2><p id="dlg-d" class="muted">'+esc(o.body)+'</p><div class="row g2 end"><button type="button" class="btn out" data-d="no">'+esc(o.no||'Cancel')+'</button><button type="button" class="btn'+(o.danger?' danger':'')+'" data-d="yes">'+esc(o.yes)+'</button></div></div>';
-  function close(){
-    document.removeEventListener('keydown',onKey,true);
-    wrap.remove();
-    if(prev&&prev.focus&&document.contains(prev))prev.focus();
-  }
-  function onKey(e){
-    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();return;}
-    if(e.key==='Tab'){
-      var f=wrap.querySelectorAll('button'),first=f[0],last=f[f.length-1];
-      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-      return;
-    }
-    e.stopPropagation();
-  }
-  wrap.addEventListener('click',function(e){
-    if(e.target===wrap){close();return;}
-    var b=e.target.closest('[data-d]');if(!b)return;
-    var yes=b.getAttribute('data-d')==='yes';
-    close();if(yes)onYes();
-  });
-  document.addEventListener('keydown',onKey,true);
-  document.body.appendChild(wrap);
-  wrap.querySelector('[data-d="no"]').focus();
-}
-function setTime(key,raw,min,max){
-  var n=Math.round(Number(raw));
-  if(raw===''||!isFinite(n)){render();return;}
-  S.settings[key]=Math.min(max,Math.max(min,n));
-  saveSet();render();
-}
-function chipRow(action,list,current,suffix){
-  return list.map(function(v){return '<button type="button" class="chipbtn" data-a="'+action+'" data-v="'+v+'" aria-pressed="'+(v===current)+'">'+v+suffix+'</button>';}).join('');
-}
-
-/* ---------- events ---------- */
-document.addEventListener('click',function(e){
-  var b=e.target.closest('[data-a]');if(!b)return;
-  var a=b.getAttribute('data-a'),id=b.getAttribute('data-id');
-  switch(a){
-    case 'start':{var m=id===SAMPLE.id?SAMPLE:S.modules.find(function(x){return x.id===id;});if(m)startRun(m,m.questions,'full');break;}
-    case 'delete':{var d=S.modules.find(function(x){return x.id===id;});
-      if(d)ask({title:'Delete this module?',body:'"'+d.title+'" and its saved scores will be removed from this browser. Export a backup first if you want to keep it.',yes:'Delete',danger:true},function(){S.modules=S.modules.filter(function(x){return x.id!==id;});delete S.stats[id];saveMods();saveStats();render();});break;}
-    case 'toggle-load':S.loadOpen=!(S.loadOpen===null?S.modules.length===0:S.loadOpen);render();break;
-    case 'toggle-help':S.helpOpen=!S.helpOpen;render();break;
-    case 'show-help':S.helpOpen=true;S.scrollTo='help';render();break;
-    case 'choose-file':document.getElementById('module-file').click();break;
-    case 'paste-load':{
-      if(!S.loadText.trim()){S.message={kind:'err',text:'Paste your module JSON into the box first.'};render();break;}
-      var res=parseModules(S.loadText,S.loadTitle);
-      if(!res.ok){S.message={kind:'err',text:res.error};render();break;}
-      S.message={kind:'ok',text:importModules(res.modules)};S.loadText='';S.loadTitle='';render();break;}
-    case 'copy-example':copyText(EXAMPLE_JSON,'copiedExample');break;
-    case 'copy-prompt':copyText(buildAiPrompt(S.promptTitle),'copiedPrompt');break;
-    case 'toggle-timer':S.settings.timerEnabled=!S.settings.timerEnabled;saveSet();render();break;
-    case 'toggle-shuffle':S.settings.shuffleQuestions=!S.settings.shuffleQuestions;saveSet();render();break;
-    case 'export':exportBackup();break;
-    case 'pick':select(Number(b.getAttribute('data-i')));break;
-    case 'next':next();break;
-    case 'skip':skip();break;
-    case 'set-secs':S.settings.secondsPerQuestion=Number(b.getAttribute('data-v'));saveSet();render();break;
-    case 'set-mins':S.settings.totalMinutes=Number(b.getAttribute('data-v'));saveSet();render();break;
-    case 'mode-question':S.settings.timerMode='question';saveSet();render();break;
-    case 'mode-total':S.settings.timerMode='total';saveSet();render();break;
-    case 'reset-scores':{
-      var rm=id===SAMPLE.id?SAMPLE:S.modules.find(function(x){return x.id===id;});
-      if(rm)ask({title:'Reset scores?',body:'Best score, last score and attempts for "'+rm.title+'" will be cleared. The questions stay.',yes:'Reset scores'},function(){delete S.stats[id];saveStats();render();});
-      break;}
-    case 'quit':
-      if(!S.run||!S.run.answers.length)goHome();else ask({title:'Quit this quiz?',body:'Your answers so far will be lost and this run will not be saved.',yes:'Quit quiz',no:'Keep going',danger:true},goHome);
-      break;
-    case 'home':goHome();break;
-    case 'restart':startRun(S.active,S.active.questions,'full');break;
-    case 'retry':startRun(S.active,S.run.answers.filter(function(x){return !x.correct;}).map(function(x){return x.question;}),'retry');break;
-    case 'load-own':stopTimer();S.view='start';S.run=null;S.loadOpen=true;S.scrollTo='load';render();break;
-  }
-});
-document.addEventListener('input',function(e){
-  var t=e.target;
-  if(t.id==='load-text')S.loadText=t.value;
-  else if(t.id==='load-title')S.loadTitle=t.value;
-  else if(t.id==='prompt-title'){S.promptTitle=t.value;var box=document.getElementById('prompt-box');if(box)box.value=buildAiPrompt(S.promptTitle);}
-});
-document.addEventListener('change',function(e){
-  var t=e.target;
-  if(t.id==='secs-custom'){setTime('secondsPerQuestion',t.value,5,600);}
-  else if(t.id==='mins-custom'){setTime('totalMinutes',t.value,1,240);}
-  else if(t.id==='module-file'){
-    var files=Array.from(t.files||[]);if(!files.length)return;
-    Promise.all(files.map(function(f){return f.text().then(function(c){return {name:f.name,c:c};});})).then(function(list){
-      var loaded=[];
-      for(var i=0;i<list.length;i++){
-        var title=list[i].name.replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').trim();
-        var r=parseModules(list[i].c,title);
-        if(!r.ok){S.message={kind:'err',text:list[i].name+': '+r.error};render();return;}
-        loaded=loaded.concat(r.modules);
+    /* Dark theme when the device is set to dark and the user has not chosen */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        color-scheme: dark;
+        --bg: oklch(0.18 0.015 270);
+        --fg: oklch(0.96 0.008 85);
+        --card: oklch(0.22 0.018 270);
+        --primary: oklch(0.72 0.16 275);
+        --primary-fg: oklch(0.18 0.015 270);
+        --secondary: oklch(0.28 0.02 270);
+        --secondary-fg: oklch(0.96 0.008 85);
+        --muted: oklch(0.28 0.02 270);
+        --muted-fg: oklch(0.72 0.015 270);
+        --danger: oklch(0.68 0.19 25);
+        --ok: oklch(0.72 0.15 155);
+        --ok-fg: oklch(0.18 0.015 270);
+        --border: oklch(1 0 0 / 10%);
+        --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px rgb(0 0 0 / 0.35);
       }
-      S.message={kind:'ok',text:importModules(loaded)};render();
-    });
-  }
-});
-document.addEventListener('keydown',function(e){
-  if(S.view!=='quiz'||!S.run)return;
-  var tag=(e.target.tagName||'').toLowerCase();
-  if(tag==='input'||tag==='textarea'||tag==='select')return;
-  if(e.metaKey||e.ctrlKey||e.altKey)return;
-  var k=e.key.toLowerCase(),n=S.run.questions[S.run.current].options.length,num=parseInt(k,10);
-  var idx=(num>=1&&num<=n)?num-1:LETTERS.toLowerCase().indexOf(k);
-  if(k.length===1&&idx>=0&&idx<n){select(idx);}
-  else if(k==='s'){skip();}
-  else if(k==='arrowright'||(k==='enter'&&S.run.revealed&&tag!=='button')){next();}
-});
+    }
 
-render();
-})();
-</script>
+    /* ============================================================
+       Base
+    ============================================================ */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in oklch, var(--primary) 55%, transparent);
+      outline-offset: 2px;
+    }
+
+    [tabindex="-1"]:focus {
+      outline: none;
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 100;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: var(--primary-fg);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .skip:focus {
+      top: 1rem;
+    }
+
+    /* ============================================================
+       Utilities
+    ============================================================ */
+    .stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .g2 { gap: 0.5rem; }
+    .g3 { gap: 0.75rem; }
+    .g4 { gap: 1rem; }
+    .g6 { gap: 1.5rem; }
+    .g10 { gap: 2.5rem; }
+
+    .mono { font-family: var(--mono); }
+    .muted { color: var(--muted-fg); }
+    .small { font-size: 0.875rem; }
+    .xs { font-size: 0.75rem; }
+    .strong { font-weight: 500; }
+    .pretty { text-wrap: pretty; }
+
+    /* ============================================================
+       Site header and menu
+    ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in oklch, var(--bg) 82%, transparent);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+
+    .bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 62rem;
+      height: 4rem;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+
+    .brand svg {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+
+    .brand b {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-left: auto;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.5rem;
+      padding: 0 0.85rem;
+      border-radius: var(--radius);
+      color: var(--muted-fg);
+      font-size: 0.925rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav a:hover {
+      background: var(--muted);
+      color: var(--fg);
+    }
+
+    .nav a[aria-current="page"] {
+      background: color-mix(in oklch, var(--primary) 12%, transparent);
+      color: var(--primary);
+    }
+
+    .bar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .iconbtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 0;
+      border-radius: var(--radius);
+      background: transparent;
+    }
+
+    .iconbtn:hover {
+      background: var(--muted);
+    }
+
+    .iconbtn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    @media (max-width: 47.99rem) {
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .bar-actions {
+        margin-left: auto;
+      }
+
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0.75rem 1.25rem 1rem;
+        border-bottom: 1px solid var(--border);
+        background: var(--bg);
+        box-shadow: var(--shadow);
+      }
+
+      .site-header.open .nav {
+        display: flex;
+      }
+
+      .nav a {
+        min-height: 3rem;
+        font-size: 1rem;
+      }
+    }
+
+    body.focus-mode .site-header,
+    body.focus-mode .site-foot {
+      display: none;
+    }
+
+    /* ============================================================
+       Layout
+    ============================================================ */
+    #app {
+      width: 100%;
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      flex: 1;
+    }
+
+    .narrow {
+      max-width: 44rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .enter {
+      animation: rise 0.3s ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .page-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .h1 {
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .title {
+      font-size: clamp(2.6rem, 9vw, 4rem);
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: 34rem;
+      color: var(--muted-fg);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+
+    h2.sec {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    /* ============================================================
+       Cards, tags, messages
+    ============================================================ */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .pad {
+      padding: 1.25rem;
+    }
+
+    .dashed {
+      padding: 1.5rem;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      color: var(--muted-fg);
+      font-size: 0.9rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      background: var(--secondary);
+      color: var(--secondary-fg);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .msg {
+      padding: 0.75rem 1rem;
+      border: 1px solid;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+    }
+
+    .msg.ok {
+      border-color: var(--ok);
+      background: color-mix(in oklch, var(--ok) 10%, transparent);
+    }
+
+    .msg.err {
+      border-color: var(--danger);
+      background: color-mix(in oklch, var(--danger) 10%, transparent);
+    }
+
+    /* ============================================================
+       Buttons
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 2.5rem;
+      padding: 0 1rem;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: var(--primary-fg);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: filter 0.15s, background 0.15s, transform 0.1s;
+    }
+
+    .btn:hover {
+      filter: brightness(1.08);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn.out {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--fg);
+    }
+
+    .btn.out:hover {
+      background: var(--muted);
+      filter: none;
+    }
+
+    .btn.ghost {
+      border-color: transparent;
+      background: transparent;
+      color: var(--fg);
+      padding: 0 0.6rem;
+    }
+
+    .btn.ghost:hover {
+      background: var(--muted);
+      filter: none;
+    }
+
+    .btn.danger {
+      border-color: var(--danger);
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn.out.danger-text {
+      color: var(--danger);
+    }
+
+    .btn.lg {
+      min-height: 2.9rem;
+      padding: 0 1.4rem;
+    }
+
+    .btn.sm {
+      min-height: 2.25rem;
+      padding: 0 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .btn svg {
+      flex: none;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    /* ============================================================
+       Forms
+    ============================================================ */
+    .field {
+      width: 100%;
+      height: 2.75rem;
+      padding: 0 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      font-size: 0.9rem;
+    }
+
+    textarea.field {
+      height: auto;
+      padding: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .field.tnum {
+      width: 6.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--primary) 10%, transparent);
+      color: var(--primary);
+      font-family: var(--mono);
+      font-weight: 600;
+      -moz-appearance: textfield;
+    }
+
+    .field.tnum::-webkit-inner-spin-button,
+    .field.tnum::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .seg {
+      display: inline-flex;
+      align-self: flex-start;
+      gap: 3px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+
+    .seg button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-height: 2.25rem;
+      padding: 0 0.9rem;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--muted-fg);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .seg button svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .seg button[aria-pressed="true"] {
+      background: var(--primary);
+      color: var(--primary-fg);
+    }
+
+    .seg button:not([aria-pressed="true"]):hover {
+      background: var(--muted);
+      color: var(--fg);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chipbtn {
+      min-height: 2.4rem;
+      padding: 0 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .chipbtn:hover {
+      background: var(--muted);
+    }
+
+    .chipbtn[aria-pressed="true"] {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--primary-fg);
+    }
+
+    .sw {
+      position: relative;
+      flex: none;
+      width: 2.9rem;
+      height: 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--muted);
+      transition: background 0.2s;
+    }
+
+    .sw::before {
+      content: "";
+      position: absolute;
+      inset: -10px -6px;
+    }
+
+    .sw::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+      transition: left 0.2s;
+    }
+
+    .sw[aria-checked="true"] {
+      border-color: var(--primary);
+      background: var(--primary);
+    }
+
+    .sw[aria-checked="true"]::after {
+      left: calc(100% - 1.2rem - 2px);
+    }
+
+    .setting-icon {
+      flex: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.15rem;
+      color: var(--primary);
+    }
+
+    .divider {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ============================================================
+       Hero and landing sections
+    ============================================================ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    @media (min-width: 56rem) {
+      .hero {
+        grid-template-columns: 1.15fr 0.85fr;
+        padding: 2rem 0;
+      }
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted-fg);
+      font-size: 0.875rem;
+    }
+
+    .facts li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .facts svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .mock {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .mock-q {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .mock-opt {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .mock-opt .ltr {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+
+    .mock-opt.ok {
+      border-color: var(--ok);
+      background: color-mix(in oklch, var(--ok) 10%, transparent);
+    }
+
+    .mock-opt.ok .ltr {
+      border-color: var(--ok);
+      background: var(--ok);
+      color: var(--ok-fg);
+    }
+
+    .mock-opt .ltr svg {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    .mock-fb {
+      color: var(--muted-fg);
+      font-size: 0.85rem;
+    }
+
+    .mock-fb b {
+      color: var(--ok);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 40rem) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 52rem) {
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: color-mix(in oklch, var(--primary) 12%, transparent);
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .feat-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 11px;
+      background: color-mix(in oklch, var(--primary) 12%, transparent);
+      color: var(--primary);
+    }
+
+    .feat-icon svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+
+    /* ============================================================
+       Modules
+    ============================================================ */
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mrow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .mrow:hover {
+      border-color: color-mix(in oklch, var(--primary) 40%, var(--border));
+      box-shadow: var(--shadow);
+    }
+
+    @media (min-width: 36rem) {
+      .mrow {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .meter {
+      width: 100%;
+      max-width: 16rem;
+      height: 4px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--muted);
+    }
+
+    .meter > div {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--primary);
+    }
+
+    /* ============================================================
+       Add questions: drop zone, details, steps
+    ============================================================ */
+    .drop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 2rem 1rem;
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      text-align: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .drop:hover,
+    .drop.over {
+      border-color: var(--primary);
+      background: color-mix(in oklch, var(--primary) 6%, var(--card));
+    }
+
+    .drop svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: var(--primary);
+    }
+
+    .guide-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem;
+      border: 1px solid color-mix(in oklch, var(--primary) 30%, transparent);
+      border-radius: var(--radius);
+      background: color-mix(in oklch, var(--primary) 6%, transparent);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .guide-link:hover {
+      background: color-mix(in oklch, var(--primary) 12%, transparent);
+    }
+
+    .guide-link svg {
+      flex: none;
+      width: 1.35rem;
+      height: 1.35rem;
+      color: var(--primary);
+    }
+
+    .guide-link b {
+      display: block;
+      font-weight: 500;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    summary {
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    details > div {
+      padding: 0.85rem 1rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    pre {
+      margin: 0;
+      padding: 0.85rem;
+      overflow-x: auto;
+      border-radius: var(--radius);
+      background: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .num {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border-radius: 50%;
+      background: color-mix(in oklch, var(--primary) 12%, transparent);
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       Quiz
+    ============================================================ */
+    .bar {
+      height: 0.5rem;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--muted);
+    }
+
+    .bar > div {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: width 0.5s ease-out;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: color-mix(in oklch, var(--primary) 10%, transparent);
+      color: var(--primary);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .watch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 3.5rem;
+      padding: 0 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .watch.low {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .ring {
+      position: relative;
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .ring svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .ring span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .ring circle {
+      fill: none;
+      stroke-width: 4;
+    }
+
+    .ring .bg {
+      stroke: var(--muted);
+    }
+
+    .ring .fg {
+      stroke: var(--primary);
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+
+    .ring.low span {
+      color: var(--danger);
+    }
+
+    .ring.low .fg {
+      stroke: var(--danger);
+    }
+
+    .qcard {
+      padding: 1.25rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (min-width: 40rem) {
+      .qcard {
+        padding: 2rem;
+      }
+    }
+
+    .prompt {
+      font-size: clamp(1.4rem, 4.5vw, 1.85rem);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+    }
+
+    .opts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      font-weight: 500;
+      text-align: left;
+      transition: transform 0.15s, border-color 0.15s, background 0.15s;
+    }
+
+    .opt .ltr {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.875rem;
+    }
+
+    .opt .ltr svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .opt:not(:disabled):hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      background: color-mix(in oklch, var(--primary) 5%, transparent);
+    }
+
+    .opt:not(:disabled):hover .ltr {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--primary-fg);
+    }
+
+    .opt:disabled {
+      cursor: default;
+    }
+
+    .opt.correct {
+      border-color: var(--ok);
+      background: color-mix(in oklch, var(--ok) 10%, transparent);
+    }
+
+    .opt.correct .ltr {
+      border-color: var(--ok);
+      background: var(--ok);
+      color: var(--ok-fg);
+    }
+
+    .opt.wrong {
+      border-color: var(--danger);
+      background: color-mix(in oklch, var(--danger) 10%, transparent);
+    }
+
+    .opt.wrong .ltr {
+      border-color: var(--danger);
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .opt.dim {
+      opacity: 0.5;
+    }
+
+    .fb-ico {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-top: 0.1rem;
+      border-radius: 50%;
+    }
+
+    .fb-ico svg {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    .fb-ico.ok {
+      background: var(--ok);
+      color: var(--ok-fg);
+    }
+
+    .fb-ico.no {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .fbrow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (min-width: 40rem) {
+      .fbrow {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .kbd-hint {
+      text-align: center;
+    }
+
+    @media (hover: none) {
+      .kbd-hint {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       Results
+    ============================================================ */
+    .pct {
+      font-family: var(--mono);
+      font-size: clamp(4.5rem, 18vw, 6rem);
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .pct small {
+      color: var(--muted-fg);
+      font-size: 0.5em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin: 0;
+    }
+
+    @media (min-width: 40rem) {
+      .stats {
+        grid-template-columns: repeat(var(--n, 5), 1fr);
+      }
+    }
+
+    .stat {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .stat dt {
+      color: var(--muted-fg);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stat dd {
+      margin: 0.25rem 0 0;
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .rev {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rev li {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--danger);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .rev li.good {
+      border-left-color: var(--ok);
+    }
+
+    .rev .ic {
+      display: flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: color-mix(in oklch, var(--danger) 15%, transparent);
+      color: var(--danger);
+    }
+
+    .rev li.good .ic {
+      background: color-mix(in oklch, var(--ok) 15%, transparent);
+      color: var(--ok);
+    }
+
+    .rev .ic svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .good-t {
+      color: var(--ok);
+      font-weight: 500;
+    }
+
+    .bad-t {
+      color: var(--danger);
+      font-weight: 500;
+      text-decoration: line-through;
+    }
+
+    .loadown {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.25rem;
+      border: 1px solid color-mix(in oklch, var(--primary) 30%, transparent);
+      border-radius: 14px;
+      background: color-mix(in oklch, var(--primary) 6%, transparent);
+    }
+
+    @media (min-width: 40rem) {
+      .loadown {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    /* ============================================================
+       Toasts and dialog
+    ============================================================ */
+    #toasts {
+      position: fixed;
+      left: 50%;
+      bottom: 1.25rem;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: min(92vw, 26rem);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+      pointer-events: auto;
+      animation: rise 0.25s ease-out;
+    }
+
+    .toast.err {
+      border-color: var(--danger);
+    }
+
+    .toast span {
+      flex: 1;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: color-mix(in oklch, var(--fg) 45%, transparent);
+      animation: fade 0.15s ease-out;
+    }
+
+    .dialog {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 24rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 20px 50px rgb(0 0 0 / 0.25);
+      animation: pop 0.18s ease-out;
+    }
+
+    .dialog h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .dialog p {
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+
+    .dialog .end {
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(6px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       Footer
+    ============================================================ */
+    .site-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      width: 100%;
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted-fg);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .site-foot a {
+      text-decoration: underline;
+      text-decoration-color: color-mix(in oklch, currentColor 35%, transparent);
+      text-underline-offset: 3px;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    .site-foot a:hover,
+    .site-foot a:focus-visible {
+      color: var(--primary);
+      text-decoration-color: currentColor;
+    }
+
+    /* ============================================================
+       Touch devices: bigger tap targets
+    ============================================================ */
+    @media (pointer: coarse) {
+      .btn,
+      .btn.sm,
+      .chipbtn,
+      .seg button,
+      .iconbtn {
+        min-height: 2.75rem;
+      }
+
+      .iconbtn {
+        min-width: 2.75rem;
+      }
+
+      .field.tnum {
+        height: 2.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#app" data-a="skip-link">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="bar-inner">
+      <a class="brand" href="#/" aria-label="Quizbox, go to the home page">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="3" y="3" width="26" height="26" rx="7" fill="var(--primary)"/>
+          <rect x="35" y="3" width="26" height="26" rx="7" fill="var(--primary)"/>
+          <rect x="3" y="35" width="26" height="26" rx="7" fill="var(--primary)"/>
+          <rect x="35" y="35" width="26" height="26" rx="7" fill="var(--ok)"/>
+          <path d="M41 48.5l5 5 9-10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        quiz<b>box</b>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="#/" data-route="home">Home</a>
+        <a href="#/modules" data-route="modules">Modules</a>
+        <a href="#/add" data-route="add">Add questions</a>
+        <a href="#/help" data-route="help">Help</a>
+        <a href="#/settings" data-route="settings">Settings</a>
+      </nav>
+
+      <div class="bar-actions">
+        <button type="button" class="iconbtn" id="theme-btn" data-a="cycle-theme"></button>
+        <button type="button" class="iconbtn menu-btn" id="menu-btn" data-a="menu" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <h1>Quizbox: practice quizzes from your own questions</h1>
+    <p>Quizbox turns your own multiple choice questions into quizzes with instant explanations and saved scores. Load a file, practise, and see which questions you missed.</p>
+    <noscript><p>Quizbox needs JavaScript to run. Please turn it on in your browser.</p></noscript>
+  </main>
+
+  <footer class="site-foot">
+    <p><a href="https://crypticot.github.io/cotworks-portfolio/" target="_blank" rel="noopener">Quizbox by COTworks</a></p>
+    <p>Your modules and scores stay on this device. Questions, need help or want more modules? <a href="mailto:cotworks@gmail.com?subject=Quizbox%3A%20help%20or%20module%20request">Email me</a></p>
+  </footer>
+
+  <div id="toasts"></div>
+  <div class="sr" id="sr-status" role="status" aria-live="polite"></div>
+  <script>
+  (function () {
+    'use strict';
+
+    /* ============================================================
+       Constants
+    ============================================================ */
+    const LETTERS = 'ABCDEF';
+    const MIN_OPTIONS = 2;
+    const MAX_OPTIONS = 6;
+    const BACKUP_VERSION = 2;
+    const SAMPLE_ID = 'sample-pm';
+    const TIMER_CHOICES = [30, 45, 60, 90, 120];
+    const TOTAL_CHOICES = [5, 10, 15, 20, 30, 45, 60, 90, 120];
+
+    const KEYS = {
+      modules: 'quizbox:modules',
+      stats: 'quizbox:stats',
+      settings: 'quizbox:settings',
+      theme: 'quizbox:theme'
+    };
+
+    // Keys used before the rename. Data found here is copied across once.
+    const OLD_KEYS = {
+      modules: 'pmquiz:modules:v1',
+      stats: 'pmquiz:stats:v1',
+      settings: 'pmquiz:settings:v1'
+    };
+
+    const DEFAULT_SETTINGS = {
+      timerEnabled: false,
+      timerMode: 'question',
+      secondsPerQuestion: 60,
+      totalMinutes: 15,
+      shuffleQuestions: true
+    };
+
+    const PAGE_TITLES = {
+      home: 'Quizbox: practice quizzes from your own questions',
+      modules: 'Modules | Quizbox',
+      add: 'Add questions | Quizbox',
+      help: 'Help | Quizbox',
+      settings: 'Settings | Quizbox',
+      quiz: 'Quiz | Quizbox',
+      results: 'Results | Quizbox'
+    };
+
+    const PAGES = ['home', 'modules', 'add', 'help', 'settings'];
+
+    /* ============================================================
+       Icons
+    ============================================================ */
+    const PATHS = {
+      play: '<path d="M6 4l14 8-14 8z"/>',
+      trash: '<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/>',
+      down: '<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>',
+      up: '<path d="M12 21V9m0 0l-4 4m4-4l4 4M4 3h16"/>',
+      chev: '<path d="M6 9l6 6 6-6"/>',
+      book: '<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2zM4 19a2 2 0 012-2h13"/>',
+      check: '<path d="M5 12l5 5 9-11"/>',
+      x: '<path d="M6 6l12 12M18 6L6 18"/>',
+      clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+      copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',
+      timer: '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/>',
+      shuffle: '<path d="M3 7h4l10 10h4M3 17h4l3-3m4-4l3-3h4M18 4l3 3-3 3M18 14l3 3-3 3"/>',
+      retry: '<path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.5M3 4v5h5"/>',
+      target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+      home: '<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+      next: '<path d="M5 12h14m-6-6l6 6-6 6"/>',
+      flame: '<path d="M12 3c1 4 5 6 5 11a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z"/>',
+      sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+      moon: '<path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>',
+      monitor: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+      menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+      lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
+      bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+      gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8C10 8 8 7 8 5.5S9.5 3 11 4l1 4zm0 0c2 0 4-1 4-2.5S14.5 3 13 4z"/>',
+      plus: '<path d="M12 5v14M5 12h14"/>',
+      file: '<path d="M6 3h8l4 4v14H6zM14 3v4h4"/>'
+    };
+
+    function icon(name, extra) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"' +
+        (extra ? ' ' + extra : '') + '>' + PATHS[name] + '</svg>';
+    }
+
+    /* ============================================================
+       Small helpers
+    ============================================================ */
+    const $ = function (selector, root) { return (root || document).querySelector(selector); };
+    const $$ = function (selector, root) { return Array.from((root || document).querySelectorAll(selector)); };
+
+    function esc(value) {
+      return String(value).replace(/[&<>"']/g, function (char) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char];
+      });
+    }
+
+    function isRecord(value) {
+      return typeof value === 'object' && value !== null && !Array.isArray(value);
+    }
+
+    function cleanText(value) {
+      return typeof value === 'string' ? value.trim() : '';
+    }
+
+    function toInt(value, min, max) {
+      if (typeof value !== 'number' || !isFinite(value)) return null;
+      return Math.min(max, Math.max(min, Math.round(value)));
+    }
+
+    function validId(value) {
+      return typeof value === 'string' && /^[A-Za-z0-9_-]{4,40}$/.test(value);
+    }
+
+    function makeId() {
+      return Math.random().toString(36).slice(2, 10).padEnd(8, '0');
+    }
+
+    function shuffle(list) {
+      const copy = list.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy;
+    }
+
+    function formatClock(totalSeconds) {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    }
+
+    function sameTitle(a, b) {
+      return a.trim().toLowerCase() === b.trim().toLowerCase();
+    }
+
+    /* ============================================================
+       Sample quiz (built in, never stored)
+    ============================================================ */
+    function sampleQuestion(category, prompt, options, answerIndex, explanation) {
+      return {
+        category: category,
+        prompt: prompt,
+        options: options,
+        answerIndex: answerIndex,
+        explanation: explanation
+      };
+    }
+
+    const SAMPLE = {
+      id: SAMPLE_ID,
+      title: 'Sample Quiz: Project Management Basics',
+      questions: [
+        sampleQuestion('Easy', 'The classic triple constraint of project management refers to:',
+          ['Scope, time and cost', 'People, process and product', 'Risk, quality and communication', 'Plan, do and check'],
+          0, 'Scope, time (schedule) and cost are linked. A change to one usually affects the others.'),
+        sampleQuestion('Easy', 'Which document formally authorises a project?',
+          ['Work breakdown structure', 'Risk register', 'Project charter', 'Status report'],
+          2, 'The project charter formally authorises the project and gives the project manager authority to use resources.'),
+        sampleQuestion('Easy', 'A risk is best described as:',
+          ['A problem that has already happened', 'A change request that was rejected', 'An uncertain event that could affect project objectives', 'A missed deadline'],
+          2, 'A risk is uncertain and lies in the future. Once it actually happens, it becomes an issue.'),
+        sampleQuestion('Medium', 'The critical path of a project is:',
+          ['The path with the most expensive activities', 'The path with the most team members', 'The path with the most risks', 'The longest sequence of dependent activities, which sets the shortest possible project duration'],
+          3, 'A delay to any critical path activity delays the project finish date unless the time is recovered.'),
+        sampleQuestion('Medium', 'On a power/interest grid, a stakeholder with high power and low interest should generally be:',
+          ['Ignored', 'Monitored with minimum effort', 'Kept satisfied', 'Managed closely every day'],
+          2, 'High power and low interest means keep satisfied. High power and high interest means manage closely.'),
+        sampleQuestion('Medium', 'A stakeholder asks for a new feature in the middle of the project. What should the project manager do first?',
+          ['Add it straight away to keep the stakeholder happy', 'Refuse it because the scope is fixed', 'Ask the team to absorb it without telling anyone', 'Assess its impact on scope, time, cost and risk, then submit it through change control'],
+          3, 'Changes should be evaluated and then formally approved or rejected, never quietly added.'),
+        sampleQuestion('Hard', 'A project has a budget at completion (BAC) of $100,000, earned value (EV) of $40,000 and actual cost (AC) of $50,000. If current cost performance is expected to continue, what is the estimate at completion (EAC = BAC / CPI)?',
+          ['$110,000', '$125,000', '$150,000', '$160,000'],
+          1, 'CPI = EV / AC = 40,000 / 50,000 = 0.8. EAC = 100,000 / 0.8 = 125,000.'),
+        sampleQuestion('Hard', 'Activity A (3 days) must finish before B (4 days) and C (6 days) can start. Activity D (2 days) starts when both B and C have finished. What is the total float of activity B?',
+          ['0 days', '2 days', '4 days', '6 days'],
+          1, 'A-C-D takes 3 + 6 + 2 = 11 days and is the critical path. A-B-D takes 3 + 4 + 2 = 9 days. So B can slip by 11 - 9 = 2 days without delaying the project.'),
+        sampleQuestion('Hard', 'A threat has a 30% probability and a $50,000 impact. An opportunity has a 20% probability and a $20,000 benefit. What is the net expected monetary value (EMV) of the two together?',
+          ['-$19,000', '+$11,000', '-$30,000', '-$11,000'],
+          3, 'Threat EMV = 0.30 x -50,000 = -15,000. Opportunity EMV = 0.20 x 20,000 = +4,000. Net EMV = -11,000.')
+      ]
+    };
+
+    SAMPLE.questions.forEach(function (question, index) {
+      question.id = 'sample-q' + (index + 1);
+    });
+
+    const EXAMPLE_JSON = [
+      '{',
+      '  "title": "Module 1: Project Fundamentals",',
+      '  "questions": [',
+      '    {',
+      '      "prompt": "Which document formally authorises a project?",',
+      '      "options": [',
+      '        "Project charter",',
+      '        "Work breakdown structure",',
+      '        "Risk register",',
+      '        "Status report"',
+      '      ],',
+      '      "answer": "A",',
+      '      "explanation": "The project charter formally authorises the project."',
+      '    }',
+      '  ]',
+      '}'
+    ].join('\n');
+
+    /* ============================================================
+       Reading module files (shared by upload, paste and saved data)
+    ============================================================ */
+    function parseQuestion(raw, number, moduleId, moduleTitle) {
+      const label = 'Question ' + number;
+
+      if (!isRecord(raw)) throw new Error(label + ' is not an object.');
+
+      const prompt = cleanText(raw.prompt);
+      if (!prompt) throw new Error(label + ' has no "prompt" (the question text).');
+
+      if (!Array.isArray(raw.options)) throw new Error(label + ' has no "options" list.');
+
+      const options = raw.options.map(cleanText);
+      if (options.some(function (option) { return option === ''; })) {
+        throw new Error(label + ' has an empty option.');
+      }
+      if (options.length < MIN_OPTIONS || options.length > MAX_OPTIONS) {
+        throw new Error(label + ' needs between ' + MIN_OPTIONS + ' and ' + MAX_OPTIONS + ' options.');
+      }
+
+      let answerIndex = -1;
+      if (typeof raw.answer === 'string') {
+        answerIndex = LETTERS.indexOf(raw.answer.trim().toUpperCase());
+      } else if (typeof raw.answerIndex === 'number') {
+        answerIndex = raw.answerIndex;
+      } else {
+        throw new Error(label + ' has no answer. Add "answer": "B" (the letter of the correct option).');
+      }
+
+      if (!Number.isInteger(answerIndex) || answerIndex < 0 || answerIndex >= options.length) {
+        throw new Error(
+          label + ' has an answer that does not match its ' + options.length + ' options. ' +
+          'Use a letter from A to ' + LETTERS[options.length - 1] + '.'
+        );
+      }
+
+      return {
+        id: moduleId + '-q' + number,
+        category: cleanText(raw.category) || moduleTitle,
+        prompt: prompt,
+        options: options,
+        answerIndex: answerIndex,
+        explanation: cleanText(raw.explanation)
+      };
+    }
+
+    // options.lenient: skip bad questions instead of failing (used for saved data)
+    function parseModule(raw, fallbackTitle, options) {
+      const settings = options || {};
+
+      if (!isRecord(raw)) {
+        throw new Error('A module must be an object with a "title" and a "questions" list.');
+      }
+
+      const title = cleanText(raw.title) || String(fallbackTitle || '').trim();
+      if (!title) {
+        throw new Error('This module has no "title". Add one, or type a title in the box above.');
+      }
+
+      if (!Array.isArray(raw.questions) || raw.questions.length === 0) {
+        throw new Error('"' + title + '" has no questions.');
+      }
+
+      const id = validId(raw.id) && raw.id !== SAMPLE_ID ? raw.id : makeId();
+      const questions = [];
+
+      raw.questions.forEach(function (item, index) {
+        try {
+          questions.push(parseQuestion(item, index + 1, id, title));
+        } catch (error) {
+          if (!settings.lenient) throw error;
+          if (settings.report) settings.report.dropped++;
+        }
+      });
+
+      if (questions.length === 0) throw new Error('"' + title + '" has no valid questions.');
+
+      return { id: id, title: title, questions: questions };
+    }
+
+    // Accepts: one module, a list of questions, a list of modules, or a backup file.
+    function parseModules(text, fallbackTitle) {
+      let data;
+
+      try {
+        data = JSON.parse(text);
+      } catch (error) {
+        return { ok: false, error: 'That is not valid JSON (' + error.message + ').' };
+      }
+
+      try {
+        if (Array.isArray(data)) {
+          const looksLikeModules = data.length > 0 && isRecord(data[0]) && 'questions' in data[0];
+          if (looksLikeModules) {
+            return { ok: true, modules: data.map(function (item) { return parseModule(item, ''); }), backup: null };
+          }
+          return { ok: true, modules: [parseModule({ questions: data }, fallbackTitle)], backup: null };
+        }
+
+        if (isRecord(data) && Array.isArray(data.modules)) {
+          if (data.modules.length === 0) return { ok: false, error: 'The "modules" list is empty.' };
+          return {
+            ok: true,
+            modules: data.modules.map(function (item) { return parseModule(item, ''); }),
+            backup: data.app === 'quizbox'
+              ? { stats: data.stats, settings: data.settings, theme: data.theme }
+              : null
+          };
+        }
+
+        return { ok: true, modules: [parseModule(data, fallbackTitle)], backup: null };
+      } catch (error) {
+        return { ok: false, error: error.message || 'Something is wrong with the file.' };
+      }
+    }
+
+    function sanitizeStats(raw) {
+      const clean = {};
+      if (!isRecord(raw)) return clean;
+
+      Object.keys(raw).forEach(function (id) {
+        const entry = raw[id];
+        if (!isRecord(entry)) return;
+
+        const attempts = toInt(entry.attempts, 0, 100000);
+        const last = toInt(entry.lastPercent, 0, 100);
+        const best = toInt(entry.bestPercent, 0, 100);
+        if (attempts === null || last === null || best === null) return;
+
+        clean[id] = { attempts: attempts, lastPercent: last, bestPercent: Math.max(best, last) };
+      });
+
+      return clean;
+    }
+
+    function sanitizeSettings(raw) {
+      const clean = Object.assign({}, DEFAULT_SETTINGS);
+      if (!isRecord(raw)) return clean;
+
+      if (typeof raw.timerEnabled === 'boolean') clean.timerEnabled = raw.timerEnabled;
+      if (typeof raw.shuffleQuestions === 'boolean') clean.shuffleQuestions = raw.shuffleQuestions;
+      if (raw.timerMode === 'question' || raw.timerMode === 'total') clean.timerMode = raw.timerMode;
+
+      const seconds = toInt(raw.secondsPerQuestion, 5, 600);
+      if (seconds !== null) clean.secondsPerQuestion = seconds;
+
+      const minutes = toInt(raw.totalMinutes, 1, 240);
+      if (minutes !== null) clean.totalMinutes = minutes;
+
+      return clean;
+    }
+
+    function sanitizeModules(raw, report) {
+      const list = [];
+      const seen = {};
+      if (!Array.isArray(raw)) return list;
+
+      raw.forEach(function (item) {
+        try {
+          const module = parseModule(item, '', { lenient: true, report: report });
+          if (seen[module.id]) module.id = makeId();
+          seen[module.id] = true;
+          list.push(module);
+        } catch (error) {
+          report.dropped++;
+        }
+      });
+
+      return list;
+    }
+
+    /* ============================================================
+       State
+    ============================================================ */
+    const S = {
+      view: 'page',
+      page: 'home',
+      modules: [],
+      stats: {},
+      settings: Object.assign({}, DEFAULT_SETTINGS),
+      theme: 'system',
+      loadText: '',
+      loadTitle: '',
+      promptTitle: '',
+      filter: '',
+      message: null,
+      copied: { prompt: false, example: false },
+      offlineReady: false,
+      storageBlocked: false,
+      storageWarned: false,
+      loadIssue: false,
+      run: null,
+      active: null,
+      kind: 'full',
+      saved: false,
+      renderKey: null
+    };
+
+    let runCounter = 0;
+    let timerId = null;
+    let pendingRoute = null;
+
+    /* ============================================================
+       Saving and loading (localStorage, with safety checks)
+    ============================================================ */
+    function storageGet(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (error) {
+        S.storageBlocked = true;
+        return null;
+      }
+    }
+
+    function storageSet(key, value) {
+      try {
+        window.localStorage.setItem(key, value);
+        return true;
+      } catch (error) {
+        S.storageBlocked = true;
+        if (!S.storageWarned) {
+          S.storageWarned = true;
+          toast('Could not save. Browser storage is full or blocked. Export a backup so you do not lose your modules.', 'err', { sticky: true });
+        }
+        return false;
+      }
+    }
+
+    function storageRemove(key) {
+      try {
+        window.localStorage.removeItem(key);
+      } catch (error) {}
+    }
+
+    // Returns parsed JSON, or null. A damaged value is kept under a ":corrupt" key.
+    function readJson(key) {
+      const raw = storageGet(key);
+      if (raw === null) return null;
+
+      try {
+        return JSON.parse(raw);
+      } catch (error) {
+        S.loadIssue = true;
+        storageSet(key + ':corrupt', raw);
+        return null;
+      }
+    }
+
+    function migrateLegacyKeys() {
+      ['modules', 'stats', 'settings'].forEach(function (name) {
+        if (storageGet(KEYS[name]) === null) {
+          const old = storageGet(OLD_KEYS[name]);
+          if (old !== null) storageSet(KEYS[name], old);
+        }
+      });
+    }
+
+    function loadAll() {
+      migrateLegacyKeys();
+
+      const report = { dropped: 0 };
+      S.modules = sanitizeModules(readJson(KEYS.modules), report);
+      S.stats = sanitizeStats(readJson(KEYS.stats));
+      S.settings = sanitizeSettings(readJson(KEYS.settings));
+
+      const theme = storageGet(KEYS.theme);
+      S.theme = theme === 'light' || theme === 'dark' ? theme : 'system';
+
+      if (report.dropped > 0) S.loadIssue = true;
+    }
+
+    function saveModules() { storageSet(KEYS.modules, JSON.stringify(S.modules)); }
+    function saveStats() { storageSet(KEYS.stats, JSON.stringify(S.stats)); }
+    function saveSettings() { storageSet(KEYS.settings, JSON.stringify(S.settings)); }
+
+    function setTheme(theme) {
+      S.theme = theme;
+      storageSet(KEYS.theme, theme);
+      applyTheme();
+    }
+
+    function applyTheme() {
+      const root = document.documentElement;
+      if (S.theme === 'light' || S.theme === 'dark') {
+        root.setAttribute('data-theme', S.theme);
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      updateThemeButton();
+    }
+
+    /* ============================================================
+       Importing, merging and backups
+    ============================================================ */
+    // Returns { added, updated, idMap }. A module with the same title replaces the old one.
+    function importModules(incoming) {
+      const added = [];
+      const updated = [];
+      const idMap = {};
+
+      incoming.forEach(function (module) {
+        const originalId = module.id;
+        const existingIndex = S.modules.findIndex(function (item) {
+          return sameTitle(item.title, module.title);
+        });
+
+        if (existingIndex >= 0) {
+          module.id = S.modules[existingIndex].id;
+          S.modules[existingIndex] = module;
+          updated.push(module.title);
+        } else {
+          const clash = S.modules.some(function (item) { return item.id === module.id; });
+          if (clash) module.id = makeId();
+          S.modules.push(module);
+          added.push(module.title);
+        }
+
+        idMap[originalId] = module.id;
+      });
+
+      saveModules();
+      return { added: added, updated: updated, idMap: idMap };
+    }
+
+    function mergeStats(rawStats, idMap) {
+      const incoming = sanitizeStats(rawStats);
+
+      Object.keys(incoming).forEach(function (oldId) {
+        const finalId = idMap[oldId] || (oldId === SAMPLE_ID ? SAMPLE_ID : null);
+        if (!finalId) return;
+
+        const next = incoming[oldId];
+        const current = S.stats[finalId];
+
+        if (!current) {
+          S.stats[finalId] = next;
+        } else {
+          S.stats[finalId] = {
+            attempts: Math.max(current.attempts, next.attempts),
+            lastPercent: next.attempts > current.attempts ? next.lastPercent : current.lastPercent,
+            bestPercent: Math.max(current.bestPercent, next.bestPercent)
+          };
+        }
+      });
+
+      saveStats();
+    }
+
+    function describeImport(result) {
+      const parts = [];
+      if (result.added.length) parts.push('Loaded: ' + result.added.join(', '));
+      if (result.updated.length) parts.push('Updated: ' + result.updated.join(', '));
+      return parts.join('. ') + '.';
+    }
+
+    function commitImport(parsed) {
+      const result = importModules(parsed.modules);
+      let summary = describeImport(result);
+
+      if (parsed.backup) {
+        mergeStats(parsed.backup.stats, result.idMap);
+
+        if (parsed.backup.settings) {
+          S.settings = sanitizeSettings(parsed.backup.settings);
+          saveSettings();
+        }
+        if (parsed.backup.theme === 'light' || parsed.backup.theme === 'dark' || parsed.backup.theme === 'system') {
+          setTheme(parsed.backup.theme);
+        }
+        summary += ' Scores and settings were restored from the backup.';
+      }
+
+      return summary;
+    }
+
+    function exportBackup() {
+      const payload = {
+        app: 'quizbox',
+        version: BACKUP_VERSION,
+        exportedAt: new Date().toISOString(),
+        modules: S.modules,
+        stats: S.stats,
+        settings: S.settings,
+        theme: S.theme
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'quizbox-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      toast('Backup downloaded.', 'ok');
+    }
+
+    function resetAllData() {
+      Object.keys(KEYS).forEach(function (name) { storageRemove(KEYS[name]); storageRemove(KEYS[name] + ':corrupt'); });
+      Object.keys(OLD_KEYS).forEach(function (name) { storageRemove(OLD_KEYS[name]); });
+      S.modules = [];
+      S.stats = {};
+      S.settings = Object.assign({}, DEFAULT_SETTINGS);
+      S.message = null;
+      S.theme = 'system';
+      applyTheme();
+      render();
+      toast('All Quizbox data was removed from this browser.', 'ok');
+    }
+
+    function recordResult(moduleId, correct, total) {
+      const percent = total ? Math.round((correct / total) * 100) : 0;
+      const previous = S.stats[moduleId];
+      S.stats[moduleId] = {
+        attempts: (previous ? previous.attempts : 0) + 1,
+        lastPercent: percent,
+        bestPercent: Math.max(previous ? previous.bestPercent : 0, percent)
+      };
+      saveStats();
+    }
+
+    function findModule(id) {
+      if (id === SAMPLE_ID) return SAMPLE;
+      return S.modules.find(function (item) { return item.id === id; }) || null;
+    }
+
+    /* ============================================================
+       Messages: toasts and screen reader announcements
+    ============================================================ */
+    function announce(text) {
+      const region = $('#sr-status');
+      if (!region) return;
+      region.textContent = '';
+      window.setTimeout(function () { region.textContent = text; }, 60);
+    }
+
+    function toast(text, kind, options) {
+      const settings = options || {};
+      const holder = $('#toasts');
+      if (!holder) return;
+
+      const item = document.createElement('div');
+      item.className = 'toast' + (kind === 'err' ? ' err' : '');
+      item.setAttribute('role', kind === 'err' ? 'alert' : 'status');
+
+      const label = document.createElement('span');
+      label.textContent = text;
+      item.appendChild(label);
+
+      function dismiss() { item.remove(); }
+
+      if (settings.action) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn sm';
+        button.textContent = settings.action;
+        button.addEventListener('click', function () {
+          if (settings.onAction) settings.onAction();
+          dismiss();
+        });
+        item.appendChild(button);
+      } else if (settings.sticky) {
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'iconbtn';
+        close.setAttribute('aria-label', 'Dismiss message');
+        close.innerHTML = icon('x');
+        close.addEventListener('click', dismiss);
+        item.appendChild(close);
+      }
+
+      holder.appendChild(item);
+      if (!settings.sticky && !settings.action) window.setTimeout(dismiss, 4200);
+    }
+
+    function copyText(text, flag) {
+      function done() {
+        S.copied[flag] = true;
+        render();
+        announce('Copied to clipboard.');
+        window.setTimeout(function () { S.copied[flag] = false; render(); }, 2000);
+      }
+
+      function fallback() {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand('copy');
+          done();
+        } catch (error) {
+          toast('Could not copy. Select the text and copy it by hand.', 'err');
+        }
+        area.remove();
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    }
+
+    /* ============================================================
+       Quiz engine (real-clock timers)
+    ============================================================ */
+    function startRun(module, questions, kind) {
+      const settings = S.settings;
+      const mode = !settings.timerEnabled ? 'none' : (settings.timerMode === 'total' ? 'total' : 'question');
+      const secs = mode === 'question' ? settings.secondsPerQuestion : 0;
+      const totalMs = mode === 'total' ? settings.totalMinutes * 60 * 1000 : 0;
+      const now = Date.now();
+
+      S.saved = false;
+      S.active = module;
+      S.kind = kind;
+      S.run = {
+        id: ++runCounter,
+        questions: settings.shuffleQuestions ? shuffle(questions) : questions.slice(),
+        current: 0,
+        selected: null,
+        revealed: false,
+        mode: mode,
+        secs: secs,
+        qStart: now,
+        qDeadline: now + secs * 1000,
+        totalDeadline: now + totalMs,
+        totalRemainingMs: totalMs,
+        pausedAt: null,
+        spent: {},
+        skips: 0,
+        answers: [],
+        streak: 0,
+        best: 0,
+        timeUp: false
+      };
+
+      S.view = 'quiz';
+      startTimer();
+      go('quiz');
+    }
+
+    function startTimer() {
+      stopTimer();
+      timerId = window.setInterval(tick, 500);
+    }
+
+    function stopTimer() {
+      if (timerId) {
+        window.clearInterval(timerId);
+        timerId = null;
+      }
+    }
+
+    function abandonRun() {
+      stopTimer();
+      S.run = null;
+      S.view = 'page';
+    }
+
+    function questionElapsed(run) {
+      return Math.max(0, Math.round((Date.now() - run.qStart) / 1000));
+    }
+
+    // Dialogs pause the clock so reading a prompt never costs quiz time.
+    function pauseClock() {
+      const run = S.run;
+      if (S.view === 'quiz' && run && !run.revealed && !run.pausedAt) run.pausedAt = Date.now();
+    }
+
+    function resumeClock() {
+      const run = S.run;
+      if (!run || !run.pausedAt) return;
+      const gap = Date.now() - run.pausedAt;
+      run.qStart += gap;
+      run.qDeadline += gap;
+      run.totalDeadline += gap;
+      run.pausedAt = null;
+    }
+
+    function recordAnswer(selectedIndex) {
+      const run = S.run;
+      const question = run.questions[run.current];
+      const correct = selectedIndex === question.answerIndex;
+
+      run.streak = correct ? run.streak + 1 : 0;
+      run.best = Math.max(run.best, run.streak);
+      run.selected = selectedIndex;
+      run.revealed = true;
+
+      if (run.mode === 'total') {
+        run.totalRemainingMs = Math.max(0, run.totalDeadline - Date.now());
+      }
+
+      run.answers.push({
+        question: question,
+        selectedIndex: selectedIndex,
+        correct: correct,
+        timeSpent: (run.spent[question.id] || 0) + questionElapsed(run)
+      });
+    }
+
+    function feedbackText(run) {
+      const question = run.questions[run.current];
+      if (run.selected === question.answerIndex) return 'Correct.';
+      const prefix = run.selected === null ? "Time's up. " : 'Incorrect. ';
+      return prefix + 'The answer is ' + question.options[question.answerIndex] + '.';
+    }
+
+    function selectOption(index) {
+      const run = S.run;
+      if (!run || S.view !== 'quiz' || run.revealed) return;
+      if (index < 0 || index >= run.questions[run.current].options.length) return;
+
+      recordAnswer(index);
+      render();
+      announce(feedbackText(run));
+    }
+
+    function nextQuestion() {
+      const run = S.run;
+      if (!run || S.view !== 'quiz' || !run.revealed) return;
+
+      if (run.current >= run.questions.length - 1) {
+        showResults();
+        return;
+      }
+
+      const now = Date.now();
+      run.current++;
+      run.selected = null;
+      run.revealed = false;
+      run.qStart = now;
+      run.qDeadline = now + run.secs * 1000;
+      if (run.mode === 'total') run.totalDeadline = now + run.totalRemainingMs;
+      render();
+    }
+
+    // Sends the current question to the end of the queue.
+    function skipQuestion() {
+      const run = S.run;
+      if (!run || S.view !== 'quiz' || run.revealed) return;
+      if (run.questions.length - run.current < 2) return;
+
+      const question = run.questions[run.current];
+      const now = Date.now();
+
+      run.spent[question.id] = (run.spent[question.id] || 0) + questionElapsed(run);
+      run.questions.push(run.questions.splice(run.current, 1)[0]);
+      run.skips++;
+      run.qStart = now;
+      run.qDeadline = now + run.secs * 1000;
+      render();
+    }
+
+    // Whole-quiz timer ran out: everything not yet answered counts as wrong.
+    function timeUp() {
+      const run = S.run;
+
+      for (let i = run.current; i < run.questions.length; i++) {
+        const question = run.questions[i];
+        run.answers.push({
+          question: question,
+          selectedIndex: null,
+          correct: false,
+          timeSpent: (run.spent[question.id] || 0) + (i === run.current ? questionElapsed(run) : 0)
+        });
+      }
+
+      run.streak = 0;
+      run.timeUp = true;
+      showResults();
+    }
+
+    function showResults() {
+      const run = S.run;
+      stopTimer();
+      S.view = 'results';
+
+      if (S.kind === 'full' && !S.saved) {
+        S.saved = true;
+        const correct = run.answers.filter(function (answer) { return answer.correct; }).length;
+        recordResult(S.active.id, correct, run.answers.length);
+      }
+
+      const percent = run.answers.length
+        ? Math.round((run.answers.filter(function (answer) { return answer.correct; }).length / run.answers.length) * 100)
+        : 0;
+
+      go('results');
+      announce('Quiz complete. You scored ' + percent + ' percent.');
+    }
+
+    function tick() {
+      const run = S.run;
+      if (S.view !== 'quiz' || !run || run.revealed || run.pausedAt) return;
+
+      const now = Date.now();
+
+      if (run.mode === 'total') {
+        const left = Math.ceil((run.totalDeadline - now) / 1000);
+        if (left <= 0) {
+          timeUp();
+          return;
+        }
+        const box = $('#watchbox');
+        const label = $('#watch');
+        if (label) label.textContent = formatClock(left);
+        if (box) box.className = 'watch' + (left <= 30 ? ' low' : '');
+        return;
+      }
+
+      if (run.mode === 'none') {
+        const stopwatch = $('#watch');
+        if (stopwatch) stopwatch.textContent = formatClock(questionElapsed(run));
+        return;
+      }
+
+      const secondsLeft = Math.ceil((run.qDeadline - now) / 1000);
+      if (secondsLeft <= 0) {
+        recordAnswer(null);
+        render();
+        announce(feedbackText(run));
+        return;
+      }
+
+      const ring = $('#ring');
+      const number = $('#ringnum');
+      const arc = $('#ringfg');
+      if (number) number.textContent = secondsLeft;
+      if (ring) ring.className = 'ring' + (secondsLeft <= 5 ? ' low' : '');
+      if (arc) arc.style.strokeDashoffset = (2 * Math.PI * 22) * (1 - secondsLeft / run.secs);
+    }
+
+    /* ============================================================
+       Help content: AI prompt, steps and FAQ
+    ============================================================ */
+    function buildAiPrompt(moduleTitle) {
+      const title = moduleTitle.trim();
+      const titleRule = title
+        ? 'The module title is: ' + title
+        : 'The module title is whatever I tell you. If I have not given one, ask me for it before you start.';
+
+      return [
+        'You are converting study questions into a JSON file for a quiz app. Follow every rule below exactly.',
+        '',
+        titleRule,
+        '',
+        'OUTPUT RULES',
+        '1. Reply with ONE code block containing valid JSON, and nothing inside the code block except the JSON.',
+        '2. If something needs my attention (a question you skipped, a missing answer), write it in plain text BEFORE the code block, never inside the JSON.',
+        '3. The JSON must be strictly valid: double quotes only, no trailing commas, no comments, no line breaks inside strings. Escape any double quote inside text as \\" and any backslash as \\\\.',
+        '4. Never cut the JSON off. If there are more than 40 questions, split them into parts of at most 40 questions. Give each part its own complete JSON object with the title followed by (Part 1), (Part 2) and so on, and put each part in its own code block.',
+        '',
+        'FORMAT',
+        '{',
+        '  "title": "Module title here",',
+        '  "questions": [',
+        '    {',
+        '      "prompt": "The question text",',
+        '      "options": ["First option", "Second option", "Third option", "Fourth option"],',
+        '      "answer": "B",',
+        '      "explanation": "Why the answer is correct."',
+        '    }',
+        '  ]',
+        '}',
+        '',
+        'FIELD RULES',
+        '- "prompt": the question text only, with no question number.',
+        '- "options": between 2 and 6 options, in the same order as the source. Remove any leading labels such as "A.", "B)", "(c)" or "1." from the option text. Do not shuffle or reword the options.',
+        '- "answer": ONE capital letter, A to F, matching the position of the correct option (A is the first option, B the second, and so on). The letter must exist in that question\'s options. If the source gives the answer as text instead of a letter, work out the letter.',
+        '- "explanation": use the explanation from my source if there is one. If there is none, write a short one only if you are certain it is correct. Otherwise use an empty string "". Never invent facts.',
+        '- "category": optional. Use it only if the source has a topic or section heading for that question, otherwise leave this field out.',
+        '',
+        'ACCURACY RULES',
+        '- Do not invent, merge, reorder, reword or remove questions. Keep my wording.',
+        '- Never guess a correct answer. If the source has no answer key for a question, leave that question out of the JSON and tell me which ones in plain text before the code block.',
+        '- If a question has more than one correct answer, or needs a typed answer, leave it out of the JSON and tell me which ones.',
+        '- True/false questions become two options: ["True", "False"].',
+        '',
+        'BEFORE YOU REPLY, CHECK',
+        '- Every question has a prompt, 2 to 6 options and a valid answer letter.',
+        '- The JSON parses with no errors.',
+        '- The number of questions in the JSON matches the number in my source, minus any you told me you left out.',
+        '',
+        'My questions are below:'
+      ].join('\n');
+    }
+
+    const STEPS = [
+      ['Collect your questions and answers', 'Copy them from your course platform, notes, PDF or Word file. Make sure the correct answers are included.'],
+      ['Copy the prompt below', 'Type your module title in the box first, so it is added to the prompt for you.'],
+      ['Open any AI chat and paste the prompt', 'ChatGPT, Claude or Gemini all work. Paste the prompt, then paste your questions underneath it (or attach the file).'],
+      ['Copy the code block the AI sends back', 'Paste it into the box on the Add questions page, or save it as a .json file. To save it, open Notepad, paste, choose Save As, set the type to All files and name it something like module-1.json.'],
+      ['Load it and start', 'If an error appears, copy the error message back to the AI and ask it to fix the JSON. Then try again.']
+    ];
+
+    const FAQ = [
+      ['Where is my data stored?', 'Only in this browser, on this device. Nothing is uploaded. Clearing your browser data removes your modules and scores, so export a backup now and then from the Settings page.'],
+      ['How do I move my modules to another device?', 'On this device, open Settings and choose Export backup. On the other device, open Add questions and choose that file. Your modules, scores and settings come with it.'],
+      ['Does it work offline?', 'Yes, once you have opened the hosted site once while online. After that, Quizbox loads and runs without internet. Open the page once online first so the fonts are saved too.'],
+      ['How do I fix a mistake in a module?', 'Edit the .json file and load it again with the same title. The old version is replaced and your scores are kept.'],
+      ['My file will not load. What now?', 'Read the message shown under the Load button. It names the question and the problem. A common cause is a missing "answer" letter or a stray comma. You can also paste the message back into your AI chat and ask it to fix the JSON.']
+    ];
+
+    /* ============================================================
+       View helpers
+    ============================================================ */
+    function button(action, label, options) {
+      const opts = options || {};
+      return '<button type="button" class="btn' + (opts.cls ? ' ' + opts.cls : '') + '" data-a="' + action + '"' +
+        (opts.data ? ' ' + opts.data : '') +
+        (opts.aria ? ' aria-label="' + esc(opts.aria) + '"' : '') +
+        (opts.style ? ' style="' + opts.style + '"' : '') + '>' +
+        (opts.icon ? icon(opts.icon) : '') + label + '</button>';
+    }
+
+    function pageHeader(title, lead, actions) {
+      return `
+        <header class="page-head">
+          <div class="stack g2">
+            <h1 class="h1" data-heading tabindex="-1">${esc(title)}</h1>
+            ${lead ? `<p class="lead">${esc(lead)}</p>` : ''}
+          </div>
+          ${actions ? `<div class="row wrap g2">${actions}</div>` : ''}
+        </header>`;
+    }
+
+    function storageBanner() {
+      if (!S.storageBlocked) return '';
+      return '<p class="msg err" role="alert">Saving is not available in this browser mode, so your modules and scores will be lost when you close this tab. Export a backup to keep them.</p>';
+    }
+
+    function moduleRow(module, isSample) {
+      const stats = S.stats[module.id];
+      const count = module.questions.length;
+      const info = count + (count === 1 ? ' question' : ' questions') + (stats
+        ? ' · Best ' + stats.bestPercent + '% · Last ' + stats.lastPercent + '% · ' +
+          stats.attempts + (stats.attempts === 1 ? ' attempt' : ' attempts')
+        : ' · Not attempted yet');
+      const idAttr = 'data-id="' + esc(module.id) + '"';
+
+      return `
+        <li class="card mrow" data-title="${esc(module.title.toLowerCase())}">
+          <div class="stack g2" style="min-width:0">
+            <div class="row g2 wrap">
+              <p class="strong pretty">${esc(module.title)}</p>
+              ${isSample ? '<span class="tag">Sample</span>' : ''}
+            </div>
+            <p class="mono xs muted">${esc(info)}</p>
+            ${stats ? `<div class="meter" role="img" aria-label="Best score ${stats.bestPercent} percent"><div style="width:${stats.bestPercent}%"></div></div>` : ''}
+          </div>
+          <div class="row g2 wrap" style="flex:none">
+            ${stats ? button('reset-scores', 'Reset scores', { cls: 'ghost sm', data: idAttr }) : ''}
+            ${isSample ? '' : button('delete', '', { cls: 'ghost', icon: 'trash', aria: 'Delete ' + module.title, data: idAttr })}
+            ${button('start', 'Start', { icon: 'play', data: idAttr })}
+          </div>
+        </li>`;
+    }
+
+    function chipRow(action, list, current, suffix) {
+      return list.map(function (value) {
+        return '<button type="button" class="chipbtn" data-a="' + action + '" data-v="' + value + '" aria-pressed="' + (value === current) + '">' + value + suffix + '</button>';
+      }).join('');
+    }
+
+    function switchRow(action, label, detail, iconName, checked) {
+      return `
+        <div class="row between g4">
+          <div class="row" style="align-items:flex-start">
+            <span class="setting-icon">${icon(iconName)}</span>
+            <div>
+              <p class="strong">${label}</p>
+              <p class="small muted">${detail}</p>
+            </div>
+          </div>
+          <button type="button" class="sw" role="switch" aria-checked="${checked}" aria-label="${label}" data-a="${action}"></button>
+        </div>`;
+    }
+
+    function timerOptions() {
+      if (!S.settings.timerEnabled) return '';
+
+      const total = S.settings.timerMode === 'total';
+      const current = total ? S.settings.totalMinutes : S.settings.secondsPerQuestion;
+      const presets = total ? TOTAL_CHOICES : TIMER_CHOICES;
+      const isPreset = presets.indexOf(current) >= 0;
+      const chips = total
+        ? chipRow('set-mins', TOTAL_CHOICES, current, ' min')
+        : chipRow('set-secs', TIMER_CHOICES, current, 's');
+      const customField = total
+        ? `<label class="row g2 small muted"><input type="number" class="field tnum" id="mins-custom" min="1" max="240" inputmode="numeric" placeholder="Custom" value="${isPreset ? '' : current}" aria-label="Custom minutes for the whole quiz">min</label>`
+        : `<label class="row g2 small muted"><input type="number" class="field tnum" id="secs-custom" min="5" max="600" inputmode="numeric" placeholder="Custom" value="${isPreset ? '' : current}" aria-label="Custom seconds per question">sec</label>`;
+      const range = total ? 'Custom time: 1 to 240 minutes.' : 'Custom time: 5 to 600 seconds.';
+      const note = total
+        ? 'One countdown for the whole quiz. It only runs while you are answering, not while you read feedback. When it reaches zero the quiz ends and unanswered questions count as wrong.'
+        : 'Every question gets its own countdown, and a skipped question starts again at full time. Unanswered counts as wrong.';
+
+      return `
+        <div class="stack g3" style="padding-left:2.25rem">
+          <div class="seg" role="group" aria-label="Timer type">
+            <button type="button" data-a="mode-question" aria-pressed="${!total}">Each question</button>
+            <button type="button" data-a="mode-total" aria-pressed="${total}">Whole quiz</button>
+          </div>
+          <div class="chips">${chips}${customField}</div>
+          <p class="xs muted">${range} Type a number and press Enter.</p>
+          <p class="small muted pretty">${note}</p>
+        </div>`;
+    }
+
+    /* ============================================================
+       Pages
+    ============================================================ */
+    function homeView() {
+      const preview = S.modules.slice(0, 3);
+
+      const ownSection = preview.length ? `
+        <section class="stack g3" aria-labelledby="own-title">
+          <div class="row between wrap">
+            <h2 class="sec" id="own-title">Your modules</h2>
+            <a class="btn sm out" href="#/modules">View all (${S.modules.length})</a>
+          </div>
+          <ul class="list">${preview.map(function (module) { return moduleRow(module, false); }).join('')}</ul>
+        </section>` : '';
+
+      return `
+        <div class="stack g10">
+          <section class="hero" aria-labelledby="home-title">
+            <div class="stack g6">
+              <div class="stack g4">
+                <p class="eyebrow">Practice quizzes from your own questions</p>
+                <h1 class="title" id="home-title" data-heading tabindex="-1">Pick a module and test yourself.</h1>
+                <p class="lead">Load your course questions once, then run any module as a quiz. Every answer is explained and your scores are saved on this device.</p>
+              </div>
+              <div class="row wrap g3">
+                ${button('start', 'Try the sample quiz', { cls: 'lg', icon: 'play', data: 'data-id="' + SAMPLE_ID + '"' })}
+                <a class="btn lg out" href="#/add">${icon('up')}Add your questions</a>
+              </div>
+              <ul class="facts">
+                <li>${icon('check')}Free, no account</li>
+                <li>${icon('bolt')}Works offline</li>
+                <li>${icon('lock')}Stays on your device</li>
+              </ul>
+            </div>
+
+            <div aria-hidden="true">
+              <div class="card mock">
+                <div class="row between">
+                  <span class="tag">Medium</span>
+                  <span class="mono xs muted">Question 4 of 9</span>
+                </div>
+                <p class="mock-q">The critical path of a project is:</p>
+                <div class="mock-opt"><span class="ltr">A</span>The path with the most risks</div>
+                <div class="mock-opt ok"><span class="ltr">${icon('check')}</span>The longest chain of dependent activities</div>
+                <div class="mock-opt"><span class="ltr">C</span>The path with the most team members</div>
+                <p class="mock-fb"><b>Correct.</b> A delay to any activity on it delays the whole project.</p>
+              </div>
+            </div>
+          </section>
+
+          ${ownSection}
+
+          <section class="stack g4" aria-labelledby="how-title">
+            <h2 class="sec" id="how-title">How it works</h2>
+            <div class="grid-3">
+              <article class="card pad stack g3">
+                <span class="step-num">1</span>
+                <h3 class="strong">Add your questions</h3>
+                <p class="small muted pretty">Choose a .json file or paste it in. Not sure how to make one? The Help page has a prompt that does it with any AI chat.</p>
+              </article>
+              <article class="card pad stack g3">
+                <span class="step-num">2</span>
+                <h3 class="strong">Practise</h3>
+                <p class="small muted pretty">Answer one question at a time and see the explanation straight away. Add a timer when you want pressure.</p>
+              </article>
+              <article class="card pad stack g3">
+                <span class="step-num">3</span>
+                <h3 class="strong">Review and retry</h3>
+                <p class="small muted pretty">See every answer at the end, then retry only the questions you missed. Your best scores are saved.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="grid-4" aria-label="Features">
+            <div class="stack g2"><span class="feat-icon">${icon('check')}</span><p class="strong">Instant explanations</p><p class="small muted pretty">Learn why an answer is right, not just that it is.</p></div>
+            <div class="stack g2"><span class="feat-icon">${icon('target')}</span><p class="strong">Retry what you missed</p><p class="small muted pretty">Focus your next round on the weak spots.</p></div>
+            <div class="stack g2"><span class="feat-icon">${icon('timer')}</span><p class="strong">Optional timers</p><p class="small muted pretty">Per question or for the whole quiz, or none at all.</p></div>
+            <div class="stack g2"><span class="feat-icon">${icon('lock')}</span><p class="strong">Private and offline</p><p class="small muted pretty">Nothing leaves your device, and it works without internet.</p></div>
+          </section>
+        </div>`;
+    }
+
+    function modulesView() {
+      const count = S.modules.length;
+      const filterBox = count >= 6 ? `
+        <div class="stack g2">
+          <label class="sr" for="mod-filter">Search your modules</label>
+          <input type="search" class="field" id="mod-filter" placeholder="Search your modules" value="${esc(S.filter)}" autocomplete="off">
+        </div>` : '';
+
+      const ownList = count === 0
+        ? `<div class="dashed stack g3"><p>No modules yet. Add your first one to start practising with your own questions.</p><div>${'<a class="btn sm" href="#/add">' + icon('plus') + 'Add questions</a>'}</div></div>`
+        : `<ul class="list" id="own-list">${S.modules.map(function (module) { return moduleRow(module, false); }).join('')}</ul>
+           <p class="dashed" id="no-match" hidden>No modules match your search.</p>`;
+
+      return `
+        <div class="stack g6">
+          ${pageHeader('Modules', 'Pick a module to start a quiz. Your best and latest scores are shown on each one.', '<a class="btn" href="#/add">' + icon('plus') + 'Add questions</a>')}
+          ${storageBanner()}
+          <section class="stack g3" aria-labelledby="sample-title">
+            <h2 class="sec" id="sample-title">Sample</h2>
+            <ul class="list">${moduleRow(SAMPLE, true)}</ul>
+          </section>
+          <section class="stack g3" aria-labelledby="mine-title">
+            <h2 class="sec" id="mine-title">Your modules</h2>
+            ${filterBox}
+            ${ownList}
+          </section>
+          ${count ? `
+            <section class="stack g2">
+              ${button('export', 'Export backup', { cls: 'out', icon: 'down', style: 'align-self:flex-start' })}
+              <p class="xs muted" style="max-width:32rem">Modules live in this browser. Clearing your browser data removes them, so keep a backup file. It includes your scores and settings.</p>
+            </section>` : ''}
+        </div>`;
+    }
+
+    function addView() {
+      let message = '';
+      if (S.message) {
+        message = `
+          <div class="msg ${S.message.kind === 'ok' ? 'ok' : 'err'} stack g3" role="status">
+            <p>${esc(S.message.text)}</p>
+            ${S.message.kind === 'ok' ? '<div><a class="btn sm out" href="#/modules">View modules</a></div>' : ''}
+          </div>`;
+      }
+
+      return `
+        <div class="stack g6 narrow">
+          ${pageHeader('Add questions', 'Load a module file or paste its JSON. A module with the same title replaces the old one and keeps your scores.')}
+          ${storageBanner()}
+
+          <a class="guide-link" href="#/help">
+            ${icon('book')}
+            <span><b>Not sure how to make the file?</b><span class="muted">Open the step-by-step guide and copy the AI prompt.</span></span>
+          </a>
+
+          <section class="stack g3" aria-labelledby="files-title">
+            <h2 class="sec" id="files-title">Choose files</h2>
+            <input type="file" id="module-file" accept=".json,application/json" multiple class="sr" tabindex="-1" aria-hidden="true">
+            <button type="button" class="drop" id="drop" data-a="choose-file">
+              ${icon('up')}
+              <span class="strong">Drop .json files here, or click to choose</span>
+              <span class="small muted">Select several modules at once. Backup files work too.</span>
+            </button>
+          </section>
+
+          <section class="stack g3" aria-labelledby="paste-title">
+            <h2 class="sec" id="paste-title">Or paste the JSON</h2>
+            <label class="sr" for="load-title">Module title</label>
+            <input type="text" class="field" id="load-title" value="${esc(S.loadTitle)}" placeholder="Module title (only needed if the JSON has no title)">
+            <label class="sr" for="load-text">Module JSON</label>
+            <textarea class="field" id="load-text" rows="8" spellcheck="false" placeholder="Paste module JSON here">${esc(S.loadText)}</textarea>
+            ${button('paste-load', 'Load module', { style: 'align-self:flex-start' })}
+          </section>
+
+          ${message}
+
+          <details>
+            <summary>What format does a module use?</summary>
+            <div class="stack g3">
+              <p class="small muted pretty">Each question needs a prompt, a list of options and the letter of the correct answer. The explanation and category are optional.</p>
+              <pre>${esc(EXAMPLE_JSON)}</pre>
+              ${button('copy-example', S.copied.example ? 'Copied' : 'Copy example', { cls: 'out sm', icon: S.copied.example ? 'check' : 'copy', style: 'align-self:flex-start' })}
+            </div>
+          </details>
+        </div>`;
+    }
+
+    function helpView() {
+      const steps = STEPS.map(function (step, index) {
+        return `
+          <li class="row" style="align-items:flex-start">
+            <span class="num">${index + 1}</span>
+            <div class="stack" style="gap:0.25rem">
+              <p class="strong">${esc(step[0])}</p>
+              <p class="small muted pretty">${esc(step[1])}</p>
+            </div>
+          </li>`;
+      }).join('');
+
+      const faq = FAQ.map(function (item) {
+        return `<details><summary>${esc(item[0])}</summary><div><p class="small muted pretty">${esc(item[1])}</p></div></details>`;
+      }).join('');
+
+      return `
+        <div class="stack g10 narrow">
+          ${pageHeader('Help: make a module file with AI', 'Follow these steps to turn your course questions into a file Quizbox can load.')}
+
+          <section class="stack g6" aria-labelledby="steps-title">
+            <h2 class="sec sr" id="steps-title">Steps</h2>
+            <ol class="steps stack g4">${steps}</ol>
+
+            <div class="stack g2">
+              <label for="prompt-title" class="small strong">Module title (optional)</label>
+              <input id="prompt-title" type="text" class="field" value="${esc(S.promptTitle)}" placeholder="e.g. Module 3: Stakeholder Management">
+              <textarea id="prompt-box" class="field" readonly rows="10" aria-label="Prompt to copy">${esc(buildAiPrompt(S.promptTitle))}</textarea>
+              <div class="row wrap g2">
+                ${button('copy-prompt', S.copied.prompt ? 'Copied' : 'Copy prompt', { icon: S.copied.prompt ? 'check' : 'copy' })}
+                <a class="btn out" href="#/add">${icon('up')}Go to Add questions</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="stack g3" aria-labelledby="faq-title">
+            <h2 class="sec" id="faq-title">Common questions</h2>
+            ${faq}
+          </section>
+        </div>`;
+    }
+
+    function settingsView() {
+      const themeButtons = [['light', 'Light', 'sun'], ['dark', 'Dark', 'moon'], ['system', 'System', 'monitor']]
+        .map(function (item) {
+          return `<button type="button" data-a="set-theme" data-v="${item[0]}" aria-pressed="${S.theme === item[0]}">${icon(item[2])}${item[1]}</button>`;
+        }).join('');
+
+      const offlineText = S.offlineReady
+        ? 'Ready. Quizbox works without internet on this device.'
+        : 'Turns on after you open the hosted site once over HTTPS. It does not work from a downloaded file.';
+
+      return `
+        <div class="stack g6 narrow">
+          ${pageHeader('Settings', 'Choose how Quizbox looks and behaves. Everything is saved on this device.')}
+          ${storageBanner()}
+
+          <section class="stack g3" aria-labelledby="look-title">
+            <h2 class="sec" id="look-title">Appearance</h2>
+            <div class="card pad stack g3">
+              <p class="strong">Theme</p>
+              <div class="seg" role="group" aria-label="Theme">${themeButtons}</div>
+              <p class="small muted">System follows your device setting.</p>
+            </div>
+          </section>
+
+          <section class="stack g3" aria-labelledby="quiz-title">
+            <h2 class="sec" id="quiz-title">Quiz</h2>
+            <div class="card pad stack g3">
+              ${switchRow('toggle-timer', 'Timer', 'Add a countdown to your quizzes.', 'timer', S.settings.timerEnabled)}
+              ${timerOptions()}
+              <div class="divider"></div>
+              ${switchRow('toggle-shuffle', 'Shuffle questions', 'Mix the order each time you start a module.', 'shuffle', S.settings.shuffleQuestions)}
+            </div>
+          </section>
+
+          <section class="stack g3" aria-labelledby="data-title">
+            <h2 class="sec" id="data-title">Your data</h2>
+            <div class="card pad stack g4">
+              <div class="stack g2">
+                <p class="strong">Backup</p>
+                <p class="small muted pretty">Download your modules, scores and settings in one file. Load it on any device from the Add questions page.</p>
+                ${button('export', 'Export backup', { cls: 'out', icon: 'down', style: 'align-self:flex-start' })}
+              </div>
+              <div class="divider"></div>
+              <div class="stack g2">
+                <p class="strong">Offline use</p>
+                <p class="small muted pretty">${offlineText}</p>
+              </div>
+              <div class="divider"></div>
+              <div class="stack g2">
+                <p class="strong">Reset</p>
+                <p class="small muted pretty">Remove every module, score and setting from this browser. This cannot be undone, so export a backup first.</p>
+                ${button('reset-all', 'Remove all data', { cls: 'out danger-text', icon: 'trash', style: 'align-self:flex-start' })}
+              </div>
+            </div>
+          </section>
+        </div>`;
+    }
+
+    /* ============================================================
+       Quiz and results
+    ============================================================ */
+    function quizView() {
+      const run = S.run;
+      const question = run.questions[run.current];
+      const total = run.questions.length;
+      const score = run.answers.filter(function (answer) { return answer.correct; }).length;
+      const progress = Math.round((run.answers.length / total) * 100);
+      const remaining = total - run.current;
+      const isLast = remaining === 1;
+      const timedOut = run.revealed && run.selected === null;
+      const isCorrect = run.revealed && run.selected === question.answerIndex;
+      let clock;
+
+      if (run.mode === 'question') {
+        const secondsLeft = Math.max(0, Math.ceil((run.qDeadline - Date.now()) / 1000));
+        const circumference = 2 * Math.PI * 22;
+        clock = `
+          <div class="ring${secondsLeft <= 5 ? ' low' : ''}" id="ring" role="timer" aria-label="Time left for this question">
+            <svg viewBox="0 0 56 56" aria-hidden="true">
+              <circle class="bg" cx="28" cy="28" r="22"/>
+              <circle class="fg" id="ringfg" cx="28" cy="28" r="22" stroke-dasharray="${circumference}" style="stroke-dashoffset:${circumference * (1 - secondsLeft / run.secs)}"/>
+            </svg>
+            <span id="ringnum" aria-hidden="true">${secondsLeft}</span>
+          </div>`;
+      } else if (run.mode === 'total') {
+        const left = Math.max(0, Math.ceil((run.revealed ? run.totalRemainingMs : run.totalDeadline - Date.now()) / 1000));
+        clock = `
+          <div class="watch${left <= 30 ? ' low' : ''}" id="watchbox" role="timer" aria-label="Time left for the whole quiz">
+            ${icon('timer', 'style="width:1rem;height:1rem"')}<span id="watch">${formatClock(left)}</span>
+          </div>`;
+      } else {
+        clock = `
+          <div class="watch">
+            ${icon('clock', 'style="width:1rem;height:1rem;color:var(--muted-fg)"')}<span id="watch">${formatClock(questionElapsed(run))}</span>
+          </div>`;
+      }
+
+      const options = question.options.map(function (option, index) {
+        const state = !run.revealed ? '' : (index === question.answerIndex ? 'correct' : (index === run.selected ? 'wrong' : 'dim'));
+        const letter = state === 'correct' ? icon('check') : (state === 'wrong' ? icon('x') : LETTERS[index]);
+        const hint = state === 'correct' ? '<span class="sr">(correct answer)</span>' : (state === 'wrong' ? '<span class="sr">(your answer, incorrect)</span>' : '');
+        return `
+          <li>
+            <button type="button" class="opt ${state}" data-a="pick" data-i="${index}"${run.revealed ? ' disabled' : ''}>
+              <span class="ltr" aria-hidden="true">${letter}</span>
+              <span style="flex:1">${esc(option)}</span>${hint}
+            </button>
+          </li>`;
+      }).join('');
+
+      let footer = '';
+      if (run.revealed) {
+        footer = `
+          <div class="fbrow" id="feedback">
+            <div class="row" style="align-items:flex-start">
+              <span class="fb-ico ${isCorrect ? 'ok' : 'no'}">${isCorrect ? icon('check') : (timedOut ? icon('clock') : icon('x'))}</span>
+              <div class="stack" style="gap:0.25rem">
+                <p class="strong">${isCorrect ? 'Correct!' : (timedOut ? "Time's up!" : 'Not quite.')}</p>
+                <p class="small muted pretty" style="line-height:1.6">${isCorrect ? '' : 'The answer is <strong style="color:var(--fg)">' + esc(question.options[question.answerIndex]) + '</strong>. '}${esc(question.explanation)}</p>
+              </div>
+            </div>
+            <button type="button" class="btn lg" data-a="next" id="next-btn" style="flex:none">${isLast ? 'See results' : 'Next question'}${icon('next')}</button>
+          </div>`;
+      } else if (remaining > 1) {
+        footer = button('skip', 'Skip for now', { cls: 'out sm' });
+      }
+
+      const skippedTag = run.spent[question.id] !== undefined ? '<span class="tag">Skipped earlier</span>' : '';
+      const streak = run.streak >= 2 ? `<span class="pill">${icon('flame', 'style="width:1rem;height:1rem"')}${run.streak} streak</span>` : '';
+
+      return `
+        <div class="stack g6 narrow">
+          <header class="stack g4">
+            <p class="eyebrow">${esc(S.active.title)}</p>
+            <div class="row between g4">
+              <div class="row g4">
+                ${clock}
+                <div class="stack">
+                  <span class="xs muted" style="text-transform:uppercase;letter-spacing:0.08em">Score</span>
+                  <span class="mono" style="font-size:1.25rem;font-weight:600">${score}<span class="muted">/${total}</span></span>
+                </div>
+                ${streak}
+              </div>
+              ${button('quit', 'Quit', { cls: 'ghost sm', icon: 'x' })}
+            </div>
+            <div class="stack g2">
+              <div class="row between mono xs muted"><span>Question ${run.answers.length + 1} of ${total}</span><span>${progress}% complete</span></div>
+              <div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${run.answers.length}"><div style="width:${progress}%"></div></div>
+            </div>
+          </header>
+
+          <section class="card qcard stack g6" aria-labelledby="qp">
+            <div class="stack g3">
+              <div class="row g2 wrap"><span class="tag">${esc(question.category)}</span>${skippedTag}</div>
+              <h2 class="prompt" id="qp" data-heading tabindex="-1"><span class="sr">Question ${run.answers.length + 1}: </span>${esc(question.prompt)}</h2>
+            </div>
+            <ul class="opts">${options}</ul>
+            <div>${footer}</div>
+          </section>
+
+          <p class="xs muted kbd-hint">Keys: A to ${LETTERS[question.options.length - 1]} to answer, S to skip, Enter for next.</p>
+        </div>`;
+    }
+
+    function verdict(percent) {
+      if (percent === 100) return 'Flawless. Nothing gets past you.';
+      if (percent >= 80) return 'Excellent work, almost perfect.';
+      if (percent >= 60) return 'Solid round. A few slipped through.';
+      if (percent >= 40) return 'Not bad. Another go?';
+      return 'Tough round. Try again and beat it.';
+    }
+
+    function resultsView() {
+      const run = S.run;
+      const answers = run.answers;
+      const total = answers.length;
+      const correct = answers.filter(function (answer) { return answer.correct; }).length;
+      const timedOutCount = answers.filter(function (answer) { return answer.selectedIndex === null; }).length;
+      const incorrect = total - correct - timedOutCount;
+      const percent = total ? Math.round((correct / total) * 100) : 0;
+      const average = total ? (answers.reduce(function (sum, answer) { return sum + answer.timeSpent; }, 0) / total).toFixed(1) : '0';
+      const missed = answers.filter(function (answer) { return !answer.correct; }).length;
+      const showLoadOwn = S.active.id === SAMPLE_ID && S.modules.length === 0;
+
+      const stats = [['Correct', correct, 'var(--ok)'], ['Incorrect', incorrect, 'var(--danger)']];
+      if (run.mode !== 'none') stats.push(['Timed out', timedOutCount, 'var(--muted-fg)']);
+      stats.push(['Best streak', run.best, 'var(--primary)'], ['Avg. time', average + 's', 'var(--fg)']);
+
+      const review = answers.map(function (answer, index) {
+        const question = answer.question;
+        const skipped = answer.selectedIndex === null;
+        return `
+          <li class="${answer.correct ? 'good' : ''}">
+            <span class="ic">${answer.correct ? icon('check') : (skipped ? icon('clock') : icon('x'))}</span>
+            <div class="stack g2" style="flex:1;min-width:0">
+              <div class="row between" style="align-items:flex-start">
+                <p class="strong pretty"><span class="mono muted">${index + 1}. </span>${esc(question.prompt)}</p>
+                <span class="mono xs muted" style="flex:none">${answer.timeSpent}s</span>
+              </div>
+              <div class="stack small" style="gap:0.25rem">
+                ${answer.correct ? '' : `<p class="muted">Your answer: <span class="bad-t">${skipped ? 'No answer' : esc(question.options[answer.selectedIndex])}</span></p>`}
+                <p class="muted">${answer.correct ? 'You answered: ' : 'Correct answer: '}<span class="good-t">${esc(question.options[question.answerIndex])}</span></p>
+                ${!answer.correct && question.explanation ? `<p class="muted pretty">${esc(question.explanation)}</p>` : ''}
+              </div>
+            </div>
+          </li>`;
+      }).join('');
+
+      return `
+        <div class="stack g10 narrow">
+          <section class="stack g6" aria-labelledby="rt">
+            <p class="eyebrow">Results${S.active.title ? ' · ' + esc(S.active.title) : ''}</p>
+            ${S.kind === 'retry' ? '<p class="small muted">This was a retry of missed questions, so it is not added to your saved scores.</p>' : ''}
+            ${run.timeUp ? `<p class="msg err" role="status">Time ran out for the whole quiz. ${timedOutCount} ${timedOutCount === 1 ? 'question was' : 'questions were'} left unanswered and counted as wrong.</p>` : ''}
+            <div class="stack g2">
+              <h1 class="pct" id="rt" data-heading tabindex="-1"><span class="sr">Your score: </span>${percent}<small>%</small></h1>
+              <p style="font-size:1.25rem;font-weight:500">${correct} of ${total} correct</p>
+              <p class="muted">${verdict(percent)}</p>
+            </div>
+            <dl class="stats" style="--n:${stats.length}">
+              ${stats.map(function (item) { return `<div class="stat"><dt>${item[0]}</dt><dd style="color:${item[2]}">${item[1]}</dd></div>`; }).join('')}
+            </dl>
+            <div class="row wrap">
+              ${missed ? button('retry', 'Retry missed (' + missed + ')', { cls: 'lg', icon: 'target' }) : ''}
+              ${button('restart', 'Restart module', { cls: 'lg' + (missed ? ' out' : ''), icon: 'retry' })}
+              <a class="btn lg out" href="#/modules">${icon('book')}All modules</a>
+            </div>
+            ${showLoadOwn ? `
+              <div class="loadown">
+                <div class="stack" style="gap:0.25rem">
+                  <p class="strong" style="font-size:1.05rem">Ready to practise with your own questions?</p>
+                  <p class="small muted">Load your course material and quiz yourself on it. A step-by-step guide shows you how.</p>
+                </div>
+                ${button('load-own', 'Load your own', { cls: 'lg', icon: 'up', style: 'flex:none' })}
+              </div>` : ''}
+          </section>
+
+          <section class="stack g4" aria-labelledby="rv">
+            <h2 class="sec" id="rv">Answer review</h2>
+            <ol class="rev">${review}</ol>
+          </section>
+        </div>`;
+    }
+
+    function buildView() {
+      if (S.view === 'quiz') return quizView();
+      if (S.view === 'results') return resultsView();
+
+      switch (S.page) {
+        case 'modules': return modulesView();
+        case 'add': return addView();
+        case 'help': return helpView();
+        case 'settings': return settingsView();
+        default: return homeView();
+      }
+    }
+
+    /* ============================================================
+       Rendering (keeps focus and scroll, animates only on a new view)
+    ============================================================ */
+    function viewKey() {
+      if (S.view === 'quiz') return 'quiz:' + S.run.id + ':' + S.run.current + ':' + S.run.skips;
+      if (S.view === 'results') return 'results:' + S.run.id;
+      return 'page:' + S.page;
+    }
+
+    function focusKeyOf(element) {
+      const app = $('#app');
+      if (!element || !app.contains(element)) return null;
+      if (element.id) return '#' + element.id;
+
+      const action = element.getAttribute('data-a');
+      if (!action) return null;
+      return action + '|' + (element.getAttribute('data-id') || element.getAttribute('data-v') || element.getAttribute('data-i') || '');
+    }
+
+    function findByFocusKey(key) {
+      if (!key) return null;
+      if (key.charAt(0) === '#') return document.getElementById(key.slice(1));
+
+      const parts = key.split('|');
+      const candidates = $$('[data-a="' + parts[0] + '"]', $('#app'));
+      for (let i = 0; i < candidates.length; i++) {
+        const el = candidates[i];
+        const id = el.getAttribute('data-id') || el.getAttribute('data-v') || el.getAttribute('data-i') || '';
+        if (id === parts[1]) return el;
+      }
+      return null;
+    }
+
+    function render() {
+      const main = $('#app');
+      const key = viewKey();
+      const firstRender = S.renderKey === null;
+      const viewChanged = key !== S.renderKey;
+
+      const active = document.activeElement;
+      const focusKey = viewChanged ? null : focusKeyOf(active);
+      const selection = focusKey && typeof active.selectionStart === 'number'
+        ? [active.selectionStart, active.selectionEnd]
+        : null;
+      const scrollY = window.scrollY;
+
+      main.innerHTML = buildView();
+      S.renderKey = key;
+
+      document.body.classList.toggle('focus-mode', S.view === 'quiz');
+      document.title = PAGE_TITLES[S.view === 'page' ? S.page : S.view] || PAGE_TITLES.home;
+      updateNav();
+
+      if (viewChanged) {
+        if (main.firstElementChild) main.firstElementChild.classList.add('enter');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        if (!firstRender) {
+          const heading = $('[data-heading]', main);
+          if (heading) heading.focus({ preventScroll: true });
+          if (S.view === 'page') announce(document.title.replace(' | Quizbox', '') + ' page');
+        }
+      } else {
+        if (S.view === 'quiz' && S.run.revealed) {
+          const nextButton = $('#next-btn');
+          if (nextButton) nextButton.focus({ preventScroll: true });
+          const feedback = $('#feedback');
+          if (feedback) feedback.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          const target = findByFocusKey(focusKey);
+          if (target) {
+            target.focus({ preventScroll: true });
+            if (selection) {
+              try { target.setSelectionRange(selection[0], selection[1]); } catch (error) {}
+            }
+          }
+          window.scrollTo({ top: scrollY, behavior: 'instant' });
+        }
+      }
+
+      if (S.view === 'page' && S.page === 'modules') applyFilter();
+    }
+
+    function applyFilter() {
+      const needle = S.filter.trim().toLowerCase();
+      const items = $$('#own-list li');
+      let visible = 0;
+
+      items.forEach(function (item) {
+        const match = !needle || item.getAttribute('data-title').indexOf(needle) >= 0;
+        item.hidden = !match;
+        if (match) visible++;
+      });
+
+      const empty = $('#no-match');
+      if (empty) empty.hidden = visible > 0 || items.length === 0;
+    }
+
+    /* ============================================================
+       Header: menu and theme button
+    ============================================================ */
+    function updateNav() {
+      const current = S.view === 'page' ? S.page : null;
+
+      $$('#site-nav a').forEach(function (link) {
+        if (link.getAttribute('data-route') === current) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+
+      closeMenu();
+    }
+
+    function updateMenuButton(open) {
+      const button = $('#menu-btn');
+      button.innerHTML = icon(open ? 'x' : 'menu');
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+
+    function closeMenu() {
+      $('#site-header').classList.remove('open');
+      updateMenuButton(false);
+    }
+
+    function toggleMenu() {
+      const header = $('#site-header');
+      const open = !header.classList.contains('open');
+      header.classList.toggle('open', open);
+      updateMenuButton(open);
+    }
+
+    function updateThemeButton() {
+      const button = $('#theme-btn');
+      const names = { light: 'Light', dark: 'Dark', system: 'System' };
+      const icons = { light: 'sun', dark: 'moon', system: 'monitor' };
+      button.innerHTML = icon(icons[S.theme]);
+      button.setAttribute('aria-label', 'Theme: ' + names[S.theme] + '. Activate to change it.');
+      button.setAttribute('title', 'Theme: ' + names[S.theme]);
+    }
+
+    function cycleTheme() {
+      const order = ['light', 'dark', 'system'];
+      const next = order[(order.indexOf(S.theme) + 1) % order.length];
+      setTheme(next);
+      if (S.view === 'page' && S.page === 'settings') render();
+      announce('Theme: ' + next);
+    }
+
+    /* ============================================================
+       Routing (#/modules, #/add and so on)
+    ============================================================ */
+    function getRoute() {
+      const raw = (window.location.hash || '').replace(/^#\/?/, '').split(/[?&]/)[0];
+      return raw === '' ? 'home' : raw;
+    }
+
+    function hashFor(name) {
+      return name === 'home' ? '#/' : '#/' + name;
+    }
+
+    function go(name, replace) {
+      const target = hashFor(name);
+      const current = hashFor(getRoute());
+
+      if (target === current) {
+        onRoute();
+      } else if (replace) {
+        window.location.replace(target);
+      } else {
+        window.location.hash = target;
+      }
+    }
+
+    function onRoute() {
+      const route = getRoute();
+      const known = PAGES.indexOf(route) >= 0 || route === 'quiz' || route === 'results';
+
+      if (!known) { go('home', true); return; }
+
+      // Leaving a quiz that is in progress
+      if (S.view === 'quiz' && route !== 'quiz') {
+        if (S.run && S.run.answers.length > 0) {
+          pendingRoute = route;
+          window.location.replace('#/quiz');
+          ask({
+            title: 'Leave this quiz?',
+            body: 'Your answers so far will be lost and this run will not be saved.',
+            yes: 'Leave quiz',
+            no: 'Keep going',
+            danger: true
+          }, function () {
+            abandonRun();
+            go(pendingRoute || 'home');
+          });
+          return;
+        }
+        abandonRun();
+      }
+
+      if (route === 'quiz' && S.view !== 'quiz') {
+        go(S.view === 'results' ? 'results' : 'home', true);
+        return;
+      }
+      if (route === 'results' && S.view !== 'results') { go('home', true); return; }
+
+      if (S.view === 'results' && route !== 'results') {
+        S.run = null;
+        S.view = 'page';
+      }
+
+      if (route !== 'quiz' && route !== 'results') S.page = route;
+      render();
+    }
+
+    /* ============================================================
+       Dialog
+    ============================================================ */
+    function ask(options, onYes) {
+      const previous = document.activeElement;
+      const wrap = document.createElement('div');
+      wrap.className = 'scrim';
+      wrap.innerHTML = `
+        <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dlg-t" aria-describedby="dlg-d">
+          <h2 id="dlg-t">${esc(options.title)}</h2>
+          <p id="dlg-d" class="muted">${esc(options.body)}</p>
+          <div class="row g2 end">
+            <button type="button" class="btn out" data-d="no">${esc(options.no || 'Cancel')}</button>
+            <button type="button" class="btn${options.danger ? ' danger' : ''}" data-d="yes">${esc(options.yes)}</button>
+          </div>
+        </div>`;
+
+      pauseClock();
+
+      function close() {
+        document.removeEventListener('keydown', onKey, true);
+        wrap.remove();
+        resumeClock();
+        if (previous && previous.focus && document.contains(previous)) previous.focus();
+      }
+
+      function onKey(event) {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          event.stopPropagation();
+          close();
+          return;
+        }
+        if (event.key === 'Tab') {
+          const buttons = wrap.querySelectorAll('button');
+          const first = buttons[0];
+          const last = buttons[buttons.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+          return;
+        }
+        event.stopPropagation();
+      }
+
+      wrap.addEventListener('click', function (event) {
+        if (event.target === wrap) { close(); return; }
+        const choice = event.target.closest('[data-d]');
+        if (!choice) return;
+        const yes = choice.getAttribute('data-d') === 'yes';
+        close();
+        if (yes) onYes();
+      });
+
+      document.addEventListener('keydown', onKey, true);
+      document.body.appendChild(wrap);
+      wrap.querySelector('[data-d="no"]').focus();
+    }
+
+    /* ============================================================
+       Actions
+    ============================================================ */
+    function setTimerValue(key, raw, min, max) {
+      const number = Math.round(Number(raw));
+      if (raw === '' || !isFinite(number)) { render(); return; }
+      S.settings[key] = Math.min(max, Math.max(min, number));
+      saveSettings();
+      render();
+    }
+
+    function showImportError(text) {
+      S.message = { kind: 'err', text: text };
+      render();
+      announce(text);
+    }
+
+    function showImportSuccess(text) {
+      S.message = { kind: 'ok', text: text };
+      render();
+      toast(text, 'ok');
+    }
+
+    function importFiles(fileList) {
+      const files = Array.from(fileList || []);
+      if (!files.length) return;
+
+      Promise.all(files.map(function (file) {
+        return file.text().then(function (text) { return { name: file.name, text: text }; });
+      })).then(function (items) {
+        const parsedList = [];
+
+        for (let i = 0; i < items.length; i++) {
+          const fallback = items[i].name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim();
+          const parsed = parseModules(items[i].text, fallback);
+          if (!parsed.ok) {
+            showImportError(items[i].name + ': ' + parsed.error);
+            return;
+          }
+          parsedList.push(parsed);
+        }
+
+        showImportSuccess(parsedList.map(commitImport).join(' '));
+      }).catch(function () {
+        showImportError('Could not read that file.');
+      });
+    }
+
+    function importPasted() {
+      if (!S.loadText.trim()) {
+        showImportError('Paste your module JSON into the box first.');
+        return;
+      }
+
+      const parsed = parseModules(S.loadText, S.loadTitle);
+      if (!parsed.ok) {
+        showImportError(parsed.error);
+        return;
+      }
+
+      const summary = commitImport(parsed);
+      S.loadText = '';
+      S.loadTitle = '';
+      showImportSuccess(summary);
+    }
+
+    document.addEventListener('click', function (event) {
+      const navLink = event.target.closest('#site-header a');
+      if (navLink) closeMenu();
+
+      const target = event.target.closest('[data-a]');
+      if (!target) return;
+
+      const action = target.getAttribute('data-a');
+      const id = target.getAttribute('data-id');
+
+      switch (action) {
+        case 'skip-link':
+          event.preventDefault();
+          $('#app').focus();
+          break;
+
+        case 'menu': toggleMenu(); break;
+        case 'cycle-theme': cycleTheme(); break;
+        case 'set-theme': setTheme(target.getAttribute('data-v')); render(); break;
+
+        case 'start': {
+          const module = findModule(id);
+          if (module) startRun(module, module.questions, 'full');
+          break;
+        }
+
+        case 'delete': {
+          const module = findModule(id);
+          if (!module) break;
+          ask({
+            title: 'Delete this module?',
+            body: '"' + module.title + '" and its saved scores will be removed from this browser. Export a backup first if you want to keep it.',
+            yes: 'Delete',
+            danger: true
+          }, function () {
+            S.modules = S.modules.filter(function (item) { return item.id !== id; });
+            delete S.stats[id];
+            saveModules();
+            saveStats();
+            render();
+            toast('Module deleted.', 'ok');
+          });
+          break;
+        }
+
+        case 'reset-scores': {
+          const module = findModule(id);
+          if (!module) break;
+          ask({
+            title: 'Reset scores?',
+            body: 'Best score, last score and attempts for "' + module.title + '" will be cleared. The questions stay.',
+            yes: 'Reset scores'
+          }, function () {
+            delete S.stats[id];
+            saveStats();
+            render();
+          });
+          break;
+        }
+
+        case 'reset-all':
+          ask({
+            title: 'Remove all data?',
+            body: 'Every module, score and setting will be removed from this browser. This cannot be undone.',
+            yes: 'Remove everything',
+            danger: true
+          }, resetAllData);
+          break;
+
+        case 'choose-file': $('#module-file').click(); break;
+        case 'paste-load': importPasted(); break;
+        case 'copy-example': copyText(EXAMPLE_JSON, 'example'); break;
+        case 'copy-prompt': copyText(buildAiPrompt(S.promptTitle), 'prompt'); break;
+        case 'export': exportBackup(); break;
+
+        case 'toggle-timer': S.settings.timerEnabled = !S.settings.timerEnabled; saveSettings(); render(); break;
+        case 'toggle-shuffle': S.settings.shuffleQuestions = !S.settings.shuffleQuestions; saveSettings(); render(); break;
+        case 'mode-question': S.settings.timerMode = 'question'; saveSettings(); render(); break;
+        case 'mode-total': S.settings.timerMode = 'total'; saveSettings(); render(); break;
+        case 'set-secs': S.settings.secondsPerQuestion = Number(target.getAttribute('data-v')); saveSettings(); render(); break;
+        case 'set-mins': S.settings.totalMinutes = Number(target.getAttribute('data-v')); saveSettings(); render(); break;
+
+        case 'pick': selectOption(Number(target.getAttribute('data-i'))); break;
+        case 'next': nextQuestion(); break;
+        case 'skip': skipQuestion(); break;
+
+        case 'quit':
+          if (!S.run || !S.run.answers.length) {
+            abandonRun();
+            go('home');
+          } else {
+            ask({
+              title: 'Quit this quiz?',
+              body: 'Your answers so far will be lost and this run will not be saved.',
+              yes: 'Quit quiz',
+              no: 'Keep going',
+              danger: true
+            }, function () { abandonRun(); go('home'); });
+          }
+          break;
+
+        case 'restart': startRun(S.active, S.active.questions, 'full'); break;
+
+        case 'retry': {
+          const missed = S.run.answers
+            .filter(function (answer) { return !answer.correct; })
+            .map(function (answer) { return answer.question; });
+          startRun(S.active, missed, 'retry');
+          break;
+        }
+
+        case 'load-own': go('add'); break;
+      }
+    });
+
+    document.addEventListener('input', function (event) {
+      const target = event.target;
+
+      if (target.id === 'load-text') S.loadText = target.value;
+      else if (target.id === 'load-title') S.loadTitle = target.value;
+      else if (target.id === 'mod-filter') { S.filter = target.value; applyFilter(); }
+      else if (target.id === 'prompt-title') {
+        S.promptTitle = target.value;
+        const box = $('#prompt-box');
+        if (box) box.value = buildAiPrompt(S.promptTitle);
+      }
+    });
+
+    document.addEventListener('change', function (event) {
+      const target = event.target;
+
+      if (target.id === 'secs-custom') setTimerValue('secondsPerQuestion', target.value, 5, 600);
+      else if (target.id === 'mins-custom') setTimerValue('totalMinutes', target.value, 1, 240);
+      else if (target.id === 'module-file') {
+        importFiles(target.files);
+        target.value = '';
+      }
+    });
+
+    // Drag and drop files onto the Add questions page
+    function hasFiles(event) {
+      return event.dataTransfer && Array.from(event.dataTransfer.types || []).indexOf('Files') >= 0;
+    }
+
+    document.addEventListener('dragover', function (event) {
+      if (!hasFiles(event)) return;
+      event.preventDefault();
+      const zone = event.target.closest && event.target.closest('.drop');
+      if (zone) zone.classList.add('over');
+    });
+
+    document.addEventListener('dragleave', function (event) {
+      const zone = event.target.closest && event.target.closest('.drop');
+      if (zone) zone.classList.remove('over');
+    });
+
+    document.addEventListener('drop', function (event) {
+      if (!hasFiles(event)) return;
+      event.preventDefault();
+      const zone = event.target.closest && event.target.closest('.drop');
+      if (zone) {
+        zone.classList.remove('over');
+        importFiles(event.dataTransfer.files);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (S.view !== 'quiz' || !S.run) return;
+
+      const tag = (event.target.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+      const key = event.key.toLowerCase();
+      const count = S.run.questions[S.run.current].options.length;
+      const number = parseInt(key, 10);
+      const index = (number >= 1 && number <= count) ? number - 1 : LETTERS.toLowerCase().indexOf(key);
+
+      if (key.length === 1 && index >= 0 && index < count) {
+        selectOption(index);
+      } else if (key === 's') {
+        skipQuestion();
+      } else if (key === 'arrowright' || (key === 'enter' && S.run.revealed && tag !== 'button')) {
+        event.preventDefault();
+        nextQuestion();
+      }
+    });
+
+    // A background tab can pause timers, so check the real clock when the tab returns.
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) tick();
+    });
+
+    window.addEventListener('beforeunload', function (event) {
+      if (S.view === 'quiz' && S.run && S.run.answers.length > 0) {
+        event.preventDefault();
+        event.returnValue = '';
+      }
+    });
+
+    window.addEventListener('hashchange', onRoute);
+
+    /* ============================================================
+       Offline support (needs sw.js next to index.html)
+    ============================================================ */
+    function setupOffline() {
+      window.addEventListener('offline', function () {
+        toast('You are offline. Quizbox still works.', 'ok');
+      });
+      window.addEventListener('online', function () {
+        toast('Back online.', 'ok');
+      });
+
+      if (!('serviceWorker' in navigator) || !/^https?:$/.test(window.location.protocol)) return;
+
+      let reloadForUpdate = false;
+
+      function offerUpdate(worker) {
+        toast('A new version of Quizbox is ready.', 'ok', {
+          action: 'Reload',
+          onAction: function () {
+            reloadForUpdate = true;
+            worker.postMessage('SKIP_WAITING');
+          }
+        });
+      }
+
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (reloadForUpdate) window.location.reload();
+      });
+
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').then(function (registration) {
+          if (registration.waiting && navigator.serviceWorker.controller) offerUpdate(registration.waiting);
+
+          registration.addEventListener('updatefound', function () {
+            const worker = registration.installing;
+            if (!worker) return;
+            worker.addEventListener('statechange', function () {
+              if (worker.state === 'installed' && navigator.serviceWorker.controller) offerUpdate(worker);
+            });
+          });
+        }).catch(function () {});
+
+        navigator.serviceWorker.ready.then(function () {
+          S.offlineReady = true;
+          if (S.view === 'page' && S.page === 'settings') render();
+        });
+      });
+    }
+
+    /* ============================================================
+       Start
+    ============================================================ */
+    loadAll();
+    applyTheme();
+    updateMenuButton(false);
+    onRoute();
+    setupOffline();
+
+    if (S.loadIssue) {
+      toast('Some saved data could not be read and was skipped. A copy of any damaged data was kept.', 'err', { sticky: true });
+    }
+  })();
+  </script>
 </body>
 </html>
