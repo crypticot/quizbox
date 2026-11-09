@@ -1,6 +1,6 @@
 // Quizbox service worker: lets the app open and run without internet.
 // Change VERSION every time you publish a new index.html so users get the update.
-const VERSION = 'quizbox-v2';
+const VERSION = 'quizbox-v3';
 const FONT_CACHE = 'quizbox-fonts';
 
 // Files saved on the first visit. Missing files are skipped, not fatal.
