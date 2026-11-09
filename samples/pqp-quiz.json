@@ -1,0 +1,365 @@
+{
+  "title": "Project Quality Planning",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is project quality planning?",
+      "options": [
+        "Inspecting deliverables after they are finished to find defects",
+        "Auditing contractors' processes while the work is in progress",
+        "Estimating the cost and duration of project activities",
+        "Identifying the standards, requirements, procedures, resources and activities needed for deliverables to meet expectations"
+      ],
+      "answer": "D",
+      "explanation": "Quality planning establishes how quality will be achieved, measured, monitored and maintained throughout the project life cycle."
+    },
+    {
+      "category": "Easy",
+      "prompt": "When should project quality planning begin?",
+      "options": [
+        "Only after the first deliverables have been produced",
+        "Once the project is complete, to record lessons learned",
+        "Early in the project life cycle, and be updated when requirements, risks or specifications change",
+        "Only when a quality problem has occurred"
+      ],
+      "answer": "C",
+      "explanation": "Planning provides the foundation for the project, so it starts early. It is not a one-time task and is revised when conditions change."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What key principle do the notes on quality planning state?",
+      "options": [
+        "Quality should be planned into a project from the beginning rather than inspected in at the end",
+        "Quality should be inspected in at the end of each project",
+        "Quality planning should wait until the design is complete",
+        "Quality is the responsibility of the inspector alone"
+      ],
+      "answer": "A",
+      "explanation": "Waiting until the end to inspect means defects are found late. Planning aims to prevent them."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is an objective of project quality planning?",
+      "options": [
+        "Remove the need for quality control",
+        "Prevent defects, errors and rework",
+        "Shorten the project by skipping approvals",
+        "Transfer all quality risk to the supplier"
+      ],
+      "answer": "B",
+      "explanation": "Preventing defects, errors and rework is one of the listed objectives. Planning works together with assurance and control rather than replacing them."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which tool determines whether quality investments provide sufficient benefits?",
+      "options": [
+        "Benchmarking",
+        "Flowcharts",
+        "Cost-benefit analysis",
+        "Checklists"
+      ],
+      "answer": "C",
+      "explanation": "Cost-benefit analysis weighs what a quality investment costs against the benefits it gives."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is given as an example of a standard to identify in quality planning?",
+      "options": [
+        "ISO 9001",
+        "The Pareto principle",
+        "The PDCA cycle",
+        "A fishbone diagram"
+      ],
+      "answer": "A",
+      "explanation": "The notes list ISO 9001, building codes, engineering specifications and organisational policies as examples of standards. The others are principles or tools."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is a component of a project quality management plan?",
+      "options": [
+        "A list of contractor payment dates",
+        "The project's insurance premiums",
+        "The client's brand guidelines",
+        "Quality policy and objectives"
+      ],
+      "answer": "D",
+      "explanation": "The plan includes the quality policy and objectives, applicable standards, roles, QA and QC procedures, metrics, acceptance criteria, documentation, non-conformance management and improvement procedures."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does expert judgment contribute to quality planning?",
+      "options": [
+        "Statistical evaluation of process variation",
+        "Specialist knowledge to establish appropriate quality requirements",
+        "A comparison with recognised best practice",
+        "A check that planned activities are completed"
+      ],
+      "answer": "B",
+      "explanation": "Expert judgment draws on specialist knowledge. Statistics, benchmarking and checklists serve other purposes."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In the construction example, who coordinates quality activities with engineers, contractors, quality inspectors, suppliers and the client?",
+      "options": [
+        "The client alone",
+        "The supplier of the materials",
+        "The site inspector alone",
+        "The project manager"
+      ],
+      "answer": "D",
+      "explanation": "The project manager coordinates the quality planning activities across all of these parties."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What do acceptance criteria define?",
+      "options": [
+        "The conditions under which a deliverable is accepted",
+        "The procedures for hiring quality staff",
+        "The categories of the cost of quality",
+        "The order in which project tasks are carried out"
+      ],
+      "answer": "A",
+      "explanation": "Acceptance criteria, together with measurable indicators, inspection methods and tolerances, state when a deliverable is acceptable."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is one of the five major activities in project quality planning?",
+      "options": [
+        "Close supplier contracts",
+        "Record lessons learned after handover",
+        "Allocate resources and responsibilities for quality",
+        "Approve the final invoice"
+      ],
+      "answer": "C",
+      "explanation": "The five activities are identifying requirements, establishing standards, planning QA and QC, allocating resources and responsibilities, and defining metrics and acceptance criteria."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which component of the quality management plan covers how failures to meet requirements are handled?",
+      "options": [
+        "Quality policy and objectives",
+        "Non-conformance management and corrective actions",
+        "Roles and responsibilities",
+        "Quality metrics and performance indicators"
+      ],
+      "answer": "B",
+      "explanation": "This component sets out what happens when a deliverable fails to conform, including corrective actions."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How do flowcharts support quality planning?",
+      "options": [
+        "They estimate the costs of prevention and failure",
+        "They compare project practices with best practice",
+        "They tick off that required activities were completed",
+        "They illustrate processes and help identify possible sources of defects"
+      ],
+      "answer": "D",
+      "explanation": "Flowcharts show the steps of a process, which makes it easier to see where defects might arise."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the role of checklists in quality planning?",
+      "options": [
+        "They estimate prevention, appraisal and failure costs",
+        "They ensure that required quality activities are completed",
+        "They evaluate variation using measured data",
+        "They supply specialist opinions on requirements"
+      ],
+      "answer": "B",
+      "explanation": "A checklist makes sure nothing required is missed."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the purpose of cause-and-effect diagrams in quality planning?",
+      "options": [
+        "Identifying potential causes of quality problems",
+        "Deciding whether quality spending is worthwhile",
+        "Estimating prevention and appraisal costs",
+        "Setting inspection tolerances for deliverables"
+      ],
+      "answer": "A",
+      "explanation": "These diagrams help planners think through what might cause a quality problem before it happens."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How does statistical analysis contribute to quality planning?",
+      "options": [
+        "It sets the quality policy for the organisation",
+        "It assigns quality responsibilities to staff",
+        "It evaluates variation and process performance using data",
+        "It records signed handover documents"
+      ],
+      "answer": "C",
+      "explanation": "Statistical analysis uses data to judge how much a process varies and how well it performs."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the construction example, what is planned for the requirement 'concrete strength'?",
+      "options": [
+        "Specify the concrete mix and conduct strength tests, with results meeting the design specification as evidence",
+        "Inspect wiring, earthing and protective devices, with satisfactory test reports as evidence",
+        "Conduct regular site inspections, with work conforming to drawings as evidence",
+        "Review designs and inspect reinforcement before casting, with approved inspection records as evidence"
+      ],
+      "answer": "A",
+      "explanation": "Each requirement is paired with a planned activity and acceptance evidence. The other options belong to electrical safety, workmanship and structural safety."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which acceptance evidence goes with the requirement 'workmanship'?",
+      "options": [
+        "Satisfactory test and inspection reports",
+        "Signed acceptance and handover records",
+        "Materials meet approved specifications",
+        "Work conforms to drawings and specifications"
+      ],
+      "answer": "D",
+      "explanation": "Workmanship is planned through regular site inspections, and the evidence is that the work conforms to the drawings and specifications."
+    },
+    {
+      "category": "Medium",
+      "prompt": "When do quality planning, QA and QC mainly take place?",
+      "options": [
+        "Planning at closure, QA at the start, and QC throughout the project",
+        "All three only at project closure",
+        "Planning mainly before and during execution, QA throughout the project, and QC during execution and at deliverable milestones",
+        "Planning throughout, QA only at the start, and QC only at closure"
+      ],
+      "answer": "C",
+      "explanation": "This is the typical timing given in the comparison table."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which row correctly matches each activity to its main focus?",
+      "options": [
+        "Planning: products and testing; QA: standards and criteria; QC: processes and prevention",
+        "Planning: standards, methods, resources and criteria; QA: processes and prevention; QC: products, inspection and testing",
+        "Planning: processes and prevention; QA: products and testing; QC: standards and methods",
+        "Planning: inspection and testing; QA: standards and resources; QC: prevention"
+      ],
+      "answer": "B",
+      "explanation": "Planning sets the rules, QA looks at the processes, and QC looks at the products."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set of examples correctly matches quality planning, quality assurance and quality control?",
+      "options": [
+        "Planning: test concrete samples; QA: set concrete strength requirements; QC: audit production procedures",
+        "Planning: audit production procedures; QA: test concrete samples; QC: set strength requirements",
+        "Planning: test concrete samples; QA: audit production procedures; QC: set strength requirements",
+        "Planning: set concrete strength requirements; QA: audit concrete production procedures; QC: test concrete samples"
+      ],
+      "answer": "D",
+      "explanation": "Setting the requirement is planning, auditing the production procedure is assurance, and testing samples is control."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the main weakness of relying only on inspection at the end of a project?",
+      "options": [
+        "Quality standards do not permit end-of-project inspection",
+        "Inspectors are unable to test materials once they are installed",
+        "Defects are found only after the work is done, instead of being prevented through planning",
+        "End-of-project inspection always costs more than the project budget"
+      ],
+      "answer": "C",
+      "explanation": "The notes stress that quality should be planned in from the beginning rather than inspected in at the end."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Midway through a project, the client changes the specification. What do the notes say should happen to the quality plan?",
+      "options": [
+        "It should be updated to reflect the changed requirements",
+        "It should stay fixed so the project remains consistent",
+        "It should be set aside until the project ends",
+        "It should be replaced by a final inspection only"
+      ],
+      "answer": "A",
+      "explanation": "Quality planning should be updated when project requirements, risks or specifications change."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A plan sets inspection points before concrete is cast so that errors are corrected before casting. Which benefit of quality planning does this show?",
+      "options": [
+        "Replacing the need for site supervision",
+        "Minimising delays caused by rework",
+        "Guaranteeing that the client accepts the deliverable",
+        "Removing regulatory requirements from the project"
+      ],
+      "answer": "B",
+      "explanation": "Catching errors before the work is covered or built on reduces rework, and so reduces delay."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the requirement 'structural safety', what acceptance evidence is planned?",
+      "options": [
+        "Approved inspection records, after reviewing designs and inspecting reinforcement before casting",
+        "Test results that meet the design specification",
+        "Signed acceptance and handover records",
+        "Materials that meet approved specifications"
+      ],
+      "answer": "A",
+      "explanation": "The other options are the evidence for concrete strength, completion quality and material quality."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A final inspection and defect check is planned. Which requirement and acceptance evidence match it?",
+      "options": [
+        "Material quality, with materials meeting approved specifications",
+        "Workmanship, with work conforming to drawings",
+        "Electrical safety, with satisfactory test reports",
+        "Completion quality, with signed acceptance and handover records"
+      ],
+      "answer": "D",
+      "explanation": "Final inspection and defect checks belong to completion quality, and the evidence is signed acceptance and handover records."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A draft quality plan lists inspections and tests but names nobody to carry them out and provides no equipment or budget. Which planning activity has been neglected?",
+      "options": [
+        "Establishing quality standards",
+        "Allocating resources and responsibilities",
+        "Identifying quality requirements",
+        "Defining acceptance criteria"
+      ],
+      "answer": "B",
+      "explanation": "This activity assigns qualified personnel, equipment, budget, testing facilities and responsibilities for quality-related work."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A planner estimates prevention, appraisal and failure costs to decide how much to spend on quality. Which tool is being used?",
+      "options": [
+        "Benchmarking",
+        "Expert judgment",
+        "Cost of quality",
+        "Statistical analysis"
+      ],
+      "answer": "C",
+      "explanation": "Cost of quality estimates prevention, appraisal and failure costs."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of tool and purpose is correct?",
+      "options": [
+        "Checklists: estimating prevention, appraisal and failure costs",
+        "Flowcharts: comparing project practices with best practice",
+        "Cause-and-effect diagrams: ensuring required activities are completed",
+        "Benchmarking: comparing project practices with recognised standards or best practices"
+      ],
+      "answer": "D",
+      "explanation": "Benchmarking compares practice with recognised standards. Checklists ensure activities are completed, flowcharts show processes, and cause-and-effect diagrams find causes."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement correctly compares the main purposes of quality planning, QA and QC?",
+      "options": [
+        "Planning verifies outputs, QA defines requirements, and QC ensures processes are followed",
+        "Planning ensures processes are followed, QA verifies outputs, and QC defines requirements",
+        "Planning defines requirements and how to meet them, QA ensures processes are suitable and followed, and QC verifies that outputs meet requirements",
+        "All three exist only to verify that outputs meet requirements"
+      ],
+      "answer": "C",
+      "explanation": "Each has a different main purpose, and together they support delivering a project that meets its requirements."
+    }
+  ]
+}

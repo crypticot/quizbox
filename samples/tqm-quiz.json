@@ -1,0 +1,305 @@
+{
+  "title": "Total Quality Management (TQM)",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is Total Quality Management (TQM)?",
+      "options": [
+        "A set of tests carried out on finished deliverables",
+        "A standard for auditing management systems",
+        "A tool for ranking defects by frequency",
+        "A management approach focused on continuous improvement, customer satisfaction, employee involvement and error prevention"
+      ],
+      "answer": "D",
+      "explanation": "TQM is a broad management approach rather than a single tool or test."
+    },
+    {
+      "category": "Easy",
+      "prompt": "As applied to project management, what does TQM ensure?",
+      "options": [
+        "That activities, processes, materials, services and deliverables meet established quality standards and satisfy stakeholders",
+        "That the project finishes early whatever the cost",
+        "That only the final deliverable is inspected",
+        "That quality duties rest with a single inspector"
+      ],
+      "answer": "A",
+      "explanation": "TQM covers the whole project, not just the final product."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is an objective of TQM in project management?",
+      "options": [
+        "Replace quality standards with client preferences",
+        "Increase inspection at the end of the project",
+        "Reduce project costs by minimising waste, rework and defects",
+        "Limit teamwork to the quality department"
+      ],
+      "answer": "C",
+      "explanation": "TQM aims to reduce waste, rework, defects and unnecessary expenditure, and it encourages teamwork across the project."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the customer focus principle say?",
+      "options": [
+        "Project decisions should be guided mainly by the lowest cost",
+        "Project decisions should be guided by the needs and expectations of the client and other relevant stakeholders",
+        "Only the project manager should communicate with the client",
+        "Client feedback is needed only after handover"
+      ],
+      "answer": "B",
+      "explanation": "Customer focus keeps decisions tied to what the client and stakeholders need."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which project phase includes obtaining client acceptance, documenting lessons learned and completing handover?",
+      "options": [
+        "Project initiation",
+        "Project planning",
+        "Project execution",
+        "Project closure"
+      ],
+      "answer": "D",
+      "explanation": "At closure the team verifies deliverables, corrects defects, obtains client acceptance, records lessons learned and completes handover."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does PDCA stand for?",
+      "options": [
+        "Plan, Do, Check, Act",
+        "Prepare, Deliver, Control, Approve",
+        "Plan, Direct, Confirm, Assess",
+        "Prevent, Detect, Correct, Audit"
+      ],
+      "answer": "A",
+      "explanation": "PDCA is a cycle for improvement: identify a problem, implement a solution, evaluate the results, then standardise or revise."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does Pareto analysis do in TQM?",
+      "options": [
+        "Records every observation on a prepared form",
+        "Helps prioritise the few causes responsible for a large share of defects or problems",
+        "Verifies compliance with contract terms",
+        "Shows the sequence of steps in a process"
+      ],
+      "answer": "B",
+      "explanation": "Pareto analysis focuses effort on the small number of causes behind most problems."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the central idea of TQM stated in the conclusion?",
+      "options": [
+        "Quality is best ensured by a single final inspection",
+        "Quality matters mainly in construction projects",
+        "Quality should be built in from the beginning and continuously improved, not only inspected at the end",
+        "Quality improvement stops once execution begins"
+      ],
+      "answer": "C",
+      "explanation": "TQM integrates quality into every stage of project delivery."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the employee involvement principle require?",
+      "options": [
+        "Every team member takes responsibility for quality within their assigned duties",
+        "Only supervisors are responsible for quality",
+        "Quality is left entirely to designated inspectors",
+        "Employees take part only in the final review"
+      ],
+      "answer": "A",
+      "explanation": "Quality is everyone's responsibility under TQM."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What should project leaders do under the leadership commitment principle?",
+      "options": [
+        "Delegate all quality decisions to suppliers",
+        "Establish quality objectives, provide resources and demonstrate commitment to quality standards",
+        "Inspect every deliverable personally",
+        "Leave quality objectives for the client to set"
+      ],
+      "answer": "B",
+      "explanation": "Leaders set the direction and provide the means, and they show commitment by their own actions."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the process approach mean in TQM?",
+      "options": [
+        "Each activity is managed separately with no link to the others",
+        "Only the final output is measured against standards",
+        "Procedures are written only after defects appear",
+        "Project activities are organised and managed as interconnected processes with clear procedures and performance standards"
+      ],
+      "answer": "D",
+      "explanation": "Seeing the work as linked processes makes it easier to define procedures, set standards and find where problems arise."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A manager insists on deciding from reliable data instead of opinion. Which TQM principle is this?",
+      "options": [
+        "Leadership commitment",
+        "Employee involvement",
+        "Evidence-based decision-making",
+        "Relationship management"
+      ],
+      "answer": "C",
+      "explanation": "Decisions should rest on reliable data, quality inspections, measurements and performance indicators."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why does TQM stress good relationships with suppliers, contractors and consultants?",
+      "options": [
+        "Effective relationships help maintain consistent quality",
+        "They allow the project to transfer all quality responsibility to them",
+        "They remove the need to inspect their work",
+        "They make a quality plan unnecessary"
+      ],
+      "answer": "A",
+      "explanation": "These parties affect the quality of what the project delivers, so working well with them supports consistent quality."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which TQM activities belong to project execution?",
+      "options": [
+        "Identify client expectations and define quality objectives",
+        "Implement approved procedures, train workers, supervise activities and control processes",
+        "Prepare the quality plan and inspection procedures",
+        "Verify deliverables and obtain client acceptance"
+      ],
+      "answer": "B",
+      "explanation": "The other options belong to initiation, planning and closure."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pairing correctly places TQM activities in the project life cycle?",
+      "options": [
+        "Initiation: prepare the quality plan; planning: identify client expectations",
+        "Initiation: conduct audits and tests; planning: hand over the project",
+        "Initiation: train workers; planning: obtain client acceptance",
+        "Initiation: identify client expectations and define quality objectives; planning: prepare the quality plan, specifications and inspection procedures"
+      ],
+      "answer": "D",
+      "explanation": "TQM begins with understanding client expectations and then turns them into a plan, standards and procedures."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What happens during project monitoring and control under TQM?",
+      "options": [
+        "Client expectations are identified for the first time",
+        "Lessons learned are documented and the project is handed over",
+        "Inspections, audits, testing and performance measurements are used to identify deviations",
+        "Quality standards are selected for the first time"
+      ],
+      "answer": "C",
+      "explanation": "Monitoring and control compares actual performance with what was planned so deviations can be found."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does statistical process control do?",
+      "options": [
+        "Uses measurements and control charts to monitor process variation and identify unusual changes",
+        "Lists items to verify before work proceeds",
+        "Ranks causes by their share of defects",
+        "Records lessons from project reviews"
+      ],
+      "answer": "A",
+      "explanation": "Statistical process control watches how a process varies over time so unusual changes are noticed."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement correctly contrasts TQM with project quality control (PQC)?",
+      "options": [
+        "TQM is a set of checking activities, while PQC is a management philosophy",
+        "TQM emphasises detecting defects, while PQC emphasises prevention",
+        "TQM focuses on verifying outputs, while PQC focuses on long-term culture",
+        "TQM is a wider management philosophy emphasising prevention and improvement, while PQC is a set of checking activities emphasising inspection and testing"
+      ],
+      "answer": "D",
+      "explanation": "TQM focuses on a long-term quality culture and stakeholder satisfaction, while PQC verifies that outputs meet acceptance criteria."
+    },
+    {
+      "category": "Hard",
+      "prompt": "On a lecture hall project, inspections reveal cracked concrete. Which TQM response does the lecture give?",
+      "options": [
+        "Fill the cracks and continue to protect the schedule",
+        "Investigate root causes, verify the concrete mix, and improve curing and inspection procedures",
+        "Add more workers to speed up the casting",
+        "Change suppliers before checking the cause"
+      ],
+      "answer": "B",
+      "explanation": "TQM looks for the root cause and fixes the process, not only the visible symptom."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of problem and TQM response is correct?",
+      "options": [
+        "Delayed deliveries: inspect materials before acceptance",
+        "Poor-quality materials: improve curing procedures",
+        "Repeated rework: train workers, improve work procedures and prevent defects before later activities begin",
+        "Client dissatisfaction: monitor procurement performance"
+      ],
+      "answer": "C",
+      "explanation": "Poor materials call for supplier evaluation and inspection, delayed deliveries for better supplier coordination, and client dissatisfaction for feedback and verification against agreed specifications."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What results does the lecture expect from applying TQM in the lecture hall case?",
+      "options": [
+        "Fewer defects but higher rework costs because of extra inspection",
+        "Reduced defects, lower rework costs, improved schedule performance and greater client satisfaction",
+        "A faster schedule at the cost of client satisfaction",
+        "Fewer inspections and no need for supplier checks"
+      ],
+      "answer": "B",
+      "explanation": "Building quality into the process cuts defects and rework, which helps schedule and the client's confidence."
+    },
+    {
+      "category": "Hard",
+      "prompt": "An inspector suspects a structural defect in a concrete element. According to the lecture, what must happen before the work is accepted or concealed?",
+      "options": [
+        "Qualified professionals must assess it",
+        "The contractor may certify it informally",
+        "Finishes may be applied once the cracks look minor",
+        "The project manager alone may approve it quickly"
+      ],
+      "answer": "A",
+      "explanation": "The lecture stresses that suspected structural defects must be assessed by qualified professionals before the affected work is accepted or concealed."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A team lacks reliable defect records and cannot measure how its processes are performing. Which challenge of TQM does this reflect?",
+      "options": [
+        "Resistance to organisational change",
+        "Insufficient employee training",
+        "Pressure to complete projects quickly",
+        "Inadequate quality data and monitoring systems"
+      ],
+      "answer": "D",
+      "explanation": "The lecture says such challenges can be addressed through leadership commitment, staff training, effective communication, realistic project planning and regular performance reviews."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement about who is involved in TQM and PQC is correct?",
+      "options": [
+        "TQM is carried out only by inspectors, while PQC involves everyone",
+        "Both are carried out only by the quality manager",
+        "TQM involves everyone responsible for project processes, while PQC is often carried out by designated inspectors and testers, with wider team involvement as needed",
+        "TQM involves only senior managers, while PQC involves only suppliers"
+      ],
+      "answer": "C",
+      "explanation": "TQM spreads responsibility for quality across the whole team. PQC is more specialised."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How does quality control relate to TQM?",
+      "options": [
+        "Quality control replaces TQM once a project begins",
+        "TQM is one narrow part of quality control",
+        "The two approaches are unrelated",
+        "Quality control is one component of effective project quality management, while TQM is a broader approach to managing and improving quality"
+      ],
+      "answer": "D",
+      "explanation": "Quality control checks outputs, and TQM is the wider approach in which that checking takes place."
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "title": "Project Quality Management",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is Project Quality Management?",
+      "options": [
+        "The systematic process of planning, managing and controlling quality throughout a project life cycle",
+        "The inspection of a finished deliverable at the end of the project",
+        "A method of reducing project costs by cutting back on testing",
+        "The set of rules a client uses to approve project payments"
+      ],
+      "answer": "A",
+      "explanation": "Project Quality Management covers planning, managing and controlling quality across the whole life cycle, not just a final check. Its purpose is to make sure deliverables meet requirements, standards and stakeholder expectations."
+    },
+    {
+      "category": "Easy",
+      "prompt": "A project finishes on time and within budget. What does the lecture say about its success?",
+      "options": [
+        "It is a success, because time and cost are the only measures that count",
+        "It can still fail if its deliverables do not satisfy the required standards",
+        "It is guaranteed to have met every quality requirement",
+        "It can only fail if the client complains after handover"
+      ],
+      "answer": "B",
+      "explanation": "Quality sits alongside time and cost. A deliverable that misses the required standards fails the project even when the schedule and budget were met."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How do the lecture notes define quality?",
+      "options": [
+        "The level of luxury or finish that a deliverable has",
+        "How cheaply a deliverable can be produced and delivered",
+        "The degree to which a deliverable fulfils stated requirements and is fit for its intended purpose",
+        "How quickly a deliverable is completed after approval"
+      ],
+      "answer": "C",
+      "explanation": "Quality is about meeting stated requirements and being fit for purpose. It is not about luxury, low cost or speed."
+    },
+    {
+      "category": "Easy",
+      "prompt": "A machine runs for long periods without frequent breakdowns. Which dimension of quality does this show?",
+      "options": [
+        "Conformance",
+        "Maintainability",
+        "Safety",
+        "Reliability"
+      ],
+      "answer": "D",
+      "explanation": "Reliability is the ability to perform consistently. Conformance is compliance with specifications, and maintainability is how easily something can be repaired and serviced."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which principle says that all project participants share responsibility for quality?",
+      "options": [
+        "Customer focus",
+        "Engagement of people",
+        "Process approach",
+        "Relationship management"
+      ],
+      "answer": "B",
+      "explanation": "Under engagement of people, quality is not left to one inspector. Everyone who takes part in the project shares responsibility for it."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is quality assurance (QA)?",
+      "options": [
+        "Activities designed to give confidence that quality requirements will be fulfilled",
+        "Inspecting and testing finished deliverables to find defects",
+        "The established requirements against which outputs are judged",
+        "The extent to which the final product meets client expectations"
+      ],
+      "answer": "A",
+      "explanation": "QA focuses on the processes used to produce deliverables and aims to prevent defects. Inspecting finished outputs is quality control."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is quality control (QC)?",
+      "options": [
+        "Audits that review how a contractor carries out its work",
+        "Writing the quality plan at the start of the project",
+        "Inspection, measurement and testing of deliverables to see whether they meet specified requirements",
+        "Training staff to follow the approved procedures"
+      ],
+      "answer": "C",
+      "explanation": "QC examines the actual outputs. Audits and training belong to quality assurance, and writing the plan belongs to quality planning."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the main output of quality planning?",
+      "options": [
+        "A set of inspection reports and laboratory test results",
+        "A record of defects and the corrective actions taken",
+        "A signed certificate of client acceptance for the deliverable",
+        "A project quality management plan and supporting documentation"
+      ],
+      "answer": "D",
+      "explanation": "Quality planning produces the plan and its supporting documents. Inspection reports, test results and defect records are typical outputs of quality control."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which tool ranks problems by frequency or impact so the biggest sources of defects are tackled first?",
+      "options": [
+        "Pareto chart",
+        "Histogram",
+        "Flowchart",
+        "Check sheet"
+      ],
+      "answer": "A",
+      "explanation": "A Pareto chart supports prioritisation and is linked to the 80/20 principle. The other tools show distribution, process steps or recorded observations."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is a cause-and-effect (fishbone) diagram used for?",
+      "options": [
+        "Tracking measurements over time against upper and lower control limits",
+        "Showing how often measured values fall within each range",
+        "Recording observations of defects on a prepared form",
+        "Identifying possible root causes of a quality problem by grouping them into categories"
+      ],
+      "answer": "D",
+      "explanation": "The fishbone groups possible causes under headings such as people, methods, materials, machines, measurement and environment."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does ISO 9001 specify?",
+      "options": [
+        "Guidance on auditing management systems",
+        "Guidance on quality management in projects",
+        "Requirements for a quality management system",
+        "Fundamentals and vocabulary for quality management"
+      ],
+      "answer": "C",
+      "explanation": "ISO 9001 gives requirements for a quality management system. ISO 19011 covers auditing, ISO 10006 covers projects, and ISO 9000 gives fundamentals and vocabulary."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which standard provides guidance on quality management in projects?",
+      "options": [
+        "ISO 9000",
+        "ISO 10006",
+        "ISO 19011",
+        "ISO 9001"
+      ],
+      "answer": "B",
+      "explanation": "ISO 10006 is the project-focused guidance. ISO 9000 is vocabulary, ISO 19011 is auditing, and ISO 9001 is the requirements standard."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In the PDCA cycle, what does the letter C stand for?",
+      "options": [
+        "Control",
+        "Confirm",
+        "Check",
+        "Complete"
+      ],
+      "answer": "C",
+      "explanation": "PDCA stands for Plan, Do, Check, Act. In the Check step you measure results and compare them with expected performance."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Testing concrete cube samples to verify compressive strength is an example of which activity?",
+      "options": [
+        "Quality planning",
+        "Quality assurance",
+        "Continuous improvement",
+        "Quality control"
+      ],
+      "answer": "D",
+      "explanation": "Testing actual samples against a specified requirement is quality control. Auditing the mixing procedure would be quality assurance."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is a prevention cost?",
+      "options": [
+        "Training project staff",
+        "Warranty claims after delivery",
+        "Scrap and rework before delivery",
+        "Inspecting finished work"
+      ],
+      "answer": "A",
+      "explanation": "Training stops defects from being made, so it is a prevention cost. Inspection is an appraisal cost, rework is an internal failure cost, and warranty claims are an external failure cost."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pairing correctly describes the main focus of QA and QC?",
+      "options": [
+        "QA focuses on products and deliverables, while QC focuses on processes and systems",
+        "QA focuses on processes and systems, while QC focuses on products and deliverables",
+        "Both QA and QC focus only on finished deliverables",
+        "QA focuses on standards and procedures, while QC focuses on suppliers"
+      ],
+      "answer": "B",
+      "explanation": "Assurance improves the processes used to produce quality, and control verifies whether the resulting outputs meet requirements. The two complement each other."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A project manager organises casting, curing and testing as linked steps, each with defined inputs, procedures and outputs. Which principle does this reflect?",
+      "options": [
+        "Leadership",
+        "Improvement",
+        "Relationship management",
+        "Process approach"
+      ],
+      "answer": "D",
+      "explanation": "The process approach manages activities as interconnected processes with defined inputs, procedures and outputs."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A project manager turns the client's needs into measurable requirements. Which principle does this reflect?",
+      "options": [
+        "Customer focus",
+        "Leadership",
+        "Evidence-based decision-making",
+        "Improvement"
+      ],
+      "answer": "A",
+      "explanation": "Customer focus means understanding client needs and translating them into measurable requirements."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How should the 80/20 principle linked to Pareto charts be understood?",
+      "options": [
+        "It is a fixed law that exactly 20 percent of causes produce 80 percent of defects",
+        "It means 80 percent of the project budget should go to testing",
+        "It is a guide that a few causes produce most problems, but the actual distribution varies",
+        "It means 20 percent of deliverables can skip inspection"
+      ],
+      "answer": "C",
+      "explanation": "The lecture notes that the Pareto chart is associated with 80/20, although the actual distribution varies from project to project."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does a control chart help a project team do?",
+      "options": [
+        "Rank defect types by how often they occur",
+        "Tell routine variation apart from possible special causes",
+        "List the items that must be verified before work proceeds",
+        "Map the sequence of activities and handovers in a process"
+      ],
+      "answer": "B",
+      "explanation": "A control chart tracks measurements over time against a centre line and statistically calculated upper and lower control limits."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the difference between a check sheet and a checklist?",
+      "options": [
+        "A check sheet lists items that must be verified, while a checklist records observations",
+        "A check sheet ranks problems, while a checklist shows variation over time",
+        "They are the same tool under two different names",
+        "A check sheet records observations systematically, while a checklist lists items that must be verified"
+      ],
+      "answer": "D",
+      "explanation": "Recording cracks, surface defects and incomplete work during an inspection uses a check sheet. A checklist makes sure required items are verified."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does a histogram show?",
+      "options": [
+        "The order of steps and decisions in a process",
+        "The frequency distribution of measured values, revealing variability, spread and patterns",
+        "The ranking of defects from most to least frequent",
+        "The groups of causes behind a quality problem"
+      ],
+      "answer": "B",
+      "explanation": "A histogram helps the team understand variability and spread in process performance."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why would a team draw a flowchart of a process?",
+      "options": [
+        "To rank defect types by their impact",
+        "To track measurements against control limits",
+        "To spot bottlenecks, unnecessary steps and opportunities for improvement",
+        "To estimate the cost of failures"
+      ],
+      "answer": "C",
+      "explanation": "A flowchart shows the sequence of activities, decisions and handovers, which makes weak points in the process easier to see."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does ISO 9001 certification show about an organisation?",
+      "options": [
+        "Its quality management system was assessed against the standard, within the scope of the certification",
+        "Every deliverable it produces is free of defects",
+        "Its projects will always finish within budget",
+        "It is exempt from national building codes and technical specifications"
+      ],
+      "answer": "A",
+      "explanation": "Certification does not automatically guarantee that every deliverable is defect-free. Construction and engineering projects may still need to meet building codes and other requirements."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which costs together make up the cost of conformance?",
+      "options": [
+        "Internal failure costs and external failure costs",
+        "Prevention costs and appraisal costs",
+        "Prevention costs and internal failure costs",
+        "Appraisal costs and external failure costs"
+      ],
+      "answer": "B",
+      "explanation": "Prevention and appraisal are the costs of conformance. Internal and external failure costs are the costs of non-conformance."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which example is an external failure cost?",
+      "options": [
+        "Warranty claims and compensation after delivery",
+        "Rework found before delivery",
+        "Repeated testing before handover",
+        "Audits of production procedures"
+      ],
+      "answer": "A",
+      "explanation": "External failure costs arise when defects are found after delivery, such as warranty claims, repairs, compensation and reputational damage."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A building complies with fire-safety requirements. Which dimension of quality does this show?",
+      "options": [
+        "Performance",
+        "Durability",
+        "Safety",
+        "Maintainability"
+      ],
+      "answer": "C",
+      "explanation": "Safety is the protection of people and property. Fire-safety compliance is the lecture's example for it."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which sequence matches the quality risk response described in the lecture?",
+      "options": [
+        "Wait for defects to appear, assign blame, then replace the supplier",
+        "Assess consequences, ignore unlikely risks, then inspect only at the end",
+        "Assign responsible persons first, then identify risks after handover",
+        "Identify risks early, assess likelihood and consequences, assign responsible persons, and set preventive and corrective actions"
+      ],
+      "answer": "D",
+      "explanation": "Quality risks are handled by early identification, assessment, clear ownership, and actions to prevent and correct problems."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What happens in the Do step of the PDCA cycle?",
+      "options": [
+        "Results are measured and compared with expected performance",
+        "The proposed solution is implemented, preferably on a controlled or limited scale",
+        "A problem is identified and its causes are analysed",
+        "Successful improvements are made the standard"
+      ],
+      "answer": "B",
+      "explanation": "Plan sets the target, Do tries the fix, Check measures results, and Act standardises or revises the approach."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the first-pass yield indicator measure?",
+      "options": [
+        "The proportion of outputs that were inspected",
+        "The money spent correcting defective work",
+        "The time taken to resolve identified quality problems",
+        "The proportion of outputs that meet requirements without rework"
+      ],
+      "answer": "D",
+      "explanation": "First-pass yield shows how much work is right first time. The money spent on fixes is rework cost, and the time to resolve problems is corrective-action closure time."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project has prevention costs of ₦200,000, appraisal costs of ₦100,000, internal failure costs of ₦400,000 and external failure costs of ₦300,000. What is its cost of non-conformance?",
+      "options": [
+        "₦300,000",
+        "₦1,000,000",
+        "₦700,000",
+        "₦600,000"
+      ],
+      "answer": "C",
+      "explanation": "Cost of non-conformance is internal plus external failure costs, which is ₦400,000 + ₦300,000 = ₦700,000. The ₦300,000 figure is the cost of conformance, and ₦1,000,000 is the total cost of quality."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project's cost of conformance is ₦800,000 and its cost of non-conformance is ₦1,200,000. What does the lecture suggest the project should do?",
+      "options": [
+        "Investigate whether additional preventive measures could reduce defects and rework",
+        "Stop all prevention spending, since failures cost more",
+        "Treat quality as satisfactory, since conformance costs are lower",
+        "Ignore the figures, since some failure costs are always expected"
+      ],
+      "answer": "A",
+      "explanation": "Failure costs larger than the money spent on conformance point to defects and rework that better prevention might reduce."
+    },
+    {
+      "category": "Hard",
+      "prompt": "On a building project, some concrete samples fail the specified compressive strength. Which response is most consistent with the lecture?",
+      "options": [
+        "Retest the samples until a passing result appears, then continue work",
+        "Restrict affected work where necessary, verify results, find the root cause and have qualified professionals assess the affected elements",
+        "Cover the affected elements and continue so the completion date is kept",
+        "Continue working and record the failure in the final project report"
+      ],
+      "answer": "B",
+      "explanation": "Work resumes only when authorised safety and quality requirements are met. Structural concerns must be assessed by qualified professionals."
+    },
+    {
+      "category": "Hard",
+      "prompt": "An audit shows that a contractor's concrete batching is inconsistent, before any defective concrete has been produced. What does this illustrate?",
+      "options": [
+        "Quality control detecting a non-conformity in finished work",
+        "Quality planning setting acceptance criteria",
+        "Quality assurance acting to prevent defects",
+        "An external failure cost caused by a client complaint"
+      ],
+      "answer": "C",
+      "explanation": "Reviewing a process before defective output exists is preventive, which is the role of quality assurance."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A road surface performs well when new but cracks badly after one season of the traffic it was designed for. Which dimension of quality is mainly lacking?",
+      "options": [
+        "Maintainability",
+        "Customer satisfaction",
+        "Conformance",
+        "Durability"
+      ],
+      "answer": "D",
+      "explanation": "Durability is the ability to withstand use over time. The lecture's example is a road that withstands expected traffic."
+    },
+    {
+      "category": "Hard",
+      "prompt": "On a control chart, one measurement falls outside the upper control limit. How should the team interpret this?",
+      "options": [
+        "It may point to a special cause that should be investigated, rather than routine variation",
+        "It confirms that the process is working normally",
+        "It proves that the deliverable is defective",
+        "It shows that the centre line was calculated wrongly"
+      ],
+      "answer": "A",
+      "explanation": "Control charts help distinguish routine variation from potential special causes. A point outside the limits is a signal to investigate."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A manager cuts the testing and training budget to save money. Using the cost-of-quality idea, what is the likely result?",
+      "options": [
+        "All four cost categories fall together",
+        "Failure costs fall, because fewer defects are recorded",
+        "The cost of non-conformance becomes zero",
+        "Prevention and appraisal costs fall, but failure costs such as rework and warranty claims may rise"
+      ],
+      "answer": "D",
+      "explanation": "Prevention reduces defects and rework. Cutting it can save conformance costs in the short term, but failures then cost more. The notes list conflicts between cost reduction and quality as a challenge."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement about the orientation of quality planning, QA and QC is correct?",
+      "options": [
+        "Planning establishes requirements, QA is mainly preventive, and QC is mainly detective and corrective",
+        "Planning is mainly corrective, QA is mainly detective, and QC is mainly preventive",
+        "All three activities are mainly preventive in orientation",
+        "Planning is mainly detective, QA is mainly corrective, and QC is mainly preventive"
+      ],
+      "answer": "A",
+      "explanation": "Planning sets the requirements, QA prevents problems through better processes, and QC finds and corrects problems in actual outputs."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A contractor with ISO 9001 certification delivers some defective concrete. Why is this not a contradiction?",
+      "options": [
+        "Certification applies only to the design stage of a project",
+        "Certification stops applying once a project begins",
+        "Certification shows its quality system was assessed, not that every deliverable is defect-free",
+        "Certification covers only contractors working outside their own country"
+      ],
+      "answer": "C",
+      "explanation": "ISO 9001 certification is about the quality management system within its scope. It does not guarantee a defect-free deliverable."
+    },
+    {
+      "category": "Hard",
+      "prompt": "According to the lecture's conclusion, who is responsible for quality on a project?",
+      "options": [
+        "Only the quality-control officer who inspects the work",
+        "It is a management responsibility built into governance, procurement, risk, scheduling, budgeting and stakeholder engagement",
+        "Only the client, who approves the final deliverable",
+        "Only the supplier, who produces the materials"
+      ],
+      "answer": "B",
+      "explanation": "Quality is not only the job of an inspector. It is integrated into how the whole project is managed, and all participants share responsibility."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A manufacturing project produces defective components. Which grouping of possible causes fits a fishbone diagram?",
+      "options": [
+        "People, methods, materials, machines, measurement and environment",
+        "Price, place, promotion and product",
+        "Plan, do, check and act",
+        "Prevention, appraisal, internal failure and external failure"
+      ],
+      "answer": "A",
+      "explanation": "A fishbone groups possible causes under categories such as people, methods, materials, machines, measurement and environment. The other lists belong to marketing, PDCA and cost of quality."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A team pilots a new curing method on one floor, measures better strength results, and adopts the method on all floors. Which PDCA step is the adoption on all floors?",
+      "options": [
+        "Plan",
+        "Do",
+        "Act",
+        "Check"
+      ],
+      "answer": "C",
+      "explanation": "The pilot is Do, the measurement is Check, and making the successful change the standard is Act."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project reports a 98 percent inspection pass rate and calls its quality excellent. Why is this claim weak?",
+      "options": [
+        "Inspection pass rate is not a recognised quality indicator",
+        "No single indicator can adequately represent overall project quality",
+        "A pass rate above 90 percent is never reliable",
+        "Only customer satisfaction counts as evidence of quality"
+      ],
+      "answer": "B",
+      "explanation": "Indicators should be chosen to fit the project's scope, risks and objectives, and a single one cannot show overall quality."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A supplier delivers substandard cement. Which earlier measures would best have reduced this risk?",
+      "options": [
+        "Faster delivery schedules and larger orders",
+        "A larger quality-control team at the end of the project",
+        "Longer warranty clauses and delayed payments",
+        "Supplier qualification, approved specifications, incoming inspection and laboratory testing"
+      ],
+      "answer": "D",
+      "explanation": "These four measures are the lecture's response to the risk of substandard materials. They act before the cement is used in the work."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Workers hide defects because they fear being blamed. Which measure does the lecture recommend?",
+      "options": [
+        "Encourage reporting of defects without inappropriate blame",
+        "Penalise every reported defect to deter errors",
+        "Move all inspection to the end of the project",
+        "Reduce the number of quality records kept"
+      ],
+      "answer": "A",
+      "explanation": "Defects that are hidden cannot be corrected or learned from. The lecture lists blame-free reporting among the measures for overcoming quality challenges."
+    }
+  ]
+}
