@@ -1,6 +1,8 @@
 {
+  "id": "project-quality-planning",
   "title": "Project Quality Planning",
-  "subject": "Project management",
+  "subject": "Project quality management",
+  "description": "Thirty questions across easy, medium and hard on how quality is planned into a project, from the main activities and tools to the quality management plan.",
   "questions": [
     {
       "category": "Easy",
