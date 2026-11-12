@@ -1,6 +1,8 @@
 {
+  "id": "project-quality-management",
   "title": "Project Quality Management",
-  "subject": "Project management",
+  "subject": "Project quality management",
+  "description": "Forty-five questions across easy, medium and hard on the main ideas of project quality management, from quality dimensions and tools to cost of quality and PDCA.",
   "questions": [
     {
       "category": "Easy",
