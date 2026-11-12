@@ -1,0 +1,308 @@
+{
+  "id": "systems-thinking-pqm",
+  "title": "Systems Thinking in Project Quality Management",
+  "subject": "Project quality management",
+  "description": "Twenty-five questions across easy, medium and hard on how systems thinking explains project quality, its principles, tools and benefits over traditional thinking.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is systems thinking in project quality management?",
+      "options": [
+        "A method of inspecting each activity separately",
+        "An approach that views a project as an interconnected system whose activities, resources, processes and stakeholders influence one another",
+        "A statistical technique for sampling deliverables",
+        "A checklist of quality standards for suppliers"
+      ],
+      "answer": "B",
+      "explanation": "Systems thinking treats the project as one connected whole, so quality is not managed in isolation."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In simple terms, what does systems thinking mean?",
+      "options": [
+        "Focusing on the most expensive activity first",
+        "Managing each department independently",
+        "Looking at the entire project as one integrated system rather than at individual activities separately",
+        "Dealing with problems only when they occur"
+      ],
+      "answer": "C",
+      "explanation": "All project components must work together for the final outcome to meet the required standards."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does systems thinking mainly focus on understanding?",
+      "options": [
+        "The cost of each isolated activity",
+        "The ranking of defects by frequency",
+        "The order in which audits are carried out",
+        "The relationships, interactions and interdependencies among the parts of a system"
+      ],
+      "answer": "D",
+      "explanation": "The notes describe it as a management philosophy built on understanding how parts of a system relate to one another."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which principle says that all project activities are connected, so a problem in one can affect others?",
+      "options": [
+        "Interdependence",
+        "Holistic perspective",
+        "Feedback mechanism",
+        "Dynamic behaviour"
+      ],
+      "answer": "A",
+      "explanation": "The example is poor-quality cement affecting structural strength, safety and the overall quality of the building."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which principle means looking at the entire project rather than at individual departments or activities?",
+      "options": [
+        "Feedback mechanism",
+        "Holistic perspective",
+        "Dynamic behaviour",
+        "Continuous improvement"
+      ],
+      "answer": "B",
+      "explanation": "A project manager using this principle considers design, procurement, construction, inspection and customer satisfaction together."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is a feedback mechanism in this context?",
+      "options": [
+        "Reporting project costs to the client each month",
+        "A plan for sharing profits among suppliers",
+        "Replacing workers after defects are found",
+        "Collecting information about project performance and using it to improve processes"
+      ],
+      "answer": "D",
+      "explanation": "Customer complaints and inspection reports are the lecture's examples of feedback."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which tool shows how different project activities are connected?",
+      "options": [
+        "Process mapping",
+        "FMEA",
+        "Root cause analysis",
+        "Fishbone diagram"
+      ],
+      "answer": "A",
+      "explanation": "Process mapping shows connections between activities. FMEA identifies potential failures, root cause analysis finds underlying causes, and the fishbone diagram identifies possible causes of problems."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which ISO 9001 principle encourages managing interrelated processes as a coherent system?",
+      "options": [
+        "Customer focus",
+        "Leadership",
+        "Process approach",
+        "Relationship management"
+      ],
+      "answer": "C",
+      "explanation": "The notes state that the process approach is the principle closest to the systems view."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which example illustrates the interdependence principle?",
+      "options": [
+        "Reducing the procurement budget, leading to inferior materials and higher maintenance costs",
+        "Customer complaints guiding corrective actions",
+        "A company regularly reviewing its construction procedures to reduce defects",
+        "Poor-quality cement affecting structural strength, safety and the overall quality of a building"
+      ],
+      "answer": "D",
+      "explanation": "The procurement budget example belongs to interrelationships, the complaints example to feedback, and the procedure review to continuous improvement."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the interrelationships principle recognise?",
+      "options": [
+        "All activities are connected in exactly the same way",
+        "Changes in one part of a project may produce consequences in another part",
+        "Projects stay constant over time",
+        "Quality is determined by a single department"
+      ],
+      "answer": "B",
+      "explanation": "Reducing the procurement budget may lead to inferior materials and later to higher maintenance costs."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Under the holistic perspective, what should a project manager consider when evaluating project quality?",
+      "options": [
+        "Design, procurement, construction, inspection and customer satisfaction",
+        "Construction and inspection only",
+        "Procurement cost and schedule only",
+        "The performance of the quality department alone"
+      ],
+      "answer": "A",
+      "explanation": "The holistic perspective looks at the whole project instead of individual departments."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an example of a feedback mechanism in the notes?",
+      "options": [
+        "Regular salary reviews for project staff",
+        "Competitive tendering to select contractors",
+        "Customer complaints and inspection reports used to identify quality problems and introduce corrective actions",
+        "Reducing the budget for materials"
+      ],
+      "answer": "C",
+      "explanation": "Feedback means using performance information to improve processes."
+    },
+    {
+      "category": "Medium",
+      "prompt": "A construction company regularly reviews its procedures to reduce defects and improve productivity. Which principle is this?",
+      "options": [
+        "Continuous improvement",
+        "Interdependence",
+        "Dynamic behaviour",
+        "Holistic perspective"
+      ],
+      "answer": "A",
+      "explanation": "Systems thinking encourages continuous evaluation and improvement of project processes."
+    },
+    {
+      "category": "Medium",
+      "prompt": "According to the dynamic behaviour principle, why must project quality management adapt over time?",
+      "options": [
+        "Because quality standards are rewritten every month",
+        "Because resources, technology, risks, stakeholder expectations and environmental conditions change",
+        "Because projects repeat the same cycle of defects",
+        "Because suppliers are always replaced"
+      ],
+      "answer": "B",
+      "explanation": "Projects change over time, so quality management has to adapt to those changes."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pairing of project stage and application of systems thinking is correct?",
+      "options": [
+        "Project design: monitor performance and identify defects",
+        "Project closure: coordinate people, materials, technology and processes",
+        "Procurement: select suppliers based on quality requirements",
+        "Project initiation: integrate quality standards into project plans"
+      ],
+      "answer": "C",
+      "explanation": "Initiation identifies quality expectations and stakeholder requirements, planning integrates standards into plans, design considers safety, cost, performance and reliability, execution coordinates people, materials, technology and processes, and quality control monitors performance."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the systems dynamics tool examine?",
+      "options": [
+        "The sequence of project activities",
+        "Potential failures, their causes and their consequences",
+        "How performance information influences future decisions",
+        "How changes in one project variable influence other variables over time"
+      ],
+      "answer": "D",
+      "explanation": "The last option describes feedback loops, and the second describes FMEA."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which tool identifies potential failures, their causes and their consequences?",
+      "options": [
+        "Failure Mode and Effects Analysis (FMEA)",
+        "Feedback loops",
+        "Process mapping",
+        "Systems dynamics"
+      ],
+      "answer": "A",
+      "explanation": "FMEA looks ahead at what could fail and what that would cause."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the road project, the design is excellent but inferior materials are used. What does the systems-thinking interpretation say?",
+      "options": [
+        "The road will be sound, because design determines overall quality",
+        "The road may fail prematurely, because quality results from the combined performance of all components",
+        "Only the materials supplier is responsible, so other components need no review",
+        "The road will last, because inspection will correct the materials"
+      ],
+      "answer": "B",
+      "explanation": "Likewise, high-quality materials may not give a durable road if workers use incorrect procedures."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of road component and quality contribution is correct?",
+      "options": [
+        "Supervision: ensures durable construction materials",
+        "Equipment: ensures competent project execution",
+        "Maintenance planning: supports long-term road performance",
+        "Inspection: ensures appropriate engineering specifications"
+      ],
+      "answer": "C",
+      "explanation": "Design ensures appropriate specifications, materials ensure durability, labour ensures competent execution, equipment ensures accurate and efficient construction, supervision ensures compliance, and inspection identifies defects."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing correctly contrasts traditional thinking with systems thinking?",
+      "options": [
+        "Traditional: examines interconnected problems; systems: treats problems separately",
+        "Traditional: considers long-term consequences; systems: focuses on short-term results",
+        "Traditional: encourages integrated decisions; systems: encourages isolated decisions",
+        "Traditional: often addresses symptoms; systems: investigates underlying causes"
+      ],
+      "answer": "D",
+      "explanation": "Traditional thinking also focuses on individual activities and departments, while systems thinking focuses on the entire project and overall performance."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A manager measures only each department's own performance and makes isolated decisions. Which style is this, and what is the systems alternative?",
+      "options": [
+        "Traditional thinking; systems thinking emphasises overall project performance and integrated decisions",
+        "Systems thinking; traditional thinking emphasises overall performance",
+        "Traditional thinking; systems thinking focuses on short-term results",
+        "Systems thinking; it needs no integration between departments"
+      ],
+      "answer": "A",
+      "explanation": "Emphasising departmental performance and isolated decisions is typical of traditional thinking."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which is a listed challenge of applying systems thinking?",
+      "options": [
+        "Too few interdependencies between activities",
+        "Difficulty in identifying relationships between project variables",
+        "An excess of reliable project information",
+        "Projects that never change"
+      ],
+      "answer": "B",
+      "explanation": "The listed challenges also include complexity of project activities, poor communication, resistance to change, inadequate management commitment, lack of reliable information and limited skills."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the key academic takeaway of the notes?",
+      "options": [
+        "Project quality is determined mainly by the quality department",
+        "Project quality depends chiefly on the materials used",
+        "Project quality is the result of final inspection",
+        "Project quality is a system-wide outcome resulting from the integration and interaction of people, processes, materials, technology, resources and management decisions"
+      ],
+      "answer": "D",
+      "explanation": "Quality does not come from one department, individual or activity."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A team collects inspection reports and customer complaints but never uses them to change how work is done. Which principle is missing?",
+      "options": [
+        "Interdependence",
+        "Holistic perspective",
+        "Feedback mechanism",
+        "Dynamic behaviour"
+      ],
+      "answer": "C",
+      "explanation": "Feedback only helps when performance information is used to improve processes."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set lists the ISO 9001 principles that systems thinking is closely associated with?",
+      "options": [
+        "Planning, assurance, control, audit, closure and handover",
+        "Prevention, appraisal, internal failure, external failure and conformance",
+        "Scope, time, cost, quality, risk and procurement",
+        "Process approach, leadership, improvement, evidence-based decision-making, relationship management and customer focus"
+      ],
+      "answer": "D",
+      "explanation": "The process approach is the closest match, because it manages interrelated processes as a coherent system."
+    }
+  ]
+}

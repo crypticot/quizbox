@@ -1,0 +1,368 @@
+{
+  "id": "pmt801-life-cycle-appraisal",
+  "title": "Project Life Cycle, Appraisal, Feasibility and Viability (PMT 801)",
+  "subject": "Project management",
+  "description": "Thirty questions across easy, medium and hard on the project life cycle phases, the appraisal team, feasibility indicators, feasibility studies and viability.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is appraisal, according to the lecture?",
+      "options": [
+        "A final inspection after construction",
+        "An analysis of opinion based on facts, expressed by an expert on a proposed project",
+        "A legal contract between client and contractor",
+        "A method of setting contractor pay"
+      ],
+      "answer": "B",
+      "explanation": "The opinion does not have to be very accurate, but its reliability depends on the appraiser and on the data used."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What basic question does a feasibility study ask?",
+      "options": [
+        "Can it be done?",
+        "Should it be done?",
+        "Who will pay for it?",
+        "How long will it take?"
+      ],
+      "answer": "A",
+      "explanation": "Feasibility means possibility. The question of whether it should be done belongs to viability."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does viability look at?",
+      "options": [
+        "Whether the project is technically possible",
+        "Whether materials are available",
+        "Necessity and economic desirability, asking whether the project should be done",
+        "Whether land can be registered"
+      ],
+      "answer": "C",
+      "explanation": "Viability goes on to cost, benefits and their relationship in line with the decision maker's goals."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How many feasibility indicators does the lecture list?",
+      "options": [
+        "Four",
+        "Five",
+        "Eight",
+        "Six"
+      ],
+      "answer": "D",
+      "explanation": "They are technological, economic, legal, financial, physical and socio-political indicators."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which is one of the six feasibility indicators?",
+      "options": [
+        "Contractor indicators",
+        "Physical indicators",
+        "Schedule indicators",
+        "Tendering indicators"
+      ],
+      "answer": "B",
+      "explanation": "Physical indicators cover climate, soil type and regional topography."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which four phases appear in the life cycle activities table?",
+      "options": [
+        "Initiation, design, execution and closure",
+        "Conception, tendering, execution and handover",
+        "Appraisal, planning, construction and maintenance",
+        "Conception, planning, execution and termination"
+      ],
+      "answer": "D",
+      "explanation": "Each phase has its own list of activities."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which phase records the bulk of construction, with more than 80 percent of the total implementation effort?",
+      "options": [
+        "Conception",
+        "Planning",
+        "Execution",
+        "Termination"
+      ],
+      "answer": "C",
+      "explanation": "The execution phase also attracts the general public, for example when sites are cleared and equipment is moved."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Who coordinates the appraisal team?",
+      "options": [
+        "The project manager",
+        "The economist",
+        "The estate surveyor and valuer",
+        "The lawyer"
+      ],
+      "answer": "A",
+      "explanation": "The project manager welds together the data supplied by the other professionals into an appraisal report."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which technique is described as a balance sheet of the long-run and short-run costs and benefits of economic and social projects?",
+      "options": [
+        "Pay-back period",
+        "Bar charting",
+        "Cost-benefit analysis",
+        "PERT"
+      ],
+      "answer": "C",
+      "explanation": "The lecture's examples include dualising a major motorway and weighing the value of lives saved."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How does the lecture describe a feasibility study in relation to the investment decision?",
+      "options": [
+        "As a binding order the investor must follow",
+        "As a means to arrive at an investment decision, which need not agree with the study's conclusions",
+        "As an end in itself that replaces the decision",
+        "As a legal document only"
+      ],
+      "answer": "B",
+      "explanation": "It would be rare to find an investor response that conforms fully to a study."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is the conception phase called the main engine of project success, although it takes little space on the graph?",
+      "options": [
+        "It uses most of the project's resources",
+        "It is when construction takes place",
+        "It is the only phase the public sees",
+        "Careless conception can mark the beginning of failure, abandonment or collapse"
+      ],
+      "answer": "D",
+      "explanation": "Conception data must account for time of commencement, inflation, exchange rates, interest rates, politics and government policy."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the lecture say about a doubtful project idea at conception and planning?",
+      "options": [
+        "It is better to collapse the idea there than to execute with manipulated conception and planning data",
+        "Execute it anyway and adjust later",
+        "Wait until after the execution phase to decide",
+        "Hide the weakness from the client"
+      ],
+      "answer": "A",
+      "explanation": "At those phases a project idea can be collapsed without any issue of success, failure or abandonment."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How does the lecture distinguish execution cost from total project cost?",
+      "options": [
+        "They are the same figure",
+        "Execution cost includes all four phases",
+        "Total project cost is the sum of conception, planning, execution and termination costs, and execution cost is only one part of it",
+        "Total project cost excludes conception"
+      ],
+      "answer": "C",
+      "explanation": "Execution is the biggest part, but it is not the whole cost."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which professional is primarily concerned with site analysis and the highest and best use of the client's land?",
+      "options": [
+        "The architect",
+        "The accountant",
+        "The town planner",
+        "The estate surveyor and valuer"
+      ],
+      "answer": "D",
+      "explanation": "The estate surveyor and valuer also appraises the marketability and maintainability of the project."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the architect determine in the appraisal team?",
+      "options": [
+        "The best site value for the project",
+        "Whether the proposed project is designable, and the sketch and specifications used for the material market survey",
+        "The budgeting and funding input",
+        "The demand and supply of the national economy"
+      ],
+      "answer": "B",
+      "explanation": "The accountant handles budgeting and funding, and the economist handles the economy."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which example shows appraisal used for project evaluation and performance?",
+      "options": [
+        "An investor asking whether to expand or contract after investing",
+        "A client deciding how much to invest",
+        "A client deciding where to invest",
+        "A state deciding on a metro line before spending"
+      ],
+      "answer": "A",
+      "explanation": "The first purpose is pre-investment decision, and the second is evaluating the performance of an existing investment."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which question belongs to the economic indicator?",
+      "options": [
+        "Is it legally possible to invest in a project of that size?",
+        "Considering soil and climate, is it physically possible?",
+        "Are the funds available to execute it?",
+        "Can the nation's economy sustain a project such as a nuclear power plant at this time?"
+      ],
+      "answer": "D",
+      "explanation": "The other options belong to the legal, physical and financial indicators."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the chain image say about the feasibility indicators?",
+      "options": [
+        "One positive indicator is enough",
+        "The indicators are added up and averaged",
+        "If the answer to any indicator is no, the appraisal stops there",
+        "Negative answers are overruled by the client"
+      ],
+      "answer": "C",
+      "explanation": "Like a chain, one broken hook stops it working."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does 'viability starts where feasibility stops' mean?",
+      "options": [
+        "There is no overlap, and feasibility must stop positively before viability begins",
+        "Both are done together at the same time",
+        "Viability replaces feasibility",
+        "Feasibility starts only after viability"
+      ],
+      "answer": "A",
+      "explanation": "If feasibility does not stop positively, it is futile to go into viability."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the difference between conclusive viability and compelling viability?",
+      "options": [
+        "Conclusive viability compels action, and compelling viability only advises",
+        "The professional advises on viability (conclusive), and the client who decides compels action (compelling)",
+        "Both are decided by the professional",
+        "Both are decided by the client alone"
+      ],
+      "answer": "B",
+      "explanation": "The professional can only advise and cannot compel action."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How does the lecture say suppliers of equipment or technology sometimes misuse the term feasibility study?",
+      "options": [
+        "They use it only for legal documents",
+        "They base it entirely on local conditions",
+        "They call an outline oriented to supplying equipment or particular techniques a feasibility study",
+        "They apply it only to government projects"
+      ],
+      "answer": "C",
+      "explanation": "Such studies can mislead and result in the misapplication of resources."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why can studies based on experience in industrial countries mislead in a developing country?",
+      "options": [
+        "They are always too cheap",
+        "They ignore equipment",
+        "They are too detailed",
+        "They are not adapted to local production factors and conditions, which can cause resources to be misapplied"
+      ],
+      "answer": "D",
+      "explanation": "A feasibility study must relate to available production factors and the local market and production conditions, translated into cost and income."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A study identifies a market served by an investment of about ₦13 million, but the investor decides to invest ₦5 million. What follows?",
+      "options": [
+        "A revised feasibility study is needed for the lower outlay, reusing many parameters from the original",
+        "The original study stays valid unchanged",
+        "The investment decision is invalid",
+        "A completely new study is needed with nothing reused"
+      ],
+      "answer": "A",
+      "explanation": "The revision does not need the same volume of work, but the final investment differs substantially from the first study."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A feasibility study may be which of the following?",
+      "options": [
+        "Government-owned or privately owned",
+        "Market-oriented or based on materials inputs",
+        "Short term or long term",
+        "Local or foreign"
+      ],
+      "answer": "B",
+      "explanation": "It takes its initiative from an assumed or existing demand, or from available materials or energy."
+    },
+    {
+      "category": "Hard",
+      "prompt": "If the data show a non-viable project, what should the feasibility study do?",
+      "options": [
+        "Adjust the parameters, programme, material inputs and technology to try to present a viable project, and if it is still not viable, say so and justify it",
+        "Hide the figures",
+        "Stop without comment",
+        "Adopt more optimistic sales estimates"
+      ],
+      "answer": "A",
+      "explanation": "The study should describe this optimisation process and justify the assumptions and solutions."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why must the scope of the project be defined unequivocally in a feasibility study?",
+      "options": [
+        "Because scope has no effect on costs",
+        "To avoid appointing a project manager",
+        "Because only drawings are legally binding",
+        "Final estimates of costs and profitability are only meaningful if the scope is clear, ideally set out in drawings and schedules"
+      ],
+      "answer": "D",
+      "explanation": "Defining scope clearly also makes sure no essential part or cost is omitted."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How are appraisals styled in Nigeria?",
+      "options": [
+        "As post-completion audits",
+        "As tender evaluations",
+        "As pre-investment studies called feasibility and viability studies",
+        "As cost audits"
+      ],
+      "answer": "C",
+      "explanation": "An appraisal is made up of feasibility and viability studies."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A state government wants an underground metro to ease Lagos traffic. What does the lecture say is needed?",
+      "options": [
+        "Only a cost estimate",
+        "A comprehensive feasibility and viability study on social, economic, political and financial parameters",
+        "Only an engineering design",
+        "No study, since it is a government project"
+      ],
+      "answer": "B",
+      "explanation": "A project of this size is where the real involvement of an appraiser is needed."
+    },
+    {
+      "category": "Hard",
+      "prompt": "On what does the reliability of an appraiser's opinion depend?",
+      "options": [
+        "The appraiser's qualification and experience, and the quality and accuracy of the data analysed",
+        "The appraiser's fee",
+        "The size of the client's land only",
+        "The speed of the report"
+      ],
+      "answer": "A",
+      "explanation": "The opinion does not need to be very accurate, but it is a function of both the expert and the data."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set of items belongs under the financial evaluation in the feasibility study summary?",
+      "options": [
+        "Names of all site workers",
+        "Weather records only",
+        "The client's personal assets",
+        "Net present value, internal rate of return, pay-back period, simple rate of return, break-even analysis and sensitivity analysis"
+      ],
+      "answer": "D",
+      "explanation": "The summary also covers background, market, materials, location, engineering, manpower, implementation scheduling and conclusions."
+    }
+  ]
+}

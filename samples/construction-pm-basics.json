@@ -1,0 +1,368 @@
+{
+  "id": "pmt801-construction-pm-basics",
+  "title": "Construction Industry and Project Management Basics (PMT 801)",
+  "subject": "Project management",
+  "description": "Thirty questions across easy, medium and hard on how the construction industry works, what projects and project management are, the knowledge areas and the project manager's role.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "Which problem does the lecture say its concern is about handling, through real estate construction project management?",
+      "options": [
+        "Building failure, abandonment and collapse of building infrastructure",
+        "The rate of borrowing capital to invest",
+        "Property taxes and estate duties",
+        "Flood and gully erosion affecting demand"
+      ],
+      "answer": "A",
+      "explanation": "The lecture lists many threats to real estate investors, then says its concern is the threat of building failure, abandonment and collapse, whose solution lies in project management."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which definition of a project does Osuagwu (1997) give?",
+      "options": [
+        "A routine activity repeated every year",
+        "A permanent organisation with fixed staff",
+        "A group of departments sharing one budget",
+        "A series of related activities with a goal, a beginning and an end"
+      ],
+      "answer": "D",
+      "explanation": "The key features are a goal, a start and an end."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is a characteristic of a project?",
+      "options": [
+        "It is repetitive and continuous",
+        "It always involves only one organisation",
+        "A life cycle with a starting point and an ending point",
+        "It needs no specific objective"
+      ],
+      "answer": "C",
+      "explanation": "Projects have a well-articulated aim, a life cycle, a network of time and cost activities, are unique and one-time, may cut across organisations, and may need a special organisation."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How does Baridam (2002) describe management?",
+      "options": [
+        "Controlling costs and nothing else",
+        "Getting things done through and with people",
+        "Designing the finished product",
+        "Selecting the cheapest contractor"
+      ],
+      "answer": "B",
+      "explanation": "Baridam sees management as planning and directing effort towards a common objective with and through people."
+    },
+    {
+      "category": "Easy",
+      "prompt": "According to the PMBOK Guide (2009), what is project management?",
+      "options": [
+        "The supervision of workers on a construction site",
+        "A method of choosing between competing investments",
+        "The application of knowledge, skills, tools and techniques to project activities to meet project requirements",
+        "The legal process of awarding contracts"
+      ],
+      "answer": "C",
+      "explanation": "This is the PMBOK definition quoted in the lecture."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How many knowledge areas must a project manager know, according to the lecture?",
+      "options": [
+        "Nine",
+        "Six",
+        "Seven",
+        "Ten"
+      ],
+      "answer": "A",
+      "explanation": "There are six core areas, two facilitating areas (communications and risk), and integration management as the ninth."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is one of the six core knowledge areas?",
+      "options": [
+        "Project communication management",
+        "Project risk management",
+        "Project integration management",
+        "Project materials management"
+      ],
+      "answer": "D",
+      "explanation": "The six core areas are scope, time, cost, quality, materials and human resources management. Communications and risk are facilitating areas, and integration is the ninth."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Who is described as the person to coordinate the interests and roles of the many professionals on a real estate project?",
+      "options": [
+        "The client",
+        "The project manager",
+        "The architect",
+        "The contractor"
+      ],
+      "answer": "B",
+      "explanation": "Without someone to coordinate architects, engineers, quantity surveyors, builders and others, the lecture says the result would be disastrous."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How many distinct stages does construction procedure in Nigeria have, according to the lecture?",
+      "options": [
+        "Two: the design stage and the construction stage",
+        "Three: design, tendering and construction",
+        "Four: design, tendering, construction and maintenance",
+        "One: design and construction together"
+      ],
+      "answer": "A",
+      "explanation": "Design is separated from construction, unlike manufacturing where the two are integrated."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which four main headings does Lock (2004) use to classify projects?",
+      "options": [
+        "Tangible, intangible, commercial and non-commercial projects",
+        "New, expansion, updating and rehabilitation projects",
+        "Construction and allied, manufacturing, management and research projects",
+        "Public, private, joint and community projects"
+      ],
+      "answer": "C",
+      "explanation": "The other options are different classifications in the lecture: tangible and intangible, motive, and resource commitment."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How do construction and manufacturing differ in design and production?",
+      "options": [
+        "In construction, design and production are done by one organisation, while in manufacturing they are separated",
+        "Both industries separate design from production in the same way",
+        "In manufacturing, design teams are appointed from different organisations for each product",
+        "In construction, design and execution are done by different organisations, while in manufacturing both are housed in one factory environment"
+      ],
+      "answer": "D",
+      "explanation": "In construction the design teams are normally appointed from different organisations and the construction team erects what they design."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why does construction involve cost prediction risk that manufacturing largely avoids?",
+      "options": [
+        "Construction products are always cheaper to make",
+        "In construction the price is set before production, while in manufacturing production is completed before price is attached",
+        "Manufacturing prices are fixed by the government",
+        "Construction projects avoid competitive tendering"
+      ],
+      "answer": "B",
+      "explanation": "The contractor must predict costs from the design documents, with the risks and uncertainties that come with that."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is the construction industry described as fragmented?",
+      "options": [
+        "Demand comes from many individual clients with one-off requirements, and supply ranges from jobbing builders to multinationals",
+        "A few large clients dominate with identical needs",
+        "Only government firms supply construction",
+        "All construction firms are about the same size"
+      ],
+      "answer": "A",
+      "explanation": "The lecture compares it to the car industry making every car to the owner's own specification."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does it mean that the need for a real estate product is 'derived'?",
+      "options": [
+        "Demand comes only from government",
+        "Demand is fixed by seasonal cycles",
+        "The desire for it is determined by the demand for the goods and services it helps to create",
+        "Demand is copied from other countries"
+      ],
+      "answer": "C",
+      "explanation": "Together with violent fluctuation from seasonal, cyclical and government action, this makes real estate projects difficult to manage."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the traditional construction process, how is the contractor selected?",
+      "options": [
+        "By negotiation before any design starts",
+        "By the architect's personal choice during design",
+        "By drawing lots among registered firms",
+        "By competitive tendering after the design is substantially completed"
+      ],
+      "answer": "D",
+      "explanation": "The designer then manages the process from inception to completion."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why did the traditional method of managing construction fail to meet clients' needs?",
+      "options": [
+        "Clients stopped wanting new buildings",
+        "The unstable economic, political, social and technological environment made projects more complex, with many specialists and stakeholders",
+        "Local materials became too expensive",
+        "Design and construction became too closely integrated"
+      ],
+      "answer": "B",
+      "explanation": "Stable, simple construction suited the old method, but modern projects are complex and have many stakeholders."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which of these describes the turnkey or package deal?",
+      "options": [
+        "A consultant only supervises the work for the client",
+        "A contractor is chosen by tender after the design is complete",
+        "One organisation is employed by the client to design, construct and equip or furnish the facility",
+        "The client designs and builds the facility alone"
+      ],
+      "answer": "C",
+      "explanation": "The project management approach is a separate innovation, where a project manager is appointed to manage a project from inception to completion."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pair of reports does the lecture name as drivers of change in the construction industry?",
+      "options": [
+        "The Egan Report of 1994 (Constructing the Team) and the Latham Report of 1998 (Rethinking Construction)",
+        "The RIBA Report of 1994 and the M4I Report of 1998",
+        "The PMBOK Report of 1994 and the PERT Report of 1998",
+        "The Latham Report of 1994 (Constructing the Team) and the Egan Report of 1998 (Rethinking Construction)"
+      ],
+      "answer": "D",
+      "explanation": "Rethinking Construction called for radical change to the processes through which the industry delivers projects."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is the correct order of the first three sequential steps in project management?",
+      "options": [
+        "Determine the duration of tasks, define the objectives, allocate resources",
+        "Define the objectives, determine the tasks, decide on important milestones",
+        "Allocate resources, decide on milestones, determine the tasks",
+        "Decide on milestones, determine the tasks, define the objectives"
+      ],
+      "answer": "B",
+      "explanation": "The seven steps run: define objectives, determine tasks, decide milestones, determine durations, plan the organisation of tasks, allocate resources, then re-evaluate and carry out the project."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does project quality management ensure, according to the knowledge areas section?",
+      "options": [
+        "That the project satisfies the stated or implied needs for which it was undertaken",
+        "That the project is finished in the shortest possible time",
+        "That the budget is realistic and cost overruns are avoided",
+        "That staff are recruited and their time monitored"
+      ],
+      "answer": "A",
+      "explanation": "It means satisfying the client's taste and the end users' expectations."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A government hospital has some element of profit alongside other motives. Under the classification by motive, what kind of project is it?",
+      "options": [
+        "Pure commercial",
+        "Non-commercial",
+        "Quasi-commercial",
+        "Intangible"
+      ],
+      "answer": "C",
+      "explanation": "Pure commercial projects are undertaken for profit only, and quasi-commercial ones combine profit with other motives. Hospitals and educational establishments are the lecture's public sector examples."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of project type and description is correct?",
+      "options": [
+        "Expansion project: establishes a new independent productive establishment",
+        "New project: improves the economic performance of existing projects",
+        "Rehabilitation project: expands an existing productive entity",
+        "Updating project: updates the technology of an existing project without major change in output"
+      ],
+      "answer": "D",
+      "explanation": "New projects set up financially independent establishments, expansion projects enlarge existing ones, and rehabilitation or maintenance projects improve the economic performance of existing projects."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why are research projects described as very high risk?",
+      "options": [
+        "They are expensive in time and money, and may end in a major breakthrough or a complete waste of resources",
+        "They are carried out in unpredictable factory environments",
+        "They must always be executed on a site away from head office",
+        "Their results are always physical items"
+      ],
+      "answer": "A",
+      "explanation": "The uncertain outcome is what makes research projects risky."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why are manufacturing projects said to be less risky than construction projects?",
+      "options": [
+        "They need fewer professionals",
+        "Their factory environment is predictable",
+        "They are always smaller",
+        "They have no deadlines"
+      ],
+      "answer": "B",
+      "explanation": "Construction projects are executed on sites away from head office and need massive resources."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the main distinctive feature of construction and allied projects?",
+      "options": [
+        "They are conducted in factories with predictable conditions",
+        "Their results cannot be measured as hardware",
+        "They are occasional undertakings with no physical item",
+        "Execution must be done on a site different from the organisation's head office, and resource requirements are massive"
+      ],
+      "answer": "D",
+      "explanation": "The other options describe manufacturing projects and management projects."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which of these is listed as a role of the project manager?",
+      "options": [
+        "Personally producing the structural drawings",
+        "Directing and controlling the contractor and sub-contractors to curb excesses, wastage and delays",
+        "Choosing the end users of the building",
+        "Replacing the client's board of directors"
+      ],
+      "answer": "B",
+      "explanation": "The project manager's role also includes coordinating the work programme, maintaining quality, liaising with all parties, advising on design, cost, tax and legal matters, and monitoring cash flow."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How can the project manager attain set goals without sacrificing standards and quality?",
+      "options": [
+        "Through experience in value engineering analysis or value management",
+        "By reducing the number of inspections",
+        "By refusing any change to the design",
+        "By appointing more subcontractors"
+      ],
+      "answer": "A",
+      "explanation": "The lecture ties this to the manager's advice on design and cost."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement about the real estate sector does the lecture make?",
+      "options": [
+        "It is stable and steady, like mass production",
+        "It supplies only luxury accommodation",
+        "It fluctuates violently because of seasonal, cyclical and government action, causing under and over use of capacity",
+        "Its products are cheap and easily moved"
+      ],
+      "answer": "C",
+      "explanation": "The lecture also notes that its products are bulky and expensive."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set lists the seven targets set in the report Rethinking Construction?",
+      "options": [
+        "Scope, time, cost, quality, risk, communication and procurement",
+        "Design, materials, labour, equipment, supervision, inspection and maintenance",
+        "Prevention, appraisal, internal failure, external failure, rework, scrap and warranty",
+        "Cost, time, predictability, defects, accidents, productivity and turnover or profits"
+      ],
+      "answer": "D",
+      "explanation": "The report also urged a culture of performance measurement so that innovations could be evaluated and continuous improvement promoted."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which of these is among the threats the lecture lists for real estate investors?",
+      "options": [
+        "An excess of skilled labour and cheap materials",
+        "The opportunity cost of choosing real estate and the time value of money",
+        "Overly stable demand and fixed prices",
+        "Unlimited access to cheap credit"
+      ],
+      "answer": "B",
+      "explanation": "The lecture also lists building failure, where and when to build, environmental challenges, borrowing rates, profit measurement and government policies."
+    }
+  ]
+}

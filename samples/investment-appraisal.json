@@ -1,0 +1,368 @@
+{
+  "id": "pmt801-investment-appraisal",
+  "title": "Investment Appraisal: Payback, NPV and IRR (PMT 801)",
+  "subject": "Project management",
+  "description": "Thirty questions across easy, medium and hard on traditional appraisal methods, discounting, net present value and internal rate of return, with a few short calculations.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "How does the lecture define an investment?",
+      "options": [
+        "The immediate spending of income on consumption",
+        "The commitment of scarce resources (capital) to a project, aiming at a reasonable return for the risk taken",
+        "A loan taken without expecting returns",
+        "A guarantee of fixed profit"
+      ],
+      "answer": "B",
+      "explanation": "An investment sacrifices liquidity in return for expected higher future returns."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Into which two major categories are appraisal methods classified?",
+      "options": [
+        "Feasibility and viability methods",
+        "Market and material methods",
+        "Traditional methods and modern (discounting) methods",
+        "Fixed and variable methods"
+      ],
+      "answer": "C",
+      "explanation": "The traditional methods do not discount cash flows, and the modern ones do."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the pay-back period?",
+      "options": [
+        "The time needed to complete construction",
+        "The period of a bank loan",
+        "The time until profit reaches its peak",
+        "The length of time required for the cash proceeds of an investment to equal the original cash outlay"
+      ],
+      "answer": "D",
+      "explanation": "It is one of the simplest and most frequently used methods."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How does the pay-back period rank investments?",
+      "options": [
+        "Shorter pay-back periods rank higher than longer ones",
+        "Longer pay-back periods rank higher",
+        "Investments are ranked by total profit",
+        "Investments are ranked by size of outlay"
+      ],
+      "answer": "A",
+      "explanation": "The method can mislead where a project takes time to generate income but earns more in later years."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which formula gives the pay-back period when annual cash flow is constant?",
+      "options": [
+        "Annual net cash flow divided by net cash outlay",
+        "Net cash outlay multiplied by annual net cash flow",
+        "Net cash outlay divided by annual net cash flow",
+        "Annual net cash flow minus net cash outlay"
+      ],
+      "answer": "C",
+      "explanation": "If the cash flow varies, proceeds are added year by year until they equal the outlay."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is a traditional method of appraisal?",
+      "options": [
+        "The pay-back period",
+        "The internal rate of return",
+        "The net present value",
+        "The annual sinking fund method"
+      ],
+      "answer": "A",
+      "explanation": "The five traditional methods are pay-back period, rate of return on capital, optimum or peak profit, first year's return and average profit."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the formula for net present value?",
+      "options": [
+        "NPV = GPV plus Co",
+        "NPV = GPV minus Co, where Co is the initial capital outlay",
+        "NPV = Co divided by GPV",
+        "NPV = annual cash flow multiplied by the number of years"
+      ],
+      "answer": "B",
+      "explanation": "GPV is the gross present value of all discounted future profits."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the NPV criterion say about a project with a positive NPV?",
+      "options": [
+        "Reject it, since the profit is too high",
+        "Accept it only if the pay-back period is long",
+        "Treat it as break-even",
+        "Accept it, since it earns more than investing the same amount at the marginal investment rate"
+      ],
+      "answer": "D",
+      "explanation": "Projects with a negative NPV are rejected."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the internal rate of return (IRR)?",
+      "options": [
+        "The rate at which a bank charges loan interest",
+        "The rate of inflation",
+        "The rate of interest at which the present value of expenditure equals the present value of receipts, so that NPV is zero",
+        "The highest annual profit as a percentage of capital"
+      ],
+      "answer": "C",
+      "explanation": "It is also called the marginal efficiency of capital, among other names."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does discounted cash flow (DCF) mean?",
+      "options": [
+        "Time-adjusted cash flow used to find the present value of future benefits",
+        "Cash flow measured only in the first year",
+        "Cash flow before tax",
+        "Cash flow of the average year"
+      ],
+      "answer": "A",
+      "explanation": "It gives a basis for comparing one investment with another."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which two reasons does the lecture give for discounting cash flows?",
+      "options": [
+        "Tax rules and government grants",
+        "The difference in value between a distant future and the present, and the uncertainty of future money",
+        "Rising profits and falling costs",
+        "Contract penalties and bonuses"
+      ],
+      "answer": "B",
+      "explanation": "These are the two reasons given: money in the distant future is worth less than money now, and future money is less certain than money in hand."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is one naira today worth more than one naira in the future?",
+      "options": [
+        "Future naira are always taxed",
+        "Banks refuse to pay future sums",
+        "Prices fall over time",
+        "Waiting involves sacrifice, the naira could be invested, the future is uncertain, and inflation reduces purchasing power"
+      ],
+      "answer": "D",
+      "explanation": "The fundamental cause is the principle of opportunity cost."
+    },
+    {
+      "category": "Medium",
+      "prompt": "At 10 percent compound interest, about how much does ₦1 invested today grow to after 3 years?",
+      "options": [
+        "₦1.30",
+        "₦1.33",
+        "₦1.21",
+        "₦1.46"
+      ],
+      "answer": "B",
+      "explanation": "The table shows ₦1.10 after year 1, ₦1.21 after year 2 and ₦1.33 after year 3. Simple interest would give ₦1.30."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is a stated disadvantage of the pay-back period?",
+      "options": [
+        "It is difficult to calculate",
+        "It ignores the original outlay",
+        "It fails to consider income generated after the pay-back period",
+        "It cannot be used for ranking"
+      ],
+      "answer": "C",
+      "explanation": "It also ignores the rate at which income is earned and may lead to under-investment."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is a stated advantage of the pay-back period?",
+      "options": [
+        "It considers all income over the project life",
+        "It allows for the time value of money",
+        "It accounts for taxation on capital allowances",
+        "It is easy to determine and has a built-in safeguard against risk"
+      ],
+      "answer": "D",
+      "explanation": "It is also useful in periods of cash scarcity to isolate projects with short pay-back."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What makes the average profit method different from the other traditional methods?",
+      "options": [
+        "It is the only one that takes account of profits over the whole project life",
+        "It uses only the first year's return",
+        "It uses only the highest annual income",
+        "It discounts cash flows"
+      ],
+      "answer": "A",
+      "explanation": "It expresses the average profit as a rate of return on the initial capital, net of tax and capital allowance."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the first year's return criterion use to rank projects?",
+      "options": [
+        "The average of all years",
+        "The peak return",
+        "The present value of all returns",
+        "Only the return of the first year"
+      ],
+      "answer": "D",
+      "explanation": "It ignores the income flow of succeeding years."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is a weakness of the peak profit method?",
+      "options": [
+        "It ignores the peak entirely",
+        "It can rank a project with low profit but a high peak above one with a steady average",
+        "It always favours longer projects",
+        "It discounts early profits"
+      ],
+      "answer": "B",
+      "explanation": "It also ignores that early profit can be reinvested and the effect of capital allowances."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which two DCF presentation methods are most commonly used?",
+      "options": [
+        "Annual charge and sinking fund",
+        "Pay-back and net terminal value",
+        "Net present value and internal rate of return",
+        "Rate of return on capital and average profit"
+      ],
+      "answer": "C",
+      "explanation": "Net terminal value, annual charge and annual sinking fund are also listed but less often used."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why do many firms prefer IRR to NPV?",
+      "options": [
+        "IRR shows the actual rate of return on capital, instead of discounting at a fixed rate",
+        "IRR needs no trial and error",
+        "IRR ignores the cost of capital",
+        "IRR shows only the total naira profit"
+      ],
+      "answer": "A",
+      "explanation": "NPV shows profit in naira, while IRR shows the rate at which that profit is earned."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project needs a net cash outlay of ₦12 million and gives an annual net cash flow of ₦3 million. What is its pay-back period?",
+      "options": [
+        "3 years",
+        "4 years",
+        "9 years",
+        "36 years"
+      ],
+      "answer": "B",
+      "explanation": "Pay-back period = net cash outlay divided by annual net cash flow = 12 / 3 = 4 years."
+    },
+    {
+      "category": "Hard",
+      "prompt": "The gross present value of a project's proceeds is ₦15 million and its initial capital outlay is ₦12 million. What is the NPV and what does it show?",
+      "options": [
+        "₦3 million, showing the project earns more than investing at the marginal investment rate",
+        "₦27 million, showing the project earns more than investing at the marginal rate",
+        "-₦3 million, showing the project makes a loss",
+        "₦3 million, showing the project should be rejected"
+      ],
+      "answer": "A",
+      "explanation": "NPV = GPV minus Co = 15 minus 12 = 3. A positive NPV means the project is acceptable."
+    },
+    {
+      "category": "Hard",
+      "prompt": "If NPV equals zero and all the money must be borrowed at the discount rate, why might the investment still go ahead?",
+      "options": [
+        "A zero NPV always means maximum profit",
+        "It must be rejected without exception",
+        "It means the IRR is negative",
+        "There may be a reason other than profit, such as community benefit or public relations"
+      ],
+      "answer": "D",
+      "explanation": "Schemes that benefit the community may be undertaken so long as they do not incur a loss."
+    },
+    {
+      "category": "Hard",
+      "prompt": "When NPV is used to compare investments, which one makes the biggest cash profit?",
+      "options": [
+        "The one with the shortest pay-back period",
+        "The one with the smallest outlay",
+        "The one with the biggest NPV, though not necessarily the biggest percentage return",
+        "The one with the highest first-year return"
+      ],
+      "answer": "C",
+      "explanation": "NPV measures profit in cash terms, not the percentage return on capital."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the usual criterion for accepting a project under IRR?",
+      "options": [
+        "Accept it if its IRR is greater than a required minimum, usually the cost of capital",
+        "Accept it if its IRR is below the cost of capital",
+        "Accept it if its IRR equals its pay-back period",
+        "Reject it if its IRR exceeds 10 percent"
+      ],
+      "answer": "A",
+      "explanation": "Between mutually exclusive projects, the one with the highest IRR above the cost of capital is usually selected."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In finding the IRR by trial and error, what do you do if the NPV at the trial rate is positive?",
+      "options": [
+        "Try a lower discount rate",
+        "Stop, because the IRR has been found",
+        "Add the NPV signs together",
+        "Try a higher discount rate"
+      ],
+      "answer": "D",
+      "explanation": "A negative NPV calls for a lower rate. The process continues until NPV is zero, or until interpolation is used to shorten it."
+    },
+    {
+      "category": "Hard",
+      "prompt": "The NPV is +0.61 at a lower rate of 45 percent and -0.04 at a higher rate of 47 percent. What is the IRR by interpolation?",
+      "options": [
+        "About 45.94 percent",
+        "About 46.00 percent",
+        "About 46.88 percent",
+        "About 47.04 percent"
+      ],
+      "answer": "C",
+      "explanation": "IRR = 45 + (0.61 / (0.61 + 0.04)) x (47 - 45) = 45 + 0.94 x 2 = about 46.88 percent."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the interpolation formula for IRR, what do you do about the signs of the NPVs?",
+      "options": [
+        "Add the signs together",
+        "Ignore the plus and minus signs",
+        "Use only the negative NPV",
+        "Subtract the sign of the lower rate"
+      ],
+      "answer": "B",
+      "explanation": "The lecture states that the signs must be ignored in the calculation."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the Abuja example, the IRR is about 46.88 percent. What advice does the lecture give about borrowing for the new Lagos project?",
+      "options": [
+        "Borrow at exactly 46.88 percent to break even",
+        "Borrow at any rate above 50 percent",
+        "Negotiate a loan at a much lower interest rate, at least 20 percent or below",
+        "Do not build, since the IRR is too high"
+      ],
+      "answer": "C",
+      "explanation": "The lecture compares the IRR with the cost of borrowing, and advises a rate well below it."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which statement about the lecture's example of ₦1 invested at 10 percent compound interest is correct?",
+      "options": [
+        "If ₦1 is kept under a pillow instead of invested at 10 percent, it loses ₦0.61 of potential value over 5 years",
+        "Keeping the money at home earns the same as investing",
+        "Investing at 10 percent grows ₦1 to ₦1.10 after 5 years",
+        "The pillow option grows ₦1 to ₦1.61"
+      ],
+      "answer": "A",
+      "explanation": "₦1 invested at 10 percent compound interest reaches ₦1.61 after 5 years. Kept unused, it forgoes that growth."
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "id": "pmt801-success-failure-delays",
+  "title": "Project Success, Failure, Delays and Abandonment (PMT 801)",
+  "subject": "Project management",
+  "description": "Thirty questions across easy, medium and hard on the success criteria, the ten key factors, causes of delay, and project abandonment and collapse.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "Which set gives the four success criteria from Cleland et al (1988)?",
+      "options": [
+        "Time, cost, effectiveness and client's satisfaction",
+        "Scope, quality, risk and communication",
+        "Design, materials, labour and equipment",
+        "Feasibility, viability, appraisal and evaluation"
+      ],
+      "answer": "A",
+      "explanation": "A project is successful if it passes all four tests."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the effectiveness criterion require?",
+      "options": [
+        "Completion within the approved budget",
+        "Completion on the agreed date",
+        "Acceptance by the intended users",
+        "Completion in accordance with the original performance and quality standards"
+      ],
+      "answer": "D",
+      "explanation": "Cost is the money criterion, time is the schedule criterion, and acceptance by users is the client's satisfaction criterion."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the client's satisfaction criterion require?",
+      "options": [
+        "Completion in accordance with performance standards",
+        "Completion with no cost overrun",
+        "Acceptance by the intended users or clients, whether internal or external",
+        "Approval by the contractor"
+      ],
+      "answer": "C",
+      "explanation": "The client or user must accept the final product."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the lecture say about a project that has been physically completed?",
+      "options": [
+        "It is automatically successful",
+        "It can still be a failure if it misses the time, cost, quality or client satisfaction criteria",
+        "It is a success once the contractor is paid",
+        "Physical completion is the only criterion that matters"
+      ],
+      "answer": "B",
+      "explanation": "The lecture asks about completion date, overruns, quality, durability, realised potential and client and end-user satisfaction."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How is project abandonment defined?",
+      "options": [
+        "A decision to cancel the idea at the conception phase",
+        "Completion of a project ahead of schedule",
+        "Handover of a project to a new client",
+        "The unplanned suspension of work progress, especially at the execution phase"
+      ],
+      "answer": "D",
+      "explanation": "Abandonment is mostly seen in the public sector and affects many economic sectors."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does project collapse mean in the lecture?",
+      "options": [
+        "A complete death of the project completion process",
+        "A temporary pause in work",
+        "A change of project team",
+        "A revision of the budget"
+      ],
+      "answer": "A",
+      "explanation": "After a collapse, a new proposal cannot replace the time, cost, quality, material and human resources already used."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In the ten key factors model, which factor is compared to the brain?",
+      "options": [
+        "Client consultation",
+        "Trouble shooting",
+        "Communication",
+        "Project mission"
+      ],
+      "answer": "C",
+      "explanation": "Communication coordinates the other factors and receives and transmits signals to them."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In the ten key factors model, which factor is compared to the heart?",
+      "options": [
+        "Communication",
+        "Client consultation",
+        "Monitoring and feedback",
+        "Personnel"
+      ],
+      "answer": "B",
+      "explanation": "Without the client there is no project execution, since the client initiates, propels and funds the project."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How do Aibinu and Jagboro (2002) describe project delays in Nigeria?",
+      "options": [
+        "As endemic",
+        "As rare",
+        "As limited to private projects",
+        "As caused only by bad weather"
+      ],
+      "answer": "A",
+      "explanation": "They described the growing rate of delays as a major criticism facing the Nigerian construction industry."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which measure does the lecture give for mitigating project schedule delays?",
+      "options": [
+        "Fewer site inspections",
+        "One-off lump sum funding",
+        "Better contract management",
+        "Avoiding the use of contractors"
+      ],
+      "answer": "C",
+      "explanation": "Since much of a project runs through contracts, managing them well is critical."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why does looking only at time, cost and performance fail to predict project success?",
+      "options": [
+        "These parameters cannot be measured",
+        "It may show immediate contributions to profit, but not whether the project itself was managed correctly",
+        "They apply only to completed projects",
+        "They ignore profit entirely"
+      ],
+      "answer": "B",
+      "explanation": "This matters most where an organisation depends on a steady stream of well-managed projects."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Project success is often measured by the actions of which three groups?",
+      "options": [
+        "The contractor, the supplier and the regulator",
+        "The architect, the engineer and the quantity surveyor",
+        "The government, the community and the financiers",
+        "The project manager and team, the parent organisation, and the customer's organisation"
+      ],
+      "answer": "D",
+      "explanation": "Each group can take actions that stimulate project success."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is one of the actions the project manager and team can take to stimulate success?",
+      "options": [
+        "Accept team members imposed by the client",
+        "Insist on the right to select key project team members",
+        "Rely on one type of control tool",
+        "Avoid back-up strategies to save cost"
+      ],
+      "answer": "B",
+      "explanation": "The list also includes avoiding overreliance on one control tool, keeping changes under control and having back-up strategies."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an action the parent organisation must take, according to the lecture?",
+      "options": [
+        "Pressure the project manager to win contracts",
+        "Arbitrarily slash the project team's cost estimate",
+        "Encourage buy-ins to win work",
+        "Select early a project manager with proven technical, human and administrative skills, in that order"
+      ],
+      "answer": "D",
+      "explanation": "The other options are things the parent organisation must avoid."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What must top management do for a project to be successful?",
+      "options": [
+        "Stay out of the project completely",
+        "Run all site decisions personally",
+        "Recognise it as a project and commit resources and administrative support",
+        "Wait for signs of failure before supporting it"
+      ],
+      "answer": "C",
+      "explanation": "A project cannot be successful unless it is recognised as a project and has top-level support."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What do the arrows in the ten key factors figure show?",
+      "options": [
+        "All the factors are linked and share responsibility for success, and none can assure success alone",
+        "One factor outweighs all the others",
+        "Only the client factor matters",
+        "The factors act in a fixed sequence"
+      ],
+      "answer": "A",
+      "explanation": "The model is compared to a functional human body."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the lecture say about choosing project personnel?",
+      "options": [
+        "The client should select all staff",
+        "Staff should be selected by tender",
+        "The project manager should have full autonomy to recruit people with proven track records, and the client should not impose staff",
+        "Track records matter less than cost"
+      ],
+      "answer": "C",
+      "explanation": "Personnel issues include recruitment, selection and staff training."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What did the lecture's own model add to the direct factors of time, cost and quality in Morris's model?",
+      "options": [
+        "Materials management factors",
+        "Environmental law",
+        "Client satisfaction",
+        "Contract penalties"
+      ],
+      "answer": "A",
+      "explanation": "Morris mentioned materials but saw it as a weak point, so the lecture's model incorporated materials management."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How can too many change orders cause delays, according to Kaliba et al (2008)?",
+      "options": [
+        "They always improve cash flow",
+        "They can harm financial performance, which delays the project through shortage of funds",
+        "They shorten approval times",
+        "They reduce the contractor's workload"
+      ],
+      "answer": "B",
+      "explanation": "Change orders are one of the possible causes of schedule delays."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the survey by Elinwa and Joshua (2001), which party contributed most to time overrun?",
+      "options": [
+        "The contractor, at 62 percent",
+        "Others, at 62 percent",
+        "The client, at 32 percent",
+        "The client, at 62 percent"
+      ],
+      "answer": "D",
+      "explanation": "Clients, contractors and others contributed 62, 32 and 6 percent respectively."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of party and a cause of delay found by Odeyinka and Yusuf is correct?",
+      "options": [
+        "Client: equipment problems",
+        "Contractor: variation orders",
+        "Consultant: incomplete drawings and slow response",
+        "Weather: slow decision making"
+      ],
+      "answer": "C",
+      "explanation": "Clients caused delays through variation orders, slow decisions and cash flow problems, and contractors through equipment, planning, finance, materials, inspection and manpower."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project authority wants better contract management to reduce delays. Which measure matches the lecture?",
+      "options": [
+        "Insist on realistic and detailed resource and time plans, impose graduated penalties and offer incentives for good performance",
+        "Remove penalties so contractors feel supported",
+        "Award contracts to the lowest bidder without checking capability",
+        "Avoid helping contractors with genuine problems"
+      ],
+      "answer": "A",
+      "explanation": "The lecture also says contractors should be seen as partners, their competence must be ensured, and authorities should keep the right to off-load contracts early."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How does the lecture link poor location analysis to project delay?",
+      "options": [
+        "Choosing sites too close to head office",
+        "Sites with no assured security, materials or transport that were not analysed at conception can delay the project",
+        "Selecting expensive land",
+        "Using too many contractors on one site"
+      ],
+      "answer": "B",
+      "explanation": "Location factors should be properly analysed at the conception phase."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why is monitoring and feedback compared to the reproductive organ?",
+      "options": [
+        "It provides the energy that funds the project",
+        "It moves the project out of conflicts",
+        "It grips the mission of the project",
+        "Feedback on each work scope allows work to continue and informs effective planning of the next scope"
+      ],
+      "answer": "D",
+      "explanation": "The success of each work scope gives feedback to the mission and supports planning of the next scope."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What does the lecture link procurement delay in public projects to?",
+      "options": [
+        "Bureaucracy, where processing orders can take from weeks to several months",
+        "An oversupply of materials",
+        "Very fast approval processes",
+        "Foreign exchange gains"
+      ],
+      "answer": "A",
+      "explanation": "The lecture quotes Frimpong et al on the bureaucratic structure of material procurement in developing countries."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why is trouble shooting compared to the legs?",
+      "options": [
+        "It coordinates all the other factors",
+        "It funds the project like the heart",
+        "It defines the aim of the investment",
+        "A person must move out to succeed, and the project environment has conflicting issues that must be managed"
+      ],
+      "answer": "D",
+      "explanation": "Trouble shooting is about managing the conflicts that arise in the project environment."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which is a characteristic of project abandonment?",
+      "options": [
+        "The original design always stays valid",
+        "The client and team never change",
+        "The initial cost and time must change, because inflation, exchange rates and interest rates affect the gap",
+        "The project cost stays fixed"
+      ],
+      "answer": "C",
+      "explanation": "Abandonment may also change the design, the client's taste or the client, the aim of the project and the project team, and may require re-appraisal."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project idea is stopped at the conception or planning stage. Does the lecture call this abandonment?",
+      "options": [
+        "Yes, any suspension at any phase is abandonment",
+        "No, stopping at conception or planning (initiation) may not be abandonment, which refers to suspension during execution",
+        "Yes, but only for public sector projects",
+        "Yes, because conception involves a huge financial plan"
+      ],
+      "answer": "B",
+      "explanation": "Conception to planning is described as initiation."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pair is given as reasons for the abandonment of projects in Nigeria?",
+      "options": [
+        "Excess funds and rapid approvals",
+        "Stable government and constant policies",
+        "An oversupply of materials and skilled labour",
+        "Escalation of cost due to inflation and difficulty paying contractors because of government bureaucracy"
+      ],
+      "answer": "D",
+      "explanation": "Other reasons include frequent changes in government, increased scope, changes in design and poor project finance arrangements."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What happens when a building under construction collapses, according to the lecture?",
+      "options": [
+        "It may be impossible to start another structure on the old foundation, and a new proposal needs a completely new network plan",
+        "The original network plan can simply resume",
+        "The time and cost already spent are recovered",
+        "A replacement is quickly built on the same foundation"
+      ],
+      "answer": "A",
+      "explanation": "A new proposal cannot replace the time, cost, quality, material and human resources already used."
+    }
+  ]
+}

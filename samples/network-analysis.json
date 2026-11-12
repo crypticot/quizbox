@@ -1,0 +1,368 @@
+{
+  "id": "pmt801-network-analysis",
+  "title": "Network Analysis, PERT and CPM (PMT 801)",
+  "subject": "Project management",
+  "description": "Thirty questions across easy, medium and hard on Gantt charts, CPM, PERT time estimates, critical paths, float and project completion probability, with a few short calculations.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "Which two network methods are popularly used?",
+      "options": [
+        "Gantt charts and bar charts",
+        "The Critical Path Method (CPM) and the Program Evaluation and Review Technique (PERT)",
+        "CPM and the Delphi method",
+        "PERT and the nominal group method"
+      ],
+      "answer": "B",
+      "explanation": "Gantt or bar charts were used before the formal development of network planning."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is scheduling in network analysis?",
+      "options": [
+        "Developing a timetable by putting time estimates alongside the developed plan",
+        "Establishing objectives and defining the content of the project",
+        "Following up, updating and reporting progress",
+        "Selecting a contractor by tender"
+      ],
+      "answer": "A",
+      "explanation": "Planning shows what activities are to be done, and scheduling adds time."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is project control, according to the lecture?",
+      "options": [
+        "The process of defining the project's objectives",
+        "A timetable of activity durations",
+        "A method of selecting contractors",
+        "A follow-up, updating and reporting process that makes events conform to schedules"
+      ],
+      "answer": "D",
+      "explanation": "It is regarded as the third major element of project management."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Who introduced Gantt charts in network planning?",
+      "options": [
+        "Henry Ford",
+        "Frederick Taylor",
+        "Henry Gantt",
+        "Eli Whitney"
+      ],
+      "answer": "C",
+      "explanation": "Gantt charts were widely used before the formal development of network planning."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which items does a Gantt chart include?",
+      "options": [
+        "The probability of completion and standard deviation",
+        "Dummy arrows and events",
+        "Cost-benefit ratios and IRR",
+        "A listing of activities, activity duration, schedule dates and project status"
+      ],
+      "answer": "D",
+      "explanation": "Each line on the chart represents a single activity."
+    },
+    {
+      "category": "Easy",
+      "prompt": "PERT was first used in the 1950s to manage which programme?",
+      "options": [
+        "The Apollo moon landing",
+        "The Channel Tunnel",
+        "The Polaris missile programme",
+        "The Hoover Dam"
+      ],
+      "answer": "C",
+      "explanation": "It has since been used in construction, major maintenance, pilot production runs and new product introduction."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which is the PERT formula for expected time?",
+      "options": [
+        "te = (a + m + b) / 3",
+        "te = (a + 4m + b) / 6",
+        "te = (4a + m + b) / 6",
+        "te = (a + b) / 2"
+      ],
+      "answer": "B",
+      "explanation": "The most likely time m is the most heavily weighted."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In PERT time estimates, what does a stand for?",
+      "options": [
+        "The most optimistic time",
+        "The most likely time",
+        "The pessimistic time",
+        "The average time"
+      ],
+      "answer": "A",
+      "explanation": "m is the most likely time and b is the pessimistic time."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does a dummy arrow represent?",
+      "options": [
+        "A job with the longest duration",
+        "A delayed activity",
+        "The most expensive job",
+        "A relationship between jobs, with no activity, no resource use and no duration"
+      ],
+      "answer": "D",
+      "explanation": "Dummy arrows are drawn as dashed lines."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the duration of a project equal?",
+      "options": [
+        "The sum of all activity times",
+        "The time required on the critical path",
+        "The duration of the shortest path",
+        "The average of all path durations"
+      ],
+      "answer": "B",
+      "explanation": "The critical path is the longest path through the network."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the fundamental difference between CPM and PERT?",
+      "options": [
+        "CPM is cost conscious and uses single deterministic estimates, while PERT is time conscious and uses three probabilistic estimates",
+        "CPM is time conscious and uses three estimates, while PERT is cost conscious and uses one",
+        "CPM uses probabilities, while PERT uses fixed times",
+        "There is no difference between them"
+      ],
+      "answer": "A",
+      "explanation": "The network principles of both are alike."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an advantage of network analysis over Gantt charts?",
+      "options": [
+        "It removes the need for time estimates",
+        "It does not show relationships between activities",
+        "It enhances inter-departmental communication and focuses on critical tasks",
+        "It works only for small projects"
+      ],
+      "answer": "C",
+      "explanation": "It also permits alternative methods, clear definition of responsibilities and fewer crises."
+    },
+    {
+      "category": "Medium",
+      "prompt": "When is deterministic PERT suited?",
+      "options": [
+        "For one-of-a-kind research projects",
+        "When no time estimates are possible",
+        "Only for manufacturing",
+        "When tasks are routine and the time for each is known with reasonable certainty, such as repair and maintenance"
+      ],
+      "answer": "D",
+      "explanation": "Even though each task is routine, the project may comprise many of them."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is stochastic PERT used for research or one-of-a-kind development projects?",
+      "options": [
+        "All the tasks are routine",
+        "There are no milestones",
+        "Task durations cannot be estimated precisely, so a range of estimates is used, often from expert advice",
+        "Time estimates are not needed"
+      ],
+      "answer": "C",
+      "explanation": "The act of identifying milestones and logical links also gives valuable insight."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which techniques are used to obtain and assimilate expert advice for stochastic PERT?",
+      "options": [
+        "The Delphi method and the nominal group method",
+        "Gantt and bar charting",
+        "Pay-back and IRR",
+        "FMEA and Pareto analysis"
+      ],
+      "answer": "A",
+      "explanation": "These are the most frequently used techniques when advice must come from a panel of experts."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the standard deviation of an activity's time assumed in PERT?",
+      "options": [
+        "One-third of the most likely time",
+        "One-sixth of the range between the optimistic and pessimistic times",
+        "Half of the expected time",
+        "The difference between the most likely and optimistic times"
+      ],
+      "answer": "B",
+      "explanation": "That is why the formula is (b minus a) divided by 6."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the PERT estimate, which time is weighted most heavily?",
+      "options": [
+        "The optimistic time",
+        "The pessimistic time",
+        "The most likely time",
+        "All three are weighted equally"
+      ],
+      "answer": "C",
+      "explanation": "The result is a weighted average of the time the activity would take if repeated many times."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is a step in preparing a bar chart?",
+      "options": [
+        "Place activities on a time sequence, knowing some must be done in sequence and others can be done at the same time",
+        "Calculate the IRR of each activity",
+        "Estimate the cost of quality",
+        "Ignore any specified completion date"
+      ],
+      "answer": "A",
+      "explanation": "If a completion date is specified, the diagram is adjusted until it is satisfied."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does it mean for activities to be in series?",
+      "options": [
+        "B can proceed while A is still going",
+        "Activity A must be completed before activity B can start",
+        "A and B share the same resources",
+        "A and B have no relationship"
+      ],
+      "answer": "B",
+      "explanation": "Activities in parallel can proceed at the same time."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the activity to crash chosen?",
+      "options": [
+        "The activity with the most float",
+        "The activity with the highest cost",
+        "Any non-critical activity",
+        "By the least cost, using time and cost trade-offs, usually on the critical path"
+      ],
+      "answer": "D",
+      "explanation": "Crashing can create another critical path if the days crashed exceed the free float on another path."
+    },
+    {
+      "category": "Hard",
+      "prompt": "An activity has an optimistic time of 2 days, a most likely time of 4 days and a pessimistic time of 12 days. What is its expected time?",
+      "options": [
+        "5 days",
+        "6 days",
+        "7 days",
+        "4 days"
+      ],
+      "answer": "A",
+      "explanation": "te = (2 + 4 x 4 + 12) / 6 = 30 / 6 = 5 days."
+    },
+    {
+      "category": "Hard",
+      "prompt": "An activity has an optimistic time of 3 days and a pessimistic time of 15 days. What is its standard deviation?",
+      "options": [
+        "12 days",
+        "2 days",
+        "6 days",
+        "3 days"
+      ],
+      "answer": "B",
+      "explanation": "Standard deviation = (b minus a) / 6 = (15 - 3) / 6 = 2 days."
+    },
+    {
+      "category": "Hard",
+      "prompt": "The paths of a network are ACFI (12.14), ADGI (11.47), ADH (8.5), BEGI (11.97) and BEH (9). Which is the critical path and why?",
+      "options": [
+        "ADH, because it has the shortest duration",
+        "BEH, because it has the fewest activities",
+        "ACFI, because it has the longest duration",
+        "BEGI, because it begins with activity B"
+      ],
+      "answer": "C",
+      "explanation": "The critical path is the longest path and sets the project duration."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In an activity table, activity G has immediate predecessor E. What does this mean?",
+      "options": [
+        "G is finished before E starts",
+        "G and E are the same activity",
+        "E depends on G",
+        "G cannot start until E is complete"
+      ],
+      "answer": "D",
+      "explanation": "Immediate predecessors show the order in which activities must be done."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What happens if a non-critical activity is delayed longer than its slack?",
+      "options": [
+        "The project duration shortens",
+        "Nothing changes",
+        "It becomes a critical activity",
+        "The critical path disappears"
+      ],
+      "answer": "C",
+      "explanation": "Variation in non-critical activities normally has no effect on duration because of their slack."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which is a correct way to find the total float of an activity?",
+      "options": [
+        "Latest finish time minus earliest finish time",
+        "Earliest start time minus earliest finish time",
+        "Latest start time plus duration",
+        "Earliest finish time minus latest start time"
+      ],
+      "answer": "A",
+      "explanation": "The lecture gives total float as latest finish minus earliest finish. A float of zero means the activity is critical."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the factory power plant example, what is the total float of the critical activities A, B, H, I, K, L and M?",
+      "options": [
+        "5 days",
+        "Zero",
+        "37 days",
+        "6 days"
+      ],
+      "answer": "B",
+      "explanation": "Critical activities have no slack, and they are marked with an asterisk in the table."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project's critical path is expected to take 40 days with a variance of 16 days squared. If the deadline is 44 days, what is the approximate chance of finishing on time?",
+      "options": [
+        "About 50 percent",
+        "About 98 percent",
+        "About 16 percent",
+        "About 84 percent"
+      ],
+      "answer": "D",
+      "explanation": "The standard deviation is the square root of 16, which is 4. Z = (44 - 40) / 4 = 1, which corresponds to about 84 percent on the standard normal table."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How is the variance of the critical path obtained?",
+      "options": [
+        "By adding the variances of the activities on the critical path",
+        "By averaging the variances of all activities",
+        "By adding the variances of every path",
+        "By taking the largest single variance"
+      ],
+      "answer": "A",
+      "explanation": "Only the critical activities are included, because the critical path determines project duration."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project team works 6 days a week and the deadline is 14 weeks. How many working days are available?",
+      "options": [
+        "98 days",
+        "70 days",
+        "75 days",
+        "84 days"
+      ],
+      "answer": "D",
+      "explanation": "14 weeks multiplied by 6 days gives 84 working days."
+    }
+  ]
+}

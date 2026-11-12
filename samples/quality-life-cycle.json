@@ -1,0 +1,368 @@
+{
+  "id": "quality-in-project-life-cycle",
+  "title": "Quality Within a Project Life Cycle",
+  "subject": "Project quality management",
+  "description": "Thirty questions across easy, medium and hard on how quality is managed in each of the five phases of a project, from initiation to closure.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What does quality within a project life cycle refer to?",
+      "options": [
+        "Inspecting the project deliverables only at the point of handover",
+        "The systematic process of ensuring that activities, processes, deliverables and outcomes meet quality standards and stakeholder expectations from initiation to closure",
+        "The cost of correcting defects found after the project has closed",
+        "The set of standards the client chooses before the project begins"
+      ],
+      "answer": "B",
+      "explanation": "The notes stress that quality runs through the whole project, from initiation to closure, and is not a last-minute check."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How many major phases does a typical project life cycle have in these notes?",
+      "options": [
+        "Five",
+        "Three",
+        "Four",
+        "Seven"
+      ],
+      "answer": "A",
+      "explanation": "The five phases are initiation, planning, execution, monitoring and controlling, and closure."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which option lists the five phases of the project life cycle correctly?",
+      "options": [
+        "Initiation, design, execution, handover, closure",
+        "Planning, procurement, execution, inspection, closure",
+        "Initiation, planning, execution, monitoring and controlling, closure",
+        "Initiation, planning, execution, testing, maintenance"
+      ],
+      "answer": "C",
+      "explanation": "Each phase has its own quality activities that contribute to overall project success."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Is project quality management something done only at the end of a project?",
+      "options": [
+        "Yes, it is mainly a final inspection activity",
+        "Yes, because the earlier phases have no quality requirements",
+        "No, it belongs only to the planning phase",
+        "No, it must be integrated into every phase of the project life cycle"
+      ],
+      "answer": "D",
+      "explanation": "The notes say quality management is not an activity performed only at the end of a project."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How do the notes define project quality?",
+      "options": [
+        "The number of defects found per deliverable",
+        "The extent to which the project is finished within budget",
+        "The degree to which a project's characteristics and deliverables fulfil specified requirements and stakeholder expectations",
+        "The amount of testing done on the final product"
+      ],
+      "answer": "C",
+      "explanation": "Quality is about meeting specified requirements and stakeholder expectations, not just counting defects or staying on budget."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which phase involves identifying the project need, objectives, scope and stakeholders?",
+      "options": [
+        "Project initiation",
+        "Project planning",
+        "Project execution",
+        "Project closure"
+      ],
+      "answer": "A",
+      "explanation": "Initiation is the beginning of the project, where the need, objectives, scope and stakeholders are identified."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which activity belongs to the planning phase?",
+      "options": [
+        "Obtaining client approval of the final deliverable",
+        "Identifying customer quality expectations",
+        "Conducting laboratory tests on completed work",
+        "Developing a project quality management plan"
+      ],
+      "answer": "D",
+      "explanation": "Planning develops the quality plan, indicators, assurance procedures and control methods. The other options belong to closure, initiation and monitoring and controlling."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which phase includes final quality inspections and obtaining client approval?",
+      "options": [
+        "Monitoring and controlling",
+        "Project closure",
+        "Project execution",
+        "Project initiation"
+      ],
+      "answer": "B",
+      "explanation": "Closure formally completes the project, verifies deliverables against acceptance criteria and hands them over."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which tool identifies possible causes of quality problems?",
+      "options": [
+        "Control chart",
+        "Flowchart",
+        "Benchmarking",
+        "Fishbone diagram"
+      ],
+      "answer": "D",
+      "explanation": "The fishbone diagram is used to identify possible causes. Control charts monitor variation, flowcharts illustrate processes, and benchmarking compares performance with established standards."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does ISO 9001 provide, according to the notes?",
+      "options": [
+        "Requirements for establishing and maintaining a quality management system",
+        "Guidance on project governance, planning, delivery and control",
+        "Guidance on how to audit management systems",
+        "A list of approved construction materials"
+      ],
+      "answer": "A",
+      "explanation": "ISO 9001 gives requirements for a quality management system. The project guidance on governance, planning, delivery and control comes from ISO 21502."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which of these is a quality activity in project initiation?",
+      "options": [
+        "Establishing inspection and testing schedules",
+        "Conducting root cause analysis",
+        "Establishing preliminary acceptance criteria",
+        "Recording outstanding defects and their resolution"
+      ],
+      "answer": "C",
+      "explanation": "Initiation sets early expectations, standards, objectives, risks and preliminary acceptance criteria. Schedules, root cause analysis and defect records come later."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why is it important to establish quality expectations early in a project?",
+      "options": [
+        "It removes the need for later inspection",
+        "It prevents misunderstandings and unrealistic project objectives",
+        "It allows acceptance criteria to be skipped",
+        "It guarantees that requirements will never change"
+      ],
+      "answer": "B",
+      "explanation": "Early agreement on expectations keeps everyone working towards the same, realistic goals."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pair of activities both belong to project planning?",
+      "options": [
+        "Training project personnel; conducting process audits",
+        "Performing laboratory tests; implementing corrective actions",
+        "Obtaining client approval; preparing quality completion reports",
+        "Selecting appropriate materials and suppliers; identifying quality risks and mitigation measures"
+      ],
+      "answer": "D",
+      "explanation": "Planning also covers indicators, assurance procedures, control methods, resources and inspection and testing schedules."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which activity belongs to the execution phase?",
+      "options": [
+        "Defining preliminary quality objectives",
+        "Verifying deliverables against acceptance criteria",
+        "Monitoring suppliers and contractors",
+        "Reviewing quality management reports"
+      ],
+      "answer": "C",
+      "explanation": "Execution also includes training personnel, conducting process audits, ensuring proper use of equipment and materials, and preventing defects during production or construction."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pair of activities belongs to monitoring and controlling?",
+      "options": [
+        "Conducting root cause analysis; implementing corrective actions",
+        "Training project personnel; preparing quality completion reports",
+        "Developing a quality plan; defining quality control methods",
+        "Documenting lessons learned; conducting final performance evaluation"
+      ],
+      "answer": "A",
+      "explanation": "This phase measures performance, identifies non-conformities, finds root causes and corrects deviations."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which activity belongs to project closure?",
+      "options": [
+        "Establishing quality performance indicators",
+        "Preparing maintenance and warranty documentation where applicable",
+        "Ensuring proper use of equipment and materials",
+        "Conducting laboratory tests during construction"
+      ],
+      "answer": "B",
+      "explanation": "Closure also covers quality completion reports, lessons learned, recording outstanding defects and a final performance evaluation."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which pairing of phase and expected outcome is correct?",
+      "options": [
+        "Initiation: approved project deliverables; planning: clear quality objectives; execution: improved quality performance",
+        "Initiation: conforming deliverables; planning: approved deliverables; execution: clear quality objectives",
+        "Initiation: clear quality objectives; planning: quality requirements and procedures; execution: conforming project deliverables",
+        "Initiation: improved quality performance; planning: conforming deliverables; execution: quality requirements and procedures"
+      ],
+      "answer": "C",
+      "explanation": "Monitoring and controlling leads to improved quality performance, and closure leads to approved project deliverables."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How does poor quality affect project cost and time, according to the notes?",
+      "options": [
+        "It raises costs but never affects the schedule",
+        "It raises rework, waste, maintenance and repair costs, and defects and errors can cause delays",
+        "It lowers costs by reducing testing, but delays the schedule",
+        "It affects neither, since cost and time are managed separately"
+      ],
+      "answer": "B",
+      "explanation": "Quality is linked to the other project management areas, including cost and time."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is quality related to procurement?",
+      "options": [
+        "Procurement affects only cost, not quality",
+        "Quality is assured once a supplier has been selected",
+        "Procurement is independent of the quality plan",
+        "The quality of purchased materials and services influences the quality of project deliverables"
+      ],
+      "answer": "D",
+      "explanation": "Weak materials and services purchased for a project lead to weak deliverables, which is why suppliers are assessed and monitored."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which tool is described as comparing performance against established standards?",
+      "options": [
+        "Benchmarking",
+        "FMEA",
+        "Pareto analysis",
+        "Check sheets"
+      ],
+      "answer": "A",
+      "explanation": "FMEA identifies potential failure modes and their effects, Pareto analysis identifies the most significant problems, and check sheets collect quality-related data."
+    },
+    {
+      "category": "Hard",
+      "prompt": "If quality is ignored during the design stage of the hospital project, which problems may result?",
+      "options": [
+        "Structural defects and electrical failures during construction",
+        "Inadequate ventilation, poor accessibility or insufficient emergency facilities",
+        "Final inspections that take longer than planned",
+        "Higher prices from material suppliers"
+      ],
+      "answer": "B",
+      "explanation": "The notes link design-stage neglect to design-related problems. Structural defects and electrical failures are linked to neglecting quality during construction."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What does the hospital case study conclude?",
+      "options": [
+        "Quality matters most during design, so later phases need little attention",
+        "Final inspection is the most reliable way to guarantee quality",
+        "Quality must be managed throughout the entire life cycle rather than introduced only during final inspection",
+        "Quality management belongs mainly to the construction phase"
+      ],
+      "answer": "C",
+      "explanation": "Neglect at any phase, such as design or construction, can produce serious defects."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set of activities suits the monitoring and controlling phase of the hospital project?",
+      "options": [
+        "Identifying healthcare facility requirements and safety expectations",
+        "Developing architectural specifications and quality plans",
+        "Final inspections and handover of the hospital",
+        "Structural inspections, electrical tests and plumbing inspections"
+      ],
+      "answer": "D",
+      "explanation": "The other options belong to initiation, planning and closure."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A project passes final inspection but suffered inefficient processes, waste and poor resource use. What does the lecture say this shows?",
+      "options": [
+        "Quality management is broader than quality control, because passing inspection does not show the processes were good",
+        "Quality control is broader than quality management and covers planning and prevention",
+        "The final inspection result is the only valid measure of quality",
+        "Waste and inefficiency are irrelevant once deliverables conform"
+      ],
+      "answer": "A",
+      "explanation": "Quality control checks whether outputs meet specifications. Quality management also includes planning, prevention, assurance and continuous improvement throughout the project."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Before handing over a completed road project, the team inspects it to verify that it meets approved specifications. Which phase and activity is this?",
+      "options": [
+        "Execution: preventing defects during construction",
+        "Monitoring and controlling: identifying non-conformities during construction",
+        "Planning: establishing inspection schedules",
+        "Closure: verifying deliverables against approved specifications"
+      ],
+      "answer": "D",
+      "explanation": "A final inspection before handover is the lecture's closure example."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Engineers conduct asphalt thickness tests and check road surface quality to see whether construction meets approved specifications. Which phase does the lecture place this in?",
+      "options": [
+        "Monitoring and controlling",
+        "Project execution",
+        "Project planning",
+        "Project closure"
+      ],
+      "answer": "A",
+      "explanation": "Execution is shown by engineers ensuring materials are mixed, compacted and applied to specification. Testing and checking results is monitoring and controlling."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why should quality be integrated into initiation and planning rather than introduced during execution?",
+      "options": [
+        "Execution has no quality requirements of its own",
+        "Expectations, standards, resources and acceptance criteria are set before implementation, which prevents defects and reduces the cost of fixing errors later",
+        "The client rejects any quality measure introduced during execution",
+        "Standards cannot be applied once construction has begun"
+      ],
+      "answer": "B",
+      "explanation": "This is the lecture's answer to the examination question on early integration."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A client changes the scope halfway through and a supplier repeatedly delivers late. Which two challenges from the notes does this describe?",
+      "options": [
+        "Weak management commitment and incompetent project personnel",
+        "Insufficient financial resources and poor-quality materials",
+        "Changes in project requirements and poor supplier performance",
+        "Resistance to quality improvement and inadequate quality planning"
+      ],
+      "answer": "C",
+      "explanation": "The listed challenges also include poor communication and inadequate monitoring and inspection."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of standard and focus is correct?",
+      "options": [
+        "ISO 9001: guidance on project governance and delivery; ISO 21502: requirements for a quality management system",
+        "ISO 9001: guidance on auditing; ISO 21502: vocabulary for quality management",
+        "ISO 9001: guidance on construction methods; ISO 21502: requirements for supplier contracts",
+        "ISO 9001: requirements for a quality management system; ISO 21502: guidance on project management practices such as governance, planning, delivery and control"
+      ],
+      "answer": "D",
+      "explanation": "Applying relevant principles from both standards helps organisations integrate quality into project management activities."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the key academic argument of the notes?",
+      "options": [
+        "Quality should be built into every phase rather than inspected into the final product, which supports defect prevention, cost reduction, customer satisfaction and sustainable performance",
+        "Quality should be concentrated in final inspection to save cost",
+        "Quality management belongs mainly to the quality-control officer",
+        "A project is successful whenever it is on budget and on schedule"
+      ],
+      "answer": "A",
+      "explanation": "The conclusion also says that a successful project must deliver outputs that meet the specified quality requirements and stakeholder expectations."
+    }
+  ]
+}
