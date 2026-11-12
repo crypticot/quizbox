@@ -1,6 +1,8 @@
 {
+  "id": "total-quality-management",
   "title": "Total Quality Management (TQM)",
-  "subject": "Project management",
+  "subject": "Project quality management",
+  "description": "Twenty-five questions across easy, medium and hard on TQM in project management: its principles, life cycle application, tools and how it differs from quality control.",
   "questions": [
     {
       "category": "Easy",
