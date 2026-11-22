@@ -10,5 +10,10 @@
   "success-failure-delays.json",
   "life-cycle-appraisal.json",
   "investment-appraisal.json",
-  "network-analysis.json"
+  "network-analysis.json",
+  "duality-sensitivity.json",
+  "intro-models.json",
+  "linear-programming.json",
+  "queuing-inventory.json",
+  "transport-assignment.json"
 ]
