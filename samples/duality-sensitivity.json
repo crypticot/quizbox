@@ -1,0 +1,308 @@
+{
+  "id": "lit803-duality-sensitivity",
+  "title": "LIT 803: Simplex, Duality and Sensitivity Analysis",
+  "subject": "Operations research",
+  "description": "Twenty-five questions across easy, medium and hard on the Simplex method, primal and dual problems, the duality theorems and sensitivity analysis.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "Who developed the Simplex Method?",
+      "options": [
+        "Henry Gantt",
+        "George Dantzig",
+        "Frederick Taylor",
+        "Harry Markowitz"
+      ],
+      "answer": "B",
+      "explanation": "It is an iterative algebraic algorithm."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Where does the Simplex Method typically start?",
+      "options": [
+        "At the optimal vertex",
+        "At the largest constraint",
+        "At an initial feasible vertex, typically the origin",
+        "At a random infeasible point"
+      ],
+      "answer": "C",
+      "explanation": "It then moves along edges to adjacent corners, improving Z at each step."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the mirror formulation of a linear program called?",
+      "options": [
+        "The Residual",
+        "The Canonical",
+        "The Slack",
+        "The Dual"
+      ],
+      "answer": "D",
+      "explanation": "The original problem is the Primal."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What do dual variables (shadow prices) measure?",
+      "options": [
+        "The marginal worth of extra units of system resources",
+        "The total cost of the firm",
+        "The number of constraints",
+        "The idle time of workers"
+      ],
+      "answer": "A",
+      "explanation": "This is the economic interpretation of duality."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the Strong Duality Theorem say?",
+      "options": [
+        "Z is always greater than W",
+        "The Primal is always unbounded",
+        "The Dual has no solution",
+        "If either problem has an optimal solution, both do, and Max Z = Min W"
+      ],
+      "answer": "D",
+      "explanation": "The optimal objective values of the Primal and the Dual are equal."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does the Weak Duality Theorem say?",
+      "options": [
+        "Z(X*) ≥ W(Y*) for any feasible pair",
+        "For feasible solutions, Z(X*) ≤ W(Y*) when the Primal is a maximisation problem",
+        "Z(X*) = W(Y*) for any feasible pair",
+        "Only optimal solutions can be compared"
+      ],
+      "answer": "B",
+      "explanation": "Any feasible primal value is a lower bound on any feasible dual value."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the purpose of sensitivity analysis?",
+      "options": [
+        "To find the starting vertex",
+        "To convert a problem to standard form",
+        "To see how an optimal solution changes when inputs vary, without resolving the problem from scratch",
+        "To balance a transportation table"
+      ],
+      "answer": "C",
+      "explanation": "It is also called post-optimality analysis."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which three types of change does the sensitivity section study?",
+      "options": [
+        "Objective coefficients, technological coefficients and right-hand-side values",
+        "Slack, surplus and free variables",
+        "Primal, dual and canonical forms",
+        "Rows, columns and diagonals"
+      ],
+      "answer": "A",
+      "explanation": "These are the cⱼ, aᵢⱼ and bᵢ values of the model."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why can solving the Dual be faster than solving the Primal?",
+      "options": [
+        "The Dual has more constraints, so it is more accurate",
+        "The Dual never needs standard form",
+        "A Primal with many constraints and few variables has a Dual with few constraints and many variables, needing fewer Simplex iterations",
+        "The Dual always has a smaller objective value"
+      ],
+      "answer": "C",
+      "explanation": "Simplex effort depends largely on the number of constraints."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In a maximisation Primal, what kind of dual variable goes with a ≤ constraint?",
+      "options": [
+        "An unrestricted dual variable",
+        "A dual variable that is ≥ 0",
+        "A dual variable that is ≤ 0",
+        "No dual variable"
+      ],
+      "answer": "B",
+      "explanation": "An equality constraint gives an unrestricted dual variable."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What kind of dual variable goes with an equality constraint in the Primal?",
+      "options": [
+        "An unrestricted dual variable",
+        "A dual variable that is ≥ 0",
+        "A dual variable that is ≤ 0",
+        "A slack variable"
+      ],
+      "answer": "A",
+      "explanation": "That is why Y₂ is unrestricted in the worked example."
+    },
+    {
+      "category": "Medium",
+      "prompt": "When converting a maximisation Primal to its Dual, what happens to the objective coefficients cⱼ?",
+      "options": [
+        "They become the dual objective coefficients",
+        "They are deleted",
+        "They become slack variables",
+        "They become the right-hand-side limits of the dual constraints"
+      ],
+      "answer": "D",
+      "explanation": "The Primal right-hand sides bᵢ become the dual objective coefficients."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the Unboundedness Theorem say?",
+      "options": [
+        "If one problem is unbounded, the other is also unbounded",
+        "If one problem is unbounded, the other is infeasible",
+        "Unbounded problems have no dual",
+        "Unbounded problems have two optima"
+      ],
+      "answer": "B",
+      "explanation": "This links the behaviour of the Primal and the Dual."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the Complementary Slackness Theorem say?",
+      "options": [
+        "At the optimum, each variable multiplied by its corresponding slack is zero",
+        "Slack variables are always positive",
+        "All variables are positive at the optimum",
+        "Slack and surplus are equal"
+      ],
+      "answer": "A",
+      "explanation": "In symbols, Xⱼ* × (Dual Slackⱼ) = 0 and Yᵢ* × (Primal Slackᵢ) = 0."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the worked example, which dual constraint belongs to X₂ (coefficients 2 and −1)?",
+      "options": [
+        "Y₁ + 2Y₂ ≥ 5",
+        "Y₁ + 3Y₂ ≥ 4",
+        "2Y₁ − Y₂ ≥ 12",
+        "2Y₁ + Y₂ ≤ 12"
+      ],
+      "answer": "C",
+      "explanation": "The columns of the Primal become the rows of the Dual, and the sign is ≥ because X₂ ≥ 0."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the sensitivity base model Max Z = 100X₁ + 80X₂, what is the optimal point and value?",
+      "options": [
+        "(80, 0) with Z = ₦8,000",
+        "(40, 60) with Z = ₦8,800",
+        "(0, 80) with Z = ₦6,400",
+        "C(60, 40) with Z = ₦9,200"
+      ],
+      "answer": "D",
+      "explanation": "100(60) + 80(40) = 9,200."
+    },
+    {
+      "category": "Medium",
+      "prompt": "If the unit profit of X₁ rises from ₦100 to ₦120, what happens to the optimum?",
+      "options": [
+        "It moves to E(70, 30)",
+        "It stays at C(60, 40), and Z becomes ₦10,400",
+        "It moves to G(66⅔, 26⅔)",
+        "It moves to (80, 0)"
+      ],
+      "answer": "B",
+      "explanation": "The new slope of −1.5 still lies within the range for which C is optimal."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the dual objective for the primal Max Z = 5X₁ + 12X₂ + 4X₃ with right-hand sides 10 and 8?",
+      "options": [
+        "Minimise W = 10Y₁ + 8Y₂",
+        "Minimise W = 5Y₁ + 12Y₂ + 4Y₃",
+        "Maximise W = 10Y₁ + 8Y₂",
+        "Minimise W = 8Y₁ + 10Y₂ + 4Y₃"
+      ],
+      "answer": "A",
+      "explanation": "The right-hand sides become the dual objective coefficients, and the goal changes to minimisation."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A primal problem has 3 variables and 2 constraints. How many variables and constraints does its dual have?",
+      "options": [
+        "3 variables and 2 constraints",
+        "2 variables and 2 constraints",
+        "3 variables and 3 constraints",
+        "2 variables and 3 constraints"
+      ],
+      "answer": "D",
+      "explanation": "Primal variables become dual constraints, and primal constraints become dual variables."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the sensitivity base model, which two constraints meet at the optimum C(60, 40)?",
+      "options": [
+        "Resource 2 and resource 3",
+        "Resource 1 and resource 3",
+        "Resource 1 (X₁ + X₂ = 100) and resource 2 (2X₁ + X₂ = 160)",
+        "Resource 3 and the X₂ axis"
+      ],
+      "answer": "C",
+      "explanation": "Resources 2 and 3 meet at (53.3, 53.3), which breaks constraint 1."
+    },
+    {
+      "category": "Hard",
+      "prompt": "At C(60, 40), how much of resource 3 (X₁ + 2X₂ ≤ 160) is left unused?",
+      "options": [
+        "0 units",
+        "40 units",
+        "100 units",
+        "20 units"
+      ],
+      "answer": "D",
+      "explanation": "Use is 60 + 2(40) = 140, so 160 − 140 = 20 units are left."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the objective Z = c₁X₁ + 80X₂, the optimum stays at C(60, 40) while the objective line slope is in which range?",
+      "options": [
+        "Between −2 and −0.5",
+        "Between −2 and −1",
+        "Between −1 and 0",
+        "Between 0 and 1"
+      ],
+      "answer": "B",
+      "explanation": "C lies between constraint 1 (slope −1) and constraint 2 (slope −2). So c₁ must be between ₦80 and ₦160."
+    },
+    {
+      "category": "Hard",
+      "prompt": "When resource 2 usage for X₂ falls so that constraint 2 becomes 2X₁ + (2/3)X₂ ≤ 160, what is the new optimum?",
+      "options": [
+        "C(60, 40) with Z = ₦9,200",
+        "G(66⅔, 26⅔) with Z = ₦8,800",
+        "E(70, 30) with Z = ₦9,400, where the new constraint 2 meets X₁ + X₂ = 100",
+        "(64, 48) with Z = ₦10,240"
+      ],
+      "answer": "C",
+      "explanation": "With X₂ = 100 − X₁, 2X₁ + (2/3)(100 − X₁) = 160 gives X₁ = 70. The point (64, 48) breaks constraint 1."
+    },
+    {
+      "category": "Hard",
+      "prompt": "When resource 3 drops from 160 to 120, what is the new optimum?",
+      "options": [
+        "G(66⅔, 26⅔) with Z = ₦8,800",
+        "C(60, 40) with Z = ₦9,200",
+        "E(70, 30) with Z = ₦9,400",
+        "(0, 60) with Z = ₦4,800"
+      ],
+      "answer": "A",
+      "explanation": "G is where 2X₁ + X₂ = 160 meets X₁ + 2X₂ = 120. The profit is (20,000 + 6,400)/3 = 8,800."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A dual problem is solved and its optimal objective value is ₦500. What is the optimal objective value of the primal?",
+      "options": [
+        "Less than ₦500",
+        "More than ₦500",
+        "₦500",
+        "It cannot be known"
+      ],
+      "answer": "C",
+      "explanation": "By strong duality, the optimal values are equal."
+    }
+  ]
+}

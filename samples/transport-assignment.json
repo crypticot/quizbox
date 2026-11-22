@@ -1,0 +1,308 @@
+{
+  "id": "lit803-transport-assignment",
+  "title": "LIT 803: Transportation and Assignment Problems",
+  "subject": "Operations research",
+  "description": "Twenty-five questions across easy, medium and hard on NWCM, VAM, the stepping stone and MODI methods, and the Hungarian method, with a few calculations.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What is the goal of the Transportation Model?",
+      "options": [
+        "To maximise the number of origins",
+        "To equalise every unit cost",
+        "To minimise total transportation cost while meeting all supplies and demands",
+        "To minimise the number of destinations"
+      ],
+      "answer": "C",
+      "explanation": "It ships goods from m origins to n destinations."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Where does the North-West Corner Method start allocating?",
+      "options": [
+        "At the cheapest cell",
+        "At the bottom-right cell",
+        "At the cell with the biggest penalty",
+        "At the top-left cell of the table"
+      ],
+      "answer": "D",
+      "explanation": "It ignores shipping costs, which makes it fast but not always cheap."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How is a penalty calculated in Vogel's Approximation Method?",
+      "options": [
+        "The difference between the two lowest costs in a row or column",
+        "The highest cost minus zero",
+        "The sum of all costs in the row",
+        "The lowest cost multiplied by supply"
+      ],
+      "answer": "A",
+      "explanation": "The row or column with the largest penalty is served first."
+    },
+    {
+      "category": "Easy",
+      "prompt": "When is a transportation problem balanced?",
+      "options": [
+        "When every cost is equal",
+        "When total supply equals total demand",
+        "When there are more origins than destinations",
+        "When supply is double the demand"
+      ],
+      "answer": "B",
+      "explanation": "In symbols, ΣSᵢ = ΣDⱼ."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How many occupied cells must a transportation solution have for testing?",
+      "options": [
+        "m × n",
+        "m + n",
+        "m + n − 1",
+        "m − n + 1"
+      ],
+      "answer": "C",
+      "explanation": "A 3 × 4 problem needs 6 occupied cells."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which is true of the assignment problem?",
+      "options": [
+        "The cost matrix is square, each supply and demand is 1, and the variables are binary",
+        "The matrix must have more rows than columns",
+        "Supplies can be any size",
+        "Variables can be any real number"
+      ],
+      "answer": "A",
+      "explanation": "It is a special form of the transportation problem."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is the first step of the Hungarian method?",
+      "options": [
+        "Column reduction",
+        "Adding dummy rows",
+        "Drawing the covering lines",
+        "Row reduction"
+      ],
+      "answer": "D",
+      "explanation": "Subtract the smallest element of each row from that row."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How is an unbalanced assignment problem fixed?",
+      "options": [
+        "Delete the largest row",
+        "Add dummy rows or columns with zero costs",
+        "Double the smaller side",
+        "Add one to every cost"
+      ],
+      "answer": "B",
+      "explanation": "This makes the matrix square before the Hungarian method is applied."
+    },
+    {
+      "category": "Medium",
+      "prompt": "The transportation section's heading says five methods, but how many does it list?",
+      "options": [
+        "Four",
+        "Five",
+        "Seven",
+        "Six"
+      ],
+      "answer": "D",
+      "explanation": "Simplex, NWCM, VAM, Stepping Stone, MODI and the Key Value Method are listed."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the MODI method compute for each cell?",
+      "options": [
+        "Cᵢⱼ − uᵢ − vⱼ, using dual variables",
+        "Cᵢⱼ × uᵢ × vⱼ",
+        "The sum of the row and column totals",
+        "The penalty cost of the cell"
+      ],
+      "answer": "A",
+      "explanation": "A negative index shows that using the cell would lower the cost."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the stepping stone rule for an unoccupied cell?",
+      "options": [
+        "Draw a diagonal line to the cheapest cell",
+        "Add the costs of all occupied cells",
+        "Make a closed loop with horizontal and vertical steps landing only on occupied cells, with alternating signs",
+        "Remove the largest allocation"
+      ],
+      "answer": "C",
+      "explanation": "The signs go +, −, +, − along the loop, and the net cost change is evaluated."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How many occupied cells does a 3 × 4 transportation problem need?",
+      "options": [
+        "7",
+        "6",
+        "12",
+        "5"
+      ],
+      "answer": "B",
+      "explanation": "3 + 4 − 1 = 6."
+    },
+    {
+      "category": "Medium",
+      "prompt": "For supplies 250, 225, 425 and demands 200, 300, 400, what is the first North-West Corner allocation?",
+      "options": [
+        "250 units to (M₁, P₁)",
+        "300 units to (M₁, P₂)",
+        "200 units to (M₁, P₁)",
+        "225 units to (M₂, P₁)"
+      ],
+      "answer": "C",
+      "explanation": "It is min(250, 200) = 200, which meets the demand of P₁."
+    },
+    {
+      "category": "Medium",
+      "prompt": "For the cost matrix (M₁: 6, 8, 4; M₂: 4, 9, 8; M₃: 1, 5, 4), what are the initial VAM row penalties?",
+      "options": [
+        "4, 4 and 3",
+        "2, 4 and 3",
+        "2, 3 and 3",
+        "6, 9 and 5"
+      ],
+      "answer": "B",
+      "explanation": "Row 1: 6 − 4 = 2. Row 2: 8 − 4 = 4. Row 3: 4 − 1 = 3."
+    },
+    {
+      "category": "Medium",
+      "prompt": "For the same cost matrix, what are the initial VAM column penalties?",
+      "options": [
+        "2, 4 and 3",
+        "3, 3 and 4",
+        "0, 3 and 3",
+        "3, 3 and 0"
+      ],
+      "answer": "D",
+      "explanation": "Column 1: 4 − 1 = 3. Column 2: 8 − 5 = 3. Column 3: 4 − 4 = 0."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What follows row reduction in the Hungarian method?",
+      "options": [
+        "Column reduction",
+        "Assignment",
+        "Adding dummy rows",
+        "Dividing by the number of rows"
+      ],
+      "answer": "A",
+      "explanation": "After both reductions, zeros are covered with the minimum number of lines."
+    },
+    {
+      "category": "Medium",
+      "prompt": "If fewer than n lines cover all zeros, what is done?",
+      "options": [
+        "Choose any assignment",
+        "Subtract the smallest uncovered element from uncovered cells and add it at line intersections",
+        "Delete the uncovered rows",
+        "Add the smallest element to all cells"
+      ],
+      "answer": "B",
+      "explanation": "Cells covered by a single line stay unchanged, and the line test is repeated."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the total cost of the North-West Corner solution (200, 50, 225, 25 and 400 units in cells costing 6, 8, 9, 5 and 4)?",
+      "options": [
+        "₦5,350",
+        "₦4,625",
+        "₦4,000",
+        "₦3,925"
+      ],
+      "answer": "A",
+      "explanation": "200 × 6 + 50 × 8 + 225 × 9 + 25 × 5 + 400 × 4 = 1,200 + 400 + 2,025 + 125 + 1,600. The ₦4,625 in the notes uses wrong unit costs."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the total cost of the VAM solution (M₂P₁ = 200, M₁P₃ = 250, M₂P₂ = 25, M₃P₂ = 275, M₃P₃ = 150)?",
+      "options": [
+        "₦3,925",
+        "₦4,625",
+        "₦5,350",
+        "₦4,000"
+      ],
+      "answer": "D",
+      "explanation": "200 × 4 + 250 × 4 + 25 × 9 + 275 × 5 + 150 × 4 = 800 + 1,000 + 225 + 1,375 + 600. The ₦3,925 in the notes does not match the cost table."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How much does VAM save compared with NWCM in this problem?",
+      "options": [
+        "₦700",
+        "₦625",
+        "₦1,350",
+        "₦4,000"
+      ],
+      "answer": "C",
+      "explanation": "₦5,350 − ₦4,000 = ₦1,350. The notes' ₦700 comes from the wrong costs."
+    },
+    {
+      "category": "Hard",
+      "prompt": "After the first North-West Corner allocation, M₁ has 50 units left. What is the second allocation?",
+      "options": [
+        "50 units to (M₂, P₁)",
+        "250 units to (M₁, P₂)",
+        "300 units to (M₁, P₂)",
+        "50 units to (M₁, P₂)"
+      ],
+      "answer": "D",
+      "explanation": "min(50, 300) = 50, which exhausts M₁ and leaves P₂ needing 250."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the Hill Company (costs: Job 1: 240, 190, 210; Job 2: 170, 200, 180; Job 3: 210, 180, 150), what is the optimal assignment and cost?",
+      "options": [
+        "Job 1 to B, Job 2 to A, Job 3 to C, for a cost of 510",
+        "Job 1 to A, Job 2 to B, Job 3 to C, for a cost of 590",
+        "Job 1 to C, Job 2 to A, Job 3 to B, for a cost of 560",
+        "Job 1 to B, Job 2 to C, Job 3 to A, for a cost of 580"
+      ],
+      "answer": "A",
+      "explanation": "190 + 170 + 150 = 510, and the reduced matrix already has three independent zeros."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the Hill Company example, what does row reduction give for Job 1 (240, 190, 210)?",
+      "options": [
+        "0, 50 and 20",
+        "50, 0 and 20",
+        "240, 0 and 210",
+        "50, 190 and 20"
+      ],
+      "answer": "B",
+      "explanation": "The row minimum is 190, which is subtracted from each element."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the engineers' problem (E₁: 800, 600, 500, 700; E₂: 400, 300, 600, 400; E₃: 400, 700, 500, 300; E₄: 600, 800, 500, 400), what is the minimum total cost?",
+      "options": [
+        "₦1,900",
+        "₦2,100",
+        "₦1,600",
+        "₦1,500"
+      ],
+      "answer": "C",
+      "explanation": "The assignment E₁ to D₃, E₂ to D₂, E₃ to D₁, E₄ to D₄ costs 500 + 300 + 400 + 400 = 1,600. The notes' ₦1,900 and ₦2,100 are wrong."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the engineers' problem, why is the matrix modification step with k = 100 not needed?",
+      "options": [
+        "After column reduction there are already four independent zeros, so four lines are needed",
+        "Because the matrix is unbalanced",
+        "Because the smallest uncovered element is zero",
+        "Because all rows already sum to zero"
+      ],
+      "answer": "A",
+      "explanation": "The zeros at (E₁, D₃), (E₂, D₂), (E₃, D₁) and (E₄, D₄) give a complete assignment."
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "id": "lit803-linear-programming",
+  "title": "LIT 803: Linear Programming and the Graphical Method",
+  "subject": "Operations research",
+  "description": "Twenty-five questions across easy, medium and hard on LP requirements, canonical and standard form, and the graphical method with the radio production example.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "How is linear programming described in Definition 1?",
+      "options": [
+        "A method of storing data in tables",
+        "A way to count stock items",
+        "A technique to allocate scarce resources among competing activities in an optimal manner",
+        "A technique for forecasting sales"
+      ],
+      "answer": "C",
+      "explanation": "LP is an optimisation tool for limited resources."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does an LP model optimise?",
+      "options": [
+        "A linear objective function subject to linear equality or inequality constraints",
+        "A curved objective with no limits",
+        "Only the cost of one resource",
+        "A list of probabilities"
+      ],
+      "answer": "A",
+      "explanation": "This is Definition 2."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which is one of the five basic requirements for LP?",
+      "options": [
+        "Unlimited resources",
+        "Linearity of the objective function and the constraints",
+        "A single course of action",
+        "Random inputs"
+      ],
+      "answer": "B",
+      "explanation": "The others are a well-defined objective, alternative courses of action, inter-related variables and resource scarcity."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does a slack variable do?",
+      "options": [
+        "It is subtracted from a ≥ constraint",
+        "It replaces a free variable",
+        "It changes the objective into a minimum",
+        "It is added to a ≤ constraint to capture unused capacity"
+      ],
+      "answer": "D",
+      "explanation": "For a ≤ constraint, aX + bY + s = c with s ≥ 0."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does a surplus variable do?",
+      "options": [
+        "It is added to a ≤ constraint",
+        "It measures idle machine hours",
+        "It is subtracted from a ≥ constraint to absorb the excess over the minimum",
+        "It makes a variable unrestricted"
+      ],
+      "answer": "C",
+      "explanation": "For a ≥ constraint, aX + bY − s = c with s ≥ 0."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is standard form?",
+      "options": [
+        "A form where every constraint is ≤",
+        "A form in which all structural inequality constraints are converted into equalities",
+        "A form with no objective function",
+        "A form with only two variables"
+      ],
+      "answer": "B",
+      "explanation": "Standard form is needed before running the Simplex algorithm."
+    },
+    {
+      "category": "Easy",
+      "prompt": "In canonical form, how are the constraints of a maximisation problem written?",
+      "options": [
+        "All as ≤ inequalities",
+        "All as ≥ inequalities",
+        "All as equalities",
+        "As a mix of any signs"
+      ],
+      "answer": "A",
+      "explanation": "For minimisation problems, all constraints are written as ≥."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which theorem says that the optimum of a graphical LP is at a corner of the feasible region?",
+      "options": [
+        "The Strong Duality Theorem",
+        "The Pareto principle",
+        "The Weak Duality Theorem",
+        "The Corner Point Theorem"
+      ],
+      "answer": "D",
+      "explanation": "The vertex with the extreme value of Z is the optimal solution."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In canonical form, how are the constraints of a minimisation problem written?",
+      "options": [
+        "All as ≥ inequalities",
+        "All as ≤ inequalities",
+        "All as equalities",
+        "As a mix of any signs"
+      ],
+      "answer": "A",
+      "explanation": "Maximisation uses ≤ and minimisation uses ≥."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is an unrestricted variable Xⱼ handled in standard form?",
+      "options": [
+        "Delete it from the model",
+        "Replace it with Wⱼ + Sⱼ",
+        "Make it equal to a slack variable",
+        "Replace it with Wⱼ − Sⱼ, where Wⱼ ≥ 0 and Sⱼ ≥ 0"
+      ],
+      "answer": "D",
+      "explanation": "The difference of two non-negative variables can be positive or negative."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the constraint X₁ + 4X₂ ≥ 8 written in standard form?",
+      "options": [
+        "X₁ + 4X₂ + s₂ = 8",
+        "X₁ + 4X₂ = 8 with no new variable",
+        "X₁ + 4X₂ − s₂ = 8, with s₂ ≥ 0",
+        "X₁ + 4X₂ − s₂ ≥ 8"
+      ],
+      "answer": "C",
+      "explanation": "A surplus variable is subtracted, and it has a zero coefficient in the objective."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the constraint 2X₁ + X₂ ≤ 12 written in standard form?",
+      "options": [
+        "2X₁ + X₂ − s₁ = 12",
+        "2X₁ + X₂ + s₁ = 12, with s₁ ≥ 0",
+        "2X₁ + X₂ + s₁ ≤ 12",
+        "2X₁ + X₂ = 12 + s₁ with s₁ ≤ 0"
+      ],
+      "answer": "B",
+      "explanation": "A slack variable is added, and it has a zero coefficient in the objective."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the first step of the graphical solution procedure?",
+      "options": [
+        "Convert the inequality constraints to boundary line equations",
+        "Evaluate Z at every corner",
+        "Slide the iso-profit line outward",
+        "Add slack variables"
+      ],
+      "answer": "A",
+      "explanation": "The steps are boundary lines, plotting, feasible region, corner coordinates, then evaluating Z."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the iso-profit line method?",
+      "options": [
+        "Plot only the constraint with the lowest profit",
+        "Shade the area outside the feasible region",
+        "Add the profit of every corner",
+        "Slide a line of constant Z parallel outward until it last touches the feasible region"
+      ],
+      "answer": "D",
+      "explanation": "For a cost problem, the iso-cost line is used in the same way."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Why does the feed mill model in Problem 2 use an equality for total weight?",
+      "options": [
+        "Every constraint in an LP must be an equality",
+        "Weights cannot be negative",
+        "The batch must weigh exactly 600 kg",
+        "Costs must add up to 600"
+      ],
+      "answer": "C",
+      "explanation": "The model is X₁ + X₂ + X₃ = 600, with X₁ ≥ 100 and X₂ ≤ 200."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How does the constraint X₂ ≥ 0.40(X₁ + X₂ + X₃) look in the blade exercise after rearranging?",
+      "options": [
+        "0.40X₁ − 0.60X₂ + 0.40X₃ ≥ 0",
+        "−0.40X₁ + 0.60X₂ − 0.40X₃ ≥ 0",
+        "−0.60X₁ + 0.40X₂ + 0.40X₃ ≥ 0",
+        "0.60X₁ + 0.60X₂ − 0.40X₃ ≥ 0"
+      ],
+      "answer": "B",
+      "explanation": "Move 0.40(X₁ + X₂ + X₃) to the left: X₂ − 0.4X₁ − 0.4X₂ − 0.4X₃ = −0.4X₁ + 0.6X₂ − 0.4X₃."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the mining shipping problem, why does it not matter that supply is written as ≤ and demand as ≥?",
+      "options": [
+        "Supply is always larger than demand",
+        "Demand constraints are ignored by the solver",
+        "The costs are all equal",
+        "Total supply (900 kg) equals total demand (900 kg), so every constraint is effectively an equality"
+      ],
+      "answer": "D",
+      "explanation": "250 + 225 + 425 = 900 and 200 + 300 + 400 = 900."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the worked example Max Z = X₁ + 2X₂ with X₁ + X₂ ≤ 4, X₁ ≥ 1 and X₁ − X₂ ≤ 2, which vertex is optimal and what is Z?",
+      "options": [
+        "B (3, 1) with Z = 5",
+        "C (2, 0) with Z = 2",
+        "A (1, 3) with Z = 7",
+        "D (1, 0) with Z = 1"
+      ],
+      "answer": "C",
+      "explanation": "The corner values are 7, 5, 2 and 1, and the largest is at A."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the same example, if the problem were to minimise Z, which vertex would give the smallest value?",
+      "options": [
+        "D (1, 0) with Z = 1",
+        "A (1, 3) with Z = 7",
+        "B (3, 1) with Z = 5",
+        "C (2, 0) with Z = 2"
+      ],
+      "answer": "A",
+      "explanation": "B has Z = 5, which is neither the maximum nor the minimum. The smallest value is at D."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the radio example, how is vertex C found, and what are its coordinates?",
+      "options": [
+        "The X₁ = 20 line meets assembly at (20, 48)",
+        "The manufacturing and assembly lines intersect at about (61.54, 23.08)",
+        "The X₂ = 10 line meets manufacturing at (72, 10)",
+        "The two minimum lines meet at (20, 10)"
+      ],
+      "answer": "B",
+      "explanation": "Solving 5X₁ + 4X₂ = 400 and 6X₁ + 10X₂ = 600 gives X₁ = 61.54 and X₂ = 23.08."
+    },
+    {
+      "category": "Hard",
+      "prompt": "What is the optimal plan for Mr. Anyanwu's radio production?",
+      "options": [
+        "72 units of Model A and 10 units of Model B, with a profit of ₦2,250",
+        "61.54 units of Model A and 23.08 units of Model B, with a profit of ₦2,577.10",
+        "20 units of Model A and 10 units of Model B, with a profit of ₦950",
+        "20 units of Model A and 48 units of Model B, with a profit of ₦2,660"
+      ],
+      "answer": "D",
+      "explanation": "D(20, 48) gives 25(20) + 45(48) = 2,660, the largest corner value."
+    },
+    {
+      "category": "Hard",
+      "prompt": "At the optimal radio plan D(20, 48), how many hours are idle in each department?",
+      "options": [
+        "Manufacturing 108 hours idle, assembly 0 hours idle",
+        "Manufacturing 0 hours idle, assembly 108 hours idle",
+        "Both departments 108 hours idle",
+        "Manufacturing 292 hours idle, assembly 600 hours idle"
+      ],
+      "answer": "A",
+      "explanation": "Manufacturing uses 5(20) + 4(48) = 292 of 400 hours. Assembly uses 6(20) + 10(48) = 600 of 600 hours, so it is the binding constraint."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the radio example, vertex B (72, 10) comes from which intersection?",
+      "options": [
+        "X₁ = 20 and the assembly line",
+        "The manufacturing and assembly lines",
+        "X₂ = 10 and the manufacturing line 5X₁ + 4X₂ = 400",
+        "X₁ = 20 and X₂ = 10"
+      ],
+      "answer": "C",
+      "explanation": "With X₂ = 10, 5X₁ + 40 = 400 gives X₁ = 72."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set of properties does Definition 3 give for linear programming?",
+      "options": [
+        "Randomness, curvature, integers and risk",
+        "Proportionality, additivity, divisibility and certainty",
+        "Speed, cost, quality and time",
+        "Simulation, dynamics, history and scale"
+      ],
+      "answer": "B",
+      "explanation": "LP is a deterministic framework, so all data are taken as certain."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In Problem 1 (the three-product firm), which constraints show the sales commitments?",
+      "options": [
+        "2X₁ + 2X₂ + 4X₃ ≤ 60 and 3X₁ + 4X₂ + 2X₃ ≤ 100",
+        "X₁ + X₂ + X₃ ≤ 6",
+        "6X₁ + 5X₂ + 2X₃ ≤ 80 and X₂ ≥ 0",
+        "X₁ ≥ 2 and X₃ ≥ 4"
+      ],
+      "answer": "D",
+      "explanation": "The other constraints are the planning, milling and assembly hour limits."
+    }
+  ]
+}

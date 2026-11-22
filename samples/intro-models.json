@@ -1,0 +1,308 @@
+{
+  "id": "lit803-intro-models",
+  "title": "LIT 803: Introduction to OR and Models",
+  "subject": "Operations research",
+  "description": "Twenty-five questions across easy, medium and hard on the history and characteristics of operations research and the types of model, with the tollbooth example.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "Which kind of problem does Operations Research focus on mainly?",
+      "options": [
+        "Poorly structured, non-programmable problems that are complex and uncertain",
+        "Routine, programmable problems with predictable parameters",
+        "Payroll processing and automated reordering",
+        "Problems with no uncertainty and one variable"
+      ],
+      "answer": "A",
+      "explanation": "Structured problems are routine and well defined. OR gives quantitative rigour to the novel, complex ones, such as expansion, capital allocation and facility relocation."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Where and when did Operations Research originate?",
+      "options": [
+        "In the United States during the Industrial Revolution",
+        "In Great Britain during World War II",
+        "In Germany before World War I",
+        "In Nigeria after independence"
+      ],
+      "answer": "B",
+      "explanation": "The British military gathered teams of scientists, mathematicians and engineers to study military operations."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these was an early application of OR?",
+      "options": [
+        "Designing office furniture",
+        "Setting retail prices",
+        "Optimising the deployment of radar warning systems",
+        "Planning school timetables"
+      ],
+      "answer": "C",
+      "explanation": "Early work also covered air defence tactics, convoy routing and antisubmarine warfare."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How is Operations Research defined in the notes?",
+      "options": [
+        "A set of computer programs for storing business data",
+        "The study of past accounts to find errors",
+        "A method of hiring staff for industrial firms",
+        "The application of an updated scientific method and an interdisciplinary team approach to represent complex relationships as mathematical models"
+      ],
+      "answer": "D",
+      "explanation": "Its objective is to give quantitative bases for optimal decisions and to uncover new operational problems."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which of these is one of the four essential characteristics of OR?",
+      "options": [
+        "A single-discipline focus",
+        "A systems overview",
+        "A fixed one-time solution",
+        "Optimising each department separately"
+      ],
+      "answer": "B",
+      "explanation": "The four are systems overview, interdisciplinary team approach, planned approach and uncovering new problems."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is sub-optimisation?",
+      "options": [
+        "Departments optimising their own measures at the expense of the whole organisation",
+        "Finding the best solution for the whole firm",
+        "Using a cheaper model to save time",
+        "Solving a problem with only two variables"
+      ],
+      "answer": "A",
+      "explanation": "OR aims at overall system performance, such as total firm profit, instead of local department results."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is a model, according to the notes?",
+      "options": [
+        "An exact physical copy of a factory",
+        "A list of all costs in a firm",
+        "An abstract representation of reality that captures the essential cause-and-effect relationships of a system",
+        "A report written after a project ends"
+      ],
+      "answer": "C",
+      "explanation": "A model leaves out unnecessary real-world complexity."
+    },
+    {
+      "category": "Easy",
+      "prompt": "Which three basic categories of model do the notes describe?",
+      "options": [
+        "Static, dynamic and random",
+        "Linear, curved and flat",
+        "Simple, medium and complex",
+        "Iconic, analogue and symbolic"
+      ],
+      "answer": "D",
+      "explanation": "Iconic models are physical, analogue models are diagrammatical, and symbolic models are mathematical."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an example of an iconic (physical) model?",
+      "options": [
+        "A flowchart",
+        "A scale model airplane",
+        "A linear programming model",
+        "An inventory formula"
+      ],
+      "answer": "B",
+      "explanation": "Iconic models keep the visual properties of the real object. Flowcharts are analogue and LP models are symbolic."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an example of an analogue (diagrammatical) model?",
+      "options": [
+        "A scale model airplane",
+        "A linear programming model",
+        "A physical prototype",
+        "An electrical circuit diagram"
+      ],
+      "answer": "D",
+      "explanation": "Analogue models represent behaviour with analogous properties. Other examples are flowcharts, organisational charts and maps."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is an example of a symbolic (mathematical) model?",
+      "options": [
+        "A queuing model",
+        "An architectural miniature",
+        "An organisational chart",
+        "A scale prototype"
+      ],
+      "answer": "A",
+      "explanation": "Symbolic models use symbols, equations and expressions. LP models, inventory formulas and queuing models are the examples given."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the difference between deterministic and probabilistic models?",
+      "options": [
+        "Deterministic models include risk, while probabilistic models assume certainty",
+        "Deterministic models are always dynamic, while probabilistic models are always static",
+        "Deterministic models assume all parameters are known with certainty, while probabilistic models include random variables and probability distributions",
+        "There is no difference between them"
+      ],
+      "answer": "C",
+      "explanation": "Probabilistic models are also called stochastic models."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which is a descriptive model?",
+      "options": [
+        "A linear programming model",
+        "A model that always finds the single best solution",
+        "An objective function that is maximised",
+        "A queuing model"
+      ],
+      "answer": "D",
+      "explanation": "Descriptive models, such as simulation and queuing, show how a system behaves. Optimising models, such as LP, find the best choice."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the difference between static and dynamic models?",
+      "options": [
+        "Static models look at a system at one point in time, while dynamic models treat time as a variable and account for change",
+        "Static models include time, while dynamic models ignore it",
+        "Static models are numerical, while dynamic models are not",
+        "Static models always use simulation"
+      ],
+      "answer": "A",
+      "explanation": "Dynamic models are continuous or multi-stage over time."
+    },
+    {
+      "category": "Medium",
+      "prompt": "When is a simulation model used instead of a direct analytical one?",
+      "options": [
+        "When all the data are known exactly",
+        "When closed-form solutions are mathematically intractable",
+        "When only one variable exists",
+        "When a physical prototype is cheaper"
+      ],
+      "answer": "B",
+      "explanation": "Simulation models step through the operating rules over simulated time to approximate behaviour."
+    },
+    {
+      "category": "Medium",
+      "prompt": "In the general model E = f(X₁, …, Xₙ; Y₁, …, Yₘ), what are the Yⱼ?",
+      "options": [
+        "Controllable variables such as production quantities",
+        "The measure of overall effectiveness",
+        "Uncontrollable variables set by external forces, such as raw material costs, demand and weather",
+        "The functional relationship between variables"
+      ],
+      "answer": "C",
+      "explanation": "E is the effectiveness measure, the Xᵢ are controllable, the Yⱼ are uncontrollable, and f links them."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What does the paint manufacturer example show?",
+      "options": [
+        "OR studies never find new problems",
+        "A study of warehouse stock levels may reveal blending scheduling bottlenecks at the roller mills",
+        "Warehouse studies always lower stock",
+        "Roller mills should be closed"
+      ],
+      "answer": "B",
+      "explanation": "This is the fourth characteristic: OR often uncovers new problems for study."
+    },
+    {
+      "category": "Hard",
+      "prompt": "In the tollbooth example, which pairing is correct?",
+      "options": [
+        "E: number of toll lanes open; X: driver wait time; Y: hourly arrival rate",
+        "E: hourly arrival rate; X: weather; Y: number of lanes open",
+        "E: weather conditions; X: arrival rate; Y: number of collectors",
+        "E: driver wait time plus operating cost; X: number of toll lanes open; Y: hourly arrival rate of vehicles"
+      ],
+      "answer": "D",
+      "explanation": "The measure of effectiveness is minimised, the controllable factors are lanes, collectors and electronic passes, and the uncontrollable factors are arrivals, weather and exact-change payers."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which relationships link arrival rate, service rate and the number of lanes to queue length in the tollbooth example?",
+      "options": [
+        "Queuing system equations",
+        "Linear programming constraints",
+        "The EOQ formula",
+        "A transportation tableau"
+      ],
+      "answer": "A",
+      "explanation": "They are used to compute expected queue length (Lq) and delay time (Wq)."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which set of questions must every general OR formulation answer?",
+      "options": [
+        "Cost, time, quality and risk",
+        "Who, what, when and where",
+        "The measure of effectiveness, the controllable factors, the uncontrollable factors and the functional relationships",
+        "The objective, the constraints, the algorithm and the software"
+      ],
+      "answer": "C",
+      "explanation": "These four questions define E, Xᵢ, Yⱼ and f."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A production department builds large stocks to cut its own costs, but this raises the firm's warehouse costs. Which OR idea does this break?",
+      "options": [
+        "Systems overview, because it is sub-optimisation",
+        "Interdisciplinary teamwork",
+        "The planned approach",
+        "Uncovering new problems"
+      ],
+      "answer": "A",
+      "explanation": "OR seeks the best result for the whole system, not for one department."
+    },
+    {
+      "category": "Hard",
+      "prompt": "A study team of mathematicians, cost accountants and behavioural experts reflects which OR characteristic?",
+      "options": [
+        "The systems overview",
+        "The interdisciplinary (mixed) team approach",
+        "Uncovering new problems",
+        "Use of iconic models"
+      ],
+      "answer": "B",
+      "explanation": "No single discipline has all the skills needed for multifaceted problems."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Why do OR models need periodic review?",
+      "options": [
+        "Models become more accurate with age",
+        "Reviews remove the need for data",
+        "Models are only valid for one day",
+        "Operating conditions change continuously, so models must be updated to stay valid"
+      ],
+      "answer": "D",
+      "explanation": "This is part of the fourth characteristic."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which sequence starts the planned approach (updated scientific method) correctly?",
+      "options": [
+        "Build the model, observe the environment, implement, define the problem",
+        "Implement, validate, observe, define the problem",
+        "Observe the environment, define the problem and objectives, build mathematical models, evaluate alternatives",
+        "Select the optimal solution, build the model, define the problem, observe"
+      ],
+      "answer": "C",
+      "explanation": "The later steps are selecting the optimum, experimentation and validation, implementation with controls, and using computers."
+    },
+    {
+      "category": "Hard",
+      "prompt": "Which pairing of model classification and example is correct?",
+      "options": [
+        "Descriptive: linear programming; optimising: simulation",
+        "Descriptive: simulation; optimising: linear programming",
+        "Descriptive: EOQ; optimising: queuing",
+        "Descriptive: Simplex; optimising: queuing"
+      ],
+      "answer": "B",
+      "explanation": "Descriptive models do not pick the best option, while optimising models find the best solution for an objective function."
+    }
+  ]
+}

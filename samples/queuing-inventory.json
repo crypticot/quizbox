@@ -1,0 +1,308 @@
+{
+  "id": "lit803-queuing-inventory",
+  "title": "LIT 803: Queuing and Inventory Models",
+  "subject": "Operations research",
+  "description": "Twenty-five questions across easy, medium and hard on queuing measures and the EOQ model, with short calculations on the desk, nursery and fuel oil examples.",
+  "questions": [
+    {
+      "category": "Easy",
+      "prompt": "What two competing costs does queuing theory balance?",
+      "options": [
+        "Customer waiting costs and server service costs",
+        "Ordering costs and carrying costs",
+        "Fixed costs and variable costs",
+        "Transport costs and storage costs"
+      ],
+      "answer": "A",
+      "explanation": "More servers lower waiting costs but raise service costs."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does λ stand for in queuing?",
+      "options": [
+        "The mean service rate per server",
+        "The number of servers",
+        "The utilisation factor",
+        "The mean arrival rate of customers"
+      ],
+      "answer": "D",
+      "explanation": "It is measured in customers per unit time."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does μ stand for in queuing?",
+      "options": [
+        "The mean arrival rate",
+        "The number of servers",
+        "The mean service rate per active server",
+        "The waiting time"
+      ],
+      "answer": "C",
+      "explanation": "It is also in customers per unit time."
+    },
+    {
+      "category": "Easy",
+      "prompt": "How is the utilisation factor ρ defined?",
+      "options": [
+        "ρ = λ × μ",
+        "ρ = λ / (sμ)",
+        "ρ = μ / λ",
+        "ρ = s / λ"
+      ],
+      "answer": "B",
+      "explanation": "s is the number of parallel servers."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does Lq measure?",
+      "options": [
+        "The average number of customers waiting in line",
+        "The average time in the system",
+        "The average number in the whole system",
+        "The average service time"
+      ],
+      "answer": "A",
+      "explanation": "L counts customers waiting and being served."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What does W measure?",
+      "options": [
+        "The average time in line only",
+        "The number of servers",
+        "The arrival rate",
+        "The total average time a customer spends in the system"
+      ],
+      "answer": "D",
+      "explanation": "Wq is the time in line only."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What question does the Economic Order Quantity answer?",
+      "options": [
+        "When to order",
+        "Whom to buy from",
+        "How much to order",
+        "How much to charge"
+      ],
+      "answer": "C",
+      "explanation": "The reorder point answers when to order."
+    },
+    {
+      "category": "Easy",
+      "prompt": "What is carrying (holding) cost?",
+      "options": [
+        "The cost of placing an order",
+        "The cost of storing inventory, such as space, insurance, capital tied up and spoilage",
+        "The cost of a stockout",
+        "The cost of delivery to a customer"
+      ],
+      "answer": "B",
+      "explanation": "Ordering cost is the fixed cost of each order, and shortage cost arises when stock runs out."
+    },
+    {
+      "category": "Medium",
+      "prompt": "As more servers are added to a queue, what happens to the two costs?",
+      "options": [
+        "Service cost falls and waiting cost rises",
+        "Both fall",
+        "Service cost rises and customer waiting cost falls",
+        "Both rise"
+      ],
+      "answer": "C",
+      "explanation": "The best service level is where the total of the two is lowest."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the average number in the system related to the average number in the queue?",
+      "options": [
+        "L = Lq − λ/μ",
+        "L = Lq × λ",
+        "L = Lq / μ",
+        "L = Lq + λ/μ"
+      ],
+      "answer": "D",
+      "explanation": "λ/μ is the average number being served."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the average waiting time in line found?",
+      "options": [
+        "Wq = Lq / λ",
+        "Wq = Lq × λ",
+        "Wq = λ / Lq",
+        "Wq = L × μ"
+      ],
+      "answer": "A",
+      "explanation": "This is the same relationship as W = L / λ for the whole system."
+    },
+    {
+      "category": "Medium",
+      "prompt": "Which of the EOQ assumptions is correct?",
+      "options": [
+        "Demand varies randomly each day",
+        "Demand is continuous, constant and known, and shortages are not allowed",
+        "Quantity discounts are available",
+        "Orders arrive a few units at a time"
+      ],
+      "answer": "B",
+      "explanation": "The five assumptions also include constant lead time, instant arrival of a full batch and a fixed unit price."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the annual ordering cost calculated in the EOQ model?",
+      "options": [
+        "B = (H / Q) × S",
+        "B = (Q / 2) × K × P",
+        "B = H × P",
+        "B = Q × S"
+      ],
+      "answer": "A",
+      "explanation": "H/Q is the number of orders per year, and S is the cost of each."
+    },
+    {
+      "category": "Medium",
+      "prompt": "How is the annual carrying cost calculated?",
+      "options": [
+        "C = (H / Q) × S",
+        "C = Q × K",
+        "C = H × P × K",
+        "C = (Q / 2) × K × P"
+      ],
+      "answer": "D",
+      "explanation": "Q/2 is the average stock held."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is the formula for the optimal order quantity?",
+      "options": [
+        "Q* = √( HS / (2KP) )",
+        "Q* = 2HS / (KP)",
+        "Q* = √( 2HS / (KP) )",
+        "Q* = √( 2KP / (HS) )"
+      ],
+      "answer": "C",
+      "explanation": "It comes from setting dA/dQ = −HS/Q² + KP/2 equal to zero."
+    },
+    {
+      "category": "Medium",
+      "prompt": "What is true of ordering cost and carrying cost at the EOQ?",
+      "options": [
+        "Ordering cost is double the carrying cost",
+        "They are equal (both ₦1,008 in the Orange Nursery example)",
+        "Carrying cost is zero",
+        "Ordering cost is zero"
+      ],
+      "answer": "B",
+      "explanation": "At the minimum of the total cost curve, the two curves cross."
+    },
+    {
+      "category": "Medium",
+      "prompt": "For the Suburban Fuel Oil Company (H = 4,000,000, S = ₦200, J = ₦0.04), what is the EOQ?",
+      "options": [
+        "20,000 gallons",
+        "2,000,000 gallons",
+        "200,000 gallons",
+        "400,000 gallons"
+      ],
+      "answer": "C",
+      "explanation": "Q* = √(2 × 4,000,000 × 200 / 0.04) = √(40,000,000,000) = 200,000. That gives 20 orders a year."
+    },
+    {
+      "category": "Hard",
+      "prompt": "At a railway desk, λ = 20 per hour and the service time is 2 minutes per customer. What is the utilisation ρ?",
+      "options": [
+        "0.5",
+        "1.5",
+        "0.333",
+        "0.667, or 66.7% busy"
+      ],
+      "answer": "D",
+      "explanation": "μ = 60/2 = 30 per hour, so ρ = 20/30 = 0.667."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the same desk (λ = 20, μ = 30), what is the average number in the queue Lq?",
+      "options": [
+        "1.33 customers",
+        "0.67 customers",
+        "2 customers",
+        "0.33 customers"
+      ],
+      "answer": "A",
+      "explanation": "Lq = λ² / (μ(μ − λ)) = 400 / (30 × 10) = 1.33."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the same desk, what is the average time in the queue Wq?",
+      "options": [
+        "6 minutes",
+        "4 minutes",
+        "2 minutes",
+        "10 minutes"
+      ],
+      "answer": "B",
+      "explanation": "Wq = Lq / λ = 1.33 / 20 = 0.0667 hours = 4 minutes."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For the same desk, what is the average time in the system W?",
+      "options": [
+        "4 minutes",
+        "2 minutes",
+        "6 minutes",
+        "10 minutes"
+      ],
+      "answer": "C",
+      "explanation": "W = 1 / (μ − λ) = 1 / 10 = 0.1 hours = 6 minutes."
+    },
+    {
+      "category": "Hard",
+      "prompt": "With λ = 25 per hour, μ = 10 per hour per server, s = 3 and Lq = 3.51, what is the average number in the system L?",
+      "options": [
+        "3.51 customers",
+        "6.01 customers",
+        "2.50 customers",
+        "8.77 customers"
+      ],
+      "answer": "B",
+      "explanation": "L = Lq + λ/μ = 3.51 + 2.50 = 6.01, and W = 6.01 / 25 = 0.2404 hours = 14.4 minutes."
+    },
+    {
+      "category": "Hard",
+      "prompt": "For Orange Nursery (H = 144,000, S = ₦112, K = 0.18, P = ₦0.70), how many orders a year does the EOQ policy give?",
+      "options": [
+        "9 orders, with Q* = 16,000",
+        "2 orders, with Q* = 72,000",
+        "12 orders, with Q* = 12,000",
+        "20 orders, with Q* = 7,200"
+      ],
+      "answer": "A",
+      "explanation": "Q* = √(32,256,000 / 0.126) = 16,000, and N* = 144,000 / 16,000 = 9."
+    },
+    {
+      "category": "Hard",
+      "prompt": "How much does Orange Nursery save by moving from two orders of 72,000 a year (₦4,760) to the EOQ policy?",
+      "options": [
+        "₦2,016 a year, about 42%",
+        "₦4,760 a year, about 100%",
+        "₦1,008 a year, about 21%",
+        "₦2,744 a year, about 57.6%"
+      ],
+      "answer": "D",
+      "explanation": "The EOQ policy costs 1,008 + 1,008 = ₦2,016, and 4,760 − 2,016 = 2,744."
+    },
+    {
+      "category": "Hard",
+      "prompt": "If Orange Nursery must also pay a storage surcharge W = ₦0.049 per unit a year, what happens to the EOQ?",
+      "options": [
+        "It rises to 20,000 units",
+        "It stays at 16,000 units",
+        "It falls to 12,000 units, giving 12 orders a year",
+        "It falls to 9,000 units"
+      ],
+      "answer": "C",
+      "explanation": "Q* = √(2HS / (KP + 2W)) = √(32,256,000 / 0.224) = 12,000. Higher storage cost favours smaller, more frequent orders."
+    }
+  ]
+}
