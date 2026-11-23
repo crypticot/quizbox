@@ -1,7 +1,7 @@
 {
-  "id": "pmt801-investment-appraisal",
-  "title": "Investment Appraisal: Payback, NPV and IRR (PMT 801)",
-  "subject": "Project management",
+  "id": "investment-appraisal",
+  "title": "Investment Appraisal: Payback, NPV and IRR",
+  "subject": "PMT 801",
   "description": "Thirty questions across easy, medium and hard on traditional appraisal methods, discounting, net present value and internal rate of return, with a few short calculations.",
   "questions": [
     {

@@ -1,7 +1,7 @@
 {
-  "id": "pmt801-network-analysis",
-  "title": "Network Analysis, PERT and CPM (PMT 801)",
-  "subject": "Project management",
+  "id": "network-analysis",
+  "title": "Network Analysis, PERT and CPM",
+  "subject": "PMT 801",
   "description": "Thirty questions across easy, medium and hard on Gantt charts, CPM, PERT time estimates, critical paths, float and project completion probability, with a few short calculations.",
   "questions": [
     {
