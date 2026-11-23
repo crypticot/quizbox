@@ -1,7 +1,7 @@
 {
-  "id": "lit803-queuing-inventory",
-  "title": "LIT 803: Queuing and Inventory Models",
-  "subject": "Operations research",
+  "id": "queuing-inventory",
+  "title": "Queuing and Inventory Models",
+  "subject": "LIT 803",
   "description": "Twenty-five questions across easy, medium and hard on queuing measures and the EOQ model, with short calculations on the desk, nursery and fuel oil examples.",
   "questions": [
     {

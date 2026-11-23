@@ -1,7 +1,7 @@
 {
-  "id": "lit803-transport-assignment",
-  "title": "LIT 803: Transportation and Assignment Problems",
-  "subject": "Operations research",
+  "id": "transport-assignment",
+  "title": "Transportation and Assignment Problems",
+  "subject": "LIT 803",
   "description": "Twenty-five questions across easy, medium and hard on NWCM, VAM, the stepping stone and MODI methods, and the Hungarian method, with a few calculations.",
   "questions": [
     {

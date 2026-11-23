@@ -1,7 +1,7 @@
 {
-  "id": "lit803-duality-sensitivity",
-  "title": "LIT 803: Simplex, Duality and Sensitivity Analysis",
-  "subject": "Operations research",
+  "id": "duality-sensitivity",
+  "title": "Simplex, Duality and Sensitivity Analysis",
+  "subject": "LIT 803",
   "description": "Twenty-five questions across easy, medium and hard on the Simplex method, primal and dual problems, the duality theorems and sensitivity analysis.",
   "questions": [
     {

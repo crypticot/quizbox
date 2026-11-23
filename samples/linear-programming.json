@@ -1,7 +1,7 @@
 {
-  "id": "lit803-linear-programming",
-  "title": "LIT 803: Linear Programming and the Graphical Method",
-  "subject": "Operations research",
+  "id": "linear-programming",
+  "title": "Linear Programming and the Graphical Method",
+  "subject": "LIT 803",
   "description": "Twenty-five questions across easy, medium and hard on LP requirements, canonical and standard form, and the graphical method with the radio production example.",
   "questions": [
     {

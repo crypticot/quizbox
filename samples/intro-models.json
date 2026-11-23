@@ -1,7 +1,7 @@
 {
-  "id": "lit803-intro-models",
-  "title": "LIT 803: Introduction to OR and Models",
-  "subject": "Operations research",
+  "id": "intro-models",
+  "title": "Introduction to OR and Models",
+  "subject": "LIT 803",
   "description": "Twenty-five questions across easy, medium and hard on the history and characteristics of operations research and the types of model, with the tollbooth example.",
   "questions": [
     {
